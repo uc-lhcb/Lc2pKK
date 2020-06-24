@@ -3,5 +3,5 @@
 
 {
 TChain chain("Lc2pKKTuple/DecayTree");
-chain.Add("/share/lazy/Lc2pKK/2017/LcTopKKNew11.root");
+chain.Add("/share/lazy/Lc2pKK/2017/LcTopKK.MagDown2017.root");
 }
