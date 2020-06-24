@@ -1,3 +1,5 @@
+// Preliminary cuts on Ntuple data then fits remaining data with a Gaussian Function
+
 #define FirstCut_cxx
 #include "FirstCut.h"
 
