@@ -1,51 +1,27 @@
 #define DalitzPlot_cxx
-// The class definition in DalitzPlot.h has been generated automatically
-// by the ROOT utility TTree::MakeSelector(). This class is derived
-// from the ROOT class TSelector. For more information on the TSelector
-// framework see $ROOTSYS/README/README.SELECTOR or the ROOT User Manual.
-
-
-// The following methods are defined in this file:
-//    Begin():        called every time a loop on the tree starts,
-//                    a convenient place to create your histograms.
-//    SlaveBegin():   called after Begin(), when on PROOF called only on the
-//                    slave servers.
-//    Process():      called for each event, in this function you decide what
-//                    to read and fill your histograms.
-//    SlaveTerminate: called at the end of the loop on the tree, when on PROOF
-//                    called only on the slave servers.
-//    Terminate():    called at the end of the loop on the tree,
-//                    a convenient place to draw/fit your histograms.
-//
-// To use this file, try the following session on your Tree T:
-//
-// root> T->Process("DalitzPlot.C")
-// root> T->Process("DalitzPlot.C","some options")
-// root> T->Process("DalitzPlot.C+")
-//
-
-
 #include "DalitzPlot.h"
-#include <TH2.h>
+
+#include <TH1D.h>
+#include <TH2D.h>
 #include <TStyle.h>
+#include <TCanvas.h>
+#include <TFile.h>
+#include <TF1.h>
+
+TH2D * DalitzPlot = nullptr;
 
 void DalitzPlot::Begin(TTree * /*tree*/)
 {
-   // The Begin() function is called at the start of the query.
-   // When running with PROOF Begin() is only called on the client.
-   // The tree argument is deprecated (on PROOF 0 is passed).
-
    TString option = GetOption();
+         DalitzPlot = new TH2D("Figures of Merit", "Color Plot of LambdaC Mass - One Dimensional Projections", 50, 0.7, 4.2, 50, 0.25, 1.0);
+         DalitzPlot->GetXaxis()->SetTitle(""m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
+         DalitzPlot->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
+         DalitzPlot->GetZaxis()->SetTitle(Entries);
 }
 
 void DalitzPlot::SlaveBegin(TTree * /*tree*/)
 {
-   // The SlaveBegin() function is called after the Begin() function.
-   // When running with PROOF SlaveBegin() is called on each slave server.
-   // The tree argument is deprecated (on PROOF 0 is passed).
-
    TString option = GetOption();
-
 }
 
 Bool_t DalitzPlot::Process(Long64_t entry)
