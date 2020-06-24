@@ -1,5 +1,5 @@
 // TChains Four Ntuples from 2011/2012
-// Used With "root -l chainLc2pKK.C"
+// Used With "root -l chainLc2pKKRun1.C"
 
 {
 TChain chain("TupleLbToLcmu_LcTopKK/DecayTree");
