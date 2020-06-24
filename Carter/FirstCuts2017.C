@@ -62,7 +62,6 @@ Bool_t FirstCuts2017::Process(Long64_t entry)
       (((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp)) > 0.6)
    );
 
-
    bool TightCuts = (
       (((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp)) > 0.8)
    );
