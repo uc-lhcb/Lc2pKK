@@ -297,7 +297,7 @@ Tightcount3 += 1;
 }
      pad2->cd();
      TGraph* PullPlotTight = new TGraph(75, Pullx, PullTight);
- //    PullPlotTight->GetXaxis()->SetLimits(0,75);
+     PullPlotTight->GetXaxis()->SetLimits(0,75);
      PullPlotTight->GetXaxis()->SetTickLength(0.);
      PullPlotTight->GetYaxis()->SetTickLength(0.);
      PullPlotTight->SetFillColor(38);
