@@ -145,7 +145,7 @@ double Loosecount3 = 0;
 
 for (int bin = 0; bin < 75; bin++){
 BinHeightLoose[bin] = MassHistLoose->GetBinContent(bin + 1);
-Pullx[bin] = (bin);
+Pullx[bin] = (bin + 1);
 int xvalue = 2211 + 2*(bin);
 FitHeightLoose[bin] = round(GaussianLoose->Eval(xvalue));
 PullLoose[bin] = (BinHeightLoose[bin] - FitHeightLoose[bin])/TMath::Sqrt(FitHeightLoose[bin]);
