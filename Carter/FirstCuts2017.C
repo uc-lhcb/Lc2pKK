@@ -272,7 +272,7 @@ BinHeightTight[bin] = MassHistTight->GetBinContent(bin + 1);
 int xvalue = 2211 + 2*(bin);
 FitHeightTight[bin] = round(GaussianTight->Eval(xvalue));
 if (bin == 38){
-  cout << xvalue[38] << endl;
+  cout << xvalue << endl;
   cout << BinHeightTight[38] << endl;
   cout <<FitHeightTight[38] << endl;
 }
