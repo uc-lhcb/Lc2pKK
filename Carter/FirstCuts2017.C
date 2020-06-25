@@ -188,7 +188,6 @@ ex1->cd();
    TLatex Tl;
    Tl.SetTextAlign(12);
    Tl.SetTextSize(0.04);
-   TLatex *l = new TLatex(0.2,0.7,Form(A string %g in some units",var)
    Tl.DrawLatex(0.1,0.8,Form("Number of Signal Entries: %d",GaussianLoose->GetParameter(0) #pm GaussianLoose->GetParError(0));
    Tl.DrawLatex(0.1,0.6," ");
    Tl.DrawLatex(0.1,0.4," ");
