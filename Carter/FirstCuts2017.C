@@ -186,9 +186,9 @@ GaussianMid->SetParameter(4, 0.);
   int FitHeightMid[75];
   double PullMid[75];
 
-   Midcount1 = 0;
-   Midcount2 = 0;
-   Midcount3 = 0;
+double Midcount1 = 0;
+double Midcount2 = 0;
+double Midcount3 = 0;
 
   for (int bin = 0; bin < 75; bin++){
   BinHeightMid[bin] = MassHistMid->GetBinContent(bin + 1);
@@ -248,9 +248,9 @@ int BinHeightTight[100];
 int FitHeightTight[100];
 double PullTight[100];
 
- Tightcount1 = 0;
- Tightcount2 = 0;
- Tightcount3 = 0;
+double Tightcount1 = 0;
+double Tightcount2 = 0;
+double Tightcount3 = 0;
 
 for (int bin = 0; bin < 75; bin++){
 BinHeightTight[bin] = MassHistTight->GetBinContent(bin + 1);
