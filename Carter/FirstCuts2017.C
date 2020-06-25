@@ -259,9 +259,9 @@ pad1->cd();
 MassHistTight->SetMinimum(0);
 MassHistTight->Fit("GaussianTight");
 
-int BinHeightTight[100];
-int FitHeightTight[100];
-double PullTight[100];
+int BinHeightTight[75];
+int FitHeightTight[75];
+double PullTight[75];
 
 double Tightcount1 = 0;
 double Tightcount2 = 0;
