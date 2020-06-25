@@ -331,7 +331,7 @@ Tightcount3 += 1;
      PullPlotTight->GetYaxis()->SetLabelFont(42);
      PullPlotTight->GetYaxis()->SetLabelSize(0.06);
      PullPlotTight->SetTitle("");
-//     PullPlotTight->SetMinimum(-5);
+     PullPlotTight->SetMinimum(-5);
      PullPlotTight->SetMaximum(5);
      PullPlotTight->Draw("AB");
      c1->Write("Lc Mass - Tight");
