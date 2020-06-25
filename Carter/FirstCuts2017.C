@@ -226,7 +226,6 @@ PullPlotMid->SetTitle("");
 PullPlotMid->SetMinimum(-5);
 PullPlotMid->SetMaximum(5);
 PullPlotMid->Draw("AB");
-c1->Write("DG w/ 1 Mu & 2 Totals");
 
       c1->Write("Lc Mass - Mid");
 
