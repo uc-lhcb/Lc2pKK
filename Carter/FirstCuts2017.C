@@ -271,21 +271,13 @@ for (int bin = 0; bin < 75; bin++){
 BinHeightTight[bin] = MassHistTight->GetBinContent(bin + 1);
 int xvalue = 2211 + 2*(bin);
 FitHeightTight[bin] = round(GaussianTight->Eval(xvalue));
-if (bin == 36){
-  cout << xvalue << endl;
-  cout << BinHeightTight[36] << endl;
-  cout <<FitHeightTight[36] << endl;
-}
-if (bin == 40){
-  cout << xvalue << endl;
-  cout << BinHeightTight[40] << endl;
-  cout <<FitHeightTight[40] << endl;
-}
-PullTight[bin] = (BinHeightTight[bin] - FitHeightTight[bin])/TMath::Sqrt(FitHeightTight[bin]);
 if (bin == 0){
-   cout << "FirstBin =" << PullTight[0] << endl;}
-if (bin == 74){
-   cout << "LastBin =" << PullTight[74] << endl;}   
+  cout << xvalue << endl;
+  cout << BinHeightTight[0] << endl;
+  cout <<FitHeightTight[0] << endl;
+}
+
+PullTight[bin] = (BinHeightTight[bin] - FitHeightTight[bin])/TMath::Sqrt(FitHeightTight[bin]);
    
 if (PullTight[bin] > -1 && PullTight[bin] < 1){
 Tightcount1 += 1;
