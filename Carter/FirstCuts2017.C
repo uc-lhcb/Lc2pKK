@@ -110,18 +110,26 @@ pad2->Draw();
 
 /////////////////////////////
 
-TF1 *GaussianLoose = new TF1("GaussianLoose",DGOneMuTwoTotal,2200.,2400.,7);
-GaussianLoose->SetParameter(0, 2000.);
-GaussianLoose->SetParLimits(0, 0, 25000);
-GaussianLoose->SetParameter(1, 2286);
-GaussianLoose->SetParameter(2, 5);
-GaussianLoose->SetParLimits(2, 0., 20.);
-GaussianLoose->SetParameter(3, 2000.);
-GaussianLoose->SetParLimits(3, 0, 25000);
-GaussianLoose->SetParameter(4, 5);
-GaussianLoose->SetParLimits(4, 0., 20.);
-GaussianLoose->SetParameter(5, 0.);
-GaussianLoose->SetParameter(6, 0.);
+//TF1 *GaussianLoose = new TF1("GaussianLoose",DGOneMuTwoTotal,2200.,2400.,7);
+//GaussianLoose->SetParameter(0, 2000.);
+//GaussianLoose->SetParLimits(0, 0, 25000);
+//GaussianLoose->SetParameter(1, 2286);
+//GaussianLoose->SetParameter(2, 5);
+//GaussianLoose->SetParLimits(2, 0., 20.);
+//GaussianLoose->SetParameter(3, 2000.);
+//GaussianLoose->SetParLimits(3, 0, 25000);
+//GaussianLoose->SetParameter(4, 5);
+//GaussianLoose->SetParLimits(4, 0., 20.);
+//GaussianLoose->SetParameter(5, 0.);
+//GaussianLoose->SetParameter(6, 0.);
+   
+TF1 *GaussianLoose = new TF1("GaussianLoose",fit2MeV_Gaussian,2100.,2500.,5);
+GaussianLoose->SetParameter(0,400.);
+GaussianLoose->SetParameter(1,2287);
+GaussianLoose->SetParameter(2, 6);
+GaussianLoose->SetParLimits(2, 0.,20.);
+GaussianLoose->SetParameter(3, 0.);
+GaussianLoose->SetParameter(4, 0.);
 
 pad1->cd();
 MassHistLoose->SetMinimum(0);
@@ -157,7 +165,7 @@ if (PullLoose[bin] > -3 && PullLoose[bin] < 3){
 
 pad2->cd();
 TGraph* PullPlotLoose = new TGraph(75, Pullx, PullLoose);
-PullPlotLoose->GetXaxis()->SetLimits(0,75);
+PullPlotLoose->GetXaxis()->SetLimits(0,74);
 PullPlotLoose->GetXaxis()->SetTickLength(0.);
 PullPlotLoose->GetYaxis()->SetTickLength(0.);
 PullPlotLoose->SetFillColor(38);
@@ -176,19 +184,27 @@ PullPlotLoose->Draw("AB");
 
 ///////////////////////////////////////////////////////
 
-TF1 *GaussianMid = new TF1("GaussianMid",DGOneMuTwoTotal,2200.,2400.,7);
-GaussianMid->SetParameter(0, 2000.);
-GaussianMid->SetParLimits(0, 0, 25000);
-GaussianMid->SetParameter(1, 2286);
-GaussianMid->SetParameter(2, 5);
-GaussianMid->SetParLimits(2, 0., 20.);
-GaussianMid->SetParameter(3, 2000.);
-GaussianMid->SetParLimits(3, 0, 25000);
-GaussianMid->SetParameter(4, 5);
-GaussianMid->SetParLimits(4, 0., 20.);
-GaussianMid->SetParameter(5, 0.);
-GaussianMid->SetParameter(6, 0.);
+//TF1 *GaussianMid = new TF1("GaussianMid",DGOneMuTwoTotal,2200.,2400.,7);
+//GaussianMid->SetParameter(0, 2000.);
+//GaussianMid->SetParLimits(0, 0, 25000);
+//GaussianMid->SetParameter(1, 2286);
+//GaussianMid->SetParameter(2, 5);
+//GaussianMid->SetParLimits(2, 0., 20.);
+//GaussianMid->SetParameter(3, 2000.);
+//GaussianMid->SetParLimits(3, 0, 25000);
+//GaussianMid->SetParameter(4, 5);
+//GaussianMid->SetParLimits(4, 0., 20.);
+//GaussianMid->SetParameter(5, 0.);
+//GaussianMid->SetParameter(6, 0.);
 
+TF1 *GaussianMid = new TF1("GaussianMid",fit2MeV_Gaussian,2100.,2500.,5);
+GaussianMid->SetParameter(0,400.);
+GaussianMid->SetParameter(1,2287);
+GaussianMid->SetParameter(2, 6);
+GaussianMid->SetParLimits(2, 0.,20.);
+GaussianMid->SetParameter(3, 0.);
+GaussianMid->SetParameter(4, 0.);   
+   
   pad1->cd();
   MassHistMid->SetMinimum(0);
   MassHistMid->Fit("GaussianMid");
@@ -222,7 +238,7 @@ double   Midcount3 = 0;
 
   pad2->cd();
 TGraph* PullPlotMid = new TGraph(75, Pullx, PullMid);
-PullPlotMid->GetXaxis()->SetLimits(0,75);
+PullPlotMid->GetXaxis()->SetLimits(0,74);
 PullPlotMid->GetXaxis()->SetTickLength(0.);
 PullPlotMid->GetYaxis()->SetTickLength(0.);
 PullPlotMid->SetFillColor(38);
@@ -242,19 +258,27 @@ PullPlotMid->Draw("AB");
 
 //////////////////////////////////////////////////////
 
-TF1 *GaussianTight = new TF1("GaussianTight",DGOneMuTwoTotal,2200.,2400.,7);
-GaussianTight->SetParameter(0, 2000.);
-GaussianTight->SetParLimits(0, 0, 25000);
-GaussianTight->SetParameter(1, 2286);
-GaussianTight->SetParameter(2, 5);
-GaussianTight->SetParLimits(2, 0., 20.);
-GaussianTight->SetParameter(3, 2000.);
-GaussianTight->SetParLimits(3, 0, 25000);
-GaussianTight->SetParameter(4, 5);
-GaussianTight->SetParLimits(4, 0., 20.);
-GaussianTight->SetParameter(5, 0.);
-GaussianTight->SetParameter(6, 0.);
+//TF1 *GaussianTight = new TF1("GaussianTight",DGOneMuTwoTotal,2200.,2400.,7);
+//GaussianTight->SetParameter(0, 2000.);
+//GaussianTight->SetParLimits(0, 0, 25000);
+//GaussianTight->SetParameter(1, 2286);
+//GaussianTight->SetParameter(2, 5);
+//GaussianTight->SetParLimits(2, 0., 20.);
+//GaussianTight->SetParameter(3, 2000.);
+//GaussianTight->SetParLimits(3, 0, 25000);
+//GaussianTight->SetParameter(4, 5);
+//GaussianTight->SetParLimits(4, 0., 20.);
+//GaussianTight->SetParameter(5, 0.);
+//GaussianTight->SetParameter(6, 0.);
 
+TF1 *GaussianTight = new TF1("GaussianTight",fit2MeV_Gaussian,2100.,2500.,5);
+GaussianTight->SetParameter(0,400.);
+GaussianTight->SetParameter(1,2286);
+GaussianTight->SetParameter(2, 6);
+GaussianTight->SetParLimits(2, 0.,20.);
+GaussianTight->SetParameter(3, 0.);
+GaussianTight->SetParameter(4, 0.);   
+   
 pad1->cd();
 MassHistTight->SetMinimum(0);
 MassHistTight->Fit("GaussianTight");
@@ -307,7 +331,7 @@ Tightcount3 += 1;
      PullPlotTight->GetYaxis()->SetLabelFont(42);
      PullPlotTight->GetYaxis()->SetLabelSize(0.06);
      PullPlotTight->SetTitle("");
- //    PullPlotTight->SetMinimum(-5);
+     PullPlotTight->SetMinimum(-5);
      PullPlotTight->SetMaximum(5);
      PullPlotTight->Draw("AB");
      c1->Write("Lc Mass - Tight");
