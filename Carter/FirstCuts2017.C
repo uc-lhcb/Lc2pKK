@@ -181,6 +181,16 @@ PullPlotLoose->SetMinimum(-5);
 PullPlotLoose->SetMaximum(5);
 PullPlotLoose->Draw("AB");
       c1->Write("Lc Mass - Loose");
+      
+   TCanvas ex1("ex1","Latex",500,600);
+   TLatex Tl;
+   Tl.SetTextAlign(12);
+   Tl.SetTextSize(0.04);
+   Tl.DrawLatex(0.1,0.8,"Entries In Signal Region = " GaussianLoose->GetParameter(0) #pm GaussianLoose->GetParError(0));
+   Tl.DrawLatex(0.1,0.6," ");
+   Tl.DrawLatex(0.1,0.4," ");
+   Tl.DrawLatex(0.1,0.2," ");
+   ex1->Write("Loose Fit Values")
 
 ///////////////////////////////////////////////////////
 
