@@ -110,7 +110,7 @@ pad2->Draw();
 
 /////////////////////////////
 
-TF1 *GaussianLoose = new TF1("GaussianLoose",DGOneMuTwoTotals,2200.,2400.,7);
+TF1 *GaussianLoose = new TF1("GaussianLoose",DGOneMuTwoTotal,2200.,2400.,7);
 GaussianLoose->SetParameter(0, 2000.);
 GaussianLoose->SetParLimits(0, 0, 10000);
 GaussianLoose->SetParameter(1, 2286);
@@ -176,7 +176,7 @@ PullPlotLoose->Draw("AB");
 
 ///////////////////////////////////////////////////////
 
-TF1 *GaussianMid = new TF1("GaussianMid",DGOneMuTwoTotals,2200.,2400.,7);
+TF1 *GaussianMid = new TF1("GaussianMid",DGOneMuTwoTotal,2200.,2400.,7);
 GaussianMid->SetParameter(0, 2000.);
 GaussianMid->SetParLimits(0, 0, 10000);
 GaussianMid->SetParameter(1, 2286);
@@ -242,7 +242,7 @@ PullPlotMid->Draw("AB");
 
 //////////////////////////////////////////////////////
 
-TF1 *GaussianTight = new TF1("GaussianTight",DGOneMuTwoTotals,2200.,2400.,7);
+TF1 *GaussianTight = new TF1("GaussianTight",DGOneMuTwoTotal,2200.,2400.,7);
 GaussianTight->SetParameter(0, 2000.);
 GaussianTight->SetParLimits(0, 0, 10000);
 GaussianTight->SetParameter(1, 2286);
