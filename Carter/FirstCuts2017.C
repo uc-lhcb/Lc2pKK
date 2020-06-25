@@ -189,10 +189,12 @@ ex1->cd();
    TLatex Tl;
    Tl.SetTextAlign(12);
    Tl.SetTextSize(0.04);
-   Tl.DrawLatex(0.1,0.8,Form("Number of Signal Entries: %f", GaussianLoose->GetParameter(0)));
-   Tl.DrawLatex(0.1,0.6," ");
-   Tl.DrawLatex(0.1,0.4," ");
-   Tl.DrawLatex(0.1,0.2," ");
+   Tl.DrawLatex(0.1,0.8,Form("Number of Signal Entries: %f Events", GaussianLoose->GetParameter(0)));
+   Tl.DrawLatex(0.1,0.7,Form("Error: %f Events", GaussianLoose->GetParError(0));
+   Tl.DrawLatex(0.1,0.5,Form("Mean Value: %f MeV", GaussianLoose->GetParameter(1)));
+   Tl.DrawLatex(0.1,0.4,Form("Error: %f MeV", GaussianLoose->GetParError(1));
+   Tl.DrawLatex(0.1,0.2,Form("Sigma: %f MeV", GaussianLoose->GetParameter(2)));
+   Tl.DrawLatex(0.1,0.1,Form("Error: %f MeV", GaussianLoose->GetParError(2));             
    ex1->Write("Loose Fit Values");
 c1->cd();
 ///////////////////////////////////////////////////////
@@ -269,6 +271,18 @@ PullPlotMid->Draw("AB");
 
       c1->Write("Lc Mass - Mid");
 
+ex1->cd();
+   TLatex Tl;
+   Tl.SetTextAlign(12);
+   Tl.SetTextSize(0.04);
+   Tl.DrawLatex(0.1,0.8,Form("Number of Signal Entries: %f Events", GaussianMid->GetParameter(0)));
+   Tl.DrawLatex(0.1,0.7,Form("Error: %f Events", GaussianMid->GetParError(0));
+   Tl.DrawLatex(0.1,0.5,Form("Mean Value: %f MeV", GaussianMid->GetParameter(1)));
+   Tl.DrawLatex(0.1,0.4,Form("Error: %f MeV", GaussianMid->GetParError(1));
+   Tl.DrawLatex(0.1,0.2,Form("Sigma: %f MeV", GaussianMid->GetParameter(2)));
+   Tl.DrawLatex(0.1,0.1,Form("Error: %f MeV", GaussianMid->GetParError(2));             
+   ex1->Write("Mid Fit Values");
+c1->cd();                
 //////////////////////////////////////////////////////
 
 //TF1 *GaussianTight = new TF1("GaussianTight",DGOneMuTwoTotal,2200.,2400.,7);
@@ -349,6 +363,18 @@ Tightcount3 += 1;
      PullPlotTight->Draw("AB");
      c1->Write("Lc Mass - Tight");
 
+ex1->cd();
+   TLatex Tl;
+   Tl.SetTextAlign(12);
+   Tl.SetTextSize(0.04);
+   Tl.DrawLatex(0.1,0.8,Form("Number of Signal Entries: %f Events", GaussianTight->GetParameter(0)));
+   Tl.DrawLatex(0.1,0.7,Form("Error: %f Events", GaussianTight->GetParError(0));
+   Tl.DrawLatex(0.1,0.5,Form("Mean Value: %f MeV", GaussianTight->GetParameter(1)));
+   Tl.DrawLatex(0.1,0.4,Form("Error: %f MeV", GaussianTight->GetParError(1));
+   Tl.DrawLatex(0.1,0.2,Form("Sigma: %f MeV", GaussianTight->GetParameter(2)));
+   Tl.DrawLatex(0.1,0.1,Form("Error: %f MeV", GaussianTight->GetParError(2));             
+   ex1->Write("Tight Fit Values");
+c1->cd();                   
 /////////////////////////////
 
         File->Close();
