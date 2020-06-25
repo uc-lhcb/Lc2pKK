@@ -11,7 +11,7 @@
 #include <TF1.h>
 
 #include "fit2MeV_Gaussian.C"
-#include "HalfDGOneMuTwoTotals.C"
+#include "DGOneMuTwoTotals.C"
 
 TH1D * MassHistLoose = nullptr;
 TH1D * MassHistMid = nullptr;
