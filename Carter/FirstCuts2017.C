@@ -103,6 +103,7 @@ void FirstCuts2017::Terminate()
   TString totalStr;
   TString deltaTotalStr;
 
+c1->cd();
 double Pullx[75];
 TPad *pad1 = new TPad("pad1","pad1",0,0.33,1,1);
 TPad *pad2 = new TPad("pad2","pad2",0,0,1,0.33);
