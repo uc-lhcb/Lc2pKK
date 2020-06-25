@@ -165,7 +165,7 @@ if (PullLoose[bin] > -3 && PullLoose[bin] < 3){
 
 pad2->cd();
 TGraph* PullPlotLoose = new TGraph(75, Pullx, PullLoose);
-PullPlotLoose->GetXaxis()->SetLimits(0,74);
+PullPlotLoose->GetXaxis()->SetLimits(0,75);
 PullPlotLoose->GetXaxis()->SetTickLength(0.);
 PullPlotLoose->GetYaxis()->SetTickLength(0.);
 PullPlotLoose->SetFillColor(38);
@@ -238,7 +238,7 @@ double   Midcount3 = 0;
 
   pad2->cd();
 TGraph* PullPlotMid = new TGraph(75, Pullx, PullMid);
-PullPlotMid->GetXaxis()->SetLimits(0,74);
+PullPlotMid->GetXaxis()->SetLimits(0,75);
 PullPlotMid->GetXaxis()->SetTickLength(0.);
 PullPlotMid->GetYaxis()->SetTickLength(0.);
 PullPlotMid->SetFillColor(38);
@@ -319,7 +319,7 @@ Tightcount3 += 1;
 }
      pad2->cd();
      TGraph* PullPlotTight = new TGraph(75, Pullx, PullTight);
-     PullPlotTight->GetXaxis()->SetLimits(0,74);
+     PullPlotTight->GetXaxis()->SetLimits(0,75);
      PullPlotTight->GetXaxis()->SetTickLength(0.);
      PullPlotTight->GetYaxis()->SetTickLength(0.);
      PullPlotTight->SetFillColor(38);
