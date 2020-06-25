@@ -110,13 +110,18 @@ pad2->Draw();
 
 /////////////////////////////
 
-TF1 *GaussianLoose = new TF1("GaussianLoose",HalfDGOneMuTwoTotals,2200.,2400.,5);
-GaussianLoose->SetParameter(0,400.);
-GaussianLoose->SetParameter(1,2287);
-GaussianLoose->SetParameter(2, 6);
-GaussianLoose->SetParLimits(2, 0.,20.);
-GaussianLoose->SetParameter(3, 0.);
-GaussianLoose->SetParameter(4, 0.);
+TF1 *GaussianLoose = new TF1("GaussianLoose",HalfDGOneMuTwoTotals,2200.,2400.,7);
+GaussianLoose->SetParameter(0, 2000.);
+GaussianLoose->SetParLimits(0, 0, 10000);
+GaussianLoose->SetParameter(1, 2286);
+GaussianLoose->SetParameter(2, 5);
+GaussianLoose->SetParLimits(2, 0., 20.);
+GaussianLoose->SetParameter(3, 2000.);
+GaussianLoose->SetParLimits(3, 0, 10000);
+GaussianLoose->SetParameter(4, 5);
+GaussianLoose->SetParLimits(4, 0., 20.);
+GaussianLoose->SetParameter(5, 0.);
+GaussianLoose->SetParameter(6, 0.);
 
 pad1->cd();
 MassHistLoose->SetMinimum(0);
@@ -171,13 +176,18 @@ PullPlotLoose->Draw("AB");
 
 ///////////////////////////////////////////////////////
 
-TF1 *GaussianMid = new TF1("GaussianMid",HalfDGOneMuTwoTotals,2200.,2400.,5);
-GaussianMid->SetParameter(0,400.);
-GaussianMid->SetParameter(1,2287);
-GaussianMid->SetParameter(2, 6);
-GaussianMid->SetParLimits(2, 0.,20.);
-GaussianMid->SetParameter(3, 0.);
-GaussianMid->SetParameter(4, 0.);
+TF1 *GaussianMid = new TF1("GaussianMid",HalfDGOneMuTwoTotals,2200.,2400.,7);
+GaussianMid->SetParameter(0, 2000.);
+GaussianMid->SetParLimits(0, 0, 10000);
+GaussianMid->SetParameter(1, 2286);
+GaussianMid->SetParameter(2, 5);
+GaussianMid->SetParLimits(2, 0., 20.);
+GaussianMid->SetParameter(3, 2000.);
+GaussianMid->SetParLimits(3, 0, 10000);
+GaussianMid->SetParameter(4, 5);
+GaussianMid->SetParLimits(4, 0., 20.);
+GaussianMid->SetParameter(5, 0.);
+GaussianMid->SetParameter(6, 0.);
 
   pad1->cd();
   MassHistMid->SetMinimum(0);
@@ -232,13 +242,18 @@ PullPlotMid->Draw("AB");
 
 //////////////////////////////////////////////////////
 
-TF1 *GaussianTight = new TF1("GaussianTight",HalfDGOneMuTwoTotals,2200.,2400.,5);
-GaussianTight->SetParameter(0,400.);
-GaussianTight->SetParameter(1,2287);
-GaussianTight->SetParameter(2, 6);
-GaussianTight->SetParLimits(2, 0.,20.);
-GaussianTight->SetParameter(3, 0.);
-GaussianTight->SetParameter(4, 0.);
+TF1 *GaussianTight = new TF1("GaussianTight",HalfDGOneMuTwoTotals,2200.,2400.,7);
+GaussianTight->SetParameter(0, 2000.);
+GaussianTight->SetParLimits(0, 0, 10000);
+GaussianTight->SetParameter(1, 2286);
+GaussianTight->SetParameter(2, 5);
+GaussianTight->SetParLimits(2, 0., 20.);
+GaussianTight->SetParameter(3, 2000.);
+GaussianTight->SetParLimits(3, 0, 10000);
+GaussianTight->SetParameter(4, 5);
+GaussianTight->SetParLimits(4, 0., 20.);
+GaussianTight->SetParameter(5, 0.);
+GaussianTight->SetParameter(6, 0.);
 
 pad1->cd();
 MassHistTight->SetMinimum(0);
