@@ -24,15 +24,15 @@ void FirstCuts2017::Begin(TTree * /*tree*/)
 {
    TString option = GetOption();
 
-   MassHistLoose = new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 75, 2210, 2360);
+   MassHistLoose = new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 75, 2211, 2360);
    MassHistLoose->GetXaxis()->SetTitle("MeV");
    MassHistLoose->GetYaxis()->SetTitle("Events Per 2 MeV");
 
-   MassHistMid = new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 75, 2210, 2360);
+   MassHistMid = new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 75, 2211, 2360);
    MassHistMid->GetXaxis()->SetTitle("MeV");
    MassHistMid->GetYaxis()->SetTitle("Events Per 2 MeV");
 
-   MassHistTight = new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 75, 2210, 2360);
+   MassHistTight = new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 75, 2211, 2360);
    MassHistTight->GetXaxis()->SetTitle("MeV");
    MassHistTight->GetYaxis()->SetTitle("Events Per 2 MeV");
 
@@ -132,7 +132,7 @@ double Loosecount3 = 0;
 for (int bin = 0; bin < 75; bin++){
 BinHeightLoose[bin] = MassHistLoose->GetBinContent(bin + 1);
 Pullx[bin] = (bin + 1);
-int xvalue = 2210 + 2*(bin);
+int xvalue = 2211 + 2*(bin);
 FitHeightLoose[bin] = round(GaussianLoose->Eval(xvalue));
 PullLoose[bin] = (BinHeightLoose[bin] - FitHeightLoose[bin])/TMath::Sqrt(FitHeightLoose[bin]);
 
@@ -186,13 +186,13 @@ GaussianMid->SetParameter(4, 0.);
   int FitHeightMid[75];
   double PullMid[75];
 
-double Midcount1 = 0;
-double Midcount2 = 0;
-double Midcount3 = 0;
+double   Midcount1 = 0;
+double   Midcount2 = 0;
+double   Midcount3 = 0;
 
   for (int bin = 0; bin < 75; bin++){
   BinHeightMid[bin] = MassHistMid->GetBinContent(bin + 1);
-  int xvalue = 2210 + 2*(bin);
+  int xvalue = 2211 + 2*(bin);
   FitHeightMid[bin] = round(GaussianMid->Eval(xvalue));
   PullMid[bin] = (BinHeightMid[bin] - FitHeightMid[bin])/TMath::Sqrt(FitHeightMid[bin]);
 
@@ -253,7 +253,7 @@ double Tightcount3 = 0;
 
 for (int bin = 0; bin < 75; bin++){
 BinHeightTight[bin] = MassHistTight->GetBinContent(bin + 1);
-int xvalue = 2210 + 2*(bin);
+int xvalue = 2211 + 2*(bin);
 FitHeightTight[bin] = round(GaussianTight->Eval(xvalue));
 PullTight[bin] = (BinHeightTight[bin] - FitHeightTight[bin])/TMath::Sqrt(FitHeightTight[bin]);
 
