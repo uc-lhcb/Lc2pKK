@@ -11,6 +11,7 @@
 #include <TF1.h>
 
 #include "fit2MeV_Gaussian.C"
+#include "HalfDGOneMuTwoTotals.C"
 
 TH1D * MassHistLoose = nullptr;
 TH1D * MassHistMid = nullptr;
@@ -109,7 +110,7 @@ pad2->Draw();
 
 /////////////////////////////
 
-TF1 *GaussianLoose = new TF1("GaussianLoose",fit2MeV_Gaussian,2200.,2400.,5);
+TF1 *GaussianLoose = new TF1("GaussianLoose",HalfDGOneMuTwoTotals,2200.,2400.,5);
 GaussianLoose->SetParameter(0,400.);
 GaussianLoose->SetParameter(1,2287);
 GaussianLoose->SetParameter(2, 6);
@@ -170,7 +171,7 @@ PullPlotLoose->Draw("AB");
 
 ///////////////////////////////////////////////////////
 
-TF1 *GaussianMid = new TF1("GaussianMid",fit2MeV_Gaussian,2200.,2400.,5);
+TF1 *GaussianMid = new TF1("GaussianMid",HalfDGOneMuTwoTotals,2200.,2400.,5);
 GaussianMid->SetParameter(0,400.);
 GaussianMid->SetParameter(1,2287);
 GaussianMid->SetParameter(2, 6);
@@ -231,7 +232,7 @@ PullPlotMid->Draw("AB");
 
 //////////////////////////////////////////////////////
 
-TF1 *GaussianTight = new TF1("GaussianTight",fit2MeV_Gaussian,2200.,2400.,5);
+TF1 *GaussianTight = new TF1("GaussianTight",HalfDGOneMuTwoTotals,2200.,2400.,5);
 GaussianTight->SetParameter(0,400.);
 GaussianTight->SetParameter(1,2287);
 GaussianTight->SetParameter(2, 6);
