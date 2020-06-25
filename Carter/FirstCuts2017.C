@@ -283,9 +283,9 @@ if (bin == 40){
 }
 PullTight[bin] = (BinHeightTight[bin] - FitHeightTight[bin])/TMath::Sqrt(FitHeightTight[bin]);
 if (bin == 0){
-   cout << PullTight[0] << endl;}
+   cout << "FirstBin =" << PullTight[0] << endl;}
 if (bin == 74){
-   cout << PullTight[74] << endl;}   
+   cout << "LastBin =" << PullTight[74] << endl;}   
    
 if (PullTight[bin] > -1 && PullTight[bin] < 1){
 Tightcount1 += 1;
