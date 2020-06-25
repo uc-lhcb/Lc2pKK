@@ -272,6 +272,7 @@ PullPlotMid->Draw("AB");
       c1->Write("Lc Mass - Mid");
 
 ex1->cd();
+   Tl.Clear();
    Tl.DrawLatex(0.1,0.8,Form("Number of Signal Entries: %f Events", GaussianMid->GetParameter(0)));
    Tl.DrawLatex(0.1,0.7,Form("Error: %f Events", GaussianMid->GetParError(0)));
    Tl.DrawLatex(0.1,0.5,Form("Mean Value: %f MeV", GaussianMid->GetParameter(1)));
@@ -361,6 +362,7 @@ Tightcount3 += 1;
      c1->Write("Lc Mass - Tight");
 
 ex1->cd();
+   Tl.Clear();
    Tl.DrawLatex(0.1,0.8,Form("Number of Signal Entries: %f Events", GaussianTight->GetParameter(0)));
    Tl.DrawLatex(0.1,0.7,Form("Error: %f Events", GaussianTight->GetParError(0)));
    Tl.DrawLatex(0.1,0.5,Form("Mean Value: %f MeV", GaussianTight->GetParameter(1)));
