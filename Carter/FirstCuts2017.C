@@ -285,7 +285,6 @@ if (PullTight[bin] > -3 && PullTight[bin] < 3){
 Tightcount3 += 1;
 }
 }
-     c1->Write("Lc Mass - Tight");
      pad2->cd();
      TGraph* PullPlotTight = new TGraph(75, Pullx, PullTight);
      PullPlotTight->GetXaxis()->SetLimits(0,75);
