@@ -278,7 +278,9 @@ if (bin == 0){
 }
 
 PullTight[bin] = (BinHeightTight[bin] - FitHeightTight[bin])/TMath::Sqrt(FitHeightTight[bin]);
-   
+ if (bin == 0){
+  cout << PullTight[0] << endl;
+}  
 if (PullTight[bin] > -1 && PullTight[bin] < 1){
 Tightcount1 += 1;
 }
