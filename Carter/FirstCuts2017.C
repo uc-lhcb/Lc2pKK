@@ -59,14 +59,23 @@ Bool_t FirstCuts2017::Process(Long64_t entry)
 
    bool LooseCuts = (
       (((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp)) > 0.7)
+   && (*Proton_PT > 750)
+   && (*Kminus_PT > 500)
+   && (*Kplus_PT > 500)   
    );
 
    bool MidCuts = (
       (((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp)) > 0.8)
+   && (*Proton_PT > 750)
+   && (*Kminus_PT > 500)
+   && (*Kplus_PT > 500)   
    );
 
    bool TightCuts = (
       (((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp)) > 0.9)
+   && (*Proton_PT > 750)
+   && (*Kminus_PT > 500)
+   && (*Kplus_PT > 500)   
    );
 
    if (MidCuts){
