@@ -623,7 +623,16 @@ int xvalue1MeV = 2210.5 + 1*(bin);
 FitHeightTight1MeV[bin] = round(GaussianTight1MeV->Eval(xvalue1MeV));
 
 PullTight1MeV[bin] = (BinHeightTight1MeV[bin] - FitHeightTight1MeV[bin])/TMath::Sqrt(FitHeightTight1MeV[bin]);
-
+if (bin == 80){
+     cout << PullTight1MeV[80] << endl;
+}
+   if (bin == 81){
+     cout << PullTight1MeV[81] << endl;
+}
+   if (bin == 82){
+     cout << PullTight1MeV[82] << endl;
+}
+   
 if (PullTight1MeV[bin] > -1 && PullTight1MeV[bin] < 1){
 Tight1MeVcount1 += 1;
 }
@@ -650,7 +659,7 @@ Tight1MeVcount3 += 1;
      PullPlotTight1MeV->GetYaxis()->SetLabelFont(42);
      PullPlotTight1MeV->GetYaxis()->SetLabelSize(0.06);
      PullPlotTight1MeV->SetTitle("");
-     PullPlotTight1MeV->SetMinimum(-5);
+//     PullPlotTight1MeV->SetMinimum(-5);
      PullPlotTight1MeV->SetMaximum(5);
      PullPlotTight1MeV->Draw("AB");
      c1->Write("Lc Mass - Tight/1MeV");
