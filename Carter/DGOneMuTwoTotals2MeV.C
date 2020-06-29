@@ -3,7 +3,7 @@
 #include "TMath.h"
 #include <iostream>
 
-Double_t DGOneMuTwoTotal(Double_t *v, Double_t *par) {
+Double_t DGOneMuTwoTotals2MeV(Double_t *v, Double_t *par) {
 
 //First Gaussian function
 //Par[0]=SignalEvents, Par[1]=MeanValue, Par[2]=StandardDeviation
