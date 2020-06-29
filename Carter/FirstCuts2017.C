@@ -758,7 +758,7 @@ ex1->cd();
 c1->cd();
 //////////////////////////////////////
 
-TF1 *GaussianTight2MeVDG = new TF1("GaussianTight2MeVDG",DGOneMuTwoTotals2MeVs2MeV,2200.,2400.,7);
+TF1 *GaussianTight2MeVDG = new TF1("GaussianTight2MeVDG",DGOneMuTwoTotals2MeV,2200.,2400.,7);
 GaussianTight2MeVDG->SetParameter(0, 2000.);
 GaussianTight2MeVDG->SetParLimits(0, 0, 25000);
 GaussianTight2MeVDG->SetParameter(1, 2286);
@@ -1008,7 +1008,7 @@ ex1->cd();
 c1->cd();
 //////////////////////////////////////
 
-TF1 *GaussianTight1MeVDG = new TF1("GaussianTight1MeVDG",DGOneMuTwoTotals1MeVs1MeV,2200.,2400.,7);
+TF1 *GaussianTight1MeVDG = new TF1("GaussianTight1MeVDG",DGOneMuTwoTotals1MeV,2200.,2400.,7);
 GaussianTight1MeVDG->SetParameter(0, 2000.);
 GaussianTight1MeVDG->SetParLimits(0, 0, 25000);
 GaussianTight1MeVDG->SetParameter(1, 2286);
