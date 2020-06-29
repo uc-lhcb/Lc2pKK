@@ -1,4 +1,4 @@
-//First Cuts with Pull Plot
+//Initial Cuts with Various Fits and Pull Plots
 
 #define FirstCuts2017_cxx
 #include "FirstCuts2017.h"
