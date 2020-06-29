@@ -4,7 +4,7 @@
 
 #include "TMath.h"
 
-Double_t fit2MeV_Gaussian(Double_t *v, Double_t *par) {
+Double_t fitHalfMeV_Gaussian(Double_t *v, Double_t *par) {
 
 
     Double_t arg = 0;
@@ -14,7 +14,7 @@ Double_t fit2MeV_Gaussian(Double_t *v, Double_t *par) {
     Double_t fitval = par[0]*TMath::Exp(-0.5*arg*arg);
 
     
-    fitval = (fitval*2.00)/(TMath::Sqrt(TMath::TwoPi())*par[2]);
+    fitval = (fitval*0.50)/(TMath::Sqrt(TMath::TwoPi())*par[2]);
 
 
     fitval = fitval + par[3] + v[0]*par[4];
