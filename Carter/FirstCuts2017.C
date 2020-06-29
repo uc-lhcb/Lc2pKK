@@ -390,7 +390,7 @@ double Loose1MeVSGcount3 = 0;
 
 for (int bin = 0; bin < 150; bin++){
 BinHeightLoose1MeVSG[bin] = MassHistLoose1MeV->GetBinContent(bin + 1);
-Pullx1MeVSG[bin] = (bin + 1);
+Pullx1MeV[bin] = (bin + 1);
 int xvalue1MeVSG = 2210.5 + 1*(bin);
 FitHeightLoose1MeVSG[bin] = round(GaussianLoose1MeVSG->Eval(xvalue1MeVSG));
 PullLoose1MeVSG[bin] = (BinHeightLoose1MeVSG[bin] - FitHeightLoose1MeVSG[bin])/TMath::Sqrt(FitHeightLoose1MeVSG[bin]);
@@ -428,7 +428,7 @@ PullPlotLoose1MeVSG->Draw("AB");
       c1->Write("Lc Mass - Loose/1MeVSG");
 
 ex1->cd();
-   TLatex Tl;
+    ex1->Clear();
    Tl.SetTextAlign(12);
    Tl.SetTextSize(0.04);
    Tl.DrawLatex(0.1,0.9,Form("Number of Signal Entries: %f Events", GaussianLoose1MeVSG->GetParameter(0)));
