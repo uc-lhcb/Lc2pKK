@@ -481,6 +481,7 @@ PullPlotLoose1MeV->Draw("AB");
       c1->Write("Lc Mass - Loose/1MeV");
 
 ex1->cd();
+      ex1->Clear();
    Tl.SetTextAlign(12);
    Tl.SetTextSize(0.04);
    Tl.DrawLatex(0.1,0.9,Form("Number of Signal Entries: %f Events", GaussianLoose1MeV->GetParameter(0)));
