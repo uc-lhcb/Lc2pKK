@@ -591,17 +591,17 @@ Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", Tight1MeVSGcount3));
 c1->cd();
 /////////////////////////////
 TF1 *GaussianLoose2MeVDG = new TF1("GaussianLoose2MeVDG",DGOneMuTwoTotals2MeV,2200.,2400.,7);
-GaussianLoose2MeVDG>SetParameter(0, 2000.);
-GaussianLoose2MeVDG>SetParLimits(0, 0, 25000);
-GaussianLoose2MeVDG>SetParameter(1, 2286);
-GaussianLoose2MeVDG>SetParameter(2, 5);
-GaussianLoose2MeVDG>SetParLimits(2, 0., 20.);
-GaussianLoose2MeVDG>SetParameter(3, 2000.);
-GaussianLoose2MeVDG>SetParLimits(3, 0, 25000);
-GaussianLoose2MeVDG>SetParameter(4, 5);
-GaussianLoose2MeVDG>SetParLimits(4, 0., 20.);
-GaussianLoose2MeVDG>SetParameter(5, 0.);
-GaussianLoose2MeVDG>SetParameter(6, 0.);
+GaussianLoose2MeVDG->SetParameter(0, 2000.);
+GaussianLoose2MeVDG->SetParLimits(0, 0, 25000);
+GaussianLoose2MeVDG->SetParameter(1, 2286);
+GaussianLoose2MeVDG->SetParameter(2, 5);
+GaussianLoose2MeVDG->SetParLimits(2, 0., 20.);
+GaussianLoose2MeVDG->SetParameter(3, 2000.);
+GaussianLoose2MeVDG->SetParLimits(3, 0, 25000);
+GaussianLoose2MeVDG->SetParameter(4, 5);
+GaussianLoose2MeVDG->SetParLimits(4, 0., 20.);
+GaussianLoose2MeVDG->SetParameter(5, 0.);
+GaussianLoose2MeVDG->SetParameter(6, 0.);
 
 pad1->cd();
 MassHistLoose2MeV->SetMinimum(0);
@@ -676,17 +676,17 @@ c1->cd();
 /////////////////////////////
 
 TF1 *GaussianMid2MeVDG = new TF1("GaussianMid2MeVDG",DGOneMuTwoTotals2MeV,2200.,2400.,7);
-GaussianMid2MeVDG>SetParameter(0, 2000.);
-GaussianMid2MeVDG>SetParLimits(0, 0, 25000);
-GaussianMid2MeVDG>SetParameter(1, 2286);
-GaussianMid2MeVDG>SetParameter(2, 5);
-GaussianMid2MeVDG>SetParLimits(2, 0., 20.);
-GaussianMid2MeVDG>SetParameter(3, 2000.);
-GaussianMid2MeVDG>SetParLimits(3, 0, 25000);
-GaussianMid2MeVDG>SetParameter(4, 5);
-GaussianMid2MeVDG>SetParLimits(4, 0., 20.);
-GaussianMid2MeVDG>SetParameter(5, 0.);
-GaussianMid2MeVDG>SetParameter(6, 0.);
+GaussianMid2MeVDG->SetParameter(0, 2000.);
+GaussianMid2MeVDG->SetParLimits(0, 0, 25000);
+GaussianMid2MeVDG->SetParameter(1, 2286);
+GaussianMid2MeVDG->SetParameter(2, 5);
+GaussianMid2MeVDG->SetParLimits(2, 0., 20.);
+GaussianMid2MeVDG->SetParameter(3, 2000.);
+GaussianMid2MeVDG->SetParLimits(3, 0, 25000);
+GaussianMid2MeVDG->SetParameter(4, 5);
+GaussianMid2MeVDG->SetParLimits(4, 0., 20.);
+GaussianMid2MeVDG->SetParameter(5, 0.);
+GaussianMid2MeVDG->SetParameter(6, 0.);
 
 pad1->cd();
 MassHistMid2MeV->SetMinimum(0);
@@ -759,17 +759,17 @@ c1->cd();
 //////////////////////////////////////
 
 TF1 *GaussianTight2MeVDG = new TF1("GaussianTight2MeVDG",DGOneMuTwoTotals2MeVs2MeV,2200.,2400.,7);
-GaussianTight2MeVDG>SetParameter(0, 2000.);
-GaussianTight2MeVDG>SetParLimits(0, 0, 25000);
-GaussianTight2MeVDG>SetParameter(1, 2286);
-GaussianTight2MeVDG>SetParameter(2, 5);
-GaussianTight2MeVDG>SetParLimits(2, 0., 20.);
-GaussianTight2MeVDG>SetParameter(3, 2000.);
-GaussianTight2MeVDG>SetParLimits(3, 0, 25000);
-GaussianTight2MeVDG>SetParameter(4, 5);
-GaussianTight2MeVDG>SetParLimits(4, 0., 20.);
-GaussianTight2MeVDG>SetParameter(5, 0.);
-GaussianTight2MeVDG>SetParameter(6, 0.);
+GaussianTight2MeVDG->SetParameter(0, 2000.);
+GaussianTight2MeVDG->SetParLimits(0, 0, 25000);
+GaussianTight2MeVDG->SetParameter(1, 2286);
+GaussianTight2MeVDG->SetParameter(2, 5);
+GaussianTight2MeVDG->SetParLimits(2, 0., 20.);
+GaussianTight2MeVDG->SetParameter(3, 2000.);
+GaussianTight2MeVDG->SetParLimits(3, 0, 25000);
+GaussianTight2MeVDG->SetParameter(4, 5);
+GaussianTight2MeVDG->SetParLimits(4, 0., 20.);
+GaussianTight2MeVDG->SetParameter(5, 0.);
+GaussianTight2MeVDG->SetParameter(6, 0.);
 
 pad1->cd();
 MassHistTight2MeV->SetMinimum(0);
