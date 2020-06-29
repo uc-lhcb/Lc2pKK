@@ -14,7 +14,7 @@ Double_t DGOneMuTwoTotals1MeV(Double_t *v, Double_t *par) {
 
     Double_t fitval1 = par[0]*TMath::Exp(-0.5*arg1*arg1);
 
-    fitval1 = (fitval1*2.00)/(TMath::Sqrt(TMath::TwoPi())*par[2]);
+    fitval1 = (fitval1*1.00)/(TMath::Sqrt(TMath::TwoPi())*par[2]);
 
 //Second Gaussian function (Same Mean Value)
 //Par[3]=SignalEvents, Par[1]=MeanValue, Par[4]=StandardDeviation
