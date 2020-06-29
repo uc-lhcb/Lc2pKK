@@ -590,6 +590,505 @@ Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", Tight1MeVSGcount3));
    ex1->Write("Tight Fit Values/1MeVSG");
 c1->cd();
 /////////////////////////////
+TF1 *GaussianLoose2MeVDG = new TF1("GaussianLoose2MeVDG",DGOneMuTwoTotals2MeV,2200.,2400.,7);
+GaussianLoose2MeVDG>SetParameter(0, 2000.);
+GaussianLoose2MeVDG>SetParLimits(0, 0, 25000);
+GaussianLoose2MeVDG>SetParameter(1, 2286);
+GaussianLoose2MeVDG>SetParameter(2, 5);
+GaussianLoose2MeVDG>SetParLimits(2, 0., 20.);
+GaussianLoose2MeVDG>SetParameter(3, 2000.);
+GaussianLoose2MeVDG>SetParLimits(3, 0, 25000);
+GaussianLoose2MeVDG>SetParameter(4, 5);
+GaussianLoose2MeVDG>SetParLimits(4, 0., 20.);
+GaussianLoose2MeVDG>SetParameter(5, 0.);
+GaussianLoose2MeVDG>SetParameter(6, 0.);
+
+pad1->cd();
+MassHistLoose2MeV->SetMinimum(0);
+MassHistLoose2MeV->Fit("GaussianLoose2MeVDG");
+
+int BinHeightLoose2MeVDG[75];
+int FitHeightLoose2MeVDG[75];
+double PullLoose2MeVDG[75];
+
+double Loose2MeVDGcount1 = 0;
+double Loose2MeVDGcount2 = 0;
+double Loose2MeVDGcount3 = 0;
+
+for (int bin = 0; bin < 75; bin++){
+BinHeightLoose2MeVDG[bin] = MassHistLoose2MeV->GetBinContent(bin + 1);
+Pullx2MeV[bin] = (bin + 1);
+int xvalue2MeVDG = 2211 + 2*(bin);
+FitHeightLoose2MeVDG[bin] = round(GaussianLoose2MeVDG->Eval(xvalue2MeVDG));
+PullLoose2MeVDG[bin] = (BinHeightLoose2MeVDG[bin] - FitHeightLoose2MeVDG[bin])/TMath::Sqrt(FitHeightLoose2MeVDG[bin]);
+
+if (PullLoose2MeVDG[bin] > -1 && PullLoose2MeVDG[bin] < 1){
+  Loose2MeVDGcount1 += 1;
+}
+
+if (PullLoose2MeVDG[bin] > -2 && PullLoose2MeVDG[bin] < 2){
+  Loose2MeVDGcount2 += 1;
+}
+
+if (PullLoose2MeVDG[bin] > -3 && PullLoose2MeVDG[bin] < 3){
+  Loose2MeVDGcount3 += 1;
+}
+}
+
+pad2->cd();
+TGraph* PullPlotLoose2MeVDG = new TGraph(75, Pullx2MeV, PullLoose2MeVDG);
+PullPlotLoose2MeVDG->GetXaxis()->SetLimits(0.5,75.5);
+PullPlotLoose2MeVDG->GetXaxis()->SetTickLength(0.);
+PullPlotLoose2MeVDG->GetYaxis()->SetTickLength(0.);
+PullPlotLoose2MeVDG->SetFillColor(38);
+PullPlotLoose2MeVDG->GetYaxis()->SetTitle("Pull");
+PullPlotLoose2MeVDG->GetYaxis()->CenterTitle();
+PullPlotLoose2MeVDG->GetYaxis()->SetTitleSize(0.10);
+PullPlotLoose2MeVDG->GetYaxis()->SetTitleOffset(0.2);
+PullPlotLoose2MeVDG->GetXaxis()->SetLabelSize(0);
+PullPlotLoose2MeVDG->GetYaxis()->SetLabelFont(42);
+PullPlotLoose2MeVDG->GetYaxis()->SetLabelSize(0.06);
+PullPlotLoose2MeVDG->SetTitle("");
+PullPlotLoose2MeVDG->SetMinimum(-5);
+PullPlotLoose2MeVDG->SetMaximum(5);
+PullPlotLoose2MeVDG->Draw("AB");
+      c1->Write("Lc Mass - Loose/2MeVDG");
+
+ex1->cd();
+ ex1->Clear();
+   Tl.SetTextAlign(12);
+   Tl.SetTextSize(0.04);
+   Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries in First Gaussian: %f Events", GaussianLoose2MeVDG->GetParameter(0)));
+   Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", GaussianLoose2MeVDG->GetParError(0)));
+   Tl.DrawLatex(0.1,0.8,Form("Number of Signal Entries in Second Gaussian: %f Events", GaussianLoose2MeVDG->GetParameter(3)));
+   Tl.DrawLatex(0.1,0.75,Form("Error: %f Events", GaussianLoose2MeVDG->GetParError(3)));
+   Tl.DrawLatex(0.1,0.65,Form("Mean Value: %f MeV", GaussianLoose2MeVDG->GetParameter(1)));
+   Tl.DrawLatex(0.1,0.6,Form("Error: %f MeV", GaussianLoose2MeVDG->GetParError(1)));
+   Tl.DrawLatex(0.1,0.5,Form("Sigma of First Gaussian: %f MeV", GaussianLoose2MeVDG->GetParameter(2)));
+   Tl.DrawLatex(0.1,0.45,Form("Error: %f MeV", GaussianLoose2MeVDG->GetParError(2)));
+   Tl.DrawLatex(0.1,0.35,Form("Sigma of Second Gaussian: %f MeV", GaussianLoose2MeVDG->GetParameter(4)));
+   Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", GaussianLoose2MeVDG->GetParError(4)));
+   Tl.DrawLatex(0.1,0.2,Form("Bins Between -1 & 1 %f Bins", Loose2MeVDGcount1));
+   Tl.DrawLatex(0.1,0.15,Form("Bins Between -2 & 2 %f Bins", Loose2MeVDGcount2));
+   Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", Loose2MeVDGcount3));
+   ex1->Write("Loose Fit Values/2MeVDG");
+c1->cd();
+/////////////////////////////
+
+TF1 *GaussianMid2MeVDG = new TF1("GaussianMid2MeVDG",DGOneMuTwoTotals2MeV,2200.,2400.,7);
+GaussianMid2MeVDG>SetParameter(0, 2000.);
+GaussianMid2MeVDG>SetParLimits(0, 0, 25000);
+GaussianMid2MeVDG>SetParameter(1, 2286);
+GaussianMid2MeVDG>SetParameter(2, 5);
+GaussianMid2MeVDG>SetParLimits(2, 0., 20.);
+GaussianMid2MeVDG>SetParameter(3, 2000.);
+GaussianMid2MeVDG>SetParLimits(3, 0, 25000);
+GaussianMid2MeVDG>SetParameter(4, 5);
+GaussianMid2MeVDG>SetParLimits(4, 0., 20.);
+GaussianMid2MeVDG>SetParameter(5, 0.);
+GaussianMid2MeVDG>SetParameter(6, 0.);
+
+pad1->cd();
+MassHistMid2MeV->SetMinimum(0);
+MassHistMid2MeV->Fit("GaussianMid2MeVDG");
+
+int BinHeightMid2MeVDG[75];
+int FitHeightMid2MeVDG[75];
+double PullMid2MeVDG[75];
+
+double   Mid2MeVDGcount1 = 0;
+double   Mid2MeVDGcount2 = 0;
+double   Mid2MeVDGcount3 = 0;
+
+for (int bin = 0; bin < 75; bin++){
+BinHeightMid2MeVDG[bin] = MassHistMid2MeV->GetBinContent(bin + 1);
+int xvalue2MeVDG = 2211 + 2*(bin);
+FitHeightMid2MeVDG[bin] = round(GaussianMid2MeVDG->Eval(xvalue2MeVDG));
+PullMid2MeVDG[bin] = (BinHeightMid2MeVDG[bin] - FitHeightMid2MeVDG[bin])/TMath::Sqrt(FitHeightMid2MeVDG[bin]);
+
+if (PullMid2MeVDG[bin] > -1 && PullMid2MeVDG[bin] < 1){
+Mid2MeVDGcount1 += 1;
+}
+
+if (PullMid2MeVDG[bin] > -2 && PullMid2MeVDG[bin] < 2){
+Mid2MeVDGcount2 += 1;
+}
+
+if (PullMid2MeVDG[bin] > -3 && PullMid2MeVDG[bin] < 3){
+Mid2MeVDGcount3 += 1;
+}
+}
+
+pad2->cd();
+TGraph* PullPlotMid2MeVDG = new TGraph(75, Pullx2MeV, PullMid2MeVDG);
+PullPlotMid2MeVDG->GetXaxis()->SetLimits(0.5,75.5);
+PullPlotMid2MeVDG->GetXaxis()->SetTickLength(0.);
+PullPlotMid2MeVDG->GetYaxis()->SetTickLength(0.);
+PullPlotMid2MeVDG->SetFillColor(38);
+PullPlotMid2MeVDG->GetYaxis()->SetTitle("Pull");
+PullPlotMid2MeVDG->GetYaxis()->CenterTitle();
+PullPlotMid2MeVDG->GetYaxis()->SetTitleSize(0.10);
+PullPlotMid2MeVDG->GetYaxis()->SetTitleOffset(0.2);
+PullPlotMid2MeVDG->GetXaxis()->SetLabelSize(0);
+PullPlotMid2MeVDG->GetYaxis()->SetLabelFont(42);
+PullPlotMid2MeVDG->GetYaxis()->SetLabelSize(0.06);
+PullPlotMid2MeVDG->SetTitle("");
+PullPlotMid2MeVDG->SetMinimum(-5);
+PullPlotMid2MeVDG->SetMaximum(5);
+PullPlotMid2MeVDG->Draw("AB");
+
+    c1->Write("Lc Mass - Mid/2MeVDG");
+
+ex1->cd();
+ ex1->Clear();
+ Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries in First Gaussian: %f Events", GaussianMid2MeVDG->GetParameter(0)));
+ Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", GaussianMid2MeVDG->GetParError(0)));
+ Tl.DrawLatex(0.1,0.8,Form("Number of Signal Entries in Second Gaussian: %f Events", GaussianMid2MeVDG->GetParameter(3)));
+ Tl.DrawLatex(0.1,0.75,Form("Error: %f Events", GaussianMid2MeVDG->GetParError(3)));
+ Tl.DrawLatex(0.1,0.65,Form("Mean Value: %f MeV", GaussianMid2MeVDG->GetParameter(1)));
+ Tl.DrawLatex(0.1,0.6,Form("Error: %f MeV", GaussianMid2MeVDG->GetParError(1)));
+ Tl.DrawLatex(0.1,0.5,Form("Sigma of First Gaussian: %f MeV", GaussianMid2MeVDG->GetParameter(2)));
+ Tl.DrawLatex(0.1,0.45,Form("Error: %f MeV", GaussianMid2MeVDG->GetParError(2)));
+ Tl.DrawLatex(0.1,0.35,Form("Sigma of Second Gaussian: %f MeV", GaussianMid2MeVDG->GetParameter(4)));
+ Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", GaussianMid2MeVDG->GetParError(4)));
+ Tl.DrawLatex(0.1,0.2,Form("Bins Between -1 & 1 %f Bins", Mid2MeVDGcount1));
+ Tl.DrawLatex(0.1,0.15,Form("Bins Between -2 & 2 %f Bins", Mid2MeVDGcount2));
+ Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", Mid2MeVDGcount3));
+ ex1->Write("Mid Fit Values/2MeVDG");
+c1->cd();
+//////////////////////////////////////
+
+TF1 *GaussianTight2MeVDG = new TF1("GaussianTight2MeVDG",DGOneMuTwoTotals2MeVs2MeV,2200.,2400.,7);
+GaussianTight2MeVDG>SetParameter(0, 2000.);
+GaussianTight2MeVDG>SetParLimits(0, 0, 25000);
+GaussianTight2MeVDG>SetParameter(1, 2286);
+GaussianTight2MeVDG>SetParameter(2, 5);
+GaussianTight2MeVDG>SetParLimits(2, 0., 20.);
+GaussianTight2MeVDG>SetParameter(3, 2000.);
+GaussianTight2MeVDG>SetParLimits(3, 0, 25000);
+GaussianTight2MeVDG>SetParameter(4, 5);
+GaussianTight2MeVDG>SetParLimits(4, 0., 20.);
+GaussianTight2MeVDG>SetParameter(5, 0.);
+GaussianTight2MeVDG>SetParameter(6, 0.);
+
+pad1->cd();
+MassHistTight2MeV->SetMinimum(0);
+MassHistTight2MeV->Fit("GaussianTight2MeVDG");
+
+int BinHeightTight2MeVDG[75];
+int FitHeightTight2MeVDG[75];
+double PullTight2MeVDG[75];
+
+double Tight2MeVDGcount1 = 0;
+double Tight2MeVDGcount2 = 0;
+double Tight2MeVDGcount3 = 0;
+
+for (int bin = 0; bin < 75; bin++){
+BinHeightTight2MeVDG[bin] = MassHistTight2MeV->GetBinContent(bin + 1);
+int xvalue2MeVDG = 2211 + 2*(bin);
+FitHeightTight2MeVDG[bin] = round(GaussianTight2MeVDG->Eval(xvalue2MeVDG));
+
+PullTight2MeVDG[bin] = (BinHeightTight2MeVDG[bin] - FitHeightTight2MeVDG[bin])/TMath::Sqrt(FitHeightTight2MeVDG[bin]);
+
+if (PullTight2MeVDG[bin] > -1 && PullTight2MeVDG[bin] < 1){
+Tight2MeVDGcount1 += 1;
+}
+
+if (PullTight2MeVDG[bin] > -2 && PullTight2MeVDG[bin] < 2){
+Tight2MeVDGcount2 += 1;
+}
+
+if (PullTight2MeVDG[bin] > -3 && PullTight2MeVDG[bin] < 3){
+Tight2MeVDGcount3 += 1;
+}
+}
+     pad2->cd();
+     TGraph* PullPlotTight2MeVDG = new TGraph(75, Pullx2MeV, PullTight2MeVDG);
+     PullPlotTight2MeVDG->GetXaxis()->SetLimits(0.5,75.5);
+     PullPlotTight2MeVDG->GetXaxis()->SetTickLength(0.);
+     PullPlotTight2MeVDG->GetYaxis()->SetTickLength(0.);
+     PullPlotTight2MeVDG->SetFillColor(38);
+     PullPlotTight2MeVDG->GetYaxis()->SetTitle("Pull");
+     PullPlotTight2MeVDG->GetYaxis()->CenterTitle();
+     PullPlotTight2MeVDG->GetYaxis()->SetTitleSize(0.10);
+     PullPlotTight2MeVDG->GetYaxis()->SetTitleOffset(0.2);
+     PullPlotTight2MeVDG->GetXaxis()->SetLabelSize(0);
+     PullPlotTight2MeVDG->GetYaxis()->SetLabelFont(42);
+     PullPlotTight2MeVDG->GetYaxis()->SetLabelSize(0.06);
+     PullPlotTight2MeVDG->SetTitle("");
+     PullPlotTight2MeVDG->SetMinimum(-5);
+     PullPlotTight2MeVDG->SetMaximum(5);
+     PullPlotTight2MeVDG->Draw("AB");
+     c1->Write("Lc Mass - Tight/2MeVDG");
+
+ex1->cd();
+   ex1->Clear();
+   Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries in First Gaussian: %f Events", GaussianTight2MeVDG->GetParameter(0)));
+   Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", GaussianTight2MeVDG->GetParError(0)));
+   Tl.DrawLatex(0.1,0.8,Form("Number of Signal Entries in Second Gaussian: %f Events", GaussianTight2MeVDG->GetParameter(3)));
+   Tl.DrawLatex(0.1,0.75,Form("Error: %f Events", GaussianTight2MeVDG->GetParError(3)));
+   Tl.DrawLatex(0.1,0.65,Form("Mean Value: %f MeV", GaussianTight2MeVDG->GetParameter(1)));
+   Tl.DrawLatex(0.1,0.6,Form("Error: %f MeV", GaussianTight2MeVDG->GetParError(1)));
+   Tl.DrawLatex(0.1,0.5,Form("Sigma of First Gaussian: %f MeV", GaussianTight2MeVDG->GetParameter(2)));
+   Tl.DrawLatex(0.1,0.45,Form("Error: %f MeV", GaussianTight2MeVDG->GetParError(2)));
+   Tl.DrawLatex(0.1,0.35,Form("Sigma of Second Gaussian: %f MeV", GaussianTight2MeVDG->GetParameter(4)));
+   Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", GaussianTight2MeVDG->GetParError(4)));
+   Tl.DrawLatex(0.1,0.2,Form("Bins Between -1 & 1 %f Bins", Tight2MeVDGcount1));
+   Tl.DrawLatex(0.1,0.15,Form("Bins Between -2 & 2 %f Bins", Tight2MeVDGcount2));
+   Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", Tight2MeVDGcount3));
+   ex1->Write("Tight Fit Values/2MeVDG");
+c1->cd();
+/////////////////////////////////////
+
+TF1 *GaussianLoose1MeVDG = new TF1("GaussianLoose1MeVDG",DGOneMuTwoTotals1MeV,2200.,2400.,7);
+GaussianLoose1MeVDG->SetParameter(0, 2000.);
+GaussianLoose1MeVDG->SetParLimits(0, 0, 25000);
+GaussianLoose1MeVDG->SetParameter(1, 2286);
+GaussianLoose1MeVDG->SetParameter(2, 5);
+GaussianLoose1MeVDG->SetParLimits(2, 0., 20.);
+GaussianLoose1MeVDG->SetParameter(3, 2000.);
+GaussianLoose1MeVDG->SetParLimits(3, 0, 25000);
+GaussianLoose1MeVDG->SetParameter(4, 5);
+GaussianLoose1MeVDG->SetParLimits(4, 0., 20.);
+GaussianLoose1MeVDG->SetParameter(5, 0.);
+GaussianLoose1MeVDG->SetParameter(6, 0.);
+
+pad1->cd();
+MassHistLoose1MeV->SetMinimum(0);
+MassHistLoose1MeV->Fit("GaussianLoose1MeVDG");
+
+int BinHeightLoose1MeVDG[150];
+int FitHeightLoose1MeVDG[150];
+double PullLoose1MeVDG[150];
+
+double Loose1MeVDGcount1 = 0;
+double Loose1MeVDGcount2 = 0;
+double Loose1MeVDGcount3 = 0;
+
+for (int bin = 0; bin < 150; bin++){
+BinHeightLoose1MeVDG[bin] = MassHistLoose1MeV->GetBinContent(bin + 1);
+Pullx1MeV[bin] = (bin + 1);
+int xvalue1MeVDG = 2210.5 + 1*(bin);
+FitHeightLoose1MeVDG[bin] = round(GaussianLoose1MeVDG->Eval(xvalue1MeVDG));
+PullLoose1MeVDG[bin] = (BinHeightLoose1MeVDG[bin] - FitHeightLoose1MeVDG[bin])/TMath::Sqrt(FitHeightLoose1MeVDG[bin]);
+
+if (PullLoose1MeVDG[bin] > -1 && PullLoose1MeVDG[bin] < 1){
+  Loose1MeVDGcount1 += 1;
+}
+
+if (PullLoose1MeVDG[bin] > -2 && PullLoose1MeVDG[bin] < 2){
+  Loose1MeVDGcount2 += 1;
+}
+
+if (PullLoose1MeVDG[bin] > -3 && PullLoose1MeVDG[bin] < 3){
+  Loose1MeVDGcount3 += 1;
+}
+}
+
+pad2->cd();
+TGraph* PullPlotLoose1MeVDG = new TGraph(150, Pullx1MeV, PullLoose1MeVDG);
+PullPlotLoose1MeVDG->GetXaxis()->SetLimits(0.5,150.5);
+PullPlotLoose1MeVDG->GetXaxis()->SetTickLength(0.);
+PullPlotLoose1MeVDG->GetYaxis()->SetTickLength(0.);
+PullPlotLoose1MeVDG->SetFillColor(38);
+PullPlotLoose1MeVDG->GetYaxis()->SetTitle("Pull");
+PullPlotLoose1MeVDG->GetYaxis()->CenterTitle();
+PullPlotLoose1MeVDG->GetYaxis()->SetTitleSize(0.10);
+PullPlotLoose1MeVDG->GetYaxis()->SetTitleOffset(0.2);
+PullPlotLoose1MeVDG->GetXaxis()->SetLabelSize(0);
+PullPlotLoose1MeVDG->GetYaxis()->SetLabelFont(42);
+PullPlotLoose1MeVDG->GetYaxis()->SetLabelSize(0.06);
+PullPlotLoose1MeVDG->SetTitle("");
+PullPlotLoose1MeVDG->SetMinimum(-5);
+PullPlotLoose1MeVDG->SetMaximum(5);
+PullPlotLoose1MeVDG->Draw("AB");
+      c1->Write("Lc Mass - Loose/1MeVDG");
+
+ex1->cd();
+    ex1->Clear();
+   Tl.SetTextAlign(12);
+   Tl.SetTextSize(0.04);
+   Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries in First Gaussian: %f Events", GaussianLoose1MeVDG->GetParameter(0)));
+   Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", GaussianLoose1MeVDG->GetParError(0)));
+   Tl.DrawLatex(0.1,0.8,Form("Number of Signal Entries in Second Gaussian: %f Events", GaussianLoose1MeVDG->GetParameter(3)));
+   Tl.DrawLatex(0.1,0.75,Form("Error: %f Events", GaussianLoose1MeVDG->GetParError(3)));
+   Tl.DrawLatex(0.1,0.65,Form("Mean Value: %f MeV", GaussianLoose1MeVDG->GetParameter(1)));
+   Tl.DrawLatex(0.1,0.6,Form("Error: %f MeV", GaussianLoose1MeVDG->GetParError(1)));
+   Tl.DrawLatex(0.1,0.5,Form("Sigma of First Gaussian: %f MeV", GaussianLoose1MeVDG->GetParameter(2)));
+   Tl.DrawLatex(0.1,0.45,Form("Error: %f MeV", GaussianLoose1MeVDG->GetParError(2)));
+   Tl.DrawLatex(0.1,0.35,Form("Sigma of Second Gaussian: %f MeV", GaussianLoose1MeVDG->GetParameter(4)));
+   Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", GaussianLoose1MeVDG->GetParError(4)));
+   Tl.DrawLatex(0.1,0.2,Form("Bins Between -1 & 1 %f Bins", Loose1MeVDGcount1));
+   Tl.DrawLatex(0.1,0.15,Form("Bins Between -2 & 2 %f Bins", Loose1MeVDGcount2));
+   Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", Loose1MeVDGcount3));
+   ex1->Write("Loose Fit Values/1MeVDG");
+c1->cd();
+//////////////////////////////////////
+
+TF1 *GaussianMid1MeVDG = new TF1("GaussianMid1MeVDG",DGOneMuTwoTotals1MeV,2200.,2400.,7);
+GaussianMid1MeVDG->SetParameter(0, 2000.);
+GaussianMid1MeVDG->SetParLimits(0, 0, 25000);
+GaussianMid1MeVDG->SetParameter(1, 2286);
+GaussianMid1MeVDG->SetParameter(2, 5);
+GaussianMid1MeVDG->SetParLimits(2, 0., 20.);
+GaussianMid1MeVDG->SetParameter(3, 2000.);
+GaussianMid1MeVDG->SetParLimits(3, 0, 25000);
+GaussianMid1MeVDG->SetParameter(4, 5);
+GaussianMid1MeVDG->SetParLimits(4, 0., 20.);
+GaussianMid1MeVDG->SetParameter(5, 0.);
+GaussianMid1MeVDG->SetParameter(6, 0.);
+
+pad1->cd();
+MassHistMid1MeV->SetMinimum(0);
+MassHistMid1MeV->Fit("GaussianMid1MeVDG");
+
+int BinHeightMid1MeVDG[150];
+int FitHeightMid1MeVDG[150];
+double PullMid1MeVDG[150];
+
+double   Mid1MeVDGcount1 = 0;
+double   Mid1MeVDGcount2 = 0;
+double   Mid1MeVDGcount3 = 0;
+
+for (int bin = 0; bin < 150; bin++){
+BinHeightMid1MeVDG[bin] = MassHistMid1MeV->GetBinContent(bin + 1);
+int xvalue1MeVDG = 2210.5 + 1*(bin);
+FitHeightMid1MeVDG[bin] = round(GaussianMid1MeVDG->Eval(xvalue1MeVDG));
+PullMid1MeVDG[bin] = (BinHeightMid1MeVDG[bin] - FitHeightMid1MeVDG[bin])/TMath::Sqrt(FitHeightMid1MeVDG[bin]);
+
+if (PullMid1MeVDG[bin] > -1 && PullMid1MeVDG[bin] < 1){
+Mid1MeVDGcount1 += 1;
+}
+
+if (PullMid1MeVDG[bin] > -2 && PullMid1MeVDG[bin] < 2){
+Mid1MeVDGcount2 += 1;
+}
+
+if (PullMid1MeVDG[bin] > -3 && PullMid1MeVDG[bin] < 3){
+Mid1MeVDGcount3 += 1;
+}
+}
+
+pad2->cd();
+TGraph* PullPlotMid1MeVDG = new TGraph(150, Pullx1MeV, PullMid1MeVDG);
+PullPlotMid1MeVDG->GetXaxis()->SetLimits(0.5,150.5);
+PullPlotMid1MeVDG->GetXaxis()->SetTickLength(0.);
+PullPlotMid1MeVDG->GetYaxis()->SetTickLength(0.);
+PullPlotMid1MeVDG->SetFillColor(38);
+PullPlotMid1MeVDG->GetYaxis()->SetTitle("Pull");
+PullPlotMid1MeVDG->GetYaxis()->CenterTitle();
+PullPlotMid1MeVDG->GetYaxis()->SetTitleSize(0.10);
+PullPlotMid1MeVDG->GetYaxis()->SetTitleOffset(0.2);
+PullPlotMid1MeVDG->GetXaxis()->SetLabelSize(0);
+PullPlotMid1MeVDG->GetYaxis()->SetLabelFont(42);
+PullPlotMid1MeVDG->GetYaxis()->SetLabelSize(0.06);
+PullPlotMid1MeVDG->SetTitle("");
+PullPlotMid1MeVDG->SetMinimum(-5);
+PullPlotMid1MeVDG->SetMaximum(5);
+PullPlotMid1MeVDG->Draw("AB");
+
+    c1->Write("Lc Mass - Mid/1MeVDG");
+
+ex1->cd();
+ ex1->Clear();
+ Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries in First Gaussian: %f Events", GaussianMid1MeVDG->GetParameter(0)));
+ Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", GaussianMid1MeVDG->GetParError(0)));
+ Tl.DrawLatex(0.1,0.8,Form("Number of Signal Entries in Second Gaussian: %f Events", GaussianMid1MeVDG->GetParameter(3)));
+ Tl.DrawLatex(0.1,0.75,Form("Error: %f Events", GaussianMid1MeVDG->GetParError(3)));
+ Tl.DrawLatex(0.1,0.65,Form("Mean Value: %f MeV", GaussianMid1MeVDG->GetParameter(1)));
+ Tl.DrawLatex(0.1,0.6,Form("Error: %f MeV", GaussianMid1MeVDG->GetParError(1)));
+ Tl.DrawLatex(0.1,0.5,Form("Sigma of First Gaussian: %f MeV", GaussianMid1MeVDG->GetParameter(2)));
+ Tl.DrawLatex(0.1,0.45,Form("Error: %f MeV", GaussianMid1MeVDG->GetParError(2)));
+ Tl.DrawLatex(0.1,0.35,Form("Sigma of Second Gaussian: %f MeV", GaussianMid1MeVDG->GetParameter(4)));
+ Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", GaussianMid1MeVDG->GetParError(4)));
+ Tl.DrawLatex(0.1,0.2,Form("Bins Between -1 & 1 %f Bins", Mid1MeVDGcount1));
+ Tl.DrawLatex(0.1,0.15,Form("Bins Between -2 & 2 %f Bins", Mid1MeVDGcount2));
+ Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", Mid1MeVDGcount3));
+ ex1->Write("Mid Fit Values/1MeVDG");
+c1->cd();
+//////////////////////////////////////
+
+TF1 *GaussianTight1MeVDG = new TF1("GaussianTight1MeVDG",DGOneMuTwoTotals1MeVs1MeV,2200.,2400.,7);
+GaussianTight1MeVDG->SetParameter(0, 2000.);
+GaussianTight1MeVDG->SetParLimits(0, 0, 25000);
+GaussianTight1MeVDG->SetParameter(1, 2286);
+GaussianTight1MeVDG->SetParameter(2, 5);
+GaussianTight1MeVDG->SetParLimits(2, 0., 20.);
+GaussianTight1MeVDG->SetParameter(3, 2000.);
+GaussianTight1MeVDG->SetParLimits(3, 0, 25000);
+GaussianTight1MeVDG->SetParameter(4, 5);
+GaussianTight1MeVDG->SetParLimits(4, 0., 20.);
+GaussianTight1MeVDG->SetParameter(5, 0.);
+GaussianTight1MeVDG->SetParameter(6, 0.);
+
+pad1->cd();
+MassHistTight1MeV->SetMinimum(0);
+MassHistTight1MeV->Fit("GaussianTight1MeVDG");
+
+int BinHeightTight1MeVDG[150];
+int FitHeightTight1MeVDG[150];
+double PullTight1MeVDG[150];
+
+double Tight1MeVDGcount1 = 0;
+double Tight1MeVDGcount2 = 0;
+double Tight1MeVDGcount3 = 0;
+
+for (int bin = 0; bin < 150; bin++){
+BinHeightTight1MeVDG[bin] = MassHistTight1MeV->GetBinContent(bin + 1);
+int xvalue1MeVDG = 2210.5 + 1*(bin);
+FitHeightTight1MeVDG[bin] = round(GaussianTight1MeVDG->Eval(xvalue1MeVDG));
+
+PullTight1MeVDG[bin] = (BinHeightTight1MeVDG[bin] - FitHeightTight1MeVDG[bin])/TMath::Sqrt(FitHeightTight1MeVDG[bin]);
+
+if (PullTight1MeVDG[bin] > -1 && PullTight1MeVDG[bin] < 1){
+Tight1MeVDGcount1 += 1;
+}
+
+if (PullTight1MeVDG[bin] > -2 && PullTight1MeVDG[bin] < 2){
+Tight1MeVDGcount2 += 1;
+}
+
+if (PullTight1MeVDG[bin] > -3 && PullTight1MeVDG[bin] < 3){
+Tight1MeVDGcount3 += 1;
+}
+}
+     pad2->cd();
+     TGraph* PullPlotTight1MeVDG = new TGraph(150, Pullx1MeV, PullTight1MeVDG);
+     PullPlotTight1MeVDG->GetXaxis()->SetLimits(0.5,150.5);
+     PullPlotTight1MeVDG->GetXaxis()->SetTickLength(0.);
+     PullPlotTight1MeVDG->GetYaxis()->SetTickLength(0.);
+     PullPlotTight1MeVDG->SetFillColor(38);
+     PullPlotTight1MeVDG->GetYaxis()->SetTitle("Pull");
+     PullPlotTight1MeVDG->GetYaxis()->CenterTitle();
+     PullPlotTight1MeVDG->GetYaxis()->SetTitleSize(0.10);
+     PullPlotTight1MeVDG->GetYaxis()->SetTitleOffset(0.2);
+     PullPlotTight1MeVDG->GetXaxis()->SetLabelSize(0);
+     PullPlotTight1MeVDG->GetYaxis()->SetLabelFont(42);
+     PullPlotTight1MeVDG->GetYaxis()->SetLabelSize(0.06);
+     PullPlotTight1MeVDG->SetTitle("");
+     PullPlotTight1MeVDG->SetMinimum(-5);
+     PullPlotTight1MeVDG->SetMaximum(5);
+     PullPlotTight1MeVDG->Draw("AB");
+     c1->Write("Lc Mass - Tight/1MeVDG");
+
+ex1->cd();
+   ex1->Clear();
+Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries in First Gaussian: %f Events", GaussianTight1MeVDG->GetParameter(0)));
+Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", GaussianTight1MeVDG->GetParError(0)));
+Tl.DrawLatex(0.1,0.8,Form("Number of Signal Entries in Second Gaussian: %f Events", GaussianTight1MeVDG->GetParameter(3)));
+Tl.DrawLatex(0.1,0.75,Form("Error: %f Events", GaussianTight1MeVDG->GetParError(3)));
+Tl.DrawLatex(0.1,0.65,Form("Mean Value: %f MeV", GaussianTight1MeVDG->GetParameter(1)));
+Tl.DrawLatex(0.1,0.6,Form("Error: %f MeV", GaussianTight1MeVDG->GetParError(1)));
+Tl.DrawLatex(0.1,0.5,Form("Sigma of First Gaussian: %f MeV", GaussianTight1MeVDG->GetParameter(2)));
+Tl.DrawLatex(0.1,0.45,Form("Error: %f MeV", GaussianTight1MeVDG->GetParError(2)));
+Tl.DrawLatex(0.1,0.35,Form("Sigma of Second Gaussian: %f MeV", GaussianTight1MeVDG->GetParameter(4)));
+Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", GaussianTight1MeVDG->GetParError(4)));
+Tl.DrawLatex(0.1,0.2,Form("Bins Between -1 & 1 %f Bins", Tight1MeVDGcount1));
+Tl.DrawLatex(0.1,0.15,Form("Bins Between -2 & 2 %f Bins", Tight1MeVDGcount2));
+Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", Tight1MeVDGcount3));
+   ex1->Write("Tight Fit Values/1MeVDG");
+c1->cd();
+/////////////////////////////
 
         File->Close();
 }
