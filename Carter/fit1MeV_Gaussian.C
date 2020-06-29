@@ -4,7 +4,7 @@
 
 #include "TMath.h"
 
-Double_t fit2MeV_Gaussian(Double_t *v, Double_t *par) {
+Double_t fit1MeV_Gaussian(Double_t *v, Double_t *par) {
 
 
     Double_t arg = 0;
