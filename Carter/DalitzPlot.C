@@ -23,7 +23,7 @@ TCanvas * c1 = nullptr;
 void DalitzPlot::Begin(TTree * /*tree*/)
 {
    TString option = GetOption();
-         DalitzPlotLc = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay", 100, 0.7, 4.2, 100, 0.25, 1.0);
+         DalitzPlotLc = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay", 100, 0.95, 2, 100, 2, 3.5);
          DalitzPlotLc->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
          DalitzPlotLc->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
          DalitzPlotLc->GetZaxis()->SetTitle("Events");
@@ -73,6 +73,7 @@ double M2_PKm  = (((E_P)+(E_Km))*((E_P)+(E_Km)) - ((P_P)+(P_Km))*((P_P)+(P_Km)))
    
  KpKmMassHist->Fill(M2_KpKm);
  PKmMassHist->Fill(M2_PKm);
+ DalitzPlotLc->Fill(M2_KpKm, M2PKm);
 
  bool Cuts = (
   (*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.9
@@ -105,6 +106,9 @@ void DalitzPlot::Terminate()
   TString deltaTotalStr;
    
 c1->cd();
+DalitzPlotLc->Draw();
+ c1->Write("Dalitz Plot");
+   
 KpKmMassHist->Draw();
  c1->Write("Kp & Km Mass"); 
    
