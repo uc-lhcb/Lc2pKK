@@ -48,7 +48,7 @@ void Run1Dalitz::Begin(TTree * /*tree*/)
     File = new TFile("DalitzRun1.root", "RECREATE");
   gFile = File;
 
-   c1 = new TCanvas("canvas", "Test Canvas")
+   c1 = new TCanvas("canvas", "Test Canvas");
 }
 
 void Run1Dalitz::SlaveBegin(TTree * /*tree*/)
