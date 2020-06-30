@@ -1,88 +1,113 @@
 #define Run1Dalitz_cxx
-// The class definition in Run1Dalitz.h has been generated automatically
-// by the ROOT utility TTree::MakeSelector(). This class is derived
-// from the ROOT class TSelector. For more information on the TSelector
-// framework see $ROOTSYS/README/README.SELECTOR or the ROOT User Manual.
-
-
-// The following methods are defined in this file:
-//    Begin():        called every time a loop on the tree starts,
-//                    a convenient place to create your histograms.
-//    SlaveBegin():   called after Begin(), when on PROOF called only on the
-//                    slave servers.
-//    Process():      called for each event, in this function you decide what
-//                    to read and fill your histograms.
-//    SlaveTerminate: called at the end of the loop on the tree, when on PROOF
-//                    called only on the slave servers.
-//    Terminate():    called at the end of the loop on the tree,
-//                    a convenient place to draw/fit your histograms.
-//
-// To use this file, try the following session on your Tree T:
-//
-// root> T->Process("Run1Dalitz.C")
-// root> T->Process("Run1Dalitz.C","some options")
-// root> T->Process("Run1Dalitz.C+")
-//
-
-
 #include "Run1Dalitz.h"
-#include <TH2.h>
+
+#include <TH1D.h>
+#include <TH2D.h>
 #include <TStyle.h>
+#include <TCanvas.h>
+#include <TFile.h>
+#include <TF1.h>
+
+#include "fitHalfMeV_Gaussian.C"
+
+TH2D * DalitzPlotLc = nullptr;
+TH1D * KpKmMassHist = nullptr;
+TH1D * PKmMassHist = nullptr;
+TH1D * PKpMassHist = nullptr;
+TH1D * MassHist = nullptr;
+
+TFile * File = nullptr;
+
+TCanvas * c1 = nullptr;
 
 void Run1Dalitz::Begin(TTree * /*tree*/)
 {
-   // The Begin() function is called at the start of the query.
-   // When running with PROOF Begin() is only called on the client.
-   // The tree argument is deprecated (on PROOF 0 is passed).
-
    TString option = GetOption();
+   
+         DalitzPlotLc = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay", 100, 0.8, 2.2, 100, 1.7, 3.7);
+         DalitzPlotLc->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
+         DalitzPlotLc->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
+         DalitzPlotLc->GetZaxis()->SetTitle("Events");
+                                          
+         KpKmMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kplus Invariant Mass Combination", 100, 0.95, 2);
+         KpKmMassHist->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");                    
+         KpKmMassHist->GetYaxis()->SetTitle("Events");
+ 
+         PKmMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kminus Invariant Mass Combination", 100, 2, 3.5);
+         PKmMassHist->GetXaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");                   
+         PKmMassHist->GetYaxis()->SetTitle("Events");
+   
+         PKpMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kplus Invariant Mass Combination", 100, 2, 3.5);
+         PKpMassHist->GetXaxis()->SetTitle("m^{2}(pK^{+})[GeV^{2}/c^{4}]");                   
+         PKpMassHist->GetYaxis()->SetTitle("Events");   
+   
+         MassHist = new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 300, 2210, 2360);
+         MassHist->GetXaxis()->SetTitle("MeV");
+         MassHist->GetYaxis()->SetTitle("Events Per 0.5 MeV");
+   
+    File = new TFile("DalitzRun1.root", "RECREATE");
+  gFile = File;
+
+   c1 = new TCanvas("canvas", "Test Canvas")
 }
 
 void Run1Dalitz::SlaveBegin(TTree * /*tree*/)
 {
-   // The SlaveBegin() function is called after the Begin() function.
-   // When running with PROOF SlaveBegin() is called on each slave server.
-   // The tree argument is deprecated (on PROOF 0 is passed).
-
    TString option = GetOption();
 
 }
 
 Bool_t Run1Dalitz::Process(Long64_t entry)
 {
-   // The Process() function is called for each entry in the tree (or possibly
-   // keyed object in the case of PROOF) to be processed. The entry argument
-   // specifies which entry in the currently loaded tree is to be processed.
-   // When processing keyed objects with PROOF, the object is already loaded
-   // and is available via the fObject pointer.
-   //
-   // This function should contain the \"body\" of the analysis. It can contain
-   // simple or elaborate selection criteria, run algorithms on the data
-   // of the event and typically fill histograms.
-   //
-   // The processing can be stopped by calling Abort().
-   //
-   // Use fStatus to set the return value of TTree::Process().
-   //
-   // The return value is currently not used.
-
+   GetEntry(entry);
    fReader.SetLocalEntry(entry);
+ 
+  double P_P  = *Lc_p_P;
+  double P_Kp = *Lc_h2_P;
+  double P_Km = *Lc_h1_P;
+ 
+  double M_P  = *Lc_p_M;
+  double M_Kp = *Lc_h2_M;
+  double M_Km = *Lc_h1_M;
+     
+  double E_P  = TMath::Sqrt(((P_P)*(P_P))+((M_P)*(M_P)));
+  double E_Kp = TMath::Sqrt(((P_Kp)*(P_Kp))+((M_Kp)*(M_Kp)));
+  double E_Km = TMath::Sqrt(((P_Km)*(P_Km))+((M_Km)*(M_Km)));
+   
+double M2_KpKm = ((((E_Kp)+(E_Km))*((E_Kp)+(E_Km))) - (((P_Kp)+(P_Km))*((P_Kp)+(P_Km))))/(1000*1000);
+double M2_PKm  = ((((E_P)+(E_Km))*((E_P)+(E_Km))) - (((P_P)+(P_Km))*((P_P)+(P_Km))))/(1000*1000);
+double M2_PKp  = ((((E_P)+(E_Kp))*((E_P)+(E_Kp))) - (((P_P)+(P_Kp))*((P_P)+(P_Kp))))/(1000*1000);
+
+ KpKmMassHist->Fill(M2_KpKm);
+ PKmMassHist->Fill(M2_PKm);
+ PKpMassHist->Fill(M2_PKp);
+ DalitzPlotLc->Fill(M2_KpKm, M2_PKm);
 
    return kTRUE;
 }
 
 void Run1Dalitz::SlaveTerminate()
 {
-   // The SlaveTerminate() function is called after all entries or objects
-   // have been processed. When running with PROOF SlaveTerminate() is called
-   // on each slave server.
-
 }
 
 void Run1Dalitz::Terminate()
 {
-   // The Terminate() function is the last function to be called during
-   // a query. It always runs on the client, it can be used to present
-   // the results graphically or save the results to file.
-
+   
+c1->cd();
+DalitzPlotLc->Draw();
+ c1->Write("Dalitz Plot");
+DalitzPlotLc->Draw("COLZ");
+ c1->Write("Dalitz Plot - COLZ");
+DalitzPlotLc->Draw("CONTZ");
+ c1->Write("Dalitz Plot - CONTZ");
+   
+KpKmMassHist->Draw();
+ c1->Write("Kp & Km Mass"); 
+   
+ PKmMassHist->Draw();
+ c1->Write("P & Km Mass");
+   
+ PKpMassHist->Draw();
+ c1->Write("P & Kp Mass");
+   
 }
