@@ -62,10 +62,10 @@ double M2_PKm  = (((E_P)+(E_Km))*((E_P)+(E_Km)) - ((P_P)+(P_Km))*((P_P)+(P_Km)))
  KpKmMassHist->Fill(M2_KpKm);
  PKmMassHist->Fill(M2_PKm);
 
- bool Cuts = {
+ bool Cuts = (
     M2_KpKm < 1.1;
  && (*Kminus_ProbNNk)*(Kplus_ProbNNk)*(Proton_ProbNNp) > 0.9;
- }
+ )
    if (Cuts){
     MassHist->Fill(*Lcplus_M);
  }
