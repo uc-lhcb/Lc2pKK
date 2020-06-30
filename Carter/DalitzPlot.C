@@ -13,6 +13,7 @@
 TH2D * DalitzPlotLc = nullptr;
 TH1D * KpKmMassHist = nullptr;
 TH1D * PKmMassHist = nullptr;
+TH1D * PKpMassHist = nullptr;
 TH1D * MassHist = nullptr;
 
 
@@ -35,6 +36,10 @@ void DalitzPlot::Begin(TTree * /*tree*/)
          PKmMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kminus Invariant Mass Combination", 100, 2, 3.5);
          PKmMassHist->GetXaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");                   
          PKmMassHist->GetYaxis()->SetTitle("Events");
+   
+         PKpMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kplus Invariant Mass Combination", 100, 2, 3.5);
+         PKpMassHist->GetXaxis()->SetTitle("m^{2}(pK^{+})[GeV^{2}/c^{4}]");                   
+         PKpMassHist->GetYaxis()->SetTitle("Events");   
    
          MassHist = new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 300, 2210, 2360);
          MassHist->GetXaxis()->SetTitle("MeV");
@@ -70,9 +75,11 @@ Bool_t DalitzPlot::Process(Long64_t entry)
    
 double M2_KpKm = ((((E_Kp)+(E_Km))*((E_Kp)+(E_Km))) - (((P_Kp)+(P_Km))*((P_Kp)+(P_Km))))/(1000*1000);
 double M2_PKm  = ((((E_P)+(E_Km))*((E_P)+(E_Km))) - (((P_P)+(P_Km))*((P_P)+(P_Km))))/(1000*1000);
+double M2_PKp  = (((E_P)+(E_Kp))*((E_P)+(E_Kp))) - (((P_P)+(P_Kp))*((P_P)+(P_Kp))))/(1000*1000);
    
  KpKmMassHist->Fill(M2_KpKm);
  PKmMassHist->Fill(M2_PKm);
+ PKpMassHist->Fill(M2_PKp);
  DalitzPlotLc->Fill(M2_KpKm, M2_PKm);
 
  bool Cuts = (
@@ -119,6 +126,9 @@ KpKmMassHist->Draw();
    
  PKmMassHist->Draw();
  c1->Write("P & Km Mass");
+   
+ PKpMassHist->Draw();
+ c1->Write("P & Kp Mass");
    
 TF1 *GaussianTightHalfMeVSG = new TF1("GaussianTightHalfMeVSG",fitHalfMeV_Gaussian,2100.,2500.,5);
 GaussianTightHalfMeVSG->SetParameter(0,400.);
