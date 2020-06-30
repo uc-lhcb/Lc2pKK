@@ -15,6 +15,11 @@ TH1D * KpKmMassHist = nullptr;
 TH1D * PKmMassHist = nullptr;
 TH1D * MassHist = nullptr;
 
+
+TFile * File = nullptr;
+
+TCanvas * c1 = nullptr;
+
 void DalitzPlot::Begin(TTree * /*tree*/)
 {
    TString option = GetOption();
@@ -34,6 +39,11 @@ void DalitzPlot::Begin(TTree * /*tree*/)
          MassHist = new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 300, 2210, 2360);
          MassHist->GetXaxis()->SetTitle("MeV");
          MassHist->GetYaxis()->SetTitle("Events Per 0.5 MeV");
+   
+    File = new TFile("DalitzAnalysis.root", "RECREATE");
+  gFile = File;
+
+   c1 = new TCanvas("canvas", "Test Canvas");
 }
 
 void DalitzPlot::SlaveBegin(TTree * /*tree*/)
@@ -65,8 +75,6 @@ double M2_PKm  = (((E_P)+(E_Km))*((E_P)+(E_Km)) - ((P_P)+(P_Km))*((P_P)+(P_Km)))
  PKmMassHist->Fill(M2_PKm);
 
  bool Cuts = (
-    M2_KpKm < 1.2
- && M2_KpKm < 1
  && (*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.9
  );
    
@@ -96,6 +104,13 @@ void DalitzPlot::Terminate()
   TString totalStr;
   TString deltaTotalStr;
    
+c1->cd()
+KpKmMassHist->Draw();
+ c1->Write("Kp & Km Mass"); 
+   
+ PKmMassHist->Draw();
+ c1->Write("P & Km Mass");
+   
 TF1 *GaussianTightHalfMeVSG = new TF1("GaussianTightHalfMeVSG",fitHalfMeV_Gaussian,2100.,2500.,5);
 GaussianTightHalfMeVSG->SetParameter(0,400.);
 GaussianTightHalfMeVSG->SetParameter(1,2286);
@@ -103,7 +118,8 @@ GaussianTightHalfMeVSG->SetParameter(2, 6);
 GaussianTightHalfMeVSG->SetParLimits(2, 0.,20.);
 GaussianTightHalfMeVSG->SetParameter(3, 0.);
 GaussianTightHalfMeVSG->SetParameter(4, 0.);
-   
+
 MassHist->SetMinimum(0);
 MassHist->Fit("GaussianTightHalfMeVSG");
+c1->Write("Lc Mass");
 }
