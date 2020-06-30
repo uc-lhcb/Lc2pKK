@@ -20,11 +20,11 @@ void DalitzPlot::Begin(TTree * /*tree*/)
          DalitzPlotLc->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
          DalitzPlotLc->GetZaxis()->SetTitle("Events");
                                           
-         KpKmMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Pplus Invariant Mass Combination", 100, 0.95, 2);
+         KpKmMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kplus Invariant Mass Combination", 100, 0.95, 2);
          KpKmMassHist->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");                    
          KpKmMassHist->GetYaxis()->SetTitle("Events");
  
-         PKmMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Pplus Invariant Mass Combination", 100, 2, 3.5);
+         PKmMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kminus Invariant Mass Combination", 100, 2, 3.5);
          PKmMassHist->GetXaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");                   
          PKmMassHist->GetYaxis()->SetTitle("Events");
 }
