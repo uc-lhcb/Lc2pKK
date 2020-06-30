@@ -11,7 +11,7 @@
 TH2D * DalitzPlotLc = nullptr;
 TH1D * KpKmMassHist = nullptr;
 TH1D * PKmMassHist = nullptr;
-Th1D * MassHist = nullptr;
+TH1D * MassHist = nullptr;
 
 void DalitzPlot::Begin(TTree * /*tree*/)
 {
