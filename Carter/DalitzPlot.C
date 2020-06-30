@@ -9,14 +9,24 @@
 #include <TF1.h>
 
 TH2D * DalitzPlot = nullptr;
+TH1D * KpKmMassHist = nullptr;
+TH1D * PKmMassHist = nullptr;
 
 void DalitzPlot::Begin(TTree * /*tree*/)
 {
    TString option = GetOption();
-         DalitzPlot = new TH2D("Figures of Merit", "Color Plot of LambdaC Mass - One Dimensional Projections", 50, 0.7, 4.2, 50, 0.25, 1.0);
-         DalitzPlot->GetXaxis()->SetTitle(""m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
+         DalitzPlot = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay", 100, 0.7, 4.2, 100, 0.25, 1.0);
+         DalitzPlot->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
          DalitzPlot->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
          DalitzPlot->GetZaxis()->SetTitle(Entries);
+                                          
+         KpKmMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Pplus Invariant Mass Combination", 100, 1, 2);
+         KpKmMassHist->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");                    
+         KpKmMassHist->GetYaxis()->SetTitle("Events");
+ 
+         PKmMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Pplus Invariant Mass Combination", 100, 1.5, 3);
+         PKmMassHist->GetXaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");                   
+         PKmMassHist->GetYaxis()->SetTitle("Events");
 }
 
 void DalitzPlot::SlaveBegin(TTree * /*tree*/)
@@ -26,39 +36,34 @@ void DalitzPlot::SlaveBegin(TTree * /*tree*/)
 
 Bool_t DalitzPlot::Process(Long64_t entry)
 {
-   // The Process() function is called for each entry in the tree (or possibly
-   // keyed object in the case of PROOF) to be processed. The entry argument
-   // specifies which entry in the currently loaded tree is to be processed.
-   // When processing keyed objects with PROOF, the object is already loaded
-   // and is available via the fObject pointer.
-   //
-   // This function should contain the \"body\" of the analysis. It can contain
-   // simple or elaborate selection criteria, run algorithms on the data
-   // of the event and typically fill histograms.
-   //
-   // The processing can be stopped by calling Abort().
-   //
-   // Use fStatus to set the return value of TTree::Process().
-   //
-   // The return value is currently not used.
-
+   GetEntry(entry);
    fReader.SetLocalEntry(entry);
-
+ 
+  double P_P  = *Proton_P;
+  double P_Kp = *Kplus_P;
+  double P_Km = *Kminus_P;
+ 
+  double M_P  = *Proton_M;
+  double M_Kp = *Kplus_M;
+  double M_Km = *Kminus_M;
+     
+  double E_P  = TMATH::Sqrt((P_P)*(P_P)+(P_M)*(P_M));
+  double E_Kp = TMATH::Sqrt((Kp_P)*(Kp_P)+(Kp_M)*(Kp_M));
+  double E_Km = TMATH::Sqrt((Km_P)*(Km_P)+(Km_M)*(Km_M));
+   
+double M2_KpKm = (((E_Kp)+(E_Km))*((E_Kp)+(E_Km)) - ((Kp_P)+(Km_P))*((Kp_P)+(Km_P)))/(1000*1000);
+double M2_PKm  = (((E_P)+(E_Km))*((E_P)+(E_Km)) - ((P_P)+(Km_P))*((P_P)+(Km_P)))/(1000*1000);
+   
+ KpKmMassHist->Fill(M2_KpKm);
+   
    return kTRUE;
 }
 
 void DalitzPlot::SlaveTerminate()
 {
-   // The SlaveTerminate() function is called after all entries or objects
-   // have been processed. When running with PROOF SlaveTerminate() is called
-   // on each slave server.
-
 }
 
 void DalitzPlot::Terminate()
 {
-   // The Terminate() function is the last function to be called during
-   // a query. It always runs on the client, it can be used to present
-   // the results graphically or save the results to file.
-
+KpKmMassHist->Draw();
 }
