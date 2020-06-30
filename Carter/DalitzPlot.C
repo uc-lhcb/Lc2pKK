@@ -8,6 +8,8 @@
 #include <TFile.h>
 #include <TF1.h>
 
+#include "fitHalfMeV_Gaussian.C"
+
 TH2D * DalitzPlotLc = nullptr;
 TH1D * KpKmMassHist = nullptr;
 TH1D * PKmMassHist = nullptr;
@@ -80,5 +82,28 @@ void DalitzPlot::SlaveTerminate()
 
 void DalitzPlot::Terminate()
 {
-MassHist->Draw();
+  Double_t sigma;
+  Double_t deltaSigma;
+  Double_t mu;
+  Double_t deltaMu;
+  Double_t total;
+  Double_t deltaTotal;
+  TString sigmaStr;
+  TString deltaSigmaStr;
+  TString muStr;
+  TString deltaMuStr;
+  TString totalStr;
+  TString deltaTotalStr;
+   
+TF1 *GaussianTightHalfMeVSG = new TF1("GaussianTightHalfMeVSG",fitHalfMeV_Gaussian,2100.,2500.,5);
+GaussianTightHalfMeVSG->SetParameter(0,400.);
+GaussianTightHalfMeVSG->SetParameter(1,2286);
+GaussianTightHalfMeVSG->SetParameter(2, 6);
+GaussianTightHalfMeVSG->SetParLimits(2, 0.,20.);
+GaussianTightHalfMeVSG->SetParameter(3, 0.);
+GaussianTightHalfMeVSG->SetParameter(4, 0.);
+
+pad1->cd();
+MassHist->SetMinimum(0);
+MassHist->Fit("GaussianTightHalfMeVSG");
 }
