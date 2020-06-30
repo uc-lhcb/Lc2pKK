@@ -20,7 +20,7 @@ void DalitzPlot::Begin(TTree * /*tree*/)
          DalitzPlotLc->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
          DalitzPlotLc->GetZaxis()->SetTitle("Events");
                                           
-         KpKmMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Pplus Invariant Mass Combination", 100, 0.9, 2);
+         KpKmMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Pplus Invariant Mass Combination", 100, 0.95, 2);
          KpKmMassHist->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");                    
          KpKmMassHist->GetYaxis()->SetTitle("Events");
  
@@ -55,6 +55,7 @@ double M2_KpKm = (((E_Kp)+(E_Km))*((E_Kp)+(E_Km)) - ((P_Kp)+(P_Km))*((P_Kp)+(P_K
 double M2_PKm  = (((E_P)+(E_Km))*((E_P)+(E_Km)) - ((P_P)+(P_Km))*((P_P)+(P_Km)))/(1000*1000);
    
  KpKmMassHist->Fill(M2_KpKm);
+ PKmMassHist->Fill(M2_PKm);
    
    return kTRUE;
 }
@@ -65,5 +66,5 @@ void DalitzPlot::SlaveTerminate()
 
 void DalitzPlot::Terminate()
 {
-KpKmMassHist->Draw();
+PKmMassHist->Draw();
 }
