@@ -84,7 +84,7 @@ double M2_PKp  = ((((E_P)+(E_Kp))*((E_P)+(E_Kp))) - (((P_P)+(P_Kp))*((P_P)+(P_Kp
 
  bool Cuts = (
    M2_KpKm < 1.1
-&& M2_pKm < 2.1
+&& M2_PKm < 2.1
 && M2_PKp < 2.1
  );
    
