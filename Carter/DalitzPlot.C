@@ -64,9 +64,9 @@ Bool_t DalitzPlot::Process(Long64_t entry)
   double M_Kp = *Kplus_M;
   double M_Km = *Kminus_M;
      
-  double E_P  = TMath::Sqrt((P_P)*(P_P)+(M_P)*(M_P));
-  double E_Kp = TMath::Sqrt((P_Kp)*(P_Kp)+(M_Kp)*(M_Kp));
-  double E_Km = TMath::Sqrt((P_Km)*(P_Km)+(M_Km)*(M_Km));
+  double E_P  = TMath::Sqrt(((P_P)*(P_P))+((M_P)*(M_P)));
+  double E_Kp = TMath::Sqrt(((P_Kp)*(P_Kp))+((M_Kp)*(M_Kp)));
+  double E_Km = TMath::Sqrt(((P_Km)*(P_Km))+((M_Km)*(M_Km)));
    
 double M2_KpKm = (((E_Kp)+(E_Km))*((E_Kp)+(E_Km)) - ((P_Kp)+(P_Km))*((P_Kp)+(P_Km)))/(1000*1000);
 double M2_PKm  = (((E_P)+(E_Km))*((E_P)+(E_Km)) - ((P_P)+(P_Km))*((P_P)+(P_Km)))/(1000*1000);
