@@ -66,7 +66,7 @@ double M2_PKm  = (((E_P)+(E_Km))*((E_P)+(E_Km)) - ((P_P)+(P_Km))*((P_P)+(P_Km)))
 
  bool Cuts = (
     M2_KpKm < 1.2
- && M2_KpKM < 1
+ && M2_KpKm < 1
  && (*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.9
  );
    
