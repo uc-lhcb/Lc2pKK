@@ -63,7 +63,7 @@ double M2_PKm  = (((E_P)+(E_Km))*((E_P)+(E_Km)) - ((P_P)+(P_Km))*((P_P)+(P_Km)))
  PKmMassHist->Fill(M2_PKm);
 
    if (M2_KpKm < 1.2){
-    MassHist->Fill(*Lc_M);
+    MassHist->Fill(*Lcplus_M);
  }
    
    return kTRUE;
