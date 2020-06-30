@@ -11,6 +11,7 @@
 TH2D * DalitzPlotLc = nullptr;
 TH1D * KpKmMassHist = nullptr;
 TH1D * PKmMassHist = nullptr;
+Th1D * MassHist = nullptr;
 
 void DalitzPlot::Begin(TTree * /*tree*/)
 {
@@ -27,6 +28,10 @@ void DalitzPlot::Begin(TTree * /*tree*/)
          PKmMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kminus Invariant Mass Combination", 100, 2, 3.5);
          PKmMassHist->GetXaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");                   
          PKmMassHist->GetYaxis()->SetTitle("Events");
+   
+         MassHist = new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 300, 2210, 2360);
+         MassHist->GetXaxis()->SetTitle("MeV");
+         MassHist->GetYaxis()->SetTitle("Events Per 0.5 MeV");
 }
 
 void DalitzPlot::SlaveBegin(TTree * /*tree*/)
@@ -56,6 +61,10 @@ double M2_PKm  = (((E_P)+(E_Km))*((E_P)+(E_Km)) - ((P_P)+(P_Km))*((P_P)+(P_Km)))
    
  KpKmMassHist->Fill(M2_KpKm);
  PKmMassHist->Fill(M2_PKm);
+
+   if (M2_KpKm < 1.2){
+    MassHist->Fill(*Lc_M);
+ }
    
    return kTRUE;
 }
@@ -66,5 +75,5 @@ void DalitzPlot::SlaveTerminate()
 
 void DalitzPlot::Terminate()
 {
-PKmMassHist->Draw();
+MassHist->Draw();
 }
