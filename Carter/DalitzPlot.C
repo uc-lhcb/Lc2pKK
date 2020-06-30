@@ -76,7 +76,8 @@ double M2_PKm  = ((((E_P)+(E_Km))*((E_P)+(E_Km))) - (((P_P)+(P_Km))*((P_P)+(P_Km
  DalitzPlotLc->Fill(M2_KpKm, M2_PKm);
 
  bool Cuts = (
-  (*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.9
+   M2_KpKm < 1.1
+&& M2_PKm < 2.1
  );
    
    if (Cuts){
