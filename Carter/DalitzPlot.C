@@ -102,8 +102,7 @@ GaussianTightHalfMeVSG->SetParameter(2, 6);
 GaussianTightHalfMeVSG->SetParLimits(2, 0.,20.);
 GaussianTightHalfMeVSG->SetParameter(3, 0.);
 GaussianTightHalfMeVSG->SetParameter(4, 0.);
-
-pad1->cd();
+   
 MassHist->SetMinimum(0);
 MassHist->Fit("GaussianTightHalfMeVSG");
 }
