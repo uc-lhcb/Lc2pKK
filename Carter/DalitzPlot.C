@@ -8,17 +8,17 @@
 #include <TFile.h>
 #include <TF1.h>
 
-TH2D * DalitzPlot = nullptr;
+TH2D * DalitzPlotLc = nullptr;
 TH1D * KpKmMassHist = nullptr;
 TH1D * PKmMassHist = nullptr;
 
 void DalitzPlot::Begin(TTree * /*tree*/)
 {
    TString option = GetOption();
-         DalitzPlot = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay", 100, 0.7, 4.2, 100, 0.25, 1.0);
-         DalitzPlot->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
-         DalitzPlot->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
-         DalitzPlot->GetZaxis()->SetTitle("Events");
+         DalitzPlotLc = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay", 100, 0.7, 4.2, 100, 0.25, 1.0);
+         DalitzPlotLc->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
+         DalitzPlotLc->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
+         DalitzPlotLc->GetZaxis()->SetTitle("Events");
                                           
          KpKmMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Pplus Invariant Mass Combination", 100, 1, 2);
          KpKmMassHist->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");                    
