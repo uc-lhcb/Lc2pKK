@@ -64,6 +64,7 @@ double M2_PKm  = (((E_P)+(E_Km))*((E_P)+(E_Km)) - ((P_P)+(P_Km))*((P_P)+(P_Km)))
 
    if (M2_KpKm < 1.1){
     MassHist->Fill(*Lcplus_M);
+&& (*Kminus_ProbNNk)*(Kplus_ProbNNk)*(Proton_ProbNNp) > 0.9;
  }
    
    return kTRUE;
