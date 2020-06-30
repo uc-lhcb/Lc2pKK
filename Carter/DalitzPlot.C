@@ -75,7 +75,7 @@ double M2_PKm  = (((E_P)+(E_Km))*((E_P)+(E_Km)) - ((P_P)+(P_Km))*((P_P)+(P_Km)))
  PKmMassHist->Fill(M2_PKm);
 
  bool Cuts = (
- && (*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.9
+  (*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.9
  );
    
    if (Cuts){
@@ -104,7 +104,7 @@ void DalitzPlot::Terminate()
   TString totalStr;
   TString deltaTotalStr;
    
-c1->cd()
+c1->cd();
 KpKmMassHist->Draw();
  c1->Write("Kp & Km Mass"); 
    
