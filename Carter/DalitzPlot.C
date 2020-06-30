@@ -80,12 +80,11 @@ double M2_PKp  = ((((E_P)+(E_Kp))*((E_P)+(E_Kp))) - (((P_P)+(P_Kp))*((P_P)+(P_Kp
  KpKmMassHist->Fill(M2_KpKm);
  PKmMassHist->Fill(M2_PKm);
  PKpMassHist->Fill(M2_PKp);
- DalitzPlotLc->Fill(M2_KpKm, M2_PKp);
+ DalitzPlotLc->Fill(M2_KpKm, M2_PKm);
 
  bool Cuts = (
-   M2_KpKm < 1.1
-&& M2_PKm < 2.1
-&& M2_PKp < 2.1
+   M2_PKp > 2.235
+&& M2_PKp < 2.255
  );
    
    if (Cuts){
