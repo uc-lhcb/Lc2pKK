@@ -122,4 +122,5 @@ GaussianTightHalfMeVSG->SetParameter(4, 0.);
 MassHist->SetMinimum(0);
 MassHist->Fit("GaussianTightHalfMeVSG");
 c1->Write("Lc Mass");
+File->Close();
 }
