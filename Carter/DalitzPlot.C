@@ -106,7 +106,7 @@ void DalitzPlot::Terminate()
   TString deltaTotalStr;
    
 c1->cd();
-DalitzPlotLc->Draw();
+DalitzPlotLc->Draw("COLZ");
  c1->Write("Dalitz Plot");
    
 KpKmMassHist->Draw();
