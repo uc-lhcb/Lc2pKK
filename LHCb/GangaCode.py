@@ -57,8 +57,8 @@ if len(dataset) == 0:
     exit()
 
 
-j = Job(name='Lc2pKK_{0}_{1}_{2}'.format(
-    year, polarity, turbo
+j = Job(name='Lc2pKK_{0}_{1}'.format(
+    year, polarity
 ))
 j.comment = title
 myApp = GaudiExec()
@@ -72,14 +72,19 @@ if args.test:
     j.backend = Local()
     # Prepend test string to job name
     j.name = 'TEST_{0}'.format(j.name)
-    j.outputfiles = [LocalFile('Lcntuple.root')]
+    j.outputfiles = [LocalFile('Lc2pKK_{0}_{1}.root'.format(
+    year, polarity
+))]
 else:
     j.inputdata = dataset[:5]
     j.backend = Dirac()
     j.do_auto_resubmit = True
     j.splitter = SplitByFiles(filesPerJob=1)
     j.postprocessors = [Notifier(address='carter.eikenbary@cern.ch')]
-    j.outputfiles = [DiracFile('Lcntuple.root')]
+    j.outputfiles = [DiracFile'Lc2pKK_{0}_{1}.root'.format(
+    year, polarity
+)]
+    j.postprocessors.append(RootMerger(files = ['Lc2pKK_{0}_{1}.root'.format(year, polarity),ignoredfailed = True, overwrite = True))
 
     # j.submit()
 
