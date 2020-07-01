@@ -6,7 +6,7 @@ VALID_YEARS = [2017, 2018]
 
 BEAM_ENERGY = 6500
 
-Turbo_VERSIONS = 'Turbo0{0}
+Turbo_VERSIONS = 'Turbo0{0}'
 turbo = Turbo_VERSION.format('4' if year == 2017 else '5')
 
 stream = 'CHARMCHARGED.MDST'
