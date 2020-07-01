@@ -53,8 +53,8 @@ tttt.Verbose = True #To decisions from all trigger stages
 tttt.TriggerList = triggerList
 
 basic_loki_vars = {
-"PHI": "PHI",
-"ETA": "ETA"
+"PHI" : "PHI",
+"ETA" : "ETA"
 }
 
 dtt.addTupleTool(
@@ -76,10 +76,10 @@ Km_hybrid = dtt.Kminus.addTupleTool('LoKi::Hybrid::TupleTool/LoKi_Km')
 Kp_hybrid = dtt.Kplus.addTupleTool('LoKi::Hybrid::TupleTool/LoKi_Kp')
 
 Lc_hybrid.Variables = {
-        "Loki_DOCAMAX": "DOCAMAX",
-        "Loki_DOCACHI2MAX": "DOCACHI2MAX",
-        "Loki_SUMPT": "SUMTREE(PT,  ISBASIC)",
-        "Loki_BPVLTIME": "BPVLTIME()",
+        "Loki_DOCAMAX"        : "DOCAMAX",
+        "Loki_DOCACHI2MAX"    : "DOCACHI2MAX",
+        "Loki_SUMPT"          : "SUMTREE(PT,  ISBASIC)",
+        "Loki_BPVLTIME"       : "BPVLTIME()",
         "Loki_BPVX"           : "BPV(VX)",
         "Loki_BPVY"           : "BPV(VY)",
         "Loki_BPVZ"           : "BPV(VZ)",
