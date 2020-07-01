@@ -85,7 +85,7 @@ else:
     j.splitter = SplitByFiles(filesPerJob=1)
     j.postprocessors = [Notifier(address='carter.eikenbary@cern.ch')]
     j.outputfiles = [DiracFile(outputfile)]
-    j.postprocessors.append(RootMerger(files = [outputfile, ignoredfailed = True, overwrite = True))
+    j.postprocessors.append(RootMerger(files = [outputfile, ignorefailed = True, overwrite = True))
 
     # j.submit()
 
