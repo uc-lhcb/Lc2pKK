@@ -63,7 +63,7 @@ j = Job(name='Lc2pKK_{0}_{1}'.format(
 
 outputfile='Lc2pKK_{0}_{1}.root'.format(
     year, polarity
-))
+)
 
 j.comment = title
 myApp = GaudiExec()
