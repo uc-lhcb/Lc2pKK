@@ -74,10 +74,10 @@ if args.test:
     j.name = 'TEST_{0}'.format(j.name)
     j.outputfiles = [LocalFile('Lcntuple.root')]
 else:
-    j.inputdata = dataset
+    j.inputdata = dataset[:5]
     j.backend = Dirac()
     j.do_auto_resubmit = True
-    j.splitter = SplitByFiles(filesPerJob=20)
+    j.splitter = SplitByFiles(filesPerJob=1)
     j.postprocessors = [Notifier(address=carter.eikenbary@cern.ch)]
     j.outputfiles = [DiracFile('Lcntuple.root')]
 
