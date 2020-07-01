@@ -6,26 +6,25 @@ VALID_YEARS = [2017, 2018]
 
 BEAM_ENERGY = 6500
 
-Turbo_VERSIONS = 'Turbo0{0}'
-turbo = Turbo_VERSION.format('4' if year == 2017 else '5')
-
 stream = 'CHARMCHARGED.MDST'
 
 parser = argparse.ArgumentParser(description="Make my DaVinci job.")
 parser.add_argument('year', type=int, choices=[2017, 2018],
                     help='Year of data-taking to run over')
-parser.add_argument('polarity', choices=['Up', 'Down'],
+parser.add_argument('polarity', choices=['MagUp', 'MagDown'],
                     help='Polarity of data-taking to run over')
 parser.add_argument('--test', action='store_true',
                     help='Run over one file locally')
 
-return parser.parse_args()
-args = create_parser()
+args = parser.parse_args()
 year = args.year
 polarity = args.polarity
 test = args.test
-  
-  def bookkeeping_path(polarity, year, turbo):
+
+Turbo_VERSION = 'Turbo0{0}'
+turbo = Turbo_VERSION.format('4' if year == 2017 else '5')
+
+def bookkeeping_path(polarity, year, turbo):
     """Return the bookkeeping path for the given parameters."""
     bkq_path = (
         '/LHCb/Collision{year}'
