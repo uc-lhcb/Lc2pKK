@@ -1,2 +1,3 @@
 # Lc2pKK
-Code used for mass analysis of Lc->pKK decay
+'Carter' Directory - C++ Files created by Carter Eikenbary for data analysis
+'LHCb' Direcotry - Python Scripts used to create Lc->pKK ntuples
