@@ -78,7 +78,7 @@ else:
     j.backend = Dirac()
     j.do_auto_resubmit = True
     j.splitter = SplitByFiles(filesPerJob=1)
-    j.postprocessors = [Notifier(address=carter.eikenbary@cern.ch)]
+    j.postprocessors = [Notifier(address='carter.eikenbary@cern.ch')]
     j.outputfiles = [DiracFile('Lcntuple.root')]
 
     # j.submit()
