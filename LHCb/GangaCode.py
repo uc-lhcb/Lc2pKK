@@ -1,3 +1,4 @@
+#Run With, For Example, 'ganga -i GangaCode.py 2017 MagDown --test'
 
 import argparse
 
