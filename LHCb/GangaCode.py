@@ -57,7 +57,10 @@ if len(dataset) == 0:
     exit()
 
 
-j = Job(name='Lc2pKK')
+j = Job(name='Lc2pKK_{0}_{1}_{2}'.format(
+    year, polarity, turbo
+))
+j.comment = title
 myApp = GaudiExec()
 myApp.directory = "./DaVinciDev_v45r1"
 j.application = myApp
