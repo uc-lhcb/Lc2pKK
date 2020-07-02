@@ -1159,9 +1159,9 @@ ex1->cd();
    Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", GaussianLooseHalfMeVDG2Mu->GetParError(3)));
    Tl.DrawLatex(0.1,0.2,Form("Sigma of Second Gaussian: %f MeV", GaussianLooseHalfMeVDG2Mu->GetParameter(5)));
    Tl.DrawLatex(0.1,0.15,Form("Error: %f MeV", GaussianLooseHalfMeVDG2Mu->GetParError(5)));
-   Tl.DrawLatex(0.1,0.1,Form("Bins Between -1 & 1 %f Bins", LooseMeVDG2Mucount1));
-   Tl.DrawLatex(0.1,0.06,Form("Bins Between -2 & 2 %f Bins", LooseMeVDG2Mucount2));
-   Tl.DrawLatex(0.1,0.02,Form("Bins Between -3 & 3 %f Bins", LooseMeVDG2Mucount3));
+   Tl.DrawLatex(0.1,0.1,Form("Bins Between -1 & 1 %f Bins", LooseHalfMeVDG2Mucount1));
+   Tl.DrawLatex(0.1,0.06,Form("Bins Between -2 & 2 %f Bins", LooseHalfMeVDG2Mucount2));
+   Tl.DrawLatex(0.1,0.02,Form("Bins Between -3 & 3 %f Bins", LooseHalfMeVDG2Mucount3));
    ex1->Write("Loose Fit Values/HalfMeVDG2Mu");
 c1->cd();
 /////////////////////////////
@@ -1244,9 +1244,9 @@ ex1->cd();
  Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", GaussianMidHalfMeVDG2Mu->GetParError(3)));
  Tl.DrawLatex(0.1,0.2,Form("Sigma of Second Gaussian: %f MeV", GaussianMidHalfMeVDG2Mu->GetParameter(5)));
  Tl.DrawLatex(0.1,0.15,Form("Error: %f MeV", GaussianMidHalfMeVDG2Mu->GetParError(5)));
- Tl.DrawLatex(0.1,0.1,Form("Bins Between -1 & 1 %f Bins", MidMeVDG2Mucount1));
- Tl.DrawLatex(0.1,0.06,Form("Bins Between -2 & 2 %f Bins", MidMeVDG2Mucount2));
- Tl.DrawLatex(0.1,0.02,Form("Bins Between -3 & 3 %f Bins", MidMeVDG2Mucount3));
+ Tl.DrawLatex(0.1,0.1,Form("Bins Between -1 & 1 %f Bins", MidHalfMeVDG2Mucount1));
+ Tl.DrawLatex(0.1,0.06,Form("Bins Between -2 & 2 %f Bins", MidHalfMeVDG2Mucount2));
+ Tl.DrawLatex(0.1,0.02,Form("Bins Between -3 & 3 %f Bins", MidHalfMeVDG2Mucount3));
  ex1->Write("Mid Fit Values/HalfMeVDG2Mu");
 c1->cd();
 //////////////////////////////////////
@@ -1328,9 +1328,9 @@ ex1->cd();
    Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", GaussianTightHalfMeVDG2Mu->GetParError(3)));
    Tl.DrawLatex(0.1,0.2,Form("Sigma of Second Gaussian: %f MeV", GaussianTightHalfMeVDG2Mu->GetParameter(5)));
    Tl.DrawLatex(0.1,0.15,Form("Error: %f MeV", GaussianTightHalfMeVDG2Mu->GetParError(5)));
-   Tl.DrawLatex(0.1,0.1,Form("Bins Between -1 & 1 %f Bins", TightMeVDG2Mucount1));
-   Tl.DrawLatex(0.1,0.06,Form("Bins Between -2 & 2 %f Bins", TightMeVDG2Mucount2));
-   Tl.DrawLatex(0.1,0.02,Form("Bins Between -3 & 3 %f Bins", TightMeVDG2Mucount3));
+   Tl.DrawLatex(0.1,0.1,Form("Bins Between -1 & 1 %f Bins", TightHalfMeVDG2Mucount1));
+   Tl.DrawLatex(0.1,0.06,Form("Bins Between -2 & 2 %f Bins", TightHalfMeVDG2Mucount2));
+   Tl.DrawLatex(0.1,0.02,Form("Bins Between -3 & 3 %f Bins", TightHalfMeVDG2Mucount3));
    ex1->Write("Tight Fit Values/HalfMeVDG2Mu");
 c1->cd();
 /////////////////////////////////////
