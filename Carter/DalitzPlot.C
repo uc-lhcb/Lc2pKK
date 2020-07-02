@@ -32,7 +32,7 @@ void DalitzPlot::Begin(TTree * /*tree*/)
          DalitzPlotLc->GetZaxis()->SetTitle("Events");
          
          //Plot of M^2 Variable for K+ and K- Combination
-         KpKmMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kplus Invariant Mass Combination", 100, 0.95, 2);
+         KpKmMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination", 100, 0.95, 2);
          KpKmMassHist->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");                    
          KpKmMassHist->GetYaxis()->SetTitle("Events");
  
