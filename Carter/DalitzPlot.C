@@ -103,8 +103,8 @@ bool Cut = (
    );
    
 bool SignalRegion = (
-    (Lcplus_M > 2275)  
- && (Lcplus_M < 2300)  
+    (Lcplus_M > 2275.)  
+ && (Lcplus_M < 2300.)  
    );
    
  if (Cut){
