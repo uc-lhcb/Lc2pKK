@@ -98,16 +98,26 @@ double M2_KpKm = ((((E_Kp)+(E_Km))*((E_Kp)+(E_Km))) - (((P_Kp)+(P_Km))*((P_Kp)+(
 double M2_PKm  = ((((E_P)+(E_Km))*((E_P)+(E_Km))) - (((P_P)+(P_Km))*((P_P)+(P_Km))))/(1000*1000);
 double M2_PKp  = ((((E_P)+(E_Kp))*((E_P)+(E_Kp))) - (((P_P)+(P_Kp))*((P_P)+(P_Kp))))/(1000*1000);
 
- if ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.6){
+bool Cut = (
+   (*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.6
+   );
+   
+bool SignalRegion = (
+    Lcplus_M > 2275  
+ && Lcplus_M < 2300  
+   );
+   
+ if (Cut){
     MassHist->Fill(*Lcplus_M);
-    BSubHist->Fill(*Lcplus_M);
  }  
        
-//Filling Histogram
+if (Cut & SignalRegion){
+ BSubHist->Fill(*Lcplus_M);
  KpKmMassHist->Fill(M2_KpKm);
  PKmMassHist->Fill(M2_PKm);
  PKpMassHist->Fill(M2_PKp);
  DalitzPlotLc->Fill(M2_KpKm, M2_PKm);
+}
    
    return kTRUE;
 }
