@@ -14,8 +14,8 @@
 #include "fitHalfMeV_Gaussian.C"
 #include "DGOneMuOneTotal1MeV.C"
 #include "DGOneMuOneTotalHalfMeV.C"
-#include "DGTwoMuOneTotals1MeV.C"
-#include "DGTwoMuOneTotalsHalfMeV.C"
+#include "DGTwoMuOneTotal1MeV.C"
+#include "DGTwoMuOneTotalHalfMeV.C"
 
 TH1D * MassHistLooseHalfMeV = nullptr;
 TH1D * MassHistMidHalfMeV = nullptr;
