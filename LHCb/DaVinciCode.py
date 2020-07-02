@@ -68,6 +68,11 @@ dtt.addBranches({
         'Kplus' : '([Lambda_c+ -> p+ K- ^K+]CC)'
 })
 
+dtt.Lcplus.addTupleTool('TupleToolDecayTreeFitter/ConsLc')
+dtt.Lcplus.ConsLc.constrainToOriginVertex = True
+dtt.Lcplus.ConsLc.Verbose = True
+dtt.Lcplus.ConsLc.daughtersToConstrain = ['p+','K-','K+']
+
 dtt.Lcplus.addTupleTool('TupleToolPropertime')
 
 Lc_hybrid = dtt.Lcplus.addTupleTool('LoKi::Hybrid::TupleTool/LoKi_Lc')
