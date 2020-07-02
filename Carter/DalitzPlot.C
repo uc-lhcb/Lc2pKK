@@ -9,15 +9,11 @@
 #include <TFile.h>
 #include <TF1.h>
 
-//Fit Function
-#include "fitHalfMeV_Gaussian.C"
-
 //Histogram Creation
 TH2D * DalitzPlotLc = nullptr;
 TH1D * KpKmMassHist = nullptr;
 TH1D * PKmMassHist = nullptr;
 TH1D * PKpMassHist = nullptr;
-TH1D * MassHist = nullptr;
 
 //ROOT File Creation
 TFile * File = nullptr;
