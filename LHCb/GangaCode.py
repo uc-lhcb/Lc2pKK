@@ -76,6 +76,7 @@ if args.test:
     j.inputdata = dataset[:5]
     j.backend = Dirac()
     j.name = 'TEST_{0}'.format(j.name)
+    j.splitter = SplitByFiles(filesPerJob=1)
     j.outputfiles = [LocalFile(outputfile)]
 else:
     j.inputdata = dataset
