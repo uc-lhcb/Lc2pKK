@@ -89,8 +89,6 @@ double M2_PKp  = ((((E_P)+(E_Kp))*((E_P)+(E_Kp))) - (((P_P)+(P_Kp))*((P_P)+(P_Kp
  PKpMassHist->Fill(M2_PKp);
  DalitzPlotLc->Fill(M2_KpKm, M2_PKm);
    
- }
-   
    return kTRUE;
 }
 
