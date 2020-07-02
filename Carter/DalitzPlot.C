@@ -99,12 +99,12 @@ double M2_PKm  = ((((E_P)+(E_Km))*((E_P)+(E_Km))) - (((P_P)+(P_Km))*((P_P)+(P_Km
 double M2_PKp  = ((((E_P)+(E_Kp))*((E_P)+(E_Kp))) - (((P_P)+(P_Kp))*((P_P)+(P_Kp))))/(1000*1000);
 
 bool Cut = (
-   (*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.6
+   ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.6)
    );
    
 bool SignalRegion = (
-    Lcplus_M > 2275  
- && Lcplus_M < 2300  
+    (Lcplus_M > 2275)  
+ && (Lcplus_M < 2300)  
    );
    
  if (Cut){
