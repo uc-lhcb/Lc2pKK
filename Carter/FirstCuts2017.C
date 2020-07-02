@@ -12,8 +12,8 @@
 
 #include "fit1MeV_Gaussian.C"
 #include "fitHalfMeV_Gaussian.C"
-#include "DGOneMuOneTotals1MeV.C"
-#include "DGOneMuOneTotalsHalfMeV.C"
+#include "DGOneMuOneTotal1MeV.C"
+#include "DGOneMuOneTotalHalfMeV.C"
 #include "DGTwoMuOneTotals1MeV.C"
 #include "DGTwoMuOneTotalsHalfMeV.C"
 
