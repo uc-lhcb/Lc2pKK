@@ -71,7 +71,7 @@ dtt.addBranches({
 dtt.Lcplus.addTupleTool('TupleToolDecayTreeFitter/ConsLc')
 dtt.Lcplus.ConsLc.constrainToOriginVertex = True
 dtt.Lcplus.ConsLc.Verbose = True
-dtt.Lcplus.ConsLc.daughtersToConstrain = ['p+','K-','K+']
+dtt.Lcplus.ConsLc.daughtersToConstrain = ['Lambda_c+']
 
 dtt.Lcplus.addTupleTool('TupleToolPropertime')
 
