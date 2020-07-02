@@ -73,9 +73,8 @@ j.application.options = ['LambdaDavinci.py']
 j.application.platform = 'x86_64-centos7-gcc8-opt'
 
 if args.test:
-    j.inputdata = dataset[:2]
-    j.backend = Local()
-    # Prepend test string to job name
+    j.inputdata = dataset[:5]
+    j.backend = Dirac()
     j.name = 'TEST_{0}'.format(j.name)
     j.outputfiles = [LocalFile(outputfile)]
 else:
