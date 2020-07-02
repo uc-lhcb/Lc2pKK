@@ -15,7 +15,7 @@ Double_t DGTwoMuOneTotal(Double_t *v, Double_t *par) {
     if (par[0] < 1. && par[0] > 0.)
         fitval1 = par[0]*par[1]*TMath::Exp(-0.5*arg1*arg1);
 
-    fitval1 = (fitval1*2.00)/(TMath::Sqrt(TMath::TwoPi())*par[3]);
+    fitval1 = (fitval1*0.50)/(TMath::Sqrt(TMath::TwoPi())*par[3]);
 
 //Second Gaussian function (Same Mean Value)
 //Par[4]=MeanValue, Par[5]=StandardDeviation
