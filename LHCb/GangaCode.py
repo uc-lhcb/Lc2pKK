@@ -79,13 +79,11 @@ if args.test:
     j.name = 'TEST_{0}'.format(j.name)
     j.outputfiles = [LocalFile(outputfile)]
 else:
-    j.inputdata = dataset[:5]
+    j.inputdata = dataset
     j.backend = Dirac()
     j.do_auto_resubmit = True
     j.splitter = SplitByFiles(filesPerJob=1)
     j.postprocessors = [Notifier(address='carter.eikenbary@cern.ch')]
     j.outputfiles = [DiracFile(outputfile)]
-    j.postprocessors.append(RootMerger(files = [outputfile, ignorefailed = True, overwrite = True))
-
-    # j.submit()
+    j.submit()
 
