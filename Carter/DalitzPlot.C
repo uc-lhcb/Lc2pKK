@@ -100,7 +100,7 @@ double M2_PKp  = ((((E_P)+(E_Kp))*((E_P)+(E_Kp))) - (((P_P)+(P_Kp))*((P_P)+(P_Kp
 
  if ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.6){
     MassHist->Fill(*Lcplus_M);
-    BsubHist->Fill(*Lcplus_M);
+    BSubHist->Fill(*Lcplus_M);
  }  
        
 //Filling Histogram
