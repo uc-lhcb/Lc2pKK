@@ -1,6 +1,8 @@
 #define DalitzPlot_cxx
 #include "DalitzPlot.h"
 
+#include "fitHalfMeV_Gaussian.C"
+
 //ROOT Libraries
 #include <TH1D.h>
 #include <TH2D.h>
