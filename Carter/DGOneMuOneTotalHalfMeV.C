@@ -3,7 +3,7 @@
 #include "TMath.h"
 #include <iostream>
 
-Double_t DGOneMuOneTotal(Double_t *v, Double_t *par) {
+Double_t DGOneMuOneTotalHalfMeV(Double_t *v, Double_t *par) {
 
 //First Gaussian function
 //Par[0]=ScalingFactor, Par[1]=TotalSignal, Par[2]=MeanValue, Par[3]=StandardDeviation
