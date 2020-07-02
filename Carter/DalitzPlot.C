@@ -165,7 +165,7 @@ MassHist->Fit("GaussianLooseHalfMeVSG");
  c1->Write("Lc Mass"); 
    
 BSubHist->Draw();
-c1->Write("Signal Events")  
+c1->Write("Signal Events");
    
 File->Close();
 }
