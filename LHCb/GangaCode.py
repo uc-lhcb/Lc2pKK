@@ -77,13 +77,13 @@ if args.test:
     j.backend = Dirac()
     j.name = 'TEST_{0}'.format(j.name)
     j.splitter = SplitByFiles(filesPerJob=1)
-    j.outputfiles = [LocalFile(outputfile)]
+    j.outputfiles = [LocalFile(outputfile), LocalFile('stdout')]
 else:
     j.inputdata = dataset
     j.backend = Dirac()
     j.do_auto_resubmit = True
     j.splitter = SplitByFiles(filesPerJob=1)
     j.postprocessors = [Notifier(address='carter.eikenbary@cern.ch')]
-    j.outputfiles = [DiracFile(outputfile)]
+    j.outputfiles = [DiracFile(outputfile), LocalFile('stdout')]
     j.submit()
 
