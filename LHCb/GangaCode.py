@@ -85,5 +85,6 @@ else:
     j.splitter = SplitByFiles(filesPerJob=1)
     j.postprocessors = [Notifier(address='carter.eikenbary@cern.ch')]
     j.outputfiles = [DiracFile(outputfile), LocalFile('stdout')]
-    j.submit()
+
+j.submit()
 
