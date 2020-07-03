@@ -97,9 +97,9 @@ TLorentzVector P(*Proton_PX, *Proton_PY, *Proton_PZ, E_P);
 TLorentzVector Kp(*Kplus_PX, *Kplus_PY, *Kplus_PZ, E_Kp);
 TLorentzVector Km(*Kminus_PX, *Kminus_PY, *Kminus_PZ, E_Km);
 
-ProtonMass = P.Mag();
-KplusMass  = Kp.Mag();
-KminusMass = Km.Mag();
+double ProtonMass = P.Mag();
+double KplusMass  = Kp.Mag();
+double KminusMass = Km.Mag();
 
 double M2_KpKm = (KplusMass + KminusMass)*(KplusMass + KminusMass)/(1000*1000);
 double M2_PKm  = (ProtonMass + KminusMass)*(ProtonMass + KminusMass)/(1000*1000);
