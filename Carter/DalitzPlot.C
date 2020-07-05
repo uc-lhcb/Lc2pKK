@@ -197,7 +197,7 @@ pad1->cd();
 MassHist->SetMinimum(0);
 MassHist->Fit("Gaussian");
 
-double PullxHalfMeV[300];
+double Pullx[300];
 int BinHeight[300];
 int FitHeight[300];
 double Pull[300];
