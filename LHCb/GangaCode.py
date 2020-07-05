@@ -28,9 +28,7 @@ turbo = Turbo_VERSION.format('4' if year == 2017 else '5')
 def bookkeeping_path(polarity, year, turbo):
     """Return the bookkeeping path for the given parameters."""
     bkq_path = (
-        '/LHCb/Collision{year}'
-        '/Beam{energy}GeV-VeloClosed-{polarity}/Real Data'
-        '/{turbo}/94000000/{stream}'
+        '/LHCb/Collision{year}/Beam{energy}GeV-VeloClosed-{polarity}/Real Data/{turbo}/94000000/{stream}'
     )
     return bkq_path.format(
         # Only use last two digits of the year
@@ -49,13 +47,8 @@ print('='*len(title))
 print(title)
 print('='*len(title))
 
-bkq = BKQuery(bookkeeping_path(polarity, year, turbo))
+bkq = BKQuery(bookkeeping_path(polarity, year, turbo), dqflag=['OK'])
 dataset = bkq.getDataset()
-if len(dataset) == 0:
-    print('Empty dataset! Skipping job creation')
-    print('Dataset path: {0}'.format(bkq.path))
-    exit()
-
 
 j = Job(name='Lc2pKK_{0}_{1}'.format(
     year, polarity
@@ -77,7 +70,7 @@ if args.test:
     j.backend = Dirac()
     j.name = 'TEST_{0}'.format(j.name)
     j.splitter = SplitByFiles(filesPerJob=1)
-    j.outputfiles = [LocalFile('*.root'), LocalFile('stdout')]
+    j.outputfiles = [LocalFile(outputfile), LocalFile('stdout')]
     j.submit()
 else:
     j.inputdata = dataset
@@ -85,6 +78,6 @@ else:
     j.do_auto_resubmit = True
     j.splitter = SplitByFiles(filesPerJob=1)
     j.postprocessors = [Notifier(address='carter.eikenbary@cern.ch')]
-    j.outputfiles = [DiracFile('*.root'), LocalFile('stdout')]
+    j.outputfiles = [DiracFile(outputfile), LocalFile('stdout')]
     j.submit()
 
