@@ -109,7 +109,7 @@ double M2_PKp  = (KplusMass + ProtonMass)*(KplusMass + ProtonMass)/(1000*1000);
 
 bool Cut = (
      ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.6)
-&&   ((*Kminus_ProbNNk)*(Kplus_ProbNNk) > 0.7))
+&&   ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.7))
    );
    
 bool SignalRegion = (
