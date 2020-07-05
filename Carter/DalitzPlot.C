@@ -98,18 +98,17 @@ double ProtonMass = P.Mag();
 double KplusMass  = Kp.Mag();
 double KminusMass = Km.Mag();
 
-double M2_KpKm = (KplusMass + KminusMass)*(KplusMass + KminusMass)/(1000*1000);
-double M2_PKm  = (ProtonMass + KminusMass)*(ProtonMass + KminusMass)/(1000*1000);
-double M2_PKp  = (KplusMass + ProtonMass)*(KplusMass + ProtonMass)/(1000*1000);
-
-//Creating M^2 Variables
-//double M2_KpKm = ((((E_Kp)+(E_Km))*((E_Kp)+(E_Km))) - (((P_Kp)+(P_Km))*((P_Kp)+(P_Km))))/(1000*1000);
-//double M2_PKm  = ((((E_P)+(E_Km))*((E_P)+(E_Km))) - (((P_P)+(P_Km))*((P_P)+(P_Km))))/(1000*1000);
-//double M2_PKp  = ((((E_P)+(E_Kp))*((E_P)+(E_Kp))) - (((P_P)+(P_Kp))*((P_P)+(P_Kp))))/(1000*1000);
+   //Creating M^2 Variables
+//double M2_KpKm = (KplusMass + KminusMass)*(KplusMass + KminusMass)/(1000*1000);
+//double M2_PKm  = (ProtonMass + KminusMass)*(ProtonMass + KminusMass)/(1000*1000);
+//double M2_PKp  = (KplusMass + ProtonMass)*(KplusMass + ProtonMass)/(1000*1000);
+double M2_KpKm = ((((E_Kp)+(E_Km))*((E_Kp)+(E_Km))) - (((P_Kp)+(P_Km))*((P_Kp)+(P_Km))))/(1000*1000);
+double M2_PKm  = ((((E_P)+(E_Km))*((E_P)+(E_Km))) - (((P_P)+(P_Km))*((P_P)+(P_Km))))/(1000*1000);
+double M2_PKp  = ((((E_P)+(E_Kp))*((E_P)+(E_Kp))) - (((P_P)+(P_Kp))*((P_P)+(P_Kp))))/(1000*1000);
 
 bool Cut = (
-     ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.6)
-&&   ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.7)
+     ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.7)
+&&   ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.8)
    );
    
 bool SignalRegion = (
