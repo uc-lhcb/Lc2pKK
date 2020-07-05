@@ -10,6 +10,7 @@
 #include <TFile.h>
 #include <TF1.h>
 
+TH2D * DalitzPlotUncut = nullptr;
 TH2D * DalitzPlotLc = nullptr;
 TH1D * KpKmMassHist = nullptr;
 TH1D * PKmMassHist = nullptr;
@@ -29,10 +30,16 @@ void DalitzPlot::Begin(TTree * /*tree*/)
    TString option = GetOption();
    
          //Dalitz Plot is a 2D Histogram
-         DalitzPlotLc = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay", 100, 0.8, 2.2, 100, 1.7, 3.7);
+         DalitzPlotLc = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay - Background Subtracted", 100, 0.8, 2.2, 100, 1.7, 3.7);
          DalitzPlotLc->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
          DalitzPlotLc->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
          DalitzPlotLc->GetZaxis()->SetTitle("Events");
+   
+            //Dalitz Plot is a 2D Histogram
+         DalitzPlotUncut = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay - Uncut", 100, 0.8, 2.2, 100, 1.7, 3.7);
+         DalitzPlotUncut->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
+         DalitzPlotUncut->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
+         DalitzPlotUncut->GetZaxis()->SetTitle("Events");
          
          //Plot of M^2 Variable for K+ and K- Combination
          KpKmMassHist = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination", 100, 0.95, 2);
@@ -106,13 +113,15 @@ double M2_KpKm = ((((E_Kp)+(E_Km))*((E_Kp)+(E_Km))) - (((P_Kp)+(P_Km))*((P_Kp)+(
 double M2_PKm  = ((((E_P)+(E_Km))*((E_P)+(E_Km))) - (((P_P)+(P_Km))*((P_P)+(P_Km))))/(1000*1000);
 double M2_PKp  = ((((E_P)+(E_Kp))*((E_P)+(E_Kp))) - (((P_P)+(P_Kp))*((P_P)+(P_Kp))))/(1000*1000);
 
+ DalitzPlotUncut->Fill(M2_KpKm, M2_PKm);   
+   
 bool Cut = (
      ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.9)
 &&   ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.95)
 &&   ((*Proton_ProbNNp)*(*Kplus_ProbNNk) > 0.95)
 &&   ((*Kminus_ProbNNk)*(*Proton_ProbNNp) > 0.95)
    );
-   
+
 bool SignalRegion = (
     (*Lcplus_M > 2275.)  
  && (*Lcplus_M < 2300.)  
@@ -144,8 +153,10 @@ void DalitzPlot::Terminate()
 c1->cd();
 
 //Creates Dalitz Plots with Various Options
-DalitzPlotLc->Draw();
- c1->Write("Dalitz Plot");
+DalitzPlotUncut->Draw();
+ c1->Write("Dalitz Plot - Uncut");
+   DalitzPlotLc->Draw();
+ c1->Write("Dalitz Plot - Background Subtracted");
 DalitzPlotLc->Draw("COLZ");
  c1->Write("Dalitz Plot - COLZ");
 DalitzPlotLc->Draw("CONTZ");
