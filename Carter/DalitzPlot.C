@@ -109,7 +109,7 @@ double M2_PKp  = (KplusMass + ProtonMass)*(KplusMass + ProtonMass)/(1000*1000);
 
 bool Cut = (
      ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.6)
-&&   ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.7))
+&&   ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.7)
    );
    
 bool SignalRegion = (
@@ -211,7 +211,7 @@ BinHeight[bin] = MassHist->GetBinContent(bin + 1);
 Pullx[bin] = (bin + 1);
 int xvalue = 2210.25 + 0.5*(bin);
 FitHeight[bin] = round(Gaussian->Eval(xvalue));
-Pull[bin] = (BinHeightbin] - FitHeight[bin])/TMath::Sqrt(FitHeight[bin]);
+Pull[bin] = (BinHeight[bin] - FitHeight[bin])/TMath::Sqrt(FitHeight[bin]);
 
 if (Pull[bin] > -1 && Pull[bin] < 1){
   count1 += 1;
