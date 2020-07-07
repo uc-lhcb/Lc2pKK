@@ -1712,7 +1712,7 @@ Tl.DrawLatex(0.1,0.02,Form("Bins Between -3 & 3 %f Bins", Tight1MeVDG2Mucount3))
 c1->cd();
 /////////////////////////////
    
-     TF1 *myLambdaFitSG = new TF1("myLambdaFitSG",fit2MeV_Gaussian,2100.,2500.,5);
+     TF1 *myLambdaFitSG = new TF1("myLambdaFitSG",fitHalfMeV_Gaussian,2200.,2400.,5);
       myLambdaFitSG->SetParameter(0,400.);
       myLambdaFitSG->SetParameter(1,2286.5);
       myLambdaFitSG->SetParameter(2, 6);
@@ -1720,7 +1720,7 @@ c1->cd();
       myLambdaFitSG->SetParameter(3, 0.);
       myLambdaFitSG->SetParameter(4, 0.);
 
-      TF1 *LcFitSG1 = new TF1("LcFitSG1",fit2MeV_Gaussian,2100.,2500.,5);
+      TF1 *LcFitSG1 = new TF1("LcFitSG1",fitHalfMeV_Gaussian,2200.,2400.,5);
       LcFitSG1->SetParameter(0,400.);
       LcFitSG1->SetParameter(1,2286.5);
       LcFitSG1->SetParameter(2, 6);
@@ -1728,7 +1728,7 @@ c1->cd();
       LcFitSG1->SetParameter(3, 0.);
       LcFitSG1->SetParameter(4, 0.);
 
-      TF1 *LcFitSG2 = new TF1("LcFitSG2",fit2MeV_Gaussian,2100.,2500.,5);
+      TF1 *LcFitSG2 = new TF1("LcFitSG2",fitHalfMeV_Gaussian,2200.,2400.,5);
       LcFitSG2->SetParameter(0,400.);
       LcFitSG2->SetParameter(1,2286.5);
       LcFitSG2->SetParameter(2, 6);
@@ -1736,7 +1736,7 @@ c1->cd();
       LcFitSG2->SetParameter(3, 0.);
       LcFitSG2->SetParameter(4, 0.);
 
-      TF1 *LcFitSG3 = new TF1("LcFitSG3",fit2MeV_Gaussian,2100.,2500.,5);
+      TF1 *LcFitSG3 = new TF1("LcFitSG3",fitHalfMeV_Gaussian,2200.,2400.,5);
       LcFitSG3->SetParameter(0,400.);
       LcFitSG3->SetParameter(1,2286.5);
       LcFitSG3->SetParameter(2, 6);
@@ -1744,7 +1744,7 @@ c1->cd();
       LcFitSG3->SetParameter(3, 0.);
       LcFitSG3->SetParameter(4, 0.);
 
-      TF1 *LcFitSG4 = new TF1("LcFitSG4",fit2MeV_Gaussian,2100.,2500.,5);
+      TF1 *LcFitSG4 = new TF1("LcFitSG4",fitHalfMeV_Gaussian,2200.,2400.,5);
       LcFitSG4->SetParameter(0,400.);
       LcFitSG4->SetParameter(1,2286.5);
       LcFitSG4->SetParameter(2, 6);
@@ -1752,7 +1752,7 @@ c1->cd();
       LcFitSG4->SetParameter(3, 0.);
       LcFitSG4->SetParameter(4, 0.);
    
-       TF1 *MagDownFitSG = new TF1("MagDownFitSG",fit2MeV_Gaussian,2100.,2500.,5);
+       TF1 *MagDownFitSG = new TF1("MagDownFitSG",fitHalfMeV_Gaussian,2200.,2400.,5);
       MagDownFitSG->SetParameter(0,400.);
       MagDownFitSG->SetParameter(1,2286.5);
       MagDownFitSG->SetParameter(2, 6);
@@ -1760,7 +1760,7 @@ c1->cd();
       MagDownFitSG->SetParameter(3, 0.);
       MagDownFitSG->SetParameter(4, 0.);
 
-      TF1 *MagUpFitSG = new TF1("MagUpFitSG",fit2MeV_Gaussian,2100.,2500.,5);
+      TF1 *MagUpFitSG = new TF1("MagUpFitSG",fitHalfMeV_Gaussian,2200.,2400.,5);
       MagUpFitSG->SetParameter(0,400.);
       MagUpFitSG->SetParameter(1,2286.5);
       MagUpFitSG->SetParameter(2, 6);
@@ -1768,7 +1768,7 @@ c1->cd();
       MagUpFitSG->SetParameter(3, 0.);
       MagUpFitSG->SetParameter(4, 0.);
 
-      TF1 *ParticleFitSG = new TF1("ParticleFitSG",fit2MeV_Gaussian,2100.,2500.,5);
+      TF1 *ParticleFitSG = new TF1("ParticleFitSG",fitHalfMeV_Gaussian,2200.,2400.,5);
       ParticleFitSG->SetParameter(0,400.);
       ParticleFitSG->SetParameter(1,2286.5);
       ParticleFitSG->SetParameter(2, 6);
@@ -1776,7 +1776,7 @@ c1->cd();
       ParticleFitSG->SetParameter(3, 0.);
       ParticleFitSG->SetParameter(4, 0.);
 
-      TF1 *AntiParticleFitSG = new TF1("AntiParticleFitSG",fit2MeV_Gaussian,2100.,2500.,5);
+      TF1 *AntiParticleFitSG = new TF1("AntiParticleFitSG",fitHalfMeV_Gaussian,2200.,2400.,5);
       AntiParticleFitSG->SetParameter(0,400.);
       AntiParticleFitSG->SetParameter(1,2286.5);
       AntiParticleFitSG->SetParameter(2, 6);
