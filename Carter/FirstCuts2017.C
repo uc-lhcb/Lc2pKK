@@ -1839,7 +1839,8 @@ c1->cd();
       gLcP->GetXaxis()->SetBinLabel(14, "(0-70) GeV");
       gLcP->GetXaxis()->SetBinLabel(38, "(70-88.5) GeV");
       gLcP->GetXaxis()->SetBinLabel(63, "(88.5-112) GeV");
-      gLcP->GetXaxis()->SetBinLabel(90, "(112-250) GeV");        
+      gLcP->GetXaxis()->SetBinLabel(90, "(112-250) GeV");   
+      gLcP->GetXaxis()->LabelsOption("h");
       grid->Write("Lcplus_P Statistics");
    
  c1->cd();
