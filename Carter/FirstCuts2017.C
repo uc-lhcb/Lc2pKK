@@ -51,6 +51,7 @@ TFile * File = nullptr;
 
 TCanvas * c1 = nullptr;
 TCanvas * ex1 = nullptr;
+TCanvas * grid = nullptr;
 
 void FirstCuts2017::Begin(TTree * /*tree*/)
 {
@@ -121,6 +122,8 @@ void FirstCuts2017::Begin(TTree * /*tree*/)
 
    c1 = new TCanvas("canvas", "Test Canvas");
    ex1 = new TCanvas("ex1","Latex",500,600);
+   grid = new TCanvas("canvas", "Grid Canvas");
+   
 }
 
 void FirstCuts2017::SlaveBegin(TTree * /*tree*/)
@@ -1818,6 +1821,9 @@ c1->cd();
       Double_t x[n] = {1,2,3,4};
       Double_t xerr[n] = {0,0,0,0};
 
+ grid->cd();
+ grid->SetGrid();
+   
       double LcPAvG = ((y1 + y2 + y3 + y4)/n);
       Double_t y[n] = {y1 - LcPAvG,y2 - LcPAvG,y3 - LcPAvG,y4 - LcPAvG};
       Double_t yerr[n] = {yerr1,yerr2,yerr3,yerr4};
@@ -1829,7 +1835,9 @@ c1->cd();
       gLcP->GetYaxis()->SetTitle("Measured Mass - Average Mass [MeV]");
       gLcP->SetTitle("Deviations in LambdaC_MM of Different LambdaC_P Regions");
       gLcP->Draw("ap");
-      c1->Write("Lcplus_P Statistics");
+      grid->Write("Lcplus_P Statistics");
+   
+ c1->cd();
    
     PolarityMagDown->Fit("MagDownFitSG");
     PolarityMagDown->SetMinimum(0);
@@ -1851,6 +1859,8 @@ c1->cd();
     Double_t p[m] = {p1 - PolarityAvG,p2 - PolarityAvG};
     Double_t perr[m] = {perr1,perr2};
 
+    grid->cd();
+   
     gPolarity = new TGraphErrors(m,x,p,xerr,perr);
     gPolarity->SetMarkerColor(2);
     gPolarity->SetMarkerStyle(20);
@@ -1859,8 +1869,10 @@ c1->cd();
     gPolarity->GetYaxis()->SetTitle("Measured Mass - Average Mass [MeV]");
     gPolarity->SetTitle("Deviations in LambdaC_MM of Different Magnet Orientations");
     gPolarity->Draw("ap");
-    c1->Write("Polarity Statistics");
+    grid->Write("Polarity Statistics");
 
+   c1->cd();
+   
     Particle->Fit("ParticleFitSG");
     Particle->SetMinimum(0);
     c1->Write("Baryon");
@@ -1879,6 +1891,8 @@ c1->cd();
     Double_t pp[m] = {pp1 - ParticleAvG,pp2 - ParticleAvG};
     Double_t pperr[m] = {pperr1,pperr2};
 
+   grid->cd();
+      
     gPID = new TGraphErrors(m,x,pp,xerr,pperr);
     gPID->SetMarkerColor(2);
     gPID->SetMarkerStyle(20);
@@ -1887,7 +1901,7 @@ c1->cd();
     gPID->GetYaxis()->SetTitle("Measured Mass - Average Mass [MeV]");
     gPID->SetTitle("Deviations in LambdaC_MM of Baryon or AntiBaryon");
     gPID->Draw("ap");
-    c1->Write("ParticleStatistics");
+    grid->Write("ParticleStatistics");
    
         File->Close();
 }
