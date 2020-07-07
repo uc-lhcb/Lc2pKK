@@ -1822,7 +1822,7 @@ c1->cd();
       Double_t xerr[n] = {0,0,0,0};
 
  grid->cd();
- grid->SetGrid();
+ grid->SetGridy();
    
       double LcPAvG = ((y1 + y2 + y3 + y4)/n);
       Double_t y[n] = {y1 - LcPAvG,y2 - LcPAvG,y3 - LcPAvG,y4 - LcPAvG};
