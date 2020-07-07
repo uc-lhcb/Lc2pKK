@@ -1,4 +1,5 @@
-//Background Subtracting Data To Observe Patterns in Daughter Variables
+//Background Subtracting Data To Observe Patterns in ROOT Variables
+//Check PT, IPCHI2_OWNPV, SUMPT, DOCAMAX, DOCAMAXCHI2MAX, & TAU
 
 #define BSubAnalysis_cxx
 #include "BSubAnalysis.h"
