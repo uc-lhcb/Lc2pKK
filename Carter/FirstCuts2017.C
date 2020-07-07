@@ -122,7 +122,7 @@ void FirstCuts2017::Begin(TTree * /*tree*/)
 
    c1 = new TCanvas("canvas", "Test Canvas");
    ex1 = new TCanvas("ex1","Latex",500,600);
-   grid = new TCanvas("canvas", "Grid Canvas");
+   grid = new TCanvas("grid", "Grid Canvas");
    
 }
 
