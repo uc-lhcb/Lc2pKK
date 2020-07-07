@@ -1835,10 +1835,11 @@ c1->cd();
       gLcP->GetYaxis()->SetTitle("Measured Mass - Average Mass [MeV]");
       gLcP->SetTitle("Deviations in LambdaC_MM of Different LambdaC_P Regions");
       gLcP->Draw("ap");
-      gLcP->GetXaxis()->SetBinLabel(20, "(0-70) GeV");
-      gLcP->GetXaxis()->SetBinLabel(40, "(70-88.5) GeV");
-      gLcP->GetXaxis()->SetBinLabel(60, "(88.5-112) GeV");
-      gLcP->GetXaxis()->SetBinLabel(80, "(112-250) GeV");        
+      gLcP=>GetXaxis()->LabelsOption("v")
+      gLcP->GetXaxis()->SetBinLabel(14, "(0-70) GeV");
+      gLcP->GetXaxis()->SetBinLabel(38, "(70-88.5) GeV");
+      gLcP->GetXaxis()->SetBinLabel(63, "(88.5-112) GeV");
+      gLcP->GetXaxis()->SetBinLabel(90, "(112-250) GeV");        
       grid->Write("Lcplus_P Statistics");
    
  c1->cd();
