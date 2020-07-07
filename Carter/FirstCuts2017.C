@@ -1831,10 +1831,14 @@ c1->cd();
       gLcP->SetMarkerColor(2);
       gLcP->SetMarkerStyle(20);
       gLcP->GetXaxis()->SetNdivisions(4);
-      gLcP->GetXaxis()->SetTitle("LambdaC_P Regions");
+      gLcP->GetXaxis()->SetTitle("LambdaC P Regions");
       gLcP->GetYaxis()->SetTitle("Measured Mass - Average Mass [MeV]");
       gLcP->SetTitle("Deviations in LambdaC_MM of Different LambdaC_P Regions");
       gLcP->Draw("ap");
+      gLcP->->GetXaxis()->SetBinLabel(1, "(0-70) GeV")
+      gLcP->->GetXaxis()->SetBinLabel(2, "(70-88.5) GeV")
+      gLcP->->GetXaxis()->SetBinLabel(3, "(88.5-112) GeV")
+      gLcP->->GetXaxis()->SetBinLabel(4, "(112-250) GeV")         
       grid->Write("Lcplus_P Statistics");
    
  c1->cd();
@@ -1869,6 +1873,7 @@ c1->cd();
     gPolarity->GetYaxis()->SetTitle("Measured Mass - Average Mass [MeV]");
     gPolarity->SetTitle("Deviations in LambdaC_MM of Different Magnet Orientations");
     gPolarity->Draw("ap");
+   
     grid->Write("Polarity Statistics");
 
    c1->cd();
