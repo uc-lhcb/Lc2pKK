@@ -233,8 +233,8 @@ Bool_t FirstCuts2017::Process(Long64_t entry)
        if (TightCuts && Particles){
    Particle->Fill(*Lcplus_M);}
    
-          if (TightCuts && Antiparticles){
-   Antiparticle->Fill(*Lcplus_M);}  
+          if (TightCuts && AntiParticles){
+   AntiParticle->Fill(*Lcplus_M);}  
    
    return kTRUE;
 }
