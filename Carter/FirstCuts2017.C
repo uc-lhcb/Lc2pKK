@@ -1828,7 +1828,7 @@ c1->cd();
       gLcP->GetXaxis()->SetTitle("LambdaC_P Regions");
       gLcP->GetYaxis()->SetTitle("Measured Mass - Average Mass [MeV]");
       gLcP->SetTitle("Deviations in LambdaC_MM of Different LambdaC_P Regions");
-      gLcP->Draw("ALP");
+      gLcP->Draw("ap");
       c1->Write("Lcplus_P Statistics");
    
     PolarityMagDown->Fit("MagDownFitSG");
@@ -1858,7 +1858,7 @@ c1->cd();
     gPolarity->GetXaxis()->SetTitle("Magnet Orientations");
     gPolarity->GetYaxis()->SetTitle("Measured Mass - Average Mass [MeV]");
     gPolarity->SetTitle("Deviations in LambdaC_MM of Different Magnet Orientations");
-    gPolarity->Draw("ALP");
+    gPolarity->Draw("ap");
     c1->Write("Polarity Statistics");
 
     Particle->Fit("ParticleFitSG");
@@ -1886,7 +1886,7 @@ c1->cd();
     gPID->GetXaxis()->SetTitle("Particle ID");
     gPID->GetYaxis()->SetTitle("Measured Mass - Average Mass [MeV]");
     gPID->SetTitle("Deviations in LambdaC_MM of Baryon or AntiBaryon");
-    gPID->Draw("ALP");
+    gPID->Draw("ap");
     c1->Write("ParticleStatistics");
    
         File->Close();
