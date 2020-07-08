@@ -8,7 +8,7 @@ for i in range(0,length):
     output = jobs(jobNumber).subjobs(i).backend.getOutputDataLFNs()
     if( output.hasLFNs() == True):
         s = str(jobs(jobNumber).subjobs(i).outputfiles[0].accessURL())
-        print("Job # {0}".format(card)) 
+        print('Job # {0} is complete'.format(i)) 
         file.write(s)
         file.write('\n')
 file.close()
