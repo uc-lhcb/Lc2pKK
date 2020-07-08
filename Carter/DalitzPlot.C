@@ -83,41 +83,17 @@ Bool_t DalitzPlot::Process(Long64_t entry)
    GetEntry(entry);
    fReader.SetLocalEntry(entry);
  
-//Defining Variables
-double P_P  = *Proton_P;
-double P_Kp = *Kplus_P;
-double P_Km = *Kminus_P;
- 
-double M_P  = *Proton_M;
-double M_Kp = *Kplus_M;
-double M_Km = *Kminus_M;
- 
-//Creating Energy Variables
-double E_P  = TMath::Sqrt(((P_P)*(P_P))+((M_P)*(M_P)));
-double E_Kp = TMath::Sqrt(((P_Kp)*(P_Kp))+((M_Kp)*(M_Kp)));
-double E_Km = TMath::Sqrt(((P_Km)*(P_Km))+((M_Km)*(M_Km)));
- 
 TLorentzVector P(*Proton_PX, *Proton_PY, *Proton_PZ, *Proton_PE);
 TLorentzVector Kp(*Kplus_PX, *Kplus_PY, *Kplus_PZ, *Kplus_PE);
 TLorentzVector Km(*Kminus_PX, *Kminus_PY, *Kminus_PZ, *Kminus_PE);
 
-TLorentzVector PKp(P + Kp);
-TLorentzVector PKm(P + Km);
-TLorentzVector KpKm(Kp + Km);
+PKp = (P + Kp);
+PKm = (P + Km);
+KpKm = (Kp + Km);
    
 double M2_PKp = PKp.Mag2();
 double M2_PKm  = PKm.Mag2();
 double M2_KpKm = KpKm.Mag2();
-
-//double KpKmMass = P   
-   
-   //Creating M^2 Variables
-//double M2_KpKm = (KplusMass + KminusMass)*(KplusMass + KminusMass)/(1000*1000);
-//double M2_PKm  = (ProtonMass + KminusMass)*(ProtonMass + KminusMass)/(1000*1000);
-//double M2_PKp  = (KplusMass + ProtonMass)*(KplusMass + ProtonMass)/(1000*1000);
-//double M2_KpKm = ((((E_Kp)+(E_Km))*((E_Kp)+(E_Km))) - (((P_Kp)+(P_Km))*((P_Kp)+(P_Km))))/(1000*1000);
-//double M2_PKm  = ((((E_P)+(E_Km))*((E_P)+(E_Km))) - (((P_P)+(P_Km))*((P_P)+(P_Km))))/(1000*1000);
-//double M2_PKp  = ((((E_P)+(E_Kp))*((E_P)+(E_Kp))) - (((P_P)+(P_Kp))*((P_P)+(P_Kp))))/(1000*1000);
 
  DalitzPlotUncut->Fill(M2_KpKm, M2_PKm);   
    
