@@ -91,9 +91,9 @@ TLorentzVector PKp;
 TLorentzVector PKm;
 TLorentzVector KpKm;
    
-PKp = (P + Kp);
-PKm = (P + Km);
-KpKm = (Kp + Km);
+PKp = P+Kp;
+PKm = P+Km;
+KpKm = Kp+Km;
    
 double M2_PKp = PKp.Mag2();
 double M2_PKm  = PKm.Mag2();
