@@ -95,9 +95,9 @@ PKp = P+Kp;
 PKm = P+Km;
 KpKm = Kp+Km;
    
-double M2_PKp = PKp.Mag2();
-double M2_PKm  = PKm.Mag2();
-double M2_KpKm = KpKm.Mag2();
+double M2_PKp = PKp.Mag();
+double M2_PKm  = PKm.Mag();
+double M2_KpKm = KpKm.Mag();
 
  DalitzPlotUncut->Fill(M2_KpKm, M2_PKm);   
    
