@@ -87,6 +87,10 @@ TLorentzVector P(*Proton_PX, *Proton_PY, *Proton_PZ, *Proton_PE);
 TLorentzVector Kp(*Kplus_PX, *Kplus_PY, *Kplus_PZ, *Kplus_PE);
 TLorentzVector Km(*Kminus_PX, *Kminus_PY, *Kminus_PZ, *Kminus_PE);
 
+TLorentzVector PKp();
+TLorentzVector PKm();
+TLorentzVector KpKm();
+   
 PKp = (P + Kp);
 PKm = (P + Km);
 KpKm = (Kp + Km);
