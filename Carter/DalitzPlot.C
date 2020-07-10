@@ -301,7 +301,7 @@ if (PIDCutLoose && LBCut){
   DPLooseLB->Fill(M2_KpKm, M2_PKm);
   KpKmLooseLB->Fill(M2_KpKm);
   PKmLooseLB->Fill(M2_PKm);
-  PKpLooseLB->FillM2_PKp
+  PKpLooseLB->Fill(M2_PKp);
   KpKmLooseLBZoom->Fill(M2_KpKm);
 }
 
