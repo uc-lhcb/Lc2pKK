@@ -274,11 +274,11 @@ bool RBCut = (
 );
 
 bool  PIDCutLoose= (
-((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.65)
+((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.8)
    );
 
    bool  PIDCutTight= (
-   ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.9)
+   ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.95)
       );
 
 if (PIDCutLoose){
