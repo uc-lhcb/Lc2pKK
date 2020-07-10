@@ -93,9 +93,9 @@ double M2_KpKm = KpKm.Mag2()/(1000*1000);
  PKpMassHist->Fill(M2_PKp);
    
 bool Cut = (
-     (M2_KpKm > 1.032)
-  && (M2_KpKm < 1.048)
-  && ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.65)
+     (M2_KpKm > 1.034)
+  && (M2_KpKm < 1.046)
+//  && ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.65)
    );
    
  if (Cut){
@@ -159,8 +159,8 @@ Gaussian->SetParameter(1, 10000);
 Gaussian->SetParameter(2, 2287.);
 Gaussian->SetParameter(3, 5);
 Gaussian->SetParameter(4, 5);
-Gaussian->SetParLimits(3, 0., 10.);
-Gaussian->SetParLimits(4, 0., 10.);
+Gaussian->SetParLimits(3, 0., 12.);
+Gaussian->SetParLimits(4, 0., 12.);
 Gaussian->SetParameter(5, 0.);
 Gaussian->SetParameter(6, 0.);
 
