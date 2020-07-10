@@ -205,19 +205,19 @@ void DalitzPlot::Begin(TTree * /*tree*/)
 
    MHistLoose = new TH1D("Mass [MeV]", "Lc Mass - PID Cuts", 300, 2210, 2360);
    MHistLoose->GetXaxis()->SetTitle("MeV");
-   MHistLoose->GetYaxis()->SetTitle("Events Per 2 MeV");
+   MHistLoose->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
    MHistTight = new TH1D("Mass [MeV]", "Lc Mass - PID Cuts", 300, 2210, 2360);
    MHistTight->GetXaxis()->SetTitle("MeV");
-   MHistTight->GetYaxis()->SetTitle("Events Per 2 MeV");
+   MHistTight->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
    MHistDalitzLoose = new TH1D("Mass [MeV]", "Lc Mass - PID Cuts & Phi Resonance", 300, 2210, 2360);
    MHistDalitzLoose->GetXaxis()->SetTitle("MeV");
-   MHistDalitzLoose->GetYaxis()->SetTitle("Events Per 2 MeV");
+   MHistDalitzLoose->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
    MHistDalitzTight = new TH1D("Mass [MeV]", "Lc Mass - PID Cuts & Phi Resonance", 300, 2210, 2360);
    MHistDalitzTight->GetXaxis()->SetTitle("MeV");
-   MHistDalitzTight->GetYaxis()->SetTitle("Events Per 2 MeV");
+   MHistDalitzTight->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
     File = new TFile("DalitzAnalysis.root", "RECREATE");
   gFile = File;
@@ -501,7 +501,7 @@ pad2->Draw();
   PullLoosePlot->GetXaxis()->SetTickLength(0.);
   PullLoosePlot->GetYaxis()->SetTickLength(0.);
   PullLoosePlot->SetFillColor(38);
-  PullLoosePlot->GetYaxis()->SetTitle("PullLoose");
+  PullLoosePlot->GetYaxis()->SetTitle("Pull");
   PullLoosePlot->GetYaxis()->CenterTitle();
   PullLoosePlot->GetYaxis()->SetTitleSize(0.10);
   PullLoosePlot->GetYaxis()->SetTitleOffset(0.2);
@@ -586,7 +586,7 @@ pad2->Draw();
      PullTightPlot->GetXaxis()->SetTickLength(0.);
      PullTightPlot->GetYaxis()->SetTickLength(0.);
      PullTightPlot->SetFillColor(38);
-     PullTightPlot->GetYaxis()->SetTitle("PullTight");
+     PullTightPlot->GetYaxis()->SetTitle("Pull");
      PullTightPlot->GetYaxis()->CenterTitle();
      PullTightPlot->GetYaxis()->SetTitleSize(0.10);
      PullTightPlot->GetYaxis()->SetTitleOffset(0.2);
@@ -668,7 +668,7 @@ pad2->Draw();
         PullDalitzLoosePlot->GetXaxis()->SetTickLength(0.);
         PullDalitzLoosePlot->GetYaxis()->SetTickLength(0.);
         PullDalitzLoosePlot->SetFillColor(38);
-        PullDalitzLoosePlot->GetYaxis()->SetTitle("PullDalitzLoose");
+        PullDalitzLoosePlot->GetYaxis()->SetTitle("Pull");
         PullDalitzLoosePlot->GetYaxis()->CenterTitle();
         PullDalitzLoosePlot->GetYaxis()->SetTitleSize(0.10);
         PullDalitzLoosePlot->GetYaxis()->SetTitleOffset(0.2);
@@ -750,7 +750,7 @@ pad2->Draw();
            PullDalitzTightPlot->GetXaxis()->SetTickLength(0.);
            PullDalitzTightPlot->GetYaxis()->SetTickLength(0.);
            PullDalitzTightPlot->SetFillColor(38);
-           PullDalitzTightPlot->GetYaxis()->SetTitle("PullDalitzTight");
+           PullDalitzTightPlot->GetYaxis()->SetTitle("Pull");
            PullDalitzTightPlot->GetYaxis()->CenterTitle();
            PullDalitzTightPlot->GetYaxis()->SetTitleSize(0.10);
            PullDalitzTightPlot->GetYaxis()->SetTitleOffset(0.2);
