@@ -270,7 +270,7 @@ bool SigCut = (
 
 bool RBCut = (
      (*Lcplus_M > 2328)
- &&  (*Lcplus_M < 2254)
+ &&  (*Lcplus_M < 2354)
 );
 
 bool  PIDCutLoose= (
