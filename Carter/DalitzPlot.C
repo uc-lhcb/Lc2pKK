@@ -153,6 +153,7 @@ pad2->Draw();
    
 TF1 *Gaussian = new TF1("Gaussian",DGOneMuOneTotalHalfMeV,2200.,2400.,7);
 Gaussian->SetParameter(0, 0.5);
+Gaussian->SetParLimits(0, 0., 1.);
 Gaussian->SetParameter(1, 10000);
 Gaussian->SetParameter(2, 2287.);
 Gaussian->SetParameter(3, 5);
