@@ -11,14 +11,12 @@
 #include <TF1.h>
 
 TH2D * DalitzPlotUncut = nullptr;
-TH2D * DalitzPlotLc = nullptr;
 TH1D * KpKmMassHist = nullptr;
 TH1D * PKmMassHist = nullptr;
 TH1D * PKpMassHist = nullptr;
 
 
 TH1D * MassHist = nullptr;
-TH1D * BSubHist = nullptr;
 
 TFile * File = nullptr;
 
@@ -28,12 +26,6 @@ TCanvas * ex1 = nullptr;
 void DalitzPlot::Begin(TTree * /*tree*/)
 {
    TString option = GetOption();
-   
-         //Dalitz Plot is a 2D Histogram
-         DalitzPlotLc = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay - Background Subtracted", 100, 0.8, 2.2, 100, 1.7, 3.7);
-         DalitzPlotLc->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
-         DalitzPlotLc->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
-         DalitzPlotLc->GetZaxis()->SetTitle("Events");
    
             //Dalitz Plot is a 2D Histogram
          DalitzPlotUncut = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay - Uncut", 100, 0.8, 2.2, 100, 1.7, 3.7);
@@ -60,10 +52,6 @@ void DalitzPlot::Begin(TTree * /*tree*/)
    MassHist = new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 300, 2210, 2360);
    MassHist->GetXaxis()->SetTitle("MeV");
    MassHist->GetYaxis()->SetTitle("Events Per 2 MeV");
-   
-   BSubHist = new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 50, 2275, 2300);
-   BSubHist->GetXaxis()->SetTitle("MeV");
-   BSubHist->GetYaxis()->SetTitle("Events Per 2 MeV");
    
     File = new TFile("DalitzAnalysis.root", "RECREATE");
   gFile = File;
@@ -108,21 +96,11 @@ bool Cut = (
      (M2_KpKm > 1.02)
   && (M2_KpKm < 1.06)
    );
-
-bool SignalRegion = (
-    (*Lcplus_M > 2275.)  
- && (*Lcplus_M < 2300.)  
-   );
    
  if (Cut){
     MassHist->Fill(*Lcplus_M);
  }  
-       
-if (Cut & SignalRegion){
- BSubHist->Fill(*Lcplus_M);
- DalitzPlotLc->Fill(M2_KpKm, M2_PKm);
-}
-   
+        
    return kTRUE;
 }
 
@@ -143,9 +121,6 @@ DalitzPlotUncut->Draw("COLZ");
  c1->Write("Dalitz Plot - COLZ");
 DalitzPlotUncut->Draw("CONTZ");
  c1->Write("Dalitz Plot - CONTZ");
-   DalitzPlotLc->Draw();
- c1->Write("Dalitz Plot - Background Subtracted");
-
 
  //Creates Histograms for M^2 Variables  
 KpKmMassHist->Draw();
@@ -156,9 +131,6 @@ KpKmMassHist->Draw();
    
  PKpMassHist->Draw();
  c1->Write("P & Kp Mass");
-    
-BSubHist->Draw();
-c1->Write("Signal Events");
    
 TPad *pad1 = new TPad("pad1","pad1",0,0.33,1,1);
 TPad *pad2 = new TPad("pad2","pad2",0,0,1,0.33);
