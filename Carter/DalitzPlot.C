@@ -105,10 +105,8 @@ double M2_KpKm = KpKm.Mag2()/(1000*1000);
  PKpMassHist->Fill(M2_PKp);
    
 bool Cut = (
-     ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.9)
-&&   ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.95)
-&&   ((*Proton_ProbNNp)*(*Kplus_ProbNNk) > 0.95)
-&&   ((*Kminus_ProbNNk)*(*Proton_ProbNNp) > 0.95)
+     (M2_KpKm > 1.02)
+  && (M2_KpKm < 1.06)
    );
 
 bool SignalRegion = (
