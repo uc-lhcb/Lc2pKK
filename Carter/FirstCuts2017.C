@@ -186,11 +186,11 @@ Bool_t FirstCuts2017::Process(Long64_t entry)
    );
 
    bool LcMidHighPCut = (
-     (*Lcplus_P > 88500. && *Lcplus_P < 105000.)
+     (*Lcplus_P > 88500. && *Lcplus_P < 110000.)
    );
 
    bool LcHighPCut = (
-     (*Lcplus_P > 105000.)
+     (*Lcplus_P > 110000.)
    );
 
    bool MagDown = (
