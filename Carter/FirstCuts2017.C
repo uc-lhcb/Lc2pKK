@@ -139,10 +139,10 @@ Bool_t FirstCuts2017::Process(Long64_t entry)
    fReader.SetLocalEntry(entry);
 
    bool LooseCuts = (
-     ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.65)
-&&   ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.7)
-&&   ((*Proton_ProbNNp)*(*Kplus_ProbNNk) > 0.7)
-&&   ((*Kminus_ProbNNk)*(*Proton_ProbNNp) > 0.7)
+     ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.7)
+&&   ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.75)
+&&   ((*Proton_ProbNNp)*(*Kplus_ProbNNk) > 0.75)
+&&   ((*Kminus_ProbNNk)*(*Proton_ProbNNp) > 0.75)
    );
 
    bool MidCuts = (
