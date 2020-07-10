@@ -158,8 +158,8 @@ Gaussian->SetParameter(1, 10000);
 Gaussian->SetParameter(2, 2287.);
 Gaussian->SetParameter(3, 5);
 Gaussian->SetParameter(4, 5);
-Gaussian->SetParLimits(3, 0., 20.);
-Gaussian->SetParLimits(4, 0., 20.);
+Gaussian->SetParLimits(3, 0., 10.);
+Gaussian->SetParLimits(4, 0., 10.);
 Gaussian->SetParameter(5, 0.);
 Gaussian->SetParameter(6, 0.);
 
