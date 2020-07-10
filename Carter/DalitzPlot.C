@@ -100,6 +100,9 @@ double M2_PKm  = PKm.Mag2()/(1000*1000);
 double M2_KpKm = KpKm.Mag2()/(1000*1000);
 
  DalitzPlotUncut->Fill(M2_KpKm, M2_PKm);   
+ KpKmMassHist->Fill(M2_KpKm);
+ PKmMassHist->Fill(M2_PKm);
+ PKpMassHist->Fill(M2_PKp);
    
 bool Cut = (
      ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.9)
@@ -119,9 +122,6 @@ bool SignalRegion = (
        
 if (Cut & SignalRegion){
  BSubHist->Fill(*Lcplus_M);
- KpKmMassHist->Fill(M2_KpKm);
- PKmMassHist->Fill(M2_PKm);
- PKpMassHist->Fill(M2_PKp);
  DalitzPlotLc->Fill(M2_KpKm, M2_PKm);
 }
    
@@ -141,12 +141,13 @@ c1->cd();
 //Creates Dalitz Plots with Various Options
 DalitzPlotUncut->Draw();
  c1->Write("Dalitz Plot - Uncut");
+DalitzPlotUncut->Draw("COLZ");
+ c1->Write("Dalitz Plot - COLZ");
+DalitzPlotUncut->Draw("CONTZ");
+ c1->Write("Dalitz Plot - CONTZ");
    DalitzPlotLc->Draw();
  c1->Write("Dalitz Plot - Background Subtracted");
-DalitzPlotLc->Draw("COLZ");
- c1->Write("Dalitz Plot - COLZ");
-DalitzPlotLc->Draw("CONTZ");
- c1->Write("Dalitz Plot - CONTZ");
+
 
  //Creates Histograms for M^2 Variables  
 KpKmMassHist->Draw();
