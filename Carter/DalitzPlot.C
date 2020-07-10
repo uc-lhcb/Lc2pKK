@@ -95,6 +95,7 @@ double M2_KpKm = KpKm.Mag2()/(1000*1000);
 bool Cut = (
      (M2_KpKm > 1.032)
   && (M2_KpKm < 1.048)
+  && ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.65)
    );
    
  if (Cut){
