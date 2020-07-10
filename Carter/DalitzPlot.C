@@ -254,7 +254,7 @@ double M2_PKm  = PKm.Mag2()/(1000*1000);
 double M2_KpKm = KpKm.Mag2()/(1000*1000);
 
 bool DalitzCut = (
-     (M2_KpKm > 1.025)
+     (M2_KpKm > 1.02)
   && (M2_KpKm < 1.06)
    );
 
@@ -512,7 +512,7 @@ pad2->Draw();
   PullLoosePlot->SetMinimum(-5);
   PullLoosePlot->SetMaximum(5);
   PullLoosePlot->Draw("AB");
-        c1->Write("Lc Mass");
+        c1->Write("Lc Mass - Loose");
 
   ex1->cd();
    ex1->Clear();
@@ -521,13 +521,13 @@ pad2->Draw();
      Tl.SetTextSize(0.04);
      Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries: %f Events", GaussianLoose->GetParameter(1)));
      Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", GaussianLoose->GetParError(1)));
-     Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First GaussianLoose: %f Events", GaussianLoose->GetParameter(0)));
+     Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First Gaussian: %f Events", GaussianLoose->GetParameter(0)));
      Tl.DrawLatex(0.1,0.75,Form("Error: %f Events", GaussianLoose->GetParError(0)));
      Tl.DrawLatex(0.1,0.65,Form("Mean Value: %f MeV", GaussianLoose->GetParameter(2)));
      Tl.DrawLatex(0.1,0.6,Form("Error: %f MeV", GaussianLoose->GetParError(2)));
-     Tl.DrawLatex(0.1,0.5,Form("Sigma of First GaussianLoose: %f MeV", GaussianLoose->GetParameter(3)));
+     Tl.DrawLatex(0.1,0.5,Form("Sigma of First Gaussian: %f MeV", GaussianLoose->GetParameter(3)));
      Tl.DrawLatex(0.1,0.45,Form("Error: %f MeV", GaussianLoose->GetParError(3)));
-     Tl.DrawLatex(0.1,0.35,Form("Sigma of Second GaussianLoose: %f MeV", GaussianLoose->GetParameter(4)));
+     Tl.DrawLatex(0.1,0.35,Form("Sigma of Second Gaussian: %f MeV", GaussianLoose->GetParameter(4)));
      Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", GaussianLoose->GetParError(4)));
      Tl.DrawLatex(0.1,0.2,Form("Bins Between -1 & 1 %f Bins", Loosecount1));
      Tl.DrawLatex(0.1,0.15,Form("Bins Between -2 & 2 %f Bins", Loosecount2));
@@ -597,19 +597,19 @@ pad2->Draw();
      PullTightPlot->SetMinimum(-5);
      PullTightPlot->SetMaximum(5);
      PullTightPlot->Draw("AB");
-           c1->Write("Lc Mass");
+           c1->Write("Lc Mass - Tight");
 
      ex1->cd();
       ex1->Clear();
         Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries: %f Events", GaussianTight->GetParameter(1)));
         Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", GaussianTight->GetParError(1)));
-        Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First GaussianTight: %f Events", GaussianTight->GetParameter(0)));
+        Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First Gaussian: %f Events", GaussianTight->GetParameter(0)));
         Tl.DrawLatex(0.1,0.75,Form("Error: %f Events", GaussianTight->GetParError(0)));
         Tl.DrawLatex(0.1,0.65,Form("Mean Value: %f MeV", GaussianTight->GetParameter(2)));
         Tl.DrawLatex(0.1,0.6,Form("Error: %f MeV", GaussianTight->GetParError(2)));
-        Tl.DrawLatex(0.1,0.5,Form("Sigma of First GaussianTight: %f MeV", GaussianTight->GetParameter(3)));
+        Tl.DrawLatex(0.1,0.5,Form("Sigma of First Gaussian: %f MeV", GaussianTight->GetParameter(3)));
         Tl.DrawLatex(0.1,0.45,Form("Error: %f MeV", GaussianTight->GetParError(3)));
-        Tl.DrawLatex(0.1,0.35,Form("Sigma of Second GaussianTight: %f MeV", GaussianTight->GetParameter(4)));
+        Tl.DrawLatex(0.1,0.35,Form("Sigma of Second Gaussian: %f MeV", GaussianTight->GetParameter(4)));
         Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", GaussianTight->GetParError(4)));
         Tl.DrawLatex(0.1,0.2,Form("Bins Between -1 & 1 %f Bins", Tightcount1));
         Tl.DrawLatex(0.1,0.15,Form("Bins Between -2 & 2 %f Bins", Tightcount2));
@@ -679,19 +679,19 @@ pad2->Draw();
         PullDalitzLoosePlot->SetMinimum(-5);
         PullDalitzLoosePlot->SetMaximum(5);
         PullDalitzLoosePlot->Draw("AB");
-              c1->Write("Lc Mass");
+              c1->Write("Lc Mass - DalitzLoose");
 
         ex1->cd();
          ex1->Clear();
            Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries: %f Events", GaussianDalitzLoose->GetParameter(1)));
            Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", GaussianDalitzLoose->GetParError(1)));
-           Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First GaussianDalitzLoose: %f Events", GaussianDalitzLoose->GetParameter(0)));
+           Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First Gaussian: %f Events", GaussianDalitzLoose->GetParameter(0)));
            Tl.DrawLatex(0.1,0.75,Form("Error: %f Events", GaussianDalitzLoose->GetParError(0)));
            Tl.DrawLatex(0.1,0.65,Form("Mean Value: %f MeV", GaussianDalitzLoose->GetParameter(2)));
            Tl.DrawLatex(0.1,0.6,Form("Error: %f MeV", GaussianDalitzLoose->GetParError(2)));
-           Tl.DrawLatex(0.1,0.5,Form("Sigma of First GaussianDalitzLoose: %f MeV", GaussianDalitzLoose->GetParameter(3)));
+           Tl.DrawLatex(0.1,0.5,Form("Sigma of First Gaussian: %f MeV", GaussianDalitzLoose->GetParameter(3)));
            Tl.DrawLatex(0.1,0.45,Form("Error: %f MeV", GaussianDalitzLoose->GetParError(3)));
-           Tl.DrawLatex(0.1,0.35,Form("Sigma of Second GaussianDalitzLoose: %f MeV", GaussianDalitzLoose->GetParameter(4)));
+           Tl.DrawLatex(0.1,0.35,Form("Sigma of Second Gaussian: %f MeV", GaussianDalitzLoose->GetParameter(4)));
            Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", GaussianDalitzLoose->GetParError(4)));
            Tl.DrawLatex(0.1,0.2,Form("Bins Between -1 & 1 %f Bins", DalitzLoosecount1));
            Tl.DrawLatex(0.1,0.15,Form("Bins Between -2 & 2 %f Bins", DalitzLoosecount2));
@@ -761,19 +761,19 @@ pad2->Draw();
            PullDalitzTightPlot->SetMinimum(-5);
            PullDalitzTightPlot->SetMaximum(5);
            PullDalitzTightPlot->Draw("AB");
-                 c1->Write("Lc Mass");
+                 c1->Write("Lc Mass - DalitzTight");
 
            ex1->cd();
             ex1->Clear();
               Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries: %f Events", GaussianDalitzTight->GetParameter(1)));
               Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", GaussianDalitzTight->GetParError(1)));
-              Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First GaussianDalitzTight: %f Events", GaussianDalitzTight->GetParameter(0)));
+              Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First Gaussian: %f Events", GaussianDalitzTight->GetParameter(0)));
               Tl.DrawLatex(0.1,0.75,Form("Error: %f Events", GaussianDalitzTight->GetParError(0)));
               Tl.DrawLatex(0.1,0.65,Form("Mean Value: %f MeV", GaussianDalitzTight->GetParameter(2)));
               Tl.DrawLatex(0.1,0.6,Form("Error: %f MeV", GaussianDalitzTight->GetParError(2)));
-              Tl.DrawLatex(0.1,0.5,Form("Sigma of First GaussianDalitzTight: %f MeV", GaussianDalitzTight->GetParameter(3)));
+              Tl.DrawLatex(0.1,0.5,Form("Sigma of First Gaussian: %f MeV", GaussianDalitzTight->GetParameter(3)));
               Tl.DrawLatex(0.1,0.45,Form("Error: %f MeV", GaussianDalitzTight->GetParError(3)));
-              Tl.DrawLatex(0.1,0.35,Form("Sigma of Second GaussianDalitzTight: %f MeV", GaussianDalitzTight->GetParameter(4)));
+              Tl.DrawLatex(0.1,0.35,Form("Sigma of Second Gaussian: %f MeV", GaussianDalitzTight->GetParameter(4)));
               Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", GaussianDalitzTight->GetParError(4)));
               Tl.DrawLatex(0.1,0.2,Form("Bins Between -1 & 1 %f Bins", DalitzTightcount1));
               Tl.DrawLatex(0.1,0.15,Form("Bins Between -2 & 2 %f Bins", DalitzTightcount2));
