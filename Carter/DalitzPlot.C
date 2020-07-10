@@ -16,7 +16,8 @@ TH1D * PKmMassHist = nullptr;
 TH1D * PKpMassHist = nullptr;
 
 
-TH1D * MassHist = nullptr;
+TH1D * MassHistLoose = nullptr;
+TH1D * MassHistTight = nullptr;
 
 TFile * File = nullptr;
 
@@ -49,9 +50,13 @@ void DalitzPlot::Begin(TTree * /*tree*/)
          PKpMassHist->GetYaxis()->SetTitle("Events");   
 
    
-   MassHist = new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 300, 2210, 2360);
-   MassHist->GetXaxis()->SetTitle("MeV");
-   MassHist->GetYaxis()->SetTitle("Events Per 2 MeV");
+   MassHistLoose = new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 300, 2210, 2360);
+   MassHistLoose->GetXaxis()->SetTitle("MeV");
+   MassHistLoose->GetYaxis()->SetTitle("Events Per 2 MeV");
+  
+   MassHistTight = new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 300, 2210, 2360);
+   MassHistTight->GetXaxis()->SetTitle("MeV");
+   MassHistTight->GetYaxis()->SetTitle("Events Per 2 MeV");
    
     File = new TFile("DalitzAnalysis.root", "RECREATE");
   gFile = File;
@@ -92,14 +97,21 @@ double M2_KpKm = KpKm.Mag2()/(1000*1000);
  PKmMassHist->Fill(M2_PKm);
  PKpMassHist->Fill(M2_PKp);
    
-bool Cut = (
-     (M2_KpKm > 1.035)
-  && (M2_KpKm < 1.045)
-//  && ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.65)
+bool DalitzCut = (
+     (M2_KpKm > 1.025)
+  && (M2_KpKm < 1.05)
    );
    
- if (Cut){
-    MassHist->Fill(*Lcplus_M);
+bool  PIDCut= (
+((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.65)
+   );   
+
+ if (DalitzCut){
+    MassHistLoose->Fill(*Lcplus_M);
+ }     
+   
+ if (DalitzCut && PIDCut){
+    MassHistTight->Fill(*Lcplus_M);
  }  
         
    return kTRUE;
@@ -132,6 +144,9 @@ KpKmMassHist->Draw();
    
  PKpMassHist->Draw();
  c1->Write("P & Kp Mass");
+  
+ MassHistLoose->Draw();
+ c1->Write("Lc Mass");
    
 TPad *pad1 = new TPad("pad1","pad1",0,0.33,1,1);
 TPad *pad2 = new TPad("pad2","pad2",0,0,1,0.33);
@@ -165,8 +180,8 @@ Gaussian->SetParameter(5, 0.);
 Gaussian->SetParameter(6, 0.);
 
 pad1->cd();
-MassHist->SetMinimum(0);
-MassHist->Fit("Gaussian");
+MassHistTight->SetMinimum(0);
+MassHistTight->Fit("Gaussian");
 
 double Pullx[300];
 int BinHeight[300];
@@ -178,7 +193,7 @@ double count2 = 0;
 double count3 = 0;
 
 for (int bin = 0; bin < 300; bin++){
-BinHeight[bin] = MassHist->GetBinContent(bin + 1);
+BinHeight[bin] = MassHistTight->GetBinContent(bin + 1);
 Pullx[bin] = (bin + 1);
 int xvalue = 2210.25 + 0.5*(bin);
 FitHeight[bin] = round(Gaussian->Eval(xvalue));
