@@ -93,8 +93,8 @@ double M2_KpKm = KpKm.Mag2()/(1000*1000);
  PKpMassHist->Fill(M2_PKp);
    
 bool Cut = (
-     (M2_KpKm > 1.034)
-  && (M2_KpKm < 1.046)
+     (M2_KpKm > 1.035)
+  && (M2_KpKm < 1.045)
 //  && ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.65)
    );
    
