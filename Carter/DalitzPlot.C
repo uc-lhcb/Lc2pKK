@@ -1,6 +1,5 @@
 //Determine KpKm Cut
 //Apply KpKm Cut + PID Cuts
-//Fit ALL Mass Histograms (4 Total)
 
 #define DalitzPlot_cxx
 #include "DalitzPlot.h"
@@ -259,7 +258,7 @@ bool DalitzCut = (
   && (M2_KpKm < 1.05)
    );
 
-   bool RBCut = (
+   bool LBCut = (
         (*Lcplus_M > 2220)
     &&  (*Lcplus_M < 2246)
    );
@@ -299,51 +298,51 @@ MHistDalitzTight->Fill(*Lcplus_M);
 }
 
 if (PIDCutLoose && LBCut){
-  DPLooseLB->Fill(*Lcplus_M);
-  KpKmLooseLB->Fill(*Lcplus_M);
-  PKmLooseLB->Fill(*Lcplus_M);
-  PKpLooseLB->Fill(*Lcplus_M);
-  KpKmLooseLBZoom->Fill(*Lcplus_M);
+  DPLooseLB->Fill(M2_KpKm, M2_PKm);
+  KpKmLooseLB->Fill(M2_KpKm);
+  PKmLooseLB->Fill(M2_PKm);
+  PKpLooseLB->FillM2_PKp
+  KpKmLooseLBZoom->Fill(M2_KpKm);
 }
 
 if (PIDCutLoose && SigCut){
-  DPLooseSig->Fill(*Lcplus_M);
-  KpKmLooseSig->Fill(*Lcplus_M);
-  PKmLooseSig->Fill(*Lcplus_M);
-  PKpLooseSig->Fill(*Lcplus_M);
-  KpKmLooseSigZoom->Fill(*Lcplus_M);
+  DPLooseSig->Fill(M2_KpKm, M2_PKm);
+  KpKmLooseSig->Fill(M2_KpKm);
+  PKmLooseSig->Fill(M2_PKm);
+  PKpLooseSig->Fill(M2_PKp);
+  KpKmLooseSigZoom->Fill(M2_KpKm);
 }
 
 if (PIDCutLoose && RBCut){
-  DPLooseRB->Fill(*Lcplus_M);
-  KpKmLooseRB->Fill(*Lcplus_M);
-  PKmLooseRB->Fill(*Lcplus_M);
-  PKpLooseRB->Fill(*Lcplus_M);
-  KpKmLooseRBZoom->Fill(*Lcplus_M);
+  DPLooseRB->Fill(M2_KpKm, M2_PKm);
+  KpKmLooseRB->Fill(M2_KpKm);
+  PKmLooseRB->Fill(M2_PKm);
+  PKpLooseRB->Fill(M2_PKp);
+  KpKmLooseRBZoom->Fill(M2_KpKm);
 }
 
 if (PIDCutTight && LBCut){
-  DPTightLB->Fill(*Lcplus_M);
-  KpKmTightLB->Fill(*Lcplus_M);
-  PKmTightLB->Fill(*Lcplus_M);
-  PKpTightLB->Fill(*Lcplus_M);
-  KpKmTightLBZoom->Fill(*Lcplus_M);
+  DPTightLB->Fill(M2_KpKm, M2_PKm);
+  KpKmTightLB->Fill(M2_KpKm);
+  PKmTightLB->Fill(M2_PKm);
+  PKpTightLB->Fill(M2_PKp);
+  KpKmTightLBZoom->Fill(M2_KpKm);
 }
 
 if (PIDCutTight && SigCut){
-  DPTightSig->Fill(*Lcplus_M);
-  KpKmTightSig->Fill(*Lcplus_M);
-  PKmTightSig->Fill(*Lcplus_M);
-  PKpTightSig->Fill(*Lcplus_M);
-  KpKmTightSigZoom->Fill(*Lcplus_M);
+  DPTightSig->Fill(M2_KpKm, M2_PKm);
+  KpKmTightSig->Fill(M2_KpKm);
+  PKmTightSig->Fill(M2_PKm);
+  PKpTightSig->Fill(M2_PKp);
+  KpKmTightSigZoom->Fill(M2_KpKm);
 }
 
 if (PIDCutTight && RBCut){
-  DPTightRB->Fill(*Lcplus_M);
-  KpKmTightRB->Fill(*Lcplus_M);
-  PKmTightRB->Fill(*Lcplus_M);
-  PKpTightRB->Fill(*Lcplus_M);
-  KpKmTightRBZoom->Fill(*Lcplus_M);
+  DPTightRB->Fill(M2_KpKm, M2_PKm);
+  KpKmTightRB->Fill(M2_KpKm);
+  PKmTightRB->Fill(M2_PKm);
+  PKpTightRB->Fill(M2_PKp);
+  KpKmTightRBZoom->Fill(M2_KpKm);
 }
 
    return kTRUE;
@@ -602,9 +601,6 @@ pad2->Draw();
 
      ex1->cd();
       ex1->Clear();
-        TLatex Tl;
-        Tl.SetTextAlign(12);
-        Tl.SetTextSize(0.04);
         Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries: %f Events", GaussianTight->GetParameter(1)));
         Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", GaussianTight->GetParError(1)));
         Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First GaussianTight: %f Events", GaussianTight->GetParameter(0)));
@@ -687,9 +683,6 @@ pad2->Draw();
 
         ex1->cd();
          ex1->Clear();
-           TLatex Tl;
-           Tl.SetTextAlign(12);
-           Tl.SetTextSize(0.04);
            Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries: %f Events", GaussianDalitzLoose->GetParameter(1)));
            Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", GaussianDalitzLoose->GetParError(1)));
            Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First GaussianDalitzLoose: %f Events", GaussianDalitzLoose->GetParameter(0)));
@@ -772,9 +765,6 @@ pad2->Draw();
 
            ex1->cd();
             ex1->Clear();
-              TLatex Tl;
-              Tl.SetTextAlign(12);
-              Tl.SetTextSize(0.04);
               Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries: %f Events", GaussianDalitzTight->GetParameter(1)));
               Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", GaussianDalitzTight->GetParError(1)));
               Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First GaussianDalitzTight: %f Events", GaussianDalitzTight->GetParameter(0)));
