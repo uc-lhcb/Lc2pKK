@@ -254,8 +254,8 @@ double M2_PKm  = PKm.Mag2()/(1000*1000);
 double M2_KpKm = KpKm.Mag2()/(1000*1000);
 
 bool DalitzCut = (
-     (M2_KpKm > 1.02)
-  && (M2_KpKm < 1.06)
+     (M2_KpKm > 1.025)
+  && (M2_KpKm < 1.05672)
    );
 
    bool LBCut = (
