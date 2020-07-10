@@ -93,8 +93,8 @@ double M2_KpKm = KpKm.Mag2()/(1000*1000);
  PKpMassHist->Fill(M2_PKp);
    
 bool Cut = (
-     (M2_KpKm > 1.02)
-  && (M2_KpKm < 1.06)
+     (M2_KpKm > 1.025)
+  && (M2_KpKm < 1.055)
    );
    
  if (Cut){
