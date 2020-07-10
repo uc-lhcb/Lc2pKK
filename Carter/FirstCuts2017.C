@@ -963,14 +963,12 @@ c1->cd();
 /////////////////////////////////////
 
 TF1 *GaussianLoose1MeVDG1Mu = new TF1("GaussianLoose1MeVDG1Mu",DGOneMuOneTotal1MeV,2200.,2400.,7);
-GaussianLoose1MeVDG1Mu->SetParameter(0, 2000.);
-GaussianLoose1MeVDG1Mu->SetParLimits(0, 0, 80000);
-GaussianLoose1MeVDG1Mu->SetParameter(1, 2286);
-GaussianLoose1MeVDG1Mu->SetParameter(2, 5);
-GaussianLoose1MeVDG1Mu->SetParLimits(2, 0., 20.);
-GaussianLoose1MeVDG1Mu->SetParameter(3, 2000.);
-GaussianLoose1MeVDG1Mu->SetParLimits(3, 0, 80000);
+GaussianLoose1MeVDG1Mu->SetParameter(0, 0.5);
+GaussianLoose1MeVDG1Mu->SetParameter(1, 10000);
+GaussianLoose1MeVDG1Mu->SetParameter(2, 2287.);
+GaussianLoose1MeVDG1Mu->SetParameter(3, 5);
 GaussianLoose1MeVDG1Mu->SetParameter(4, 5);
+GaussianLoose1MeVDG1Mu->SetParLimits(3, 0., 20.);
 GaussianLoose1MeVDG1Mu->SetParLimits(4, 0., 20.);
 GaussianLoose1MeVDG1Mu->SetParameter(5, 0.);
 GaussianLoose1MeVDG1Mu->SetParameter(6, 0.);
