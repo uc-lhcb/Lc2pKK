@@ -257,7 +257,7 @@ bool DalitzCut = (
      (M2_KpKm > 1.025)
   && (M2_KpKm < 1.05672)
   && (M2_PKm > 2.4)
-  && (M2_PKm > 2.4) 
+  && (M2_PKp > 2.4) 
    );
 
    bool LBCut = (
