@@ -256,8 +256,6 @@ double M2_KpKm = KpKm.Mag2()/(1000*1000);
 bool DalitzCut = (
      (M2_KpKm > 1.025)
   && (M2_KpKm < 1.05672)
-  && (M2_PKm > 2.4)
-  && (M2_PKp > 2.4) 
    );
 
    bool LBCut = (
@@ -453,14 +451,14 @@ pad2->Draw();
   TString deltaTotalStr;
 
   TF1 *GaussianLoose = new TF1("GaussianLoose",DGOneMuOneTotalHalfMeV,2200.,2400.,7);
-  GaussianLoose->SetParameter(0, 0.5);
+  GaussianLoose->SetParameter(0, 0.6);
   GaussianLoose->SetParLimits(0, 0., 1.);
-  GaussianLoose->SetParameter(1, 10000);
+  GaussianLoose->SetParameter(1, 20000);
   GaussianLoose->SetParameter(2, 2287.);
   GaussianLoose->SetParameter(3, 5);
   GaussianLoose->SetParameter(4, 5);
-  GaussianLoose->SetParLimits(3, 0., 12.);
-  GaussianLoose->SetParLimits(4, 0., 12.);
+  GaussianLoose->SetParLimits(3, 0., 15.);
+  GaussianLoose->SetParLimits(4, 0., 15.);
   GaussianLoose->SetParameter(5, 0.);
   GaussianLoose->SetParameter(6, 0.);
 
@@ -538,14 +536,14 @@ pad2->Draw();
      ex1->Write("Fit Values - Loose");
 
      TF1 *GaussianTight = new TF1("GaussianTight",DGOneMuOneTotalHalfMeV,2200.,2400.,7);
-     GaussianTight->SetParameter(0, 0.5);
+     GaussianTight->SetParameter(0, 0.6);
      GaussianTight->SetParLimits(0, 0., 1.);
-     GaussianTight->SetParameter(1, 10000);
+     GaussianTight->SetParameter(1, 20000);
      GaussianTight->SetParameter(2, 2287.);
      GaussianTight->SetParameter(3, 5);
      GaussianTight->SetParameter(4, 5);
-     GaussianTight->SetParLimits(3, 0., 12.);
-     GaussianTight->SetParLimits(4, 0., 12.);
+     GaussianTight->SetParLimits(3, 0., 15.);
+     GaussianTight->SetParLimits(4, 0., 15.);
      GaussianTight->SetParameter(5, 0.);
      GaussianTight->SetParameter(6, 0.);
 
@@ -620,14 +618,14 @@ pad2->Draw();
         ex1->Write("Fit Values - Tight");
 
         TF1 *GaussianDalitzLoose = new TF1("GaussianDalitzLoose",DGOneMuOneTotalHalfMeV,2200.,2400.,7);
-        GaussianDalitzLoose->SetParameter(0, 0.5);
+        GaussianDalitzLoose->SetParameter(0, 0.6);
         GaussianDalitzLoose->SetParLimits(0, 0., 1.);
-        GaussianDalitzLoose->SetParameter(1, 10000);
+        GaussianDalitzLoose->SetParameter(1, 20000);
         GaussianDalitzLoose->SetParameter(2, 2287.);
         GaussianDalitzLoose->SetParameter(3, 5);
         GaussianDalitzLoose->SetParameter(4, 5);
-        GaussianDalitzLoose->SetParLimits(3, 0., 12.);
-        GaussianDalitzLoose->SetParLimits(4, 0., 12.);
+        GaussianDalitzLoose->SetParLimits(3, 0., 15.);
+        GaussianDalitzLoose->SetParLimits(4, 0., 15.);
         GaussianDalitzLoose->SetParameter(5, 0.);
         GaussianDalitzLoose->SetParameter(6, 0.);
 
@@ -702,14 +700,14 @@ pad2->Draw();
            ex1->Write("Fit Values - DalitzLoose");
 
            TF1 *GaussianDalitzTight = new TF1("GaussianDalitzTight",DGOneMuOneTotalHalfMeV,2200.,2400.,7);
-           GaussianDalitzTight->SetParameter(0, 0.5);
+           GaussianDalitzTight->SetParameter(0, 0.6);
            GaussianDalitzTight->SetParLimits(0, 0., 1.);
-           GaussianDalitzTight->SetParameter(1, 10000);
+           GaussianDalitzTight->SetParameter(1, 20000);
            GaussianDalitzTight->SetParameter(2, 2287.);
            GaussianDalitzTight->SetParameter(3, 5);
            GaussianDalitzTight->SetParameter(4, 5);
-           GaussianDalitzTight->SetParLimits(3, 0., 12.);
-           GaussianDalitzTight->SetParLimits(4, 0., 12.);
+           GaussianDalitzTight->SetParLimits(3, 0., 15.);
+           GaussianDalitzTight->SetParLimits(4, 0., 15.);
            GaussianDalitzTight->SetParameter(5, 0.);
            GaussianDalitzTight->SetParameter(6, 0.);
 
