@@ -275,7 +275,7 @@ bool RBCut = (
 
 bool  PIDCutLoose= (
 ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.85)
-   && (*Proton_ProbNNp > 0.85)
+   && (*Proton_ProbNNp > 0.65)
    );
 
    bool  PIDCutTight= (
