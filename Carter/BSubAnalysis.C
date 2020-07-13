@@ -57,6 +57,7 @@ TH1D * LcTAUBkgrd = nullptr;
 TH1D * LcTAUSignalEstimate = nullptr;
 
 TCanvas * c1 = nullptr;
+TCanvas * ex1 = nullptr;
 TFile * File = nullptr;
 
 void BSubAnalysis::Begin(TTree * /*tree*/)
@@ -69,8 +70,8 @@ void BSubAnalysis::SlaveBegin(TTree * /*tree*/)
 {
    TString option = GetOption();
 
-
-c1 = new TCanvas("Background Subtraction","Histograms",1000,500);   
+   c1 = new TCanvas("canvas", "Test Canvas");
+   ex1 = new TCanvas("ex1","Latex",500,600); 
      File = new TFile("BackgroundSubtraction.root", "RECREATE");
      gFile = File;
 
@@ -94,16 +95,16 @@ PrPTSignal->SetLineColor(kBlue);
 PrPTBkgd->SetLineColor(kRed);
 PrPTSignalEstimate->SetLineColor(kGreen+3);
    
-KpPTSignal = new TH1D("Transverse Momentum", "Signal Region", 200, 0, 9000);
-KpPTBkgd = new TH1D("Transverse Momentum", "Background Region", 200, 0, 9000);
-KpPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 200, 0, 9000);
+KpPTSignal = new TH1D("Transverse Momentum", "Signal Region", 200, 0, 10000);
+KpPTBkgd = new TH1D("Transverse Momentum", "Background Region", 200, 0, 10000);
+KpPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 200, 0, 10000);
 KpPTSignal->SetLineColor(kBlue);
 KpPTBkgd->SetLineColor(kRed);
 KpPTSignalEstimate->SetLineColor(kGreen+3);  
    
-KmPTSignal = new TH1D("Transverse Momentum", "Signal Region", 200, 0, 9000);
-KmPTBkgd = new TH1D("Transverse Momentum", "Background Region", 200, 0, 9000);
-KmPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 200, 0, 9000);
+KmPTSignal = new TH1D("Transverse Momentum", "Signal Region", 200, 0, 10000);
+KmPTBkgd = new TH1D("Transverse Momentum", "Background Region", 200, 0, 10000);
+KmPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 200, 0, 10000);
 KmPTSignal->SetLineColor(kBlue);
 KmPTBkgd->SetLineColor(kRed);
 KmPTSignalEstimate->SetLineColor(kGreen+3); 
@@ -142,7 +143,7 @@ LcTAUSignalEstimate = new TH1D("DOCA", "Signal Estimation", 200, -0.5, 1.5);
 LcTAUSignal->SetLineColor(kBlue);
 LcTAUBkgd->SetLineColor(kRed);
 LcTAUSignalEstimate->SetLineColor(kGreen+3);
-
+   
 }
 
 Bool_t BSubAnalysis::Process(Long64_t entry)
@@ -212,16 +213,168 @@ KmPTSignalEstimate->Add(KmPTSignal,KmPTBkgd,1.0,-0.5);
 PrChi2SignalEstimate->Add(PrChi2Signal,PrChi2Bkgd,1.0,-0.5);                    
 KpChi2SignalEstimate->Add(KpChi2Signal,KpChi2Bkgd,1.0,-0.5);  
 KmChi2SignalEstimate->Add(KmChi2Signal,KmChi2Bkgd,1.0,-0.5);  
- ////add doca and tau                 
+DOCAMaxSignalEstimate->Add(DOCAMaxSignal,DOCAMaxBkgd,1.0,-0.5);  
+LcTAUSignalEstimate->Add(LcTAUSignal,LcTAUBkgd,1.0,-0.5);                    
+               
    return kTRUE;
 }
 
 void BSubAnalysis::SlaveTerminate()
 {
-
 }
 
 void BSubAnalysis::Terminate()
 {
+   
+gStyle->SetOptTitle(0);
+   
+//TPaveText *t1 = new TPaveText(0.3, 0.91, 0.7, 1.0, "brNDC");
+//t1->AddText("Signal and Background Estimation for Lcplus_PT");   
+LcPTSignal->GetYaxis()->SetTitle("Events per 100 MeV");
+LcPTSignal->GetXaxis()->SetTitle("MeV");   
+LcPTSignal->SetMinimum(0);
+LcPTSignal->Draw();
+LcPTSignalEstimate->Draw("SAME");
+LcPTBkgd->Draw("SAME");  
+//t1->Draw("SAME");   
+gPad->BuildLegend(0.78,0.75,0.98,0.95);
+c1->Write("LcPT Estimations");
+ c1->Clear();  
+  
+PrPTSignal->GetYaxis()->SetTitle("Events per 60 MeV");
+PrPTSignal->GetXaxis()->SetTitle("MeV");   
+PrPTSignal->SetMinimum(0);
+PrPTSignal->Draw();
+PrPTSignalEstimate->Draw("SAME");
+PrPTBkgd->Draw("SAME");     
+gPad->BuildLegend(0.78,0.75,0.98,0.95);
+c1->Write("PrPT Estimations");
+ c1->Clear();     
+ 
+KpPTSignal->GetYaxis()->SetTitle("Events per 50 MeV");
+KpPTSignal->GetXaxis()->SetTitle("MeV");   
+KpPTSignal->SetMinimum(0);
+KpPTSignal->Draw();
+KpPTSignalEstimate->Draw("SAME");
+KpPTBkgd->Draw("SAME");     
+gPad->BuildLegend(0.78,0.75,0.98,0.95);
+c1->Write("KpPT Estimations");
+ c1->Clear();  
+   
+KmPTSignal->GetYaxis()->SetTitle("Events per 50 MeV");
+KmPTSignal->GetXaxis()->SetTitle("MeV");   
+KmPTSignal->SetMinimum(0);
+KmPTSignal->Draw();
+KmPTSignalEstimate->Draw("SAME");
+KmPTBkgd->Draw("SAME");     
+gPad->BuildLegend(0.78,0.75,0.98,0.95);
+c1->Write("KmPT Estimations");
+ c1->Clear();     
+  
+//////The Rest BSub Code////////   
+   
+TPad *pad1 = new TPad("pad1","pad1",0,0.33,1,1);
+TPad *pad2 = new TPad("pad2","pad2",0,0,1,0.33);
+pad2->SetTopMargin(0.03030303);
+pad1->Draw();
+pad2->Draw();
 
+  Double_t sigma;
+  Double_t deltaSigma;
+  Double_t mu;
+  Double_t deltaMu;
+  Double_t total;
+  Double_t deltaTotal;
+  TString sigmaStr;
+  TString deltaSigmaStr;
+  TString muStr;
+  TString deltaMuStr;
+  TString totalStr;
+  TString deltaTotalStr;
+
+  TF1 *Gaussian = new TF1("Gaussian",DGOneMuOneTotalHalfMeV,2200.,2400.,7);
+  Gaussian->SetParameter(0, 0.6);
+  Gaussian->SetParLimits(0, 0., 1.);
+  Gaussian->SetParameter(1, 20000);
+  Gaussian->SetParameter(2, 2287.);
+  Gaussian->SetParameter(3, 5);
+  Gaussian->SetParameter(4, 5);
+  Gaussian->SetParLimits(3, 0., 15.);
+  Gaussian->SetParLimits(4, 0., 15.);
+  Gaussian->SetParameter(5, 0.);
+  Gaussian->SetParameter(6, 0.);
+
+  pad1->cd();
+  PreliminaryMass->SetMinimum(0);
+  PreliminaryMass->Fit("Gaussian");
+
+  double Pullx[300];
+  int BinHeight[300];
+  int FitHeight[300];
+  double Pull[300];
+
+  double count1 = 0;
+  double count2 = 0;
+  double count3 = 0;
+
+  for (int bin = 0; bin < 300; bin++){
+  BinHeight[bin] = PreliminaryMass->GetBinContent(bin + 1);
+  Pullx[bin] = (bin + 1);
+  int xvalue = 2210.25 + 0.5*(bin);
+  FitHeight[bin] = round(Gaussian->Eval(xvalue));
+  Pull[bin] = (BinHeight[bin] - FitHeight[bin])/TMath::Sqrt(FitHeight[bin]);
+
+  if (Pull[bin] > -1 && Pull[bin] < 1){
+    count1 += 1;
+  }
+
+  if (Pull[bin] > -2 && Pull[bin] < 2){
+    count2 += 1;
+  }
+
+  if (Pull[bin] > -3 && Pull[bin] < 3){
+    count3 += 1;
+  }
+  }
+
+  pad2->cd();
+  TGraph* PullPlot = new TGraph(300, Pullx, Pull);
+  PullPlot->GetXaxis()->SetLimits(0.5,300.5);
+  PullPlot->GetXaxis()->SetTickLength(0.);
+  PullPlot->GetYaxis()->SetTickLength(0.);
+  PullPlot->SetFillColor(38);
+  PullPlot->GetYaxis()->SetTitle("Pull");
+  PullPlot->GetYaxis()->CenterTitle();
+  PullPlot->GetYaxis()->SetTitleSize(0.10);
+  PullPlot->GetYaxis()->SetTitleOffset(0.2);
+  PullPlot->GetXaxis()->SetLabelSize(0);
+  PullPlot->GetYaxis()->SetLabelFont(42);
+  PullPlot->GetYaxis()->SetLabelSize(0.06);
+  PullPlot->SetTitle("");
+  PullPlot->SetMinimum(-5);
+  PullPlot->SetMaximum(5);
+  PullPlot->Draw("AB");
+        c1->Write("Lc Mass");
+
+  ex1->cd();
+   ex1->Clear();
+     TLatex Tl;
+     Tl.SetTextAlign(12);
+     Tl.SetTextSize(0.04);
+     Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries: %f Events", Gaussian->GetParameter(1)));
+     Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", Gaussian->GetParError(1)));
+     Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First Gaussian: %f Events", Gaussian->GetParameter(0)));
+     Tl.DrawLatex(0.1,0.75,Form("Error: %f Events", Gaussian->GetParError(0)));
+     Tl.DrawLatex(0.1,0.65,Form("Mean Value: %f MeV", Gaussian->GetParameter(2)));
+     Tl.DrawLatex(0.1,0.6,Form("Error: %f MeV", Gaussian->GetParError(2)));
+     Tl.DrawLatex(0.1,0.5,Form("Sigma of First Gaussian: %f MeV", Gaussian->GetParameter(3)));
+     Tl.DrawLatex(0.1,0.45,Form("Error: %f MeV", Gaussian->GetParError(3)));
+     Tl.DrawLatex(0.1,0.35,Form("Sigma of Second Gaussian: %f MeV", Gaussian->GetParameter(4)));
+     Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", Gaussian->GetParError(4)));
+     Tl.DrawLatex(0.1,0.2,Form("Bins Between -1 & 1 %f Bins", count1));
+     Tl.DrawLatex(0.1,0.15,Form("Bins Between -2 & 2 %f Bins", count2));
+     Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", count3));
+
+     ex1->Write("Fit Values");
+   File->Close();
 }
