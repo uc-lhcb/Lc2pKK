@@ -278,7 +278,7 @@ bool  PIDCutLoose= (
    );
 
    bool  PIDCutTight= (
-   ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.97)
+   ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.98)
       );
 
 if (PIDCutLoose){
