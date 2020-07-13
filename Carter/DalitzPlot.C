@@ -70,134 +70,134 @@ void DalitzPlot::Begin(TTree * /*tree*/)
    TString option = GetOption();
 
    //Dalitz Plot LooseLB
-   DPLooseLB = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay - LooseLB", 100, 0.8, 2.2, 100, 1.7, 3.7);
+   DPLooseLB = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay - LooseLB", 200, 0.8, 2.2, 200, 1.7, 3.7);
    DPLooseLB->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    DPLooseLB->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
    DPLooseLB->GetZaxis()->SetTitle("Events");
    //Plot of M^2 Variable for K+ and K- Combination LooseLB
-   KpKmLooseLB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination LooseLB", 100, 0.95, 2);
+   KpKmLooseLB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination LooseLB", 200, 0.95, 2);
    KpKmLooseLB->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    KpKmLooseLB->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for K+ and K- Combination LooseLB Zoomed into Resonance
-   KpKmLooseLBZoom = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination LooseLB", 100, 0.95, 1.21);
+   KpKmLooseLBZoom = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination LooseLB", 200, 0.95, 1.21);
    KpKmLooseLBZoom->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    KpKmLooseLBZoom->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for p+ and K- Combination LooseLB
-   PKmLooseLB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kminus Invariant Mass Combination LooseLB", 100, 2, 3.5);
+   PKmLooseLB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kminus Invariant Mass Combination LooseLB", 200, 2, 3.5);
    PKmLooseLB->GetXaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
    PKmLooseLB->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for p+ and K+ Combination LooseLB (Not Used for Dalitz Plot)
-   PKpLooseLB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kplus Invariant Mass Combination LooseLB", 100, 2, 3.5);
+   PKpLooseLB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kplus Invariant Mass Combination LooseLB", 200, 2, 3.5);
    PKpLooseLB->GetXaxis()->SetTitle("m^{2}(pK^{+})[GeV^{2}/c^{4}]");
    PKpLooseLB->GetYaxis()->SetTitle("Events");
 
    //Dalitz Plot LooseSig
-   DPLooseSig = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay - LooseSig", 100, 0.8, 2.2, 100, 1.7, 3.7);
+   DPLooseSig = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay - LooseSig", 200, 0.8, 2.2, 200, 1.7, 3.7);
    DPLooseSig->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    DPLooseSig->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
    DPLooseSig->GetZaxis()->SetTitle("Events");
    //Plot of M^2 Variable for K+ and K- Combination LooseSig
-   KpKmLooseSig = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination LooseSig", 100, 0.95, 2);
+   KpKmLooseSig = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination LooseSig", 200, 0.95, 2);
    KpKmLooseSig->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    KpKmLooseSig->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for K+ and K- Combination LooseSig Zoomed into Resonance
-   KpKmLooseSigZoom = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination LooseSig", 100, 0.95, 1.21);
+   KpKmLooseSigZoom = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination LooseSig", 200, 0.95, 1.21);
    KpKmLooseSigZoom->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    KpKmLooseSigZoom->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for p+ and K- Combination LooseSig
-   PKmLooseSig = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kminus Invariant Mass Combination LooseSig", 100, 2, 3.5);
+   PKmLooseSig = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kminus Invariant Mass Combination LooseSig", 200, 2, 3.5);
    PKmLooseSig->GetXaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
    PKmLooseSig->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for p+ and K+ Combination LooseSig (Not Used for Dalitz Plot)
-   PKpLooseSig = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kplus Invariant Mass Combination LooseSig", 100, 2, 3.5);
+   PKpLooseSig = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kplus Invariant Mass Combination LooseSig", 200, 2, 3.5);
    PKpLooseSig->GetXaxis()->SetTitle("m^{2}(pK^{+})[GeV^{2}/c^{4}]");
    PKpLooseSig->GetYaxis()->SetTitle("Events");
 
    //Dalitz Plot LooseRB
-   DPLooseRB = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay - LooseRB", 100, 0.8, 2.2, 100, 1.7, 3.7);
+   DPLooseRB = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay - LooseRB", 200, 0.8, 2.2, 200, 1.7, 3.7);
    DPLooseRB->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    DPLooseRB->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
    DPLooseRB->GetZaxis()->SetTitle("Events");
    //Plot of M^2 Variable for K+ and K- Combination LooseRB
-   KpKmLooseRB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination LooseRB", 100, 0.95, 2);
+   KpKmLooseRB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination LooseRB", 200, 0.95, 2);
    KpKmLooseRB->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    KpKmLooseRB->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for K+ and K- Combination LooseRB Zoomed into Resonance
-   KpKmLooseRBZoom = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination LooseRB", 100, 0.95, 1.21);
+   KpKmLooseRBZoom = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination LooseRB", 200, 0.95, 1.21);
    KpKmLooseRBZoom->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    KpKmLooseRBZoom->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for p+ and K- Combination LooseRB
-   PKmLooseRB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kminus Invariant Mass Combination LooseRB", 100, 2, 3.5);
+   PKmLooseRB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kminus Invariant Mass Combination LooseRB", 200, 2, 3.5);
    PKmLooseRB->GetXaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
    PKmLooseRB->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for p+ and K+ Combination LooseRB (Not Used for Dalitz Plot)
-   PKpLooseRB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kplus Invariant Mass Combination LooseRB", 100, 2, 3.5);
+   PKpLooseRB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kplus Invariant Mass Combination LooseRB", 200, 2, 3.5);
    PKpLooseRB->GetXaxis()->SetTitle("m^{2}(pK^{+})[GeV^{2}/c^{4}]");
    PKpLooseRB->GetYaxis()->SetTitle("Events");
 
    //Dalitz Plot TightLB
-   DPTightLB = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay - TightLB", 100, 0.8, 2.2, 100, 1.7, 3.7);
+   DPTightLB = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay - TightLB", 200, 0.8, 2.2, 200, 1.7, 3.7);
    DPTightLB->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    DPTightLB->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
    DPTightLB->GetZaxis()->SetTitle("Events");
    //Plot of M^2 Variable for K+ and K- Combination TightLB
-   KpKmTightLB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination TightLB", 100, 0.95, 2);
+   KpKmTightLB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination TightLB", 200, 0.95, 2);
    KpKmTightLB->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    KpKmTightLB->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for K+ and K- Combination TightLB Zoomed into Resonance
-   KpKmTightLBZoom = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination TightLB", 100, 0.95, 1.21);
+   KpKmTightLBZoom = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination TightLB", 200, 0.95, 1.21);
    KpKmTightLBZoom->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    KpKmTightLBZoom->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for p+ and K- Combination TightLB
-   PKmTightLB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kminus Invariant Mass Combination TightLB", 100, 2, 3.5);
+   PKmTightLB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kminus Invariant Mass Combination TightLB", 200, 2, 3.5);
    PKmTightLB->GetXaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
    PKmTightLB->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for p+ and K+ Combination TightLB (Not Used for Dalitz Plot)
-   PKpTightLB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kplus Invariant Mass Combination TightLB", 100, 2, 3.5);
+   PKpTightLB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kplus Invariant Mass Combination TightLB", 200, 2, 3.5);
    PKpTightLB->GetXaxis()->SetTitle("m^{2}(pK^{+})[GeV^{2}/c^{4}]");
    PKpTightLB->GetYaxis()->SetTitle("Events");
 
    //Dalitz Plot TightSig
-   DPTightSig = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay - TightSig", 100, 0.8, 2.2, 100, 1.7, 3.7);
+   DPTightSig = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay - TightSig", 200, 0.8, 2.2, 200, 1.7, 3.7);
    DPTightSig->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    DPTightSig->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
    DPTightSig->GetZaxis()->SetTitle("Events");
    //Plot of M^2 Variable for K+ and K- Combination TightSig
-   KpKmTightSig = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination TightSig", 100, 0.95, 2);
+   KpKmTightSig = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination TightSig", 200, 0.95, 2);
    KpKmTightSig->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    KpKmTightSig->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for K+ and K- Combination TightSig Zoomed into Resonance
-   KpKmTightSigZoom = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination TightSig", 100, 0.95, 1.21);
+   KpKmTightSigZoom = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination TightSig", 200, 0.95, 1.21);
    KpKmTightSigZoom->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    KpKmTightSigZoom->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for p+ and K- Combination TightSig
-   PKmTightSig = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kminus Invariant Mass Combination TightSig", 100, 2, 3.5);
+   PKmTightSig = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kminus Invariant Mass Combination TightSig", 200, 2, 3.5);
    PKmTightSig->GetXaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
    PKmTightSig->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for p+ and K+ Combination TightSig (Not Used for Dalitz Plot)
-   PKpTightSig = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kplus Invariant Mass Combination TightSig", 100, 2, 3.5);
+   PKpTightSig = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kplus Invariant Mass Combination TightSig", 200, 2, 3.5);
    PKpTightSig->GetXaxis()->SetTitle("m^{2}(pK^{+})[GeV^{2}/c^{4}]");
    PKpTightSig->GetYaxis()->SetTitle("Events");
 
    //Dalitz Plot TightRB
-   DPTightRB = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay - TightRB", 100, 0.8, 2.2, 100, 1.7, 3.7);
+   DPTightRB = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay - TightRB", 200, 0.8, 2.2, 200, 1.7, 3.7);
    DPTightRB->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    DPTightRB->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
    DPTightRB->GetZaxis()->SetTitle("Events");
    //Plot of M^2 Variable for K+ and K- Combination TightRB
-   KpKmTightRB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination TightRB", 100, 0.95, 2);
+   KpKmTightRB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination TightRB", 200, 0.95, 2);
    KpKmTightRB->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    KpKmTightRB->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for K+ and K- Combination TightRB Zoomed into Resonance
-   KpKmTightRBZoom = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination TightRB", 100, 0.95, 1.21);
+   KpKmTightRBZoom = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination TightRB", 200, 0.95, 1.21);
    KpKmTightRBZoom->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
    KpKmTightRBZoom->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for p+ and K- Combination TightRB
-   PKmTightRB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kminus Invariant Mass Combination TightRB", 100, 2, 3.5);
+   PKmTightRB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kminus Invariant Mass Combination TightRB", 200, 2, 3.5);
    PKmTightRB->GetXaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
    PKmTightRB->GetYaxis()->SetTitle("Events");
    //Plot of M^2 Variable for p+ and K+ Combination TightRB (Not Used for Dalitz Plot)
-   PKpTightRB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kplus Invariant Mass Combination TightRB", 100, 2, 3.5);
+   PKpTightRB = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Proton & Kplus Invariant Mass Combination TightRB", 200, 2, 3.5);
    PKpTightRB->GetXaxis()->SetTitle("m^{2}(pK^{+})[GeV^{2}/c^{4}]");
    PKpTightRB->GetYaxis()->SetTitle("Events");
 
