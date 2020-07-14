@@ -21,39 +21,39 @@
 TH1D * PreliminaryMass = nullptr;
 
 TH1D * LcPTSignal = nullptr;
-TH1D * LcPTBkgrd = nullptr;
+TH1D * LcPTBkgd = nullptr;
 TH1D * LcPTSignalEstimate = nullptr;
 
 TH1D * PrPTSignal = nullptr;
-TH1D * PrPTBkgrd = nullptr;
+TH1D * PrPTBkgd = nullptr;
 TH1D * PrPTSignalEstimate = nullptr;
 
 TH1D * KpPTSignal = nullptr;
-TH1D * KpPTBkgrd = nullptr;
+TH1D * KpPTBkgd = nullptr;
 TH1D * KpPTSignalEstimate = nullptr;
 
 TH1D * KmPTSignal = nullptr;
-TH1D * KmPTBkgrd = nullptr;
+TH1D * KmPTBkgd = nullptr;
 TH1D * KmPTSignalEstimate = nullptr;
 
 TH1D * PrChi2Signal = nullptr;
-TH1D * PrChi2Bkgrd = nullptr;
+TH1D * PrChi2Bkgd = nullptr;
 TH1D * PrChi2SignalEstimate = nullptr;
 
 TH1D * KpChi2Signal = nullptr;
-TH1D * KpChi2Bkgrd = nullptr;
+TH1D * KpChi2Bkgd = nullptr;
 TH1D * KpChi2SignalEstimate = nullptr;
 
 TH1D * KmChi2Signal = nullptr;
-TH1D * KmChi2Bkgrd = nullptr;
+TH1D * KmChi2Bkgd = nullptr;
 TH1D * KmChi2SignalEstimate = nullptr;
 
 TH1D * DOCAMaxSignal = nullptr;
-TH1D * DOCAMaxBkgrd = nullptr;
+TH1D * DOCAMaxBkgd = nullptr;
 TH1D * DOCAMaxSignalEstimate = nullptr;
 
 TH1D * LcTAUSignal = nullptr;
-TH1D * LcTAUBkgrd = nullptr;
+TH1D * LcTAUBkgd = nullptr;
 TH1D * LcTAUSignalEstimate = nullptr;
 
 TCanvas * c1 = nullptr;
@@ -179,8 +179,8 @@ bool  PreliminaryCuts= (
  PreliminaryMass->Fill(*Lcplus_M);
    
  //Defining Signal Region & Background Region//
-   bool SignalRegion = CorrectedLambdaMass > 2274. && CorrectedLambdaMass < 2300.;
-   bool BackgroundRegion = (CorrectedLambdaMass > 2220. && CorrectedLambdaMass < 2246.) || (CorrectedLambdaMass > 2328. && CorrectedLambdaMass < 2354.);
+   bool SignalRegion = Lcplus_M > 2274. && Lcplus_M < 2300.;
+   bool BackgroundRegion = (Lcplus_M > 2220. && Lcplus_M < 2246.) || (Lcplus_M > 2328. && Lcplus_M < 2354.);
   
 if (PreliminaryCuts & SignalRegion){ 
  LcPTSignal->Fill(*Lcplus_PT);
