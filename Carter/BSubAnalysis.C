@@ -179,17 +179,17 @@ bool  PreliminaryCuts= (
  PreliminaryMass->Fill(*Lcplus_M);
    
  //Defining Signal Region & Background Region//
-   bool SignalRegion = Lcplus_M > 2274. && Lcplus_M < 2300.;
-   bool BackgroundRegion = (Lcplus_M > 2220. && Lcplus_M < 2246.) || (Lcplus_M > 2328. && Lcplus_M < 2354.);
+   bool SignalRegion = *Lcplus_M > 2274. && *Lcplus_M < 2300.;
+   bool BackgroundRegion = (*Lcplus_M > 2220. && *Lcplus_M < 2246.) || (*Lcplus_M > 2328. && *Lcplus_M < 2354.);
   
 if (PreliminaryCuts & SignalRegion){ 
  LcPTSignal->Fill(*Lcplus_PT);
  PrPTSignal->Fill(*Proton_PT);
  KpPTSignal->Fill(*Kplus_PT);  
  KmPTSignal->Fill(*Kminus_PT); 
- PrChi2Signal->Fill(TMath::Log10(*Proton_IPCHI2_OWNPV);
- KpChi2Signal->Fill(TMath::Log10(*Kplus_IPCHI2_OWNPV); 
- KmChi2Signal->Fill(TMath::Log10(*Kminus_IPCHI2_OWNPV);
+ PrChi2Signal->Fill(TMath::Log10(*Proton_IPCHI2_OWNPV));
+ KpChi2Signal->Fill(TMath::Log10(*Kplus_IPCHI2_OWNPV)); 
+ KmChi2Signal->Fill(TMath::Log10(*Kminus_IPCHI2_OWNPV));
  DOCAMaxSignal->Fill(*Lcplus_Loki_DOCACHI2MAX);
  LcTAUSignal->Fill(*Lcplus_TAU);                                       
 }   
@@ -199,9 +199,9 @@ if (PreliminaryCuts & BackgroundRegion){
  PrPTBkgd->Fill(*Proton_PT);
  KpPTBkgd->Fill(*Kplus_PT);  
  KmPTBkgd->Fill(*Kminus_PT); 
- PrChi2Bkgd->Fill(TMath::Log10(*Proton_IPCHI2_OWNPV);
- KpChi2Bkgd->Fill(TMath::Log10(*Kplus_IPCHI2_OWNPV); 
- KmChi2Bkgd->Fill(TMath::Log10(*Kminus_IPCHI2_OWNPV);
+ PrChi2Bkgd->Fill(TMath::Log10(*Proton_IPCHI2_OWNPV));
+ KpChi2Bkgd->Fill(TMath::Log10(*Kplus_IPCHI2_OWNPV)); 
+ KmChi2Bkgd->Fill(TMath::Log10(*Kminus_IPCHI2_OWNPV));
  DOCAMaxBkgd->Fill(*Lcplus_Loki_DOCACHI2MAX);
  LcTAUBkgd->Fill(*Lcplus_TAU); 
 }
