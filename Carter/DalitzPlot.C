@@ -302,11 +302,11 @@ if (PIDCutTight){
 MHistTight->Fill(*Lcplus_M);
 }
 
-if (PIDCutLoose && DalitzCut){
+if (PIDCutLoose && DalitzCut && IPCHI2Cut && PTCut){
 MHistDalitzLoose->Fill(*Lcplus_M);
 }
 
-if (PIDCutTight && DalitzCut){
+if (PIDCutTight && DalitzCut && IPCHI2Cut && PTCut){
 MHistDalitzTight->Fill(*Lcplus_M);
 }
 
