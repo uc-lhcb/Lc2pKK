@@ -287,6 +287,12 @@ bool  PIDCutLoose = (
       ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 3.5)
    && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 3.5)
    && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 3.5)
+       );
+       
+   bool PTCut = (
+      (*Proton_PT > 800)
+   );  
+      
 
 if (PIDCutLoose){
 MHistLoose->Fill(*Lcplus_M);
