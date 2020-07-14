@@ -109,9 +109,9 @@ KmPTSignal->SetLineColor(kBlue);
 KmPTBkgd->SetLineColor(kRed);
 KmPTSignalEstimate->SetLineColor(kGreen+3); 
    
-PrChi2Signal = new TH1D("Log(IPCHI2)", "Signal Region", 100, 0, 4.5);
-PrChi2Bkgd = new TH1D("Log(IPCHI2)", "Background Region", 100, 0, 4.5);
-PrChi2SignalEstimate = new TH1D("Log(IPCHI2)", "Signal Estimation", 100, 0, 4.5);
+PrChi2Signal = new TH1D("Log(IPCHI2)", "Signal Region", 90, 0, 4.5);
+PrChi2Bkgd = new TH1D("Log(IPCHI2)", "Background Region", 90, 0, 4.5);
+PrChi2SignalEstimate = new TH1D("Log(IPCHI2)", "Signal Estimation", 90, 0, 4.5);
 PrChi2Signal->SetLineColor(kBlue);
 PrChi2Bkgd->SetLineColor(kRed);
 PrChi2SignalEstimate->SetLineColor(kGreen+3);
@@ -130,9 +130,9 @@ KmChi2Signal->SetLineColor(kBlue);
 KmChi2Bkgd->SetLineColor(kRed);
 KmChi2SignalEstimate->SetLineColor(kGreen+3);
 
-DOCAMaxSignal = new TH1D("DOCA", "Signal Region", 200, 0, 1500);
-DOCAMaxBkgd = new TH1D("DOCA", "Background Region", 200, 0, 1500);
-DOCAMaxSignalEstimate = new TH1D("DOCA", "Signal Estimation", 200, 0, 1500);
+DOCAMaxSignal = new TH1D("DOCA", "Signal Region", 150, 0, 1500);
+DOCAMaxBkgd = new TH1D("DOCA", "Background Region", 150, 0, 1500);
+DOCAMaxSignalEstimate = new TH1D("DOCA", "Signal Estimation", 150, 0, 1500);
 DOCAMaxSignal->SetLineColor(kBlue);
 DOCAMaxBkgd->SetLineColor(kRed);
 DOCAMaxSignalEstimate->SetLineColor(kGreen+3);
@@ -269,16 +269,66 @@ KmPTSignalEstimate->Draw("SAME");
 KmPTBkgd->Draw("SAME");     
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
 c1->Write("KmPT Estimations");
- c1->Clear();     
+c1->Clear();       
   
+PrChi2Signal->GetYaxis()->SetTitle("Events per 1/20 Log10(mm)");
+PrChi2Signal->GetXaxis()->SetTitle("Log10(mm)");   
+PrChi2Signal->SetMinimum(0);
+PrChi2Signal->Draw();
+PrChi2SignalEstimate->Draw("SAME");
+PrChi2Bkgd->Draw("SAME");     
+gPad->BuildLegend(0.78,0.75,0.98,0.95);
+c1->Write("PrChi2 Estimations");
+c1->Clear();  
+ 
+KpChi2Signal->GetYaxis()->SetTitle("Events per 1/20 Log10(mm)");
+KpChi2Signal->GetXaxis()->SetTitle("Log10(mm)");   
+KpChi2Signal->SetMinimum(0);
+KpChi2Signal->Draw();
+KpChi2SignalEstimate->Draw("SAME");
+KpChi2Bkgd->Draw("SAME");     
+gPad->BuildLegend(0.78,0.75,0.98,0.95);
+c1->Write("KpChi2 Estimations");
+c1->Clear();
+   
+KmChi2Signal->GetYaxis()->SetTitle("Events per 1/20 Log10(mm)");
+KmChi2Signal->GetXaxis()->SetTitle("Log10(mm)");   
+KmChi2Signal->SetMinimum(0);
+KmChi2Signal->Draw();
+KmChi2SignalEstimate->Draw("SAME");
+KmChi2Bkgd->Draw("SAME");     
+gPad->BuildLegend(0.78,0.75,0.98,0.95);
+c1->Write("KmChi2 Estimations");
+c1->Clear();    
+  
+DOCAMaxSignal->GetYaxis()->SetTitle("Events per 10 mm");
+DOCAMaxSignal->GetXaxis()->SetTitle("mm");   
+DOCAMaxSignal->SetMinimum(0);
+DOCAMaxSignal->Draw();
+DOCAMaxSignalEstimate->Draw("SAME");
+DOCAMaxBkgd->Draw("SAME");     
+gPad->BuildLegend(0.78,0.75,0.98,0.95);
+c1->Write("DOCAMax Estimations");
+c1->Clear();  
+   
+LcTAUSignal->GetYaxis()->SetTitle("Events per 1/100 nanoseconds");
+LcTAUSignal->GetXaxis()->SetTitle("nanoseconds");   
+LcTAUSignal->SetMinimum(0);
+LcTAUSignal->Draw();
+LcTAUSignalEstimate->Draw("SAME");
+LcTAUBkgd->Draw("SAME");     
+gPad->BuildLegend(0.78,0.75,0.98,0.95);
+c1->Write("LcTAU Estimations");
+c1->Clear();     
+   
 //////The Rest BSub Code////////   
    
 TPad *pad1 = new TPad("pad1","pad1",0,0.33,1,1);
 TPad *pad2 = new TPad("pad2","pad2",0,0,1,0.33);
 pad2->SetTopMargin(0.03030303);
 pad1->Draw();
-pad2->Draw();
-
+pad2->Draw();    
+   
   Double_t sigma;
   Double_t deltaSigma;
   Double_t mu;
