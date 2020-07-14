@@ -88,9 +88,9 @@ LcPTSignal->SetLineColor(kBlue);
 LcPTBkgd->SetLineColor(kRed);
 LcPTSignalEstimate->SetLineColor(kGreen+3);
    
-PrPTSignal = new TH1D("Transverse Momentum", "Signal Region", 200, 0, 12000);
-PrPTBkgd = new TH1D("Transverse Momentum", "Background Region", 200, 0, 12000);
-PrPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 200, 0, 12000);   
+PrPTSignal = new TH1D("Transverse Momentum", "Signal Region", 200, 800, 12000);
+PrPTBkgd = new TH1D("Transverse Momentum", "Background Region", 200, 800, 12000);
+PrPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 200, 800, 12000);   
 PrPTSignal->SetLineColor(kBlue);
 PrPTBkgd->SetLineColor(kRed);
 PrPTSignalEstimate->SetLineColor(kGreen+3);
@@ -109,37 +109,37 @@ KmPTSignal->SetLineColor(kBlue);
 KmPTBkgd->SetLineColor(kRed);
 KmPTSignalEstimate->SetLineColor(kGreen+3); 
    
-PrChi2Signal = new TH1D("Log(IPCHI2)", "Signal Region", 90, 0, 4.5);
-PrChi2Bkgd = new TH1D("Log(IPCHI2)", "Background Region", 90, 0, 4.5);
-PrChi2SignalEstimate = new TH1D("Log(IPCHI2)", "Signal Estimation", 90, 0, 4.5);
+PrChi2Signal = new TH1D("Log(IPCHI2)", "Signal Region", 100, 0, 2.5);
+PrChi2Bkgd = new TH1D("Log(IPCHI2)", "Background Region", 100, 0, 2.5);
+PrChi2SignalEstimate = new TH1D("Log(IPCHI2)", "Signal Estimation", 100, 0, 2.5);
 PrChi2Signal->SetLineColor(kBlue);
 PrChi2Bkgd->SetLineColor(kRed);
 PrChi2SignalEstimate->SetLineColor(kGreen+3);
 
-KpChi2Signal = new TH1D("Log(IPCHI2)", "Signal Region", 100, 0, 5);
-KpChi2Bkgd = new TH1D("Log(IPCHI2)", "Background Region", 100, 0, 5);
-KpChi2SignalEstimate = new TH1D("Log(IPCHI2)", "Signal Estimation", 100, 0, 5);   
+KpChi2Signal = new TH1D("Log(IPCHI2)", "Signal Region", 100, 0, 2.5);
+KpChi2Bkgd = new TH1D("Log(IPCHI2)", "Background Region", 100, 0, 2.5);
+KpChi2SignalEstimate = new TH1D("Log(IPCHI2)", "Signal Estimation", 100, 0, 2.5);   
 KpChi2Signal->SetLineColor(kBlue);
 KpChi2Bkgd->SetLineColor(kRed);
 KpChi2SignalEstimate->SetLineColor(kGreen+3);
    
-KmChi2Signal = new TH1D("Log(IPCHI2)", "Signal Region", 100, 0, 5);
-KmChi2Bkgd = new TH1D("Log(IPCHI2)", "Background Region", 100, 0, 5);
-KmChi2SignalEstimate = new TH1D("Log(IPCHI2)", "Signal Estimation", 100, 0, 5);   
+KmChi2Signal = new TH1D("Log(IPCHI2)", "Signal Region", 100, 0, 2.5);
+KmChi2Bkgd = new TH1D("Log(IPCHI2)", "Background Region", 100, 0, 2.5);
+KmChi2SignalEstimate = new TH1D("Log(IPCHI2)", "Signal Estimation", 100, 0, 2.5);   
 KmChi2Signal->SetLineColor(kBlue);
 KmChi2Bkgd->SetLineColor(kRed);
 KmChi2SignalEstimate->SetLineColor(kGreen+3);
 
-DOCAMaxSignal = new TH1D("DOCA", "Signal Region", 90, 0, 30);
-DOCAMaxBkgd = new TH1D("DOCA", "Background Region", 90, 0, 30);
-DOCAMaxSignalEstimate = new TH1D("DOCA", "Signal Estimation", 90, 0, 30);
+DOCAMaxSignal = new TH1D("DOCA", "Signal Region", 120, 0, 30);
+DOCAMaxBkgd = new TH1D("DOCA", "Background Region", 120, 0, 30);
+DOCAMaxSignalEstimate = new TH1D("DOCA", "Signal Estimation", 120, 0, 30);
 DOCAMaxSignal->SetLineColor(kBlue);
 DOCAMaxBkgd->SetLineColor(kRed);
 DOCAMaxSignalEstimate->SetLineColor(kGreen+3);
  
-LcTAUSignal = new TH1D("DOCA", "Signal Region", 80, 0., 0.08);
-LcTAUBkgd = new TH1D("DOCA", "Background Region", 80, 0., 0.08);
-LcTAUSignalEstimate = new TH1D("DOCA", "Signal Estimation", 80, 0., 0.08);
+LcTAUSignal = new TH1D("TAU", "Signal Region", 160, 0., 0.08);
+LcTAUBkgd = new TH1D("TAU", "Background Region", 160, 0., 0.08);
+LcTAUSignalEstimate = new TH1D("TAU", "Signal Estimation", 160, 0., 0.08);
 LcTAUSignal->SetLineColor(kBlue);
 LcTAUBkgd->SetLineColor(kRed);
 LcTAUSignalEstimate->SetLineColor(kGreen+3);
@@ -168,16 +168,16 @@ double M2_PKm  = PKm.Mag2()/(1000*1000);
 double M2_KpKm = KpKm.Mag2()/(1000*1000);
    
 bool  PreliminaryCuts= (
-     ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.8)
+     ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.87)
   && ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.9)
   && (M2_KpKm > 1.024)
   && (M2_KpKm < 1.057)   
       );
    
    bool IPCHI2Cut = (
-      ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 3.5))
-   && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 3.5))
-   && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 3.5))
+      ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 2.5))
+   && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 2.5))
+   && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 2.5))
        );
        
    bool PTCut = (
@@ -191,7 +191,7 @@ bool  PreliminaryCuts= (
    bool SignalRegion = *Lcplus_M > 2274. && *Lcplus_M < 2300.;
    bool BackgroundRegion = (*Lcplus_M > 2220. && *Lcplus_M < 2246.) || (*Lcplus_M > 2328. && *Lcplus_M < 2354.);
   
-if (PreliminaryCuts & SignalRegion){ 
+if (PreliminaryCuts & SignalRegion && IPCHI2Cut && PTCut){ 
  LcPTSignal->Fill(*Lcplus_PT);
  PrPTSignal->Fill(*Proton_PT);
  KpPTSignal->Fill(*Kplus_PT);  
@@ -203,7 +203,7 @@ if (PreliminaryCuts & SignalRegion){
  LcTAUSignal->Fill(*Lcplus_TAU);                                       
 }   
    
-if (PreliminaryCuts & BackgroundRegion){ 
+if (PreliminaryCuts & BackgroundRegion && IPCHI2Cut && PTCut){ 
  LcPTBkgd->Fill(*Lcplus_PT);
  PrPTBkgd->Fill(*Proton_PT);
  KpPTBkgd->Fill(*Kplus_PT);  
