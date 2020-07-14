@@ -273,15 +273,20 @@ bool RBCut = (
  &&  (*Lcplus_M < 2354)
 );
 
-bool  PIDCutLoose= (
+bool  PIDCutLoose = (
         ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.65)
      && ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.75)
    );
 
-   bool  PIDCutTight= (
+   bool  PIDCutTight = (
         ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.8)
      && ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.9)
       );
+   
+   bool IPCHI2Cut = (
+      ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 3.)
+   && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 3.)
+   && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 3.)
 
 if (PIDCutLoose){
 MHistLoose->Fill(*Lcplus_M);
