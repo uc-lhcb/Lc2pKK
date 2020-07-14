@@ -318,8 +318,6 @@ gPad->BuildLegend(0.78,0.75,0.98,0.95);
 c1->Write("LcTAU Estimations");
 c1->Clear();     
    
-//////The Rest BSub Code////////   
-   
 TPad *pad1 = new TPad("pad1","pad1",0,0.33,1,1);
 TPad *pad2 = new TPad("pad2","pad2",0,0,1,0.33);
 pad2->SetTopMargin(0.03030303);
