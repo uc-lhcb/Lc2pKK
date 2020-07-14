@@ -174,8 +174,17 @@ bool  PreliminaryCuts= (
   && (M2_KpKm < 1.057)   
       );
    
-
- if (PreliminaryCuts)
+   bool IPCHI2Cut = (
+      ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 3.5)
+   && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 3.5)
+   && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 3.5)
+       );
+       
+   bool PTCut = (
+      (*Proton_PT > 800)
+   );  
+   
+ if (PreliminaryCuts && IPCHI2Cut && PTCut)
  PreliminaryMass->Fill(*Lcplus_M);
    
  //Defining Signal Region & Background Region//
