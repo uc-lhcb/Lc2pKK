@@ -130,16 +130,16 @@ KmChi2Signal->SetLineColor(kBlue);
 KmChi2Bkgd->SetLineColor(kRed);
 KmChi2SignalEstimate->SetLineColor(kGreen+3);
 
-DOCAMaxSignal = new TH1D("DOCA", "Signal Region", 100, 0, 100);
-DOCAMaxBkgd = new TH1D("DOCA", "Background Region", 100, 0, 100);
-DOCAMaxSignalEstimate = new TH1D("DOCA", "Signal Estimation", 100, 0, 100);
+DOCAMaxSignal = new TH1D("DOCA", "Signal Region", 90, 0, 30);
+DOCAMaxBkgd = new TH1D("DOCA", "Background Region", 90, 0, 30);
+DOCAMaxSignalEstimate = new TH1D("DOCA", "Signal Estimation", 90, 0, 30);
 DOCAMaxSignal->SetLineColor(kBlue);
 DOCAMaxBkgd->SetLineColor(kRed);
 DOCAMaxSignalEstimate->SetLineColor(kGreen+3);
  
-LcTAUSignal = new TH1D("DOCA", "Signal Region", 200, -0.1, 0.1);
-LcTAUBkgd = new TH1D("DOCA", "Background Region", 200, -0.1, 0.1);
-LcTAUSignalEstimate = new TH1D("DOCA", "Signal Estimation", 200, -0.1, 0.1);
+LcTAUSignal = new TH1D("DOCA", "Signal Region", 80, 0., 0.08);
+LcTAUBkgd = new TH1D("DOCA", "Background Region", 80, 0., 0.08);
+LcTAUSignalEstimate = new TH1D("DOCA", "Signal Estimation", 80, 0., 0.08);
 LcTAUSignal->SetLineColor(kBlue);
 LcTAUBkgd->SetLineColor(kRed);
 LcTAUSignalEstimate->SetLineColor(kGreen+3);
@@ -227,7 +227,7 @@ void BSubAnalysis::Terminate()
 {
    
 gStyle->SetOptTitle(0);
-   
+c1->cd();
 LcPTSignal->GetYaxis()->SetTitle("Events per 100 MeV");
 LcPTSignal->GetXaxis()->SetTitle("MeV");   
 LcPTSignal->SetMinimum(0);
