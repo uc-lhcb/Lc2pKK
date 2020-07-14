@@ -175,9 +175,9 @@ bool  PreliminaryCuts= (
       );
    
    bool IPCHI2Cut = (
-      ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 3.5)
-   && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 3.5)
-   && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 3.5)
+      ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 3.5))
+   && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 3.5))
+   && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 3.5))
        );
        
    bool PTCut = (
