@@ -130,16 +130,16 @@ KmChi2Signal->SetLineColor(kBlue);
 KmChi2Bkgd->SetLineColor(kRed);
 KmChi2SignalEstimate->SetLineColor(kGreen+3);
 
-DOCAMaxSignal = new TH1D("DOCA", "Signal Region", 150, 0, 1500);
-DOCAMaxBkgd = new TH1D("DOCA", "Background Region", 150, 0, 1500);
-DOCAMaxSignalEstimate = new TH1D("DOCA", "Signal Estimation", 150, 0, 1500);
+DOCAMaxSignal = new TH1D("DOCA", "Signal Region", 100, 0, 100);
+DOCAMaxBkgd = new TH1D("DOCA", "Background Region", 100, 0, 100);
+DOCAMaxSignalEstimate = new TH1D("DOCA", "Signal Estimation", 100, 0, 100);
 DOCAMaxSignal->SetLineColor(kBlue);
 DOCAMaxBkgd->SetLineColor(kRed);
 DOCAMaxSignalEstimate->SetLineColor(kGreen+3);
  
-LcTAUSignal = new TH1D("DOCA", "Signal Region", 200, -0.5, 1.5);
-LcTAUBkgd = new TH1D("DOCA", "Background Region", 200, -0.5, 1.5);
-LcTAUSignalEstimate = new TH1D("DOCA", "Signal Estimation", 200, -0.5, 1.5);
+LcTAUSignal = new TH1D("DOCA", "Signal Region", 200, -0.1, 0.1);
+LcTAUBkgd = new TH1D("DOCA", "Background Region", 200, -0.1, 0.1);
+LcTAUSignalEstimate = new TH1D("DOCA", "Signal Estimation", 200, -0.1, 0.1);
 LcTAUSignal->SetLineColor(kBlue);
 LcTAUBkgd->SetLineColor(kRed);
 LcTAUSignalEstimate->SetLineColor(kGreen+3);
@@ -228,15 +228,12 @@ void BSubAnalysis::Terminate()
    
 gStyle->SetOptTitle(0);
    
-//TPaveText *t1 = new TPaveText(0.3, 0.91, 0.7, 1.0, "brNDC");
-//t1->AddText("Signal and Background Estimation for Lcplus_PT");   
 LcPTSignal->GetYaxis()->SetTitle("Events per 100 MeV");
 LcPTSignal->GetXaxis()->SetTitle("MeV");   
 LcPTSignal->SetMinimum(0);
 LcPTSignal->Draw();
 LcPTSignalEstimate->Draw("SAME");
-LcPTBkgd->Draw("SAME");  
-//t1->Draw("SAME");   
+LcPTBkgd->Draw("SAME");   
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
 c1->Write("LcPT Estimations");
  c1->Clear();  
@@ -301,7 +298,7 @@ gPad->BuildLegend(0.78,0.75,0.98,0.95);
 c1->Write("KmChi2 Estimations");
 c1->Clear();    
   
-DOCAMaxSignal->GetYaxis()->SetTitle("Events per 10 mm");
+DOCAMaxSignal->GetYaxis()->SetTitle("Events per 1 mm");
 DOCAMaxSignal->GetXaxis()->SetTitle("mm");   
 DOCAMaxSignal->SetMinimum(0);
 DOCAMaxSignal->Draw();
@@ -311,7 +308,7 @@ gPad->BuildLegend(0.78,0.75,0.98,0.95);
 c1->Write("DOCAMax Estimations");
 c1->Clear();  
    
-LcTAUSignal->GetYaxis()->SetTitle("Events per 1/100 nanoseconds");
+LcTAUSignal->GetYaxis()->SetTitle("Events per 1/1000 nanoseconds");
 LcTAUSignal->GetXaxis()->SetTitle("nanoseconds");   
 LcTAUSignal->SetMinimum(0);
 LcTAUSignal->Draw();
