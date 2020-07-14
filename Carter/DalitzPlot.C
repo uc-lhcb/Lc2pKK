@@ -284,9 +284,9 @@ bool  PIDCutLoose = (
       );
    
    bool IPCHI2Cut = (
-      ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 3.))
-   && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 3.))
-   && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 3.))
+      ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 2.5))
+   && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 2.5))
+   && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 2.5))
        );
        
    bool PTCut = (
