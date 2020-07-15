@@ -81,65 +81,65 @@ void BSubAnalysis::SlaveBegin(TTree * /*tree*/)
    PreliminaryMass->GetXaxis()->SetTitle("MeV");
    PreliminaryMass->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
-LcPTSignal = new TH1D("Transverse Momentum", "Signal Region", 200, 2000, 22000);
-LcPTBkgd = new TH1D("Transverse Momentum", "Background Region", 200, 2000, 22000);
-LcPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 200, 2000, 22000);
+LcPTSignal = new TH1D("Transverse Momentum", "Signal Region", 150, 2000, 3500);
+LcPTBkgd = new TH1D("Transverse Momentum", "Background Region", 150, 2000, 3500);
+LcPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 150, 2000, 3500);
 LcPTSignal->SetLineColor(kBlue);
 LcPTBkgd->SetLineColor(kRed);
 LcPTSignalEstimate->SetLineColor(kGreen+3);
    
-PrPTSignal = new TH1D("Transverse Momentum", "Signal Region", 200, 800, 12000);
+PrPTSignal = new TH1D("Transverse Momentum", "Signal Region", 200, 950, 12000);
 PrPTBkgd = new TH1D("Transverse Momentum", "Background Region", 200, 800, 12000);
 PrPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 200, 800, 12000);   
 PrPTSignal->SetLineColor(kBlue);
 PrPTBkgd->SetLineColor(kRed);
 PrPTSignalEstimate->SetLineColor(kGreen+3);
    
-KpPTSignal = new TH1D("Transverse Momentum", "Signal Region", 200, 0, 10000);
-KpPTBkgd = new TH1D("Transverse Momentum", "Background Region", 200, 0, 10000);
-KpPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 200, 0, 10000);
+KpPTSignal = new TH1D("Transverse Momentum", "Signal Region", 100, 0, 600);
+KpPTBkgd = new TH1D("Transverse Momentum", "Background Region", 100, 0, 600);
+KpPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 100, 0, 600);
 KpPTSignal->SetLineColor(kBlue);
 KpPTBkgd->SetLineColor(kRed);
 KpPTSignalEstimate->SetLineColor(kGreen+3);  
    
-KmPTSignal = new TH1D("Transverse Momentum", "Signal Region", 200, 0, 10000);
-KmPTBkgd = new TH1D("Transverse Momentum", "Background Region", 200, 0, 10000);
-KmPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 200, 0, 10000);
+KmPTSignal = new TH1D("Transverse Momentum", "Signal Region", 100, 0, 600);
+KmPTBkgd = new TH1D("Transverse Momentum", "Background Region", 100, 0, 600);
+KmPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 100, 0, 600);
 KmPTSignal->SetLineColor(kBlue);
 KmPTBkgd->SetLineColor(kRed);
 KmPTSignalEstimate->SetLineColor(kGreen+3); 
    
-PrChi2Signal = new TH1D("Log(IPCHI2)", "Signal Region", 100, 0, 2.5);
-PrChi2Bkgd = new TH1D("Log(IPCHI2)", "Background Region", 100, 0, 2.5);
-PrChi2SignalEstimate = new TH1D("Log(IPCHI2)", "Signal Estimation", 100, 0, 2.5);
+PrChi2Signal = new TH1D("Log(IPCHI2)", "Signal Region", 175, 0.75, 2.5);
+PrChi2Bkgd = new TH1D("Log(IPCHI2)", "Background Region", 175, 0.75, 2.5);
+PrChi2SignalEstimate = new TH1D("Log(IPCHI2)", "Signal Estimation", 175, 0.75, 2.5);
 PrChi2Signal->SetLineColor(kBlue);
 PrChi2Bkgd->SetLineColor(kRed);
 PrChi2SignalEstimate->SetLineColor(kGreen+3);
 
-KpChi2Signal = new TH1D("Log(IPCHI2)", "Signal Region", 100, 0, 2.5);
-KpChi2Bkgd = new TH1D("Log(IPCHI2)", "Background Region", 100, 0, 2.5);
-KpChi2SignalEstimate = new TH1D("Log(IPCHI2)", "Signal Estimation", 100, 0, 2.5);   
+KpChi2Signal = new TH1D("Log(IPCHI2)", "Signal Region", 175, 0.75, 2.5);
+KpChi2Bkgd = new TH1D("Log(IPCHI2)", "Background Region", 175, 0.75, 2.5);
+KpChi2SignalEstimate = new TH1D("Log(IPCHI2)", "Signal Estimation", 175, 0.75, 2.5);   
 KpChi2Signal->SetLineColor(kBlue);
 KpChi2Bkgd->SetLineColor(kRed);
 KpChi2SignalEstimate->SetLineColor(kGreen+3);
    
-KmChi2Signal = new TH1D("Log(IPCHI2)", "Signal Region", 100, 0, 2.5);
-KmChi2Bkgd = new TH1D("Log(IPCHI2)", "Background Region", 100, 0, 2.5);
-KmChi2SignalEstimate = new TH1D("Log(IPCHI2)", "Signal Estimation", 100, 0, 2.5);   
+KmChi2Signal = new TH1D("Log(IPCHI2)", "Signal Region", 175, 0.75, 2.5);
+KmChi2Bkgd = new TH1D("Log(IPCHI2)", "Background Region", 175, 0.75, 2.5);
+KmChi2SignalEstimate = new TH1D("Log(IPCHI2)", "Signal Estimation", 175, 0.75, 2.5);   
 KmChi2Signal->SetLineColor(kBlue);
 KmChi2Bkgd->SetLineColor(kRed);
 KmChi2SignalEstimate->SetLineColor(kGreen+3);
 
-DOCAMaxSignal = new TH1D("DOCA", "Signal Region", 120, 0, 30);
-DOCAMaxBkgd = new TH1D("DOCA", "Background Region", 120, 0, 30);
-DOCAMaxSignalEstimate = new TH1D("DOCA", "Signal Estimation", 120, 0, 30);
+DOCAMaxSignal = new TH1D("DOCA", "Signal Region", 100, 10, 30);
+DOCAMaxBkgd = new TH1D("DOCA", "Background Region", 100, 10, 30);
+DOCAMaxSignalEstimate = new TH1D("DOCA", "Signal Estimation", 100, 10, 30);
 DOCAMaxSignal->SetLineColor(kBlue);
 DOCAMaxBkgd->SetLineColor(kRed);
 DOCAMaxSignalEstimate->SetLineColor(kGreen+3);
  
-LcTAUSignal = new TH1D("TAU", "Signal Region", 160, 0., 0.08);
-LcTAUBkgd = new TH1D("TAU", "Background Region", 160, 0., 0.08);
-LcTAUSignalEstimate = new TH1D("TAU", "Signal Estimation", 160, 0., 0.08);
+LcTAUSignal = new TH1D("TAU", "Signal Region", 100, 0., 0.02);
+LcTAUBkgd = new TH1D("TAU", "Background Region", 100, 0., 0.02);
+LcTAUSignalEstimate = new TH1D("TAU", "Signal Estimation", 100, 0., 0.02);
 LcTAUSignal->SetLineColor(kBlue);
 LcTAUBkgd->SetLineColor(kRed);
 LcTAUSignalEstimate->SetLineColor(kGreen+3);
@@ -181,7 +181,7 @@ bool  PreliminaryCuts= (
        );
        
    bool PTCut = (
-      (*Proton_PT > 800)
+      (*Proton_PT > 950)
    );  
    
  if (PreliminaryCuts && IPCHI2Cut && PTCut)
