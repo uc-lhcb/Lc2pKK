@@ -244,6 +244,7 @@ LcPTSignal->Draw();
 LcPTSignalEstimate->Draw("SAME");
 LcPTBkgd->Draw("SAME");   
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
+LcPTSignal->SetTitle->("Lcplus_PT Signal Estimates");      
 c1->Write("LcPT Estimations");
  c1->Clear();  
   
@@ -254,6 +255,7 @@ PrPTSignal->Draw();
 PrPTSignalEstimate->Draw("SAME");
 PrPTBkgd->Draw("SAME");     
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
+PrPTSignal->SetTitle->("Proton_PT Signal Estimates");   
 c1->Write("PrPT Estimations");
  c1->Clear();     
  
@@ -264,6 +266,7 @@ KpPTSignal->Draw();
 KpPTSignalEstimate->Draw("SAME");
 KpPTBkgd->Draw("SAME");     
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
+KpPTSignal->SetTitle->("Kplus_PT Signal Estimates");      
 c1->Write("KpPT Estimations");
  c1->Clear();  
    
@@ -274,6 +277,7 @@ KmPTSignal->Draw();
 KmPTSignalEstimate->Draw("SAME");
 KmPTBkgd->Draw("SAME");     
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
+KmPTSignal->SetTitle->("Kminus_PT Signal Estimates");     
 c1->Write("KmPT Estimations");
 c1->Clear();       
   
@@ -284,6 +288,7 @@ PrChi2Signal->Draw();
 PrChi2SignalEstimate->Draw("SAME");
 PrChi2Bkgd->Draw("SAME");     
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
+PrChi2Signal->SetTitle->("Proton_IPCHI2_OWNPV Signal Estimates");    
 c1->Write("PrChi2 Estimations");
 c1->Clear();  
  
@@ -294,6 +299,7 @@ KpChi2Signal->Draw();
 KpChi2SignalEstimate->Draw("SAME");
 KpChi2Bkgd->Draw("SAME");     
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
+KpChi2Signal->SetTitle->("Kplus_IPCHI2_OWNPV Signal Estimates");      
 c1->Write("KpChi2 Estimations");
 c1->Clear();
    
@@ -304,6 +310,7 @@ KmChi2Signal->Draw();
 KmChi2SignalEstimate->Draw("SAME");
 KmChi2Bkgd->Draw("SAME");     
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
+KmChi2Signal->SetTitle->("Kminus_IPCHI2_OWNPV Signal Estimates");      
 c1->Write("KmChi2 Estimations");
 c1->Clear();    
   
@@ -314,6 +321,7 @@ DOCAMaxSignal->Draw();
 DOCAMaxSignalEstimate->Draw("SAME");
 DOCAMaxBkgd->Draw("SAME");     
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
+DOCAMaxSignal->SetTitle->("Lcplus_Loki_DOCACHI2MAX Signal Estimates");      
 c1->Write("DOCAMax Estimations");
 c1->Clear();  
    
@@ -324,6 +332,7 @@ LcTAUSignal->Draw();
 LcTAUSignalEstimate->Draw("SAME");
 LcTAUBkgd->Draw("SAME");     
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
+LcTAUSignal->SetTitle->("Lcplus_TAU Signal Estimates");    
 c1->Write("LcTAU Estimations");
 c1->Clear();     
    
