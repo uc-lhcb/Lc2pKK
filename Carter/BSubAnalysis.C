@@ -137,9 +137,9 @@ DOCAMaxSignal->SetLineColor(kBlue);
 DOCAMaxBkgd->SetLineColor(kRed);
 DOCAMaxSignalEstimate->SetLineColor(kGreen+3);
  
-LcTAUSignal = new TH1D("TAU", "Signal Region", 100, 0.002, 0.02);
-LcTAUBkgd = new TH1D("TAU", "Background Region", 100, 0.002, 0.02);
-LcTAUSignalEstimate = new TH1D("TAU", "Signal Estimation", 100, 0.002, 0.02);
+LcTAUSignal = new TH1D("TAU", "Signal Region", 100, 0.0025, 0.02);
+LcTAUBkgd = new TH1D("TAU", "Background Region", 100, 0.0025, 0.02);
+LcTAUSignalEstimate = new TH1D("TAU", "Signal Estimation", 100, 0.0025, 0.012);
 LcTAUSignal->SetLineColor(kBlue);
 LcTAUBkgd->SetLineColor(kRed);
 LcTAUSignalEstimate->SetLineColor(kGreen+3);
