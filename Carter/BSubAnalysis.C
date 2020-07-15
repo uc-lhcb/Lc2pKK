@@ -185,7 +185,7 @@ bool  PreliminaryCuts= (
    );  
    
    bool DOCACut = (
-      (*Lcplus_Loki_DOCACHI2Max < 18)
+      (*Lcplus_Loki_DOCACHI2MAX < 18)
   );
    
  if (PreliminaryCuts && IPCHI2Cut && PTCut && DOCACut)
