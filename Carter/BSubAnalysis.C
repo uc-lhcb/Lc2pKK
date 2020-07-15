@@ -188,6 +188,10 @@ bool  PreliminaryCuts= (
       (*Lcplus_Loki_DOCACHI2MAX < 18)
   );
    
+   bool TAUCut = (
+      (*Lcplus_TAU < 0.003)
+  );
+   
  if (PreliminaryCuts && IPCHI2Cut && PTCut && DOCACut)
  PreliminaryMass->Fill(*Lcplus_M);
    
