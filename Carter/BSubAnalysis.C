@@ -137,9 +137,9 @@ DOCAMaxSignal->SetLineColor(kBlue);
 DOCAMaxBkgd->SetLineColor(kRed);
 DOCAMaxSignalEstimate->SetLineColor(kGreen+3);
  
-LcTAUSignal = new TH1D("TAU", "Signal Region", 100, 0.0025, 0.012);
-LcTAUBkgd = new TH1D("TAU", "Background Region", 100, 0.0025, 0.012);
-LcTAUSignalEstimate = new TH1D("TAU", "Signal Estimation", 100, 0.0025, 0.012);
+LcTAUSignal = new TH1D("TAU", "Signal Region", 100, 0.0, 0.0035);
+LcTAUBkgd = new TH1D("TAU", "Background Region", 100, 0.0, 0.0035);
+LcTAUSignalEstimate = new TH1D("TAU", "Signal Estimation", 100, 0.0, 0.0035);
 LcTAUSignal->SetLineColor(kBlue);
 LcTAUBkgd->SetLineColor(kRed);
 LcTAUSignalEstimate->SetLineColor(kGreen+3);
@@ -189,7 +189,7 @@ bool  PreliminaryCuts= (
   );
    
    bool TAUCut = (
-      (*Lcplus_TAU < 0.003)
+      (*Lcplus_TAU < 0.0035)
   );
    
  if (PreliminaryCuts && IPCHI2Cut && PTCut && DOCACut)
