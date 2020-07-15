@@ -81,9 +81,9 @@ void BSubAnalysis::SlaveBegin(TTree * /*tree*/)
    PreliminaryMass->GetXaxis()->SetTitle("MeV");
    PreliminaryMass->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
-LcPTSignal = new TH1D("Transverse Momentum", "Signal Region", 100, 2600, 3600);
-LcPTBkgd = new TH1D("Transverse Momentum", "Background Region", 100, 2600, 3600);
-LcPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 100, 2600, 3600);
+LcPTSignal = new TH1D("Transverse Momentum", "Signal Region", 200, 2600, 22600);
+LcPTBkgd = new TH1D("Transverse Momentum", "Background Region", 200, 2600, 22600);
+LcPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 200, 2600, 22600);
 LcPTSignal->SetLineColor(kBlue);
 LcPTBkgd->SetLineColor(kRed);
 LcPTSignalEstimate->SetLineColor(kGreen+3);
@@ -95,16 +95,16 @@ PrPTSignal->SetLineColor(kBlue);
 PrPTBkgd->SetLineColor(kRed);
 PrPTSignalEstimate->SetLineColor(kGreen+3);
    
-KpPTSignal = new TH1D("Transverse Momentum", "Signal Region", 100, 300, 600);
-KpPTBkgd = new TH1D("Transverse Momentum", "Background Region", 100, 300, 600);
-KpPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 100, 300, 600);
+KpPTSignal = new TH1D("Transverse Momentum", "Signal Region", 100, 300, 8300);
+KpPTBkgd = new TH1D("Transverse Momentum", "Background Region", 100, 300, 8300);
+KpPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 100, 300, 8300);
 KpPTSignal->SetLineColor(kBlue);
 KpPTBkgd->SetLineColor(kRed);
 KpPTSignalEstimate->SetLineColor(kGreen+3);  
    
-KmPTSignal = new TH1D("Transverse Momentum", "Signal Region", 100, 300, 600);
-KmPTBkgd = new TH1D("Transverse Momentum", "Background Region", 100, 300, 600);
-KmPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 100, 300, 600);
+KmPTSignal = new TH1D("Transverse Momentum", "Signal Region", 100, 300, 8300);
+KmPTBkgd = new TH1D("Transverse Momentum", "Background Region", 100, 300, 8300);
+KmPTSignalEstimate = new TH1D("Transverse Momentum", "Signal Estimation", 100, 300, 8300);
 KmPTSignal->SetLineColor(kBlue);
 KmPTBkgd->SetLineColor(kRed);
 KmPTSignalEstimate->SetLineColor(kGreen+3); 
@@ -130,16 +130,16 @@ KmChi2Signal->SetLineColor(kBlue);
 KmChi2Bkgd->SetLineColor(kRed);
 KmChi2SignalEstimate->SetLineColor(kGreen+3);
 
-DOCAMaxSignal = new TH1D("DOCA", "Signal Region", 100, 10, 30);
-DOCAMaxBkgd = new TH1D("DOCA", "Background Region", 100, 10, 30);
-DOCAMaxSignalEstimate = new TH1D("DOCA", "Signal Estimation", 100, 10, 30);
+DOCAMaxSignal = new TH1D("DOCA", "Signal Region", 100, 0, 18);
+DOCAMaxBkgd = new TH1D("DOCA", "Background Region", 100, 0, 18);
+DOCAMaxSignalEstimate = new TH1D("DOCA", "Signal Estimation", 100, 0, 18);
 DOCAMaxSignal->SetLineColor(kBlue);
 DOCAMaxBkgd->SetLineColor(kRed);
 DOCAMaxSignalEstimate->SetLineColor(kGreen+3);
  
-LcTAUSignal = new TH1D("TAU", "Signal Region", 100, 0.001, 0.02);
-LcTAUBkgd = new TH1D("TAU", "Background Region", 100, 0., 0.02);
-LcTAUSignalEstimate = new TH1D("TAU", "Signal Estimation", 100, 0., 0.02);
+LcTAUSignal = new TH1D("TAU", "Signal Region", 100, 0.002, 0.02);
+LcTAUBkgd = new TH1D("TAU", "Background Region", 100, 0.002, 0.02);
+LcTAUSignalEstimate = new TH1D("TAU", "Signal Estimation", 100, 0.002, 0.02);
 LcTAUSignal->SetLineColor(kBlue);
 LcTAUBkgd->SetLineColor(kRed);
 LcTAUSignalEstimate->SetLineColor(kGreen+3);
@@ -184,14 +184,18 @@ bool  PreliminaryCuts= (
       (*Proton_PT > 950)
    );  
    
- if (PreliminaryCuts && IPCHI2Cut && PTCut)
+   bool DOCACut = (
+      (*Lcplus_Loki_DOCACHI2Max < 18)
+  );
+   
+ if (PreliminaryCuts && IPCHI2Cut && PTCut && DOCACut)
  PreliminaryMass->Fill(*Lcplus_M);
    
  //Defining Signal Region & Background Region//
    bool SignalRegion = *Lcplus_M > 2274. && *Lcplus_M < 2300.;
    bool BackgroundRegion = (*Lcplus_M > 2220. && *Lcplus_M < 2246.) || (*Lcplus_M > 2328. && *Lcplus_M < 2354.);
   
-if (PreliminaryCuts & SignalRegion && IPCHI2Cut && PTCut){ 
+if (PreliminaryCuts & SignalRegion && IPCHI2Cut && PTCut && DOCACut){ 
  LcPTSignal->Fill(*Lcplus_PT);
  PrPTSignal->Fill(*Proton_PT);
  KpPTSignal->Fill(*Kplus_PT);  
@@ -203,7 +207,7 @@ if (PreliminaryCuts & SignalRegion && IPCHI2Cut && PTCut){
  LcTAUSignal->Fill(*Lcplus_TAU);                                       
 }   
    
-if (PreliminaryCuts & BackgroundRegion && IPCHI2Cut && PTCut){ 
+if (PreliminaryCuts & BackgroundRegion && IPCHI2Cut && PTCut && DOCACut){ 
  LcPTBkgd->Fill(*Lcplus_PT);
  PrPTBkgd->Fill(*Proton_PT);
  KpPTBkgd->Fill(*Kplus_PT);  
