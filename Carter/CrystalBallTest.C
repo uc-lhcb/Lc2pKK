@@ -521,7 +521,7 @@ if (PullCB1MeV[bin] > -2 && PullCB1MeV[bin] < 2){
 if (PullCB1MeV[bin] > -3 && PullCB1MeV[bin] < 3){
   CB1MeV3 += 1;
 }
-
+}
 
 pad2->cd();
 TGraph* PullCB1MeVPlot = new TGraph(150, Pullx1MeV, PullCB1MeV);
