@@ -14,7 +14,7 @@ Double_t arg = 0;
     arg = (v[0] - par[0])/par[1];
 
   //0.5 MeV Bin Width Scaling Factor
-  Double_t Scale = par[2]*/(TMath::Sqrt(TMath::TwoPi())*par[1]);
+  Double_t Scale = par[2]/(TMath::Sqrt(TMath::TwoPi())*par[1]);
   
  //Low Shoulder Exponential
   Double_t LEXP = Scale*TMath::Exp(0.5*par[3]*par[3] + par[3]*arg);
