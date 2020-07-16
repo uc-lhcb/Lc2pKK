@@ -237,8 +237,8 @@ CrystalBallFunction->SetParameter(4, 0.);
 CrystalBallFunction->SetParameter(5, 0.);
 
 pad1->cd();
-MassHist>SetMinimum(0);
-MassHist>Fit("CrystalBallFunction");
+MassHist->SetMinimum(0);
+MassHist->Fit("CrystalBallFunction");
 
 int BinHeight[300];
 int FitHeight[300];
