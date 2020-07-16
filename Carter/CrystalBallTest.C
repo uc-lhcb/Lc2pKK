@@ -232,11 +232,11 @@ TF1 *CrystalBallFunction = new TF1("CrystalBallFunction", CrystalBall,2100.,2500
 CrystalBallFunction->SetParameter(0,2287.);
 CrystalBallFunction->SetParLimits(0, 2285., 2288.);
 CrystalBallFunction->SetParameter(1, 4);
-CrystalBallFunction->SetParLimits(1, 0., 6.);
-CrystalBallFunction->SetParameter(2, 8000);   
-CrystalBallFunction->SetParameter(3, 5);
+CrystalBallFunction->SetParLimits(1, 3., 6.);
+CrystalBallFunction->SetParameter(2, 10000);   
+CrystalBallFunction->SetParameter(3, 2.);
 CrystalBallFunction->SetParLimits(3, 0., 30.);   
-CrystalBallFunction->SetParameter(4, 4.);
+CrystalBallFunction->SetParameter(4, 2.);
 CrystalBallFunction->SetParLimits(4, 0., 30.);     
 CrystalBallFunction->SetParameter(5, 0.);
 CrystalBallFunction->SetParameter(6, 0.);
