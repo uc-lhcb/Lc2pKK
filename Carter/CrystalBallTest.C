@@ -229,7 +229,7 @@ void CrystalBallTest::Terminate()
    c1->cd();
 
 double PullxHalfMeV[300];
-double Pullx1fMeV[150];
+double Pullx1MeV[150];
 
 TPad *pad1 = new TPad("pad1","pad1",0,0.33,1,1);
 TPad *pad2 = new TPad("pad2","pad2",0,0,1,0.33);
