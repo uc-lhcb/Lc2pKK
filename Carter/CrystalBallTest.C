@@ -124,8 +124,8 @@ bool Cuts= (
   && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 2.5))
   && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 2.5))   
   && (*Proton_PT > 950)
-  && (*Lcplus_Loki_DOCACHI2MAX < 18)
-  && (*Lcplus_TAU < 0.0035) 
+//  && (*Lcplus_Loki_DOCACHI2MAX < 18)
+//  && (*Lcplus_TAU < 0.0035) 
       );
    
  
