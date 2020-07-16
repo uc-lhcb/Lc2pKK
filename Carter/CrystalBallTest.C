@@ -9,7 +9,7 @@
 #include <TF1.h>
 
 #include "CrystalBall.C"
-
+#include "DGOneMuOneTotalHalfMeV.C"
 
 TH1D * MassHist = nullptr;
 
@@ -228,6 +228,88 @@ pad2->SetTopMargin(0.03030303);
 pad1->Draw();
 pad2->Draw();
 
+TF1 *DGOneMuOneTotal = new TF1("DGOneMuOneTotal", DGOneMuOneTotalHalfMeV,2100.,2500.,7);
+DGOneMuOneTotal->SetParameter(0, 0.5);
+DGOneMuOneTotal->SetParameter(1, 10000);
+DGOneMuOneTotal->SetParameter(2, 2287.);
+DGOneMuOneTotal->SetParameter(3, 5);
+DGOneMuOneTotal->SetParameter(4, 5);
+DGOneMuOneTotal->SetParLimits(3, 0., 20.);
+DGOneMuOneTotal->SetParLimits(4, 0., 20.);
+DGOneMuOneTotal->SetParameter(5, 0.);
+DGOneMuOneTotal->SetParameter(6, 0.);
+
+pad1->cd();
+MassHist->SetMinimum(0);
+MassHist->Fit("DGOneMuOneTotal");
+
+int BinHeightDG[300];
+int FitHeightDG[300];
+double PullDG[300];
+
+double DGcount1 = 0;
+double DGcount2 = 0;
+double DGcount3 = 0;
+
+for (int bin = 0; bin < 300; bin++){
+BinHeightDG[bin] = MassHist->GetBinContent(bin + 1);
+PullDGx[bin] = (bin + 1);
+int xvalue = 2210.25 + 0.5*(bin);
+FitHeightDG[bin] = round(DGOneMuOneTotal->Eval(xvalue));
+PullDG[bin] = (BinHeightDG[bin] - FitHeightDG[bin])/TMath::Sqrt(FitHeightDG[bin]);
+
+if (PullDG[bin] > -1 && PullDG[bin] < 1){
+  DGcount1 += 1;
+}
+
+if (PullDG[bin] > -2 && PullDG[bin] < 2){
+  DGcount2 += 1;
+}
+
+if (PullDG[bin] > -3 && PullDG[bin] < 3){
+  DGcount3 += 1;
+}
+}
+
+pad2->cd();
+TGraph* PullDGPlot = new TGraph(300, PullDGx, PullDG);
+PullDGPlot->GetXaxis()->SetLimits(0.5,300.5);
+PullDGPlot->GetXaxis()->SetTickLength(0.);
+PullDGPlot->GetYaxis()->SetTickLength(0.);
+PullDGPlot->SetFillColor(38);
+PullDGPlot->GetYaxis()->SetTitle("PullDG");
+PullDGPlot->GetYaxis()->CenterTitle();
+PullDGPlot->GetYaxis()->SetTitleSize(0.10);
+PullDGPlot->GetYaxis()->SetTitleOffset(0.2);
+PullDGPlot->GetXaxis()->SetLabelSize(0);
+PullDGPlot->GetYaxis()->SetLabelFont(42);
+PullDGPlot->GetYaxis()->SetLabelSize(0.06);
+PullDGPlot->SetTitle("");
+PullDGPlot->SetMinimum(-5);
+PullDGPlot->SetMaximum(5);
+PullDGPlot->Draw("AB");
+      c1->Write("Lc Mass - DG");
+
+ex1->cd();
+  Tl.SetTextAlign(12);
+  Tl.SetTextSize(0.04);
+  Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries: %f Events", DGOneMuOneTotal->GetParameter(1)));
+  Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", DGOneMuOneTotal->GetParError(1)));
+  Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First Gaussian: %f Events", DGOneMuOneTotal->GetParameter(0)));
+  Tl.DrawLatex(0.1,0.75,Form("Error: %f Events", DGOneMuOneTotal->GetParError(0)));
+  Tl.DrawLatex(0.1,0.65,Form("Mean Value: %f MeV", DGOneMuOneTotal->GetParameter(2)));
+  Tl.DrawLatex(0.1,0.6,Form("Error: %f MeV", DGOneMuOneTotal->GetParError(2)));
+  Tl.DrawLatex(0.1,0.5,Form("Sigma of First Gaussian: %f MeV", DGOneMuOneTotal->GetParameter(3)));
+  Tl.DrawLatex(0.1,0.45,Form("Error: %f MeV", DGOneMuOneTotal->GetParError(3)));
+  Tl.DrawLatex(0.1,0.35,Form("Sigma of Second Gaussian: %f MeV", DGOneMuOneTotal->GetParameter(4)));
+  Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", DGOneMuOneTotal->GetParError(4)));
+  Tl.DrawLatex(0.1,0.2,Form("Bins Between -1 & 1 %f Bins", LooseHalfMeVDG1MuDGcount1));
+  Tl.DrawLatex(0.1,0.15,Form("Bins Between -2 & 2 %f Bins", LooseHalfMeVDG1MuDGcount2));
+  Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", LooseHalfMeVDG1MuDGcount3));
+  ex1->Write("DG Fit Values");
+c1->cd();
+   
+   
 TF1 *CrystalBallFunction = new TF1("CrystalBallFunction", CrystalBall,2100.,2500.,7);
 CrystalBallFunction->SetParameter(0,2287.);
 CrystalBallFunction->SetParLimits(0, 2285., 2288.);
@@ -290,12 +372,10 @@ PullPlot->SetTitle("");
 PullPlot->SetMinimum(-5);
 PullPlot->SetMaximum(5);
 PullPlot->Draw("AB");
-      c1->Write("Lc Mass");
+      c1->Write("Lc Mass - Crystal Ball");
 
 ex1->cd();
-   TLatex Tl;
-   Tl.SetTextAlign(12);
-   Tl.SetTextSize(0.04);
+ex1->Clear();
    Tl.DrawLatex(0.1,0.9,Form("Mean Value: %f MeV", CrystalBallFunction->GetParameter(0)));
    Tl.DrawLatex(0.1,0.85,Form("Error: %f MeV", CrystalBallFunction->GetParError(0)));
    Tl.DrawLatex(0.1,0.7,Form("Sigma: %f MeV", CrystalBallFunction->GetParameter(1)));
