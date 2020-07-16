@@ -26,7 +26,7 @@ Double_t fitval = 0;
   
      if (arg <= -(par[2])) fitval = LEXP + par[4] + v[0]*par[5];
 else if (arg > par[3]) fitval = HEXP + par[4] + v[0]*par[5];
-else if (arg > -(par[2]) && arg <= par[3])) fitval = Gauss + par[4] + v[0]*par[5];
+else if (arg > -(par[2]) && arg <= par[3]) fitval = Gauss + par[4] + v[0]*par[5];
 
     return fitval;
 }
