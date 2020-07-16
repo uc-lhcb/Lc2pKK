@@ -253,7 +253,7 @@ double DGcount3 = 0;
 
 for (int bin = 0; bin < 300; bin++){
 BinHeightDG[bin] = MassHist->GetBinContent(bin + 1);
-PullDGx[bin] = (bin + 1);
+Pullx[bin] = (bin + 1);
 int xvalue = 2210.25 + 0.5*(bin);
 FitHeightDG[bin] = round(DGOneMuOneTotal->Eval(xvalue));
 PullDG[bin] = (BinHeightDG[bin] - FitHeightDG[bin])/TMath::Sqrt(FitHeightDG[bin]);
@@ -272,7 +272,7 @@ if (PullDG[bin] > -3 && PullDG[bin] < 3){
 }
 
 pad2->cd();
-TGraph* PullDGPlot = new TGraph(300, PullDGx, PullDG);
+TGraph* PullDGPlot = new TGraph(300, Pullx, PullDG);
 PullDGPlot->GetXaxis()->SetLimits(0.5,300.5);
 PullDGPlot->GetXaxis()->SetTickLength(0.);
 PullDGPlot->GetYaxis()->SetTickLength(0.);
@@ -291,6 +291,7 @@ PullDGPlot->Draw("AB");
       c1->Write("Lc Mass - DG");
 
 ex1->cd();
+   TLatex Tl;
   Tl.SetTextAlign(12);
   Tl.SetTextSize(0.04);
   Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries: %f Events", DGOneMuOneTotal->GetParameter(1)));
