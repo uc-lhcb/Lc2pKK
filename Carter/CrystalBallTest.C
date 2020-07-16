@@ -304,9 +304,9 @@ ex1->cd();
   Tl.DrawLatex(0.1,0.45,Form("Error: %f MeV", DGOneMuOneTotal->GetParError(3)));
   Tl.DrawLatex(0.1,0.35,Form("Sigma of Second Gaussian: %f MeV", DGOneMuOneTotal->GetParameter(4)));
   Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", DGOneMuOneTotal->GetParError(4)));
-  Tl.DrawLatex(0.1,0.2,Form("Bins Between -1 & 1 %f Bins", LooseHalfMeVDG1MuDGcount1));
-  Tl.DrawLatex(0.1,0.15,Form("Bins Between -2 & 2 %f Bins", LooseHalfMeVDG1MuDGcount2));
-  Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", LooseHalfMeVDG1MuDGcount3));
+  Tl.DrawLatex(0.1,0.2,Form("Bins Between -1 & 1 %f Bins", DGcount1));
+  Tl.DrawLatex(0.1,0.15,Form("Bins Between -2 & 2 %f Bins", DGcount2));
+  Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", DGcount3));
   ex1->Write("DG Fit Values");
 c1->cd();
    
