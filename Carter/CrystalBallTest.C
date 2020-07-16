@@ -227,7 +227,6 @@ TPad *pad2 = new TPad("pad2","pad2",0,0,1,0.33);
 pad2->SetTopMargin(0.03030303);
 pad1->Draw();
 pad2->Draw();
-}
 
 TF1 *CrystalBallFunction = new TF1("CrystalBallFunction", CrystalBall,2100.,2500.,6);
 CrystalBallFunction->SetParameter(0,2287.);
@@ -238,8 +237,8 @@ CrystalBallFunction->SetParameter(4, 0.);
 CrystalBallFunction->SetParameter(5, 0.);
 
 pad1->cd();
-MassHistLooseHalfMeV->SetMinimum(0);
-MassHistLooseHalfMeV->Fit("CrystalBallFunction");
+MassHist>SetMinimum(0);
+MassHist>Fit("CrystalBallFunction");
 
 int BinHeight[300];
 int FitHeight[300];
