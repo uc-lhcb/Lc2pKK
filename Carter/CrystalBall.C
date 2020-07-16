@@ -23,6 +23,8 @@ Double_t Gauss = TMath::Exp(-0.5*arg*arg);
 //High Shoulder Exponential
 Double_t HEXP = TMath::Exp(0.5*par[3]*par[3] - par[3]*arg);
   
+Double_t fitval = 0;
+  
   if (arg <= -(par[2])) fitval = LEXP + par[4] + v[0]*par[5];
 else if (arg > par[3]) fitval = HEXP + par[4] + v[0]*par[5];
 else fitval = Gauss + par[4] + v[0]*par[5];
