@@ -8,7 +8,8 @@
 #include <TFile.h>
 #include <TF1.h>
 
-#include "CrystalBall.C"
+#include "CrystalBallHalfMeV.C"
+#include "CrystalBall1MeV.C"
 #include "DGOneMuOneTotalHalfMeV.C"
 #include "DGOneMuOneTotal1MeV.C"
 
