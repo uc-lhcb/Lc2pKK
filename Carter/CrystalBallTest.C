@@ -115,7 +115,7 @@ double M2_PKp = PKp.Mag2()/(1000*1000);
 double M2_PKm  = PKm.Mag2()/(1000*1000);
 double M2_KpKm = KpKm.Mag2()/(1000*1000);
    
-Cuts= (
+bool Cuts= (
      ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.87)
   && ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.9)
   && (M2_KpKm > 1.024)
@@ -229,7 +229,7 @@ pad1->Draw();
 pad2->Draw();
 }
 
-TF1 *CrystalBallFunction = new TF1("CrystalBallFunction", CrystalBall,2100.,2500.,5);
+TF1 *CrystalBallFunction = new TF1("CrystalBallFunction", CrystalBall,2100.,2500.,6);
 CrystalBallFunction->SetParameter(0,2287.);
 CrystalBallFunction->SetParameter(1, 4);
 CrystalBallFunction->SetParameter(2, 1);
