@@ -395,24 +395,24 @@ ex1->Clear();
    Tl.DrawLatex(0.1,0.3,Form("Bins Between -1 & 1 %f Bins", CBHalfMeV1));
    Tl.DrawLatex(0.1,0.2,Form("Bins Between -2 & 2 %f Bins", CBHalfMeV2));
    Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", CBHalfMeV3));
-   ex1->Write("Crystal Ball Fit Values");
+   ex1->Write("Crystal Ball Fit Values Half MeV");
 c1->cd();
    
 
-TF1 *DGOneMuOneTotal1MeV = new TF1("DGOneMuOneTotal1MeV", DGOneMuOneTotal1MeV,2100.,2500.,7);
-DGOneMuOneTotal1MeV->SetParameter(0, 0.5);
-DGOneMuOneTotal1MeV->SetParameter(1, 10000);
-DGOneMuOneTotal1MeV->SetParameter(2, 2287.);
-DGOneMuOneTotal1MeV->SetParameter(3, 5);
-DGOneMuOneTotal1MeV->SetParameter(4, 5);
-DGOneMuOneTotal1MeV->SetParLimits(3, 0., 20.);
-DGOneMuOneTotal1MeV->SetParLimits(4, 0., 20.);
-DGOneMuOneTotal1MeV->SetParameter(5, 0.);
-DGOneMuOneTotal1MeV->SetParameter(6, 0.);
+//TF1 *DGOneMuOneTotal1MeV = new TF1("DGOneMuOneTotal1MeV", DGOneMuOneTotal1MeV,2100.,2500.,7);
+//DGOneMuOneTotal1MeV->SetParameter(0, 0.5);
+//DGOneMuOneTotal1MeV->SetParameter(1, 10000);
+//DGOneMuOneTotal1MeV->SetParameter(2, 2287.);
+//DGOneMuOneTotal1MeV->SetParameter(3, 5);
+//DGOneMuOneTotal1MeV->SetParameter(4, 5);
+//DGOneMuOneTotal1MeV->SetParLimits(3, 0., 20.);
+//DGOneMuOneTotal1MeV->SetParLimits(4, 0., 20.);
+//DGOneMuOneTotal1MeV->SetParameter(5, 0.);
+//DGOneMuOneTotal1MeV->SetParameter(6, 0.);
 
-pad1->cd();
-MassHist1MeV->SetMinimum(0);
-MassHist1MeV->Fit("DGOneMuOneTotal1MeV");
+//pad1->cd();
+//MassHist1MeV->SetMinimum(0);
+//MassHist1MeV->Fit("DGOneMuOneTotal1MeV");
 
 int BinHeightDG1MeV[150];
 int FitHeightDG1MeV[150];
