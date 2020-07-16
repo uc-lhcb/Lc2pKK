@@ -120,12 +120,12 @@ bool Cuts= (
   && ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.9)
   && (M2_KpKm > 1.024)
   && (M2_KpKm < 1.057)   
-//  && ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 2.5))
-//  && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 2.5))
-//  && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 2.5))   
-//  && (*Proton_PT > 950)
-//  && (*Lcplus_Loki_DOCACHI2MAX < 18)
-//  && (*Lcplus_TAU < 0.0035) 
+  && ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 2.5))
+  && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 2.5))
+  && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 2.5))   
+  && (*Proton_PT > 950)
+  && (*Lcplus_Loki_DOCACHI2MAX < 18)
+  && (*Lcplus_TAU < 0.0035) 
       );
    
  
