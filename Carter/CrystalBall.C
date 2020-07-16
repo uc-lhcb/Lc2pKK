@@ -13,22 +13,19 @@ Double_t arg = 0;
   if (par[1] != 0)
     arg = (v[0] - par[0])/par[1];
 
-//Low Shoulder Exponential
-  Double_t LEXP = 0;
-  if (arg <= -(par[2]))
-    LEXP = TMath::Exp(0.5*par[2]*par[2] + par[2]*arg);
-
+ //Low Shoulder Exponential
+  Double_t LEXP = TMath::Exp(0.5*par[2]*par[2] + par[2]*arg);
+ 
 //Gaussian
-Double_t Gauss = 0;
-if (arg > -(par[2]) && arg <= par[3])
-  Gauss = TMath::Exp(-0.5*arg*arg);
+Double_t Gauss = TMath::Exp(-0.5*arg*arg);
 
+  
 //High Shoulder Exponential
-  Double_t HEXP = 0;
-  if (arg > par[3])
-    LEXP = TMath::Exp(0.5*par[3]*par[3] - par[3]*arg);
- 
- 
-  Double_t fitval = LEXP + Gauss + HEXP + par[4] + v[0]*par[5];
+Double_t HEXP = TMath::Exp(0.5*par[3]*par[3] - par[3]*arg);
+  
+  if (arg <= -(par[2])) fitval = LEXP + par[4] + v[0]*par[5];
+else if (arg > par[3]) fitval = HEXP + par[4] + v[0]*par[5];
+else fitval = Gauss + par[4] + v[0]*par[5];
+
     return fitval;
 }
