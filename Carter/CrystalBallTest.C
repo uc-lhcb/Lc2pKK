@@ -228,17 +228,18 @@ pad2->SetTopMargin(0.03030303);
 pad1->Draw();
 pad2->Draw();
 
-TF1 *CrystalBallFunction = new TF1("CrystalBallFunction", CrystalBall,2100.,2500.,6);
+TF1 *CrystalBallFunction = new TF1("CrystalBallFunction", CrystalBall,2100.,2500.,7);
 CrystalBallFunction->SetParameter(0,2287.);
 CrystalBallFunction->SetParLimits(0, 2285., 2288.);
 CrystalBallFunction->SetParameter(1, 4);
-CrystalBallFunction->SetParLimits(1, 0., 5.);
-CrystalBallFunction->SetParameter(2, 5);
-CrystalBallFunction->SetParLimits(2, 0., 30.);   
-CrystalBallFunction->SetParameter(3, 4.);
-CrystalBallFunction->SetParLimits(3, 0., 30.);     
-CrystalBallFunction->SetParameter(4, 0.);
+CrystalBallFunction->SetParLimits(1, 0., 6.);
+CrystalBallFunction->SetParameter(2, 8000);   
+CrystalBallFunction->SetParameter(3, 5);
+CrystalBallFunction->SetParLimits(3, 0., 30.);   
+CrystalBallFunction->SetParameter(4, 4.);
+CrystalBallFunction->SetParLimits(4, 0., 30.);     
 CrystalBallFunction->SetParameter(5, 0.);
+CrystalBallFunction->SetParameter(6, 0.);
 
 pad1->cd();
 MassHist->SetMinimum(0);
