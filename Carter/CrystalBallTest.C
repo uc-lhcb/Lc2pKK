@@ -234,7 +234,9 @@ CrystalBallFunction->SetParLimits(0, 2285., 2288.);
 CrystalBallFunction->SetParameter(1, 4);
 CrystalBallFunction->SetParLimits(1, 0., 10.);
 CrystalBallFunction->SetParameter(2, 1);
+CrystalBallFunction->SetParLimits(2, 0., 30.);   
 CrystalBallFunction->SetParameter(3, 1.);
+CrystalBallFunction->SetParLimits(3, 0., 30.);     
 CrystalBallFunction->SetParameter(4, 0.);
 CrystalBallFunction->SetParameter(5, 0.);
 
