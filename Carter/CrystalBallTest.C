@@ -238,7 +238,7 @@ pad1->Draw();
 pad2->Draw();
 
 
-TF1 *DGOneMuOneTotalHalfMeV = new TF1("DGOneMuOneTotal", DGOneMuOneTotalHalfMeV,2100.,2500.,7);
+TF1 *DGOneMuOneTotalHalfMeV = new TF1("DGOneMuOneTotalHalfMeV", DGOneMuOneTotalHalfMeV,2100.,2500.,7);
 DGOneMuOneTotalHalfMeV->SetParameter(0, 0.5);
 DGOneMuOneTotalHalfMeV->SetParameter(1, 10000);
 DGOneMuOneTotalHalfMeV->SetParameter(2, 2287.);
@@ -399,7 +399,7 @@ ex1->Clear();
 c1->cd();
    
 
-TF1 *DGOneMuOneTotal1MeV = new TF1("DGOneMuOneTotal", DGOneMuOneTotal1MeV,2100.,2500.,7);
+TF1 *DGOneMuOneTotal1MeV = new TF1("DGOneMuOneTotal1MeV", DGOneMuOneTotal1MeV,2100.,2500.,7);
 DGOneMuOneTotal1MeV->SetParameter(0, 0.5);
 DGOneMuOneTotal1MeV->SetParameter(1, 10000);
 DGOneMuOneTotal1MeV->SetParameter(2, 2287.);
