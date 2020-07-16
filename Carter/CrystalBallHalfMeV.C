@@ -3,7 +3,7 @@
 #include "TMath.h"
 #include <iostream>
 
-Double_t CrystalBall(Double_t *v, Double_t *par) {
+Double_t CrystalBallHalfMeV(Double_t *v, Double_t *par) {
 
 // var[0] = x, par[0] = mu, par[1] = sigma, par[2] = signal total
 // par[3] = decay constant 'kl', par [4] = decay constant 'kh'
