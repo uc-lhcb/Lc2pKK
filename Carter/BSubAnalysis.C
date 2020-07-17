@@ -48,6 +48,10 @@ TH1D * KmChi2Signal = nullptr;
 TH1D * KmChi2Bkgd = nullptr;
 TH1D * KmChi2SignalEstimate = nullptr;
 
+TH1D * AddChi2Signal = nullptr;
+TH1D * AddChi2Bkgd = nullptr;
+TH1D * AddChi2SignalEstimate = nullptr;
+
 TH1D * DOCAMaxSignal = nullptr;
 TH1D * DOCAMaxBkgd = nullptr;
 TH1D * DOCAMaxSignalEstimate = nullptr;
@@ -130,6 +134,13 @@ KmChi2Signal->SetLineColor(kBlue);
 KmChi2Bkgd->SetLineColor(kRed);
 KmChi2SignalEstimate->SetLineColor(kGreen+3);
 
+AddChi2Signal = new TH1D("Log(IPCHI2)", "Signal Region", 175, 2, 10);
+AddChi2Bkgd = new TH1D("Log(IPCHI2)", "Background Region", 175, 2, 10);
+AddChi2SignalEstimate = new TH1D("Log(IPCHI2)", "Signal Estimation", 175, 2, 10);   
+AddChi2Signal->SetLineColor(kBlue);
+AddChi2Bkgd->SetLineColor(kRed);
+AddChi2SignalEstimate->SetLineColor(kGreen+3);   
+   
 DOCAMaxSignal = new TH1D("DOCA", "Signal Region", 100, 0, 18);
 DOCAMaxBkgd = new TH1D("DOCA", "Background Region", 100, 0, 18);
 DOCAMaxSignalEstimate = new TH1D("DOCA", "Signal Estimation", 100, 0, 18);
@@ -173,11 +184,13 @@ bool  PreliminaryCuts= (
   && (M2_KpKm > 1.024)
   && (M2_KpKm < 1.057)   
       );
+
+double AddedIPChi2 = *Proton_IPCHI2_OWNPV + *Kminus_IPCHI2_OWNPV + *Kplus_IPCHI2_OWNPV;
    
    bool IPCHI2Cut = (
-      ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 2.5))
-   && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 2.5))
-   && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 2.5))
+//      ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 2.5))
+//   && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 2.5))
+//   && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 2.5))
        );
        
    bool PTCut = (
@@ -207,6 +220,7 @@ if (PreliminaryCuts & SignalRegion && IPCHI2Cut && PTCut && DOCACut && TAUCut){
  PrChi2Signal->Fill(TMath::Log10(*Proton_IPCHI2_OWNPV));
  KpChi2Signal->Fill(TMath::Log10(*Kplus_IPCHI2_OWNPV)); 
  KmChi2Signal->Fill(TMath::Log10(*Kminus_IPCHI2_OWNPV));
+ AddChi2Signal->Fill(TMath::Log10(AddedIPChi2));  
  DOCAMaxSignal->Fill(*Lcplus_Loki_DOCACHI2MAX);
  LcTAUSignal->Fill(*Lcplus_TAU);                                       
 }   
@@ -219,6 +233,7 @@ if (PreliminaryCuts & BackgroundRegion && IPCHI2Cut && PTCut && DOCACut && TAUCu
  PrChi2Bkgd->Fill(TMath::Log10(*Proton_IPCHI2_OWNPV));
  KpChi2Bkgd->Fill(TMath::Log10(*Kplus_IPCHI2_OWNPV)); 
  KmChi2Bkgd->Fill(TMath::Log10(*Kminus_IPCHI2_OWNPV));
+ AddChi2Bkgd->Fill(TMath::Log10(AddedIPChi2));  
  DOCAMaxBkgd->Fill(*Lcplus_Loki_DOCACHI2MAX);
  LcTAUBkgd->Fill(*Lcplus_TAU); 
 }
@@ -229,7 +244,8 @@ KpPTSignalEstimate->Add(KpPTSignal,KpPTBkgd,1.0,-0.5);
 KmPTSignalEstimate->Add(KmPTSignal,KmPTBkgd,1.0,-0.5);  
 PrChi2SignalEstimate->Add(PrChi2Signal,PrChi2Bkgd,1.0,-0.5);                    
 KpChi2SignalEstimate->Add(KpChi2Signal,KpChi2Bkgd,1.0,-0.5);  
-KmChi2SignalEstimate->Add(KmChi2Signal,KmChi2Bkgd,1.0,-0.5);  
+KmChi2SignalEstimate->Add(KmChi2Signal,KmChi2Bkgd,1.0,-0.5); 
+AddChi2SignalEstimate->Add(AddChi2Signal,AddChi2Bkgd,1.0,-0.5);     
 DOCAMaxSignalEstimate->Add(DOCAMaxSignal,DOCAMaxBkgd,1.0,-0.5);  
 LcTAUSignalEstimate->Add(LcTAUSignal,LcTAUBkgd,1.0,-0.5);                    
                
@@ -320,6 +336,17 @@ KmChi2Bkgd->Draw("SAME");
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
 KmChi2Signal->SetTitle("Kminus_IPCHI2_OWNPV Signal Estimates");      
 c1->Write("KmChi2 Estimations");
+c1->Clear();    
+   
+AddChi2Signal->GetYaxis()->SetTitle("Events per 1/20 Log10(mm)");
+AddChi2Signal->GetXaxis()->SetTitle("Log10(mm)");   
+AddChi2Signal->SetMinimum(0);
+AddChi2Signal->Draw();
+AddChi2SignalEstimate->Draw("SAME");
+AddChi2Bkgd->Draw("SAME");     
+gPad->BuildLegend(0.78,0.75,0.98,0.95);
+AddChi2Signal->SetTitle("Added IPChi2 Signal Estimates");      
+c1->Write("Added IPChi2 Estimations");
 c1->Clear();    
   
 DOCAMaxSignal->GetYaxis()->SetTitle("Events per 1 mm");
