@@ -138,7 +138,7 @@ bool Cuts= (
  
    if (Cuts){
      MassHistHalfMeV->Fill(*Lcplus_M);
-     MassHistHalfMeV->Fill(*Lcplus_M); 
+     MassHist1MeV->Fill(*Lcplus_M); 
      LcPDistribution->Fill(*Lcplus_P);
    }  
    
