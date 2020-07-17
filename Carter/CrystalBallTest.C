@@ -399,11 +399,11 @@ c1->cd();
    
 
 TF1 *Gaussian1MeVDG1Mu = new TF1("Gaussian1MeVDG1Mu",DGOneMuOneTotal1MeV,2200.,2400.,7);
-Gaussian1MeVDG1Mu->SetParameter(0, 0.5);
-Gaussian1MeVDG1Mu->SetParameter(1, 10000);
+Gaussian1MeVDG1Mu->SetParameter(0, 0.4);
+Gaussian1MeVDG1Mu->SetParameter(1, 12000);
 Gaussian1MeVDG1Mu->SetParameter(2, 2287.);
-Gaussian1MeVDG1Mu->SetParameter(3, 5);
-Gaussian1MeVDG1Mu->SetParameter(4, 5);
+Gaussian1MeVDG1Mu->SetParameter(3, 3);
+Gaussian1MeVDG1Mu->SetParameter(4, 6);
 Gaussian1MeVDG1Mu->SetParLimits(3, 0., 20.);
 Gaussian1MeVDG1Mu->SetParLimits(4, 0., 20.);
 Gaussian1MeVDG1Mu->SetParameter(5, 0.);
