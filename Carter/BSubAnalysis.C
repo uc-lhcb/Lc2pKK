@@ -134,9 +134,9 @@ KmChi2Signal->SetLineColor(kBlue);
 KmChi2Bkgd->SetLineColor(kRed);
 KmChi2SignalEstimate->SetLineColor(kGreen+3);
 
-AddChi2Signal = new TH1D("Log(IPCHI2)", "Signal Region", 175, 2, 10);
-AddChi2Bkgd = new TH1D("Log(IPCHI2)", "Background Region", 175, 2, 10);
-AddChi2SignalEstimate = new TH1D("Log(IPCHI2)", "Signal Estimation", 175, 2, 10);   
+AddChi2Signal = new TH1D("Log(IPCHI2)", "Signal Region", 175, 1, 5);
+AddChi2Bkgd = new TH1D("Log(IPCHI2)", "Background Region", 175, 1, 5);
+AddChi2SignalEstimate = new TH1D("Log(IPCHI2)", "Signal Estimation", 175, 1, 5);   
 AddChi2Signal->SetLineColor(kBlue);
 AddChi2Bkgd->SetLineColor(kRed);
 AddChi2SignalEstimate->SetLineColor(kGreen+3);   
