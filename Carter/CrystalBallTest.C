@@ -132,7 +132,7 @@ bool Cuts= (
   && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 2.5))   
   && (*Proton_PT > 950)
   && (*Lcplus_Loki_DOCACHI2MAX < 18)
-//  && (*Lcplus_TAU < 0.0035) 
+  && (*Lcplus_TAU < 0.0035) 
       );
    
  
@@ -262,6 +262,7 @@ double   HalfMeVDG1Mucount3 = 0;
 
 for (int bin = 0; bin < 300; bin++){
 BinHeightHalfMeVDG1Mu[bin] = MassHistHalfMeV->GetBinContent(bin + 1);
+PullxHalfMeV[bin] = (bin + 1);   
 int xvalueHalfMeVDG1Mu = 2210.25 + 0.5*(bin);
 FitHeightHalfMeVDG1Mu[bin] = round(GaussianHalfMeVDG1Mu->Eval(xvalueHalfMeVDG1Mu));
 PullHalfMeVDG1Mu[bin] = (BinHeightHalfMeVDG1Mu[bin] - FitHeightHalfMeVDG1Mu[bin])/TMath::Sqrt(FitHeightHalfMeVDG1Mu[bin]);
@@ -346,7 +347,6 @@ double CBHalfMeV3 = 0;
 
 for (int bin = 0; bin < 300; bin++){
 BinHeightCBHalfMeV[bin] = MassHistHalfMeV->GetBinContent(bin + 1);
-PullxHalfMeV[bin] = (bin + 1);
 int xvalue = 2210.25 + 0.5*(bin);
 FitHeightCBHalfMeV[bin] = round(CrystalBallFunctionHalfMeV->Eval(xvalue));
 PullCBHalfMeV[bin] = (BinHeightCBHalfMeV[bin] - FitHeightCBHalfMeV[bin])/TMath::Sqrt(FitHeightCBHalfMeV[bin]);
@@ -423,6 +423,7 @@ double   DG1MeVDG1Mucount3 = 0;
 
 for (int bin = 0; bin < 150; bin++){
 BinHeight1MeVDG1Mu[bin] = MassHist1MeV->GetBinContent(bin + 1);
+Pullx1MeV[bin] = (bin + 1);   
 int xvalue1MeVDG1Mu = 2210.5 + 1*(bin);
 FitHeight1MeVDG1Mu[bin] = round(Gaussian1MeVDG1Mu->Eval(xvalue1MeVDG1Mu));
 Pull1MeVDG1Mu[bin] = (BinHeight1MeVDG1Mu[bin] - FitHeight1MeVDG1Mu[bin])/TMath::Sqrt(FitHeight1MeVDG1Mu[bin]);
@@ -504,7 +505,6 @@ double CB1MeV3 = 0;
 
 for (int bin = 0; bin < 150; bin++){
 BinHeightCB1MeV[bin] = MassHist1MeV->GetBinContent(bin + 1);
-Pullx1MeV[bin] = (bin + 1);
 int xvalue = 2210.5 + 1.0*(bin);
 FitHeightCB1MeV[bin] = round(CrystalBallFunction1MeV->Eval(xvalue));
 PullCB1MeV[bin] = (BinHeightCB1MeV[bin] - FitHeightCB1MeV[bin])/TMath::Sqrt(FitHeightCB1MeV[bin]);
