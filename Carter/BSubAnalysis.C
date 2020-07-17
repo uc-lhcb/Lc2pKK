@@ -187,11 +187,11 @@ bool  PreliminaryCuts= (
 
 double AddedIPChi2 = *Proton_IPCHI2_OWNPV + *Kminus_IPCHI2_OWNPV + *Kplus_IPCHI2_OWNPV;
    
-   bool IPCHI2Cut = (
+//   bool IPCHI2Cut = (
 //      ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 2.5))
 //   && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 2.5))
 //   && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 2.5))
-       );
+//       );
        
    bool PTCut = (
       (*Proton_PT > 950)
@@ -205,14 +205,14 @@ double AddedIPChi2 = *Proton_IPCHI2_OWNPV + *Kminus_IPCHI2_OWNPV + *Kplus_IPCHI2
       (*Lcplus_TAU < 0.0035)
   );
    
- if (PreliminaryCuts && IPCHI2Cut && PTCut && DOCACut && TAUCut)
+ if (PreliminaryCuts && PTCut && DOCACut && TAUCut)
  PreliminaryMass->Fill(*Lcplus_M);
    
  //Defining Signal Region & Background Region//
    bool SignalRegion = *Lcplus_M > 2274. && *Lcplus_M < 2300.;
    bool BackgroundRegion = (*Lcplus_M > 2220. && *Lcplus_M < 2246.) || (*Lcplus_M > 2328. && *Lcplus_M < 2354.);
   
-if (PreliminaryCuts & SignalRegion && IPCHI2Cut && PTCut && DOCACut && TAUCut){ 
+if (PreliminaryCuts & SignalRegion && PTCut && DOCACut && TAUCut){ 
  LcPTSignal->Fill(*Lcplus_PT);
  PrPTSignal->Fill(*Proton_PT);
  KpPTSignal->Fill(*Kplus_PT);  
@@ -225,7 +225,7 @@ if (PreliminaryCuts & SignalRegion && IPCHI2Cut && PTCut && DOCACut && TAUCut){
  LcTAUSignal->Fill(*Lcplus_TAU);                                       
 }   
    
-if (PreliminaryCuts & BackgroundRegion && IPCHI2Cut && PTCut && DOCACut && TAUCut){ 
+if (PreliminaryCuts & BackgroundRegion && PTCut && DOCACut && TAUCut){ 
  LcPTBkgd->Fill(*Lcplus_PT);
  PrPTBkgd->Fill(*Proton_PT);
  KpPTBkgd->Fill(*Kplus_PT);  
