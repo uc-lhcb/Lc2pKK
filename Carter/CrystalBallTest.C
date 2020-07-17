@@ -414,69 +414,69 @@ c1->cd();
 //MassHist1MeV->SetMinimum(0);
 //MassHist1MeV->Fit("DGOneMuOneTotal1MeV");
 
-int BinHeightDG1MeV[150];
-int FitHeightDG1MeV[150];
-double PullDG1MeV[150];
+//int BinHeightDG1MeV[150];
+//int FitHeightDG1MeV[150];
+//double PullDG1MeV[150];
 
-double DG1MeVcount1 = 0;
-double DG1MeVcount2 = 0;
-double DG1MeVcount3 = 0;
+//double DG1MeVcount1 = 0;
+//double DG1MeVcount2 = 0;
+//double DG1MeVcount3 = 0;
 
-for (int bin = 0; bin < 150; bin++){
-BinHeightDG1MeV[bin] = MassHist1MeV->GetBinContent(bin + 1);
-Pullx1MeV[bin] = (bin + 1);
-int xvalue = 2210.25 + 0.5*(bin);
-FitHeightDG1MeV[bin] = round(DGOneMuOneTotal1MeV->Eval(xvalue));
-PullDG1MeV[bin] = (BinHeightDG1MeV[bin] - FitHeightDG1MeV[bin])/TMath::Sqrt(FitHeightDG1MeV[bin]);
+//for (int bin = 0; bin < 150; bin++){
+//BinHeightDG1MeV[bin] = MassHist1MeV->GetBinContent(bin + 1);
+//Pullx1MeV[bin] = (bin + 1);
+//int xvalue = 2210.25 + 0.5*(bin);
+//FitHeightDG1MeV[bin] = round(DGOneMuOneTotal1MeV->Eval(xvalue));
+//PullDG1MeV[bin] = (BinHeightDG1MeV[bin] - FitHeightDG1MeV[bin])/TMath::Sqrt(FitHeightDG1MeV[bin]);
 
-if (PullDG1MeV[bin] > -1 && PullDG1MeV[bin] < 1){
-  DG1MeVcount1 += 1;
-}
+//if (PullDG1MeV[bin] > -1 && PullDG1MeV[bin] < 1){
+//  DG1MeVcount1 += 1;
+//}
 
-if (PullDG1MeV[bin] > -2 && PullDG1MeV[bin] < 2){
-  DG1MeVcount2 += 1;
-}
+//if (PullDG1MeV[bin] > -2 && PullDG1MeV[bin] < 2){
+//  DG1MeVcount2 += 1;
+//}
 
-if (PullDG1MeV[bin] > -3 && PullDG1MeV[bin] < 3){
-  DG1MeVcount3 += 1;
-}
-}
+//if (PullDG1MeV[bin] > -3 && PullDG1MeV[bin] < 3){
+//  DG1MeVcount3 += 1;
+//}
+//}
 
-pad2->cd();
-TGraph* PullDG1MeVPlot = new TGraph(150, Pullx1MeV, PullDG1MeV);
-PullDG1MeVPlot->GetXaxis()->SetLimits(0.5,150.5);
-PullDG1MeVPlot->GetXaxis()->SetTickLength(0.);
-PullDG1MeVPlot->GetYaxis()->SetTickLength(0.);
-PullDG1MeVPlot->SetFillColor(38);
-PullDG1MeVPlot->GetYaxis()->SetTitle("Pull");
-PullDG1MeVPlot->GetYaxis()->CenterTitle();
-PullDG1MeVPlot->GetYaxis()->SetTitleSize(0.10);
-PullDG1MeVPlot->GetYaxis()->SetTitleOffset(0.2);
-PullDG1MeVPlot->GetXaxis()->SetLabelSize(0);
-PullDG1MeVPlot->GetYaxis()->SetLabelFont(42);
-PullDG1MeVPlot->GetYaxis()->SetLabelSize(0.06);
-PullDG1MeVPlot->SetTitle("");
-PullDG1MeVPlot->SetMinimum(-5);
-PullDG1MeVPlot->SetMaximum(5);
-PullDG1MeVPlot->Draw("AB");
-      c1->Write("Lc Mass - DG1MeV");
+//pad2->cd();
+//TGraph* PullDG1MeVPlot = new TGraph(150, Pullx1MeV, PullDG1MeV);
+//PullDG1MeVPlot->GetXaxis()->SetLimits(0.5,150.5);
+//PullDG1MeVPlot->GetXaxis()->SetTickLength(0.);
+//PullDG1MeVPlot->GetYaxis()->SetTickLength(0.);
+//PullDG1MeVPlot->SetFillColor(38);
+//PullDG1MeVPlot->GetYaxis()->SetTitle("Pull");
+//PullDG1MeVPlot->GetYaxis()->CenterTitle();
+//PullDG1MeVPlot->GetYaxis()->SetTitleSize(0.10);
+//PullDG1MeVPlot->GetYaxis()->SetTitleOffset(0.2);
+//PullDG1MeVPlot->GetXaxis()->SetLabelSize(0);
+//PullDG1MeVPlot->GetYaxis()->SetLabelFont(42);
+//PullDG1MeVPlot->GetYaxis()->SetLabelSize(0.06);
+//PullDG1MeVPlot->SetTitle("");
+//PullDG1MeVPlot->SetMinimum(-5);
+//PullDG1MeVPlot->SetMaximum(5);
+//PullDG1MeVPlot->Draw("AB");
+//      c1->Write("Lc Mass - DG1MeV");
 
-ex1->cd();
-  Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries: %f Events", DGOneMuOneTotal1MeV->GetParameter(1)));
-  Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", DGOneMuOneTotal1MeV->GetParError(1)));
-  Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First Gaussian: %f Events", DGOneMuOneTotal1MeV->GetParameter(0)));
-  Tl.DrawLatex(0.1,0.75,Form("Error: %f Events", DGOneMuOneTotal1MeV->GetParError(0)));
-  Tl.DrawLatex(0.1,0.65,Form("Mean Value: %f MeV", DGOneMuOneTotal1MeV->GetParameter(2)));
-  Tl.DrawLatex(0.1,0.6,Form("Error: %f MeV", DGOneMuOneTotal1MeV->GetParError(2)));
-  Tl.DrawLatex(0.1,0.5,Form("Sigma of First Gaussian: %f MeV", DGOneMuOneTotal1MeV->GetParameter(3)));
-  Tl.DrawLatex(0.1,0.45,Form("Error: %f MeV", DGOneMuOneTotal1MeV->GetParError(3)));
-  Tl.DrawLatex(0.1,0.35,Form("Sigma of Second Gaussian: %f MeV", DGOneMuOneTotal1MeV->GetParameter(4)));
-  Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", DGOneMuOneTotal1MeV->GetParError(4)));
-  Tl.DrawLatex(0.1,0.2,Form("Bins Between -1 & 1 %f Bins", DG1MeVcount1));
-  Tl.DrawLatex(0.1,0.15,Form("Bins Between -2 & 2 %f Bins", DG1MeVcount2));
-  Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", DG1MeVcount3));
-  ex1->Write("DG1MeV Fit Values");
-c1->cd();   
+//ex1->cd();
+//  Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries: %f Events", DGOneMuOneTotal1MeV->GetParameter(1)));
+//  Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", DGOneMuOneTotal1MeV->GetParError(1)));
+//  Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First Gaussian: %f Events", DGOneMuOneTotal1MeV->GetParameter(0)));
+//  Tl.DrawLatex(0.1,0.75,Form("Error: %f Events", DGOneMuOneTotal1MeV->GetParError(0)));
+//  Tl.DrawLatex(0.1,0.65,Form("Mean Value: %f MeV", DGOneMuOneTotal1MeV->GetParameter(2)));
+//  Tl.DrawLatex(0.1,0.6,Form("Error: %f MeV", DGOneMuOneTotal1MeV->GetParError(2)));
+//  Tl.DrawLatex(0.1,0.5,Form("Sigma of First Gaussian: %f MeV", DGOneMuOneTotal1MeV->GetParameter(3)));
+//  Tl.DrawLatex(0.1,0.45,Form("Error: %f MeV", DGOneMuOneTotal1MeV->GetParError(3)));
+//  Tl.DrawLatex(0.1,0.35,Form("Sigma of Second Gaussian: %f MeV", DGOneMuOneTotal1MeV->GetParameter(4)));
+//  Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", DGOneMuOneTotal1MeV->GetParError(4)));
+///  Tl.DrawLatex(0.1,0.2,Form("Bins Between -1 & 1 %f Bins", DG1MeVcount1));
+//  Tl.DrawLatex(0.1,0.15,Form("Bins Between -2 & 2 %f Bins", DG1MeVcount2));
+ // Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", DG1MeVcount3));
+//  ex1->Write("DG1MeV Fit Values");
+//c1->cd();   
    
 TF1 *CrystalBallFunction1MeV = new TF1("CrystalBallFunction1MeV", CrystalBall1MeV,2100.,2500.,7);
 CrystalBallFunction1MeV->SetParameter(0,2287.);
