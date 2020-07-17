@@ -379,7 +379,7 @@ PullCBHalfMeVPlot->SetTitle("");
 PullCBHalfMeVPlot->SetMinimum(-5);
 PullCBHalfMeVPlot->SetMaximum(5);
 PullCBHalfMeVPlot->Draw("AB");
-      c1->Write("Lc Mass - Crystal Ball");
+      c1->Write("Lc Mass - Crystal Ball Half MeV");
 
 ex1->cd();
 ex1->Clear();
@@ -422,7 +422,7 @@ c1->cd();
 //for (int bin = 0; bin < 150; bin++){
 //BinHeightDG1MeV[bin] = MassHist1MeV->GetBinContent(bin + 1);
 //Pullx1MeV[bin] = (bin + 1);
-//int xvalue = 2210.25 + 0.5*(bin);
+//int xvalue = 2210.5 + 1.0*(bin);
 //FitHeightDG1MeV[bin] = round(DGOneMuOneTotal1MeV->Eval(xvalue));
 //PullDG1MeV[bin] = (BinHeightDG1MeV[bin] - FitHeightDG1MeV[bin])/TMath::Sqrt(FitHeightDG1MeV[bin]);
 
@@ -503,7 +503,7 @@ double CB1MeV3 = 0;
 for (int bin = 0; bin < 150; bin++){
 BinHeightCB1MeV[bin] = MassHist1MeV->GetBinContent(bin + 1);
 Pullx1MeV[bin] = (bin + 1);
-int xvalue = 2210.25 + 0.5*(bin);
+int xvalue = 2210.5 + 1.0*(bin);
 FitHeightCB1MeV[bin] = round(CrystalBallFunction1MeV->Eval(xvalue));
 PullCB1MeV[bin] = (BinHeightCB1MeV[bin] - FitHeightCB1MeV[bin])/TMath::Sqrt(FitHeightCB1MeV[bin]);
 
@@ -537,7 +537,7 @@ PullCB1MeVPlot->SetTitle("");
 PullCB1MeVPlot->SetMinimum(-5);
 PullCB1MeVPlot->SetMaximum(5);
 PullCB1MeVPlot->Draw("AB");
-      c1->Write("Lc Mass - Crystal Ball");
+      c1->Write("Lc Mass - Crystal Ball 1 MeV");
 
 ex1->cd();
 ex1->Clear();
@@ -550,7 +550,7 @@ ex1->Clear();
    Tl.DrawLatex(0.1,0.3,Form("Bins Between -1 & 1 %f Bins", CB1MeV1));
    Tl.DrawLatex(0.1,0.2,Form("Bins Between -2 & 2 %f Bins", CB1MeV2));
    Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", CB1MeV3));
-   ex1->Write("Crystal Ball Fit Values");
+   ex1->Write("Crystal Ball Fit Values 1 MeV");
 c1->cd();
    
 
