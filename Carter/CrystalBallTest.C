@@ -300,7 +300,9 @@ PullPlotHalfMeVDG1Mu->Draw("AB");
     c1->Write("Lc Mass - HalfMeVDG1Mu");
 
 ex1->cd();
- ex1->Clear();
+   TLatex Tl;
+   Tl.SetTextAlign(12);
+   Tl.SetTextSize(0.04);
  Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries: %f Events", GaussianHalfMeVDG1Mu->GetParameter(1)));
  Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", GaussianHalfMeVDG1Mu->GetParError(1)));
  Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First Gaussian: %f Events", GaussianHalfMeVDG1Mu->GetParameter(0)));
