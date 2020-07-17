@@ -239,11 +239,11 @@ pad1->Draw();
 pad2->Draw();
 
 TF1 *GaussianHalfMeVDG1Mu = new TF1("GaussianHalfMeVDG1Mu",DGOneMuOneTotalHalfMeV,2200.,2400.,7);
-GaussianHalfMeVDG1Mu->SetParameter(0, 0.5);
-GaussianHalfMeVDG1Mu->SetParameter(1, 10000);
+GaussianHalfMeVDG1Mu->SetParameter(0, 0.4);
+GaussianHalfMeVDG1Mu->SetParameter(1, 12000);
 GaussianHalfMeVDG1Mu->SetParameter(2, 2287.);
-GaussianHalfMeVDG1Mu->SetParameter(3, 5);
-GaussianHalfMeVDG1Mu->SetParameter(4, 5);
+GaussianHalfMeVDG1Mu->SetParameter(3, 3);
+GaussianHalfMeVDG1Mu->SetParameter(4, 6);
 GaussianHalfMeVDG1Mu->SetParLimits(3, 0., 20.);
 GaussianHalfMeVDG1Mu->SetParLimits(4, 0., 20.);
 GaussianHalfMeVDG1Mu->SetParameter(5, 0.);
