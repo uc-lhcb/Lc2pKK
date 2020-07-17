@@ -237,7 +237,6 @@ pad2->SetTopMargin(0.03030303);
 pad1->Draw();
 pad2->Draw();
 
-
 TF1 *DGOneMuOneTotalHalfMeV = new TF1("DGOneMuOneTotalHalfMeV", DGOneMuOneTotalHalfMeV,2100.,2500.,7);
 DGOneMuOneTotalHalfMeV->SetParameter(0, 0.5);
 DGOneMuOneTotalHalfMeV->SetParameter(1, 10000);
