@@ -144,19 +144,19 @@ bool Cuts= (
    }  
    
        bool LcLowPCut = (
-     (*Lcplus_P < 75000.)
+     (*Lcplus_P < 66000.)
    );
 
    bool LcMidLowPCut = (
-     (*Lcplus_P > 75000. && *Lcplus_P < 88500.)
+     (*Lcplus_P > 66000. && *Lcplus_P < 88000.)
    );
 
    bool LcMidHighPCut = (
-     (*Lcplus_P > 88500. && *Lcplus_P < 100000.)
+     (*Lcplus_P > 88000. && *Lcplus_P < 115000.)
    );
 
    bool LcHighPCut = (
-     (*Lcplus_P > 100000.)
+     (*Lcplus_P > 115000.)
    );
 
    bool MagDown = (
