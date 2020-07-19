@@ -298,7 +298,7 @@ PullPlotHalfMeVDG1Mu->SetTitle("");
 PullPlotHalfMeVDG1Mu->SetMinimum(-5);
 PullPlotHalfMeVDG1Mu->SetMaximum(5);
 PullPlotHalfMeVDG1Mu->Draw("AB");
-
+MassHistHalfMeV->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
     c1->Write("Lc Mass - HalfMeVDG1Mu");
 
 ex1->cd();
@@ -382,6 +382,7 @@ PullCBHalfMeVPlot->SetTitle("");
 PullCBHalfMeVPlot->SetMinimum(-5);
 PullCBHalfMeVPlot->SetMaximum(5);
 PullCBHalfMeVPlot->Draw("AB");
+MassHistHalfMeV->SetTitle("#Lambda_{c}^{+} Mass - Crystal Ball Fit");   
       c1->Write("Lc Mass - Crystal Ball Half MeV");
 
 ex1->cd();
@@ -459,7 +460,7 @@ PullPlot1MeVDG1Mu->SetTitle("");
 PullPlot1MeVDG1Mu->SetMinimum(-5);
 PullPlot1MeVDG1Mu->SetMaximum(5);
 PullPlot1MeVDG1Mu->Draw("AB");
-
+MassHist1MeV->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
     c1->Write("Lc Mass - 1MeVDG1Mu");
 
 ex1->cd();
@@ -540,6 +541,7 @@ PullCB1MeVPlot->SetTitle("");
 PullCB1MeVPlot->SetMinimum(-5);
 PullCB1MeVPlot->SetMaximum(5);
 PullCB1MeVPlot->Draw("AB");
+MassHist1MeV->SetTitle("#Lambda_{c}^{+} Mass - Crystal Ball Fit");   
       c1->Write("Lc Mass - Crystal Ball 1 MeV");
 
 ex1->cd();
