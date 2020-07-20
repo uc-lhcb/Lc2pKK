@@ -29,8 +29,9 @@ Double_t argCry = 0;
     argCry = (v[0] - par[0])/par[4];
 
   //1.0 MeV Bin Width Scaling Factor
-  if (par[3] < 1. && par[3] > 0.)
-  Double_t Scale = (1 - par[3])*par[2]*(1.0)/(TMath::Sqrt(TMath::TwoPi())*par[4]);
+  Double_t Scale = 0;
+    if (par[3] < 1. && par[3] > 0.)
+  Scale = (1 - par[3])*par[2]*(1.0)/(TMath::Sqrt(TMath::TwoPi())*par[4]);
   
  //Low Shoulder Exponential
   Double_t LEXP = Scale*TMath::Exp(0.5*par[5]*par[5] + par[5]*argCry);
