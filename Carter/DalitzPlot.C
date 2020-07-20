@@ -281,7 +281,7 @@ bool  PIDCutLoose = (
       );
  
  bool AdditionalCuts = (  
-  && (M2_KpKm > 1.02)
+     (M2_KpKm > 1.02)
   && (M2_KpKm < 1.06)   
   && ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 2.5))
   && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 2.5))
