@@ -43,9 +43,9 @@ Double_t HEXP = Scale*TMath::Exp(0.5*par[6]*par[6] - par[6]*argCry);
   
 Double_t fitval = 0;
   
-     if (arg <= -(par[5])) fitval = LEXP + Gaussian + par[7] + v[0]*par[8];
-else if (arg > par[6]) fitval = HEXP + Gaussian + par[7] + v[0]*par[8];
-else if (arg > -(par[5]) && arg <= par[6]) fitval = Gauss + Gaussian + par[7] + v[0]*par[8];
+     if (argCry <= -(par[5])) fitval = LEXP + Gaussian + par[7] + v[0]*par[8];
+else if (argCry > par[6]) fitval = HEXP + Gaussian + par[7] + v[0]*par[8];
+else if (argCry > -(par[5]) && argCry <= par[6]) fitval = Gauss + Gaussian + par[7] + v[0]*par[8];
 
     return fitval;
 }
