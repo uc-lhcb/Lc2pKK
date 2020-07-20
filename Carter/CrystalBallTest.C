@@ -340,13 +340,13 @@ TF1 *CrystalBallFunctionHalfMeV = new TF1("CrystalBallFunctionHalfMeV", GaussCry
 CrystalBallFunctionHalfMeV->SetParameter(0,2287.);
 CrystalBallFunctionHalfMeV->SetParLimits(0, 2285., 2288.);
 CrystalBallFunctionHalfMeV->SetParameter(1, 3.);
-CrystalBallFunctionHalfMeV->SetParLimits(1, 0., 10.);
+CrystalBallFunctionHalfMeV->SetParLimits(1, 0., 8.);
 CrystalBallFunctionHalfMeV->SetParameter(2, 110000);
 CrystalBallFunctionHalfMeV->SetParLimits(2, 0., 130000.);   
 CrystalBallFunctionHalfMeV->SetParameter(3, 0.4);
 CrystalBallFunctionHalfMeV->SetParLimits(3, 0., 1.);   
 CrystalBallFunctionHalfMeV->SetParameter(4, 5.);
-CrystalBallFunctionHalfMeV->SetParLimits(4, 0., 10.);   
+CrystalBallFunctionHalfMeV->SetParLimits(4, 0., 8.);   
 CrystalBallFunctionHalfMeV->SetParameter(5, 0.);
 CrystalBallFunctionHalfMeV->SetParameter(6, 0.);   
 CrystalBallFunctionHalfMeV->SetParameter(7, 0.);
