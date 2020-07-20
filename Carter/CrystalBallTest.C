@@ -527,6 +527,7 @@ CrystalBallFunction1MeV->SetParLimits(4, 0., 10.);
 CrystalBallFunction1MeV->SetParameter(5, 1.);
 CrystalBallFunction1MeV->SetParameter(6, 1.);   
 CrystalBallFunction1MeV->SetParameter(7, 0.);
+CrystalBallFunction1MeV->SetParLimits(7, 0., 10000.);   
 CrystalBallFunction1MeV->SetParameter(8, 0.);     
    
 pad1->cd();
