@@ -280,7 +280,7 @@ bool  PIDCutLoose = (
      && (*Proton_ProbNNp > 0.9) 
       );
 
-   bool DaliltzCuts = (
+   bool DalitzCuts = (
      (M2_KpKm > 1.02)
   && (M2_KpKm < 1.06)
       );
