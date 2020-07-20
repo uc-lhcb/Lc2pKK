@@ -12,6 +12,8 @@
 #include "CrystalBall1MeV.C"
 #include "DGOneMuOneTotalHalfMeV.C"
 #include "DGOneMuOneTotal1MeV.C"
+#include "GaussCrystalHalfMeV.C"
+#include "GaussCrystal1fMeV.C"
 
 TH1D * MassHistHalfMeV = nullptr;
 TH1D * MassHist1MeV = nullptr;
@@ -321,19 +323,34 @@ ex1->cd();
  ex1->Write(" Fit Values - HalfMeVDG1Mu");
 c1->cd();
    
-TF1 *CrystalBallFunctionHalfMeV = new TF1("CrystalBallFunctionHalfMeV", CrystalBallHalfMeV,2100.,2500.,7);
+//TF1 *CrystalBallFunctionHalfMeV = new TF1("CrystalBallFunctionHalfMeV", CrystalBallHalfMeV,2100.,2500.,7);
+//CrystalBallFunctionHalfMeV->SetParameter(0,2287.);
+//CrystalBallFunctionHalfMeV->SetParLimits(0, 2285., 2288.);
+//CrystalBallFunctionHalfMeV->SetParameter(1, 4.1);
+//CrystalBallFunctionHalfMeV->SetParLimits(1, 3., 6.);
+//CrystalBallFunctionHalfMeV->SetParameter(2, 110000);   
+//CrystalBallFunctionHalfMeV->SetParameter(3, 8.);
+//CrystalBallFunctionHalfMeV->SetParLimits(3, 0., 30.);   
+//CrystalBallFunctionHalfMeV->SetParameter(4, 8.);
+//CrystalBallFunctionHalfMeV->SetParLimits(4, 0., 30.);     
+//CrystalBallFunctionHalfMeV->SetParameter(5, 0.);
+//CrystalBallFunctionHalfMeV->SetParameter(6, 0.);
+
+TF1 *CrystalBallFunctionHalfMeV = new TF1("CrystalBallFunctionHalfMeV", GaussCrystalHalfMeV,2100.,2500.,9);
 CrystalBallFunctionHalfMeV->SetParameter(0,2287.);
 CrystalBallFunctionHalfMeV->SetParLimits(0, 2285., 2288.);
-CrystalBallFunctionHalfMeV->SetParameter(1, 4.1);
-CrystalBallFunctionHalfMeV->SetParLimits(1, 3., 6.);
+CrystalBallFunctionHalfMeV->SetParameter(1, 4.);
+CrystalBallFunctionHalfMeV->SetParLimits(1, 2., 7.);
 CrystalBallFunctionHalfMeV->SetParameter(2, 110000);   
-CrystalBallFunctionHalfMeV->SetParameter(3, 8.);
-CrystalBallFunctionHalfMeV->SetParLimits(3, 0., 30.);   
-CrystalBallFunctionHalfMeV->SetParameter(4, 8.);
-CrystalBallFunctionHalfMeV->SetParLimits(4, 0., 30.);     
+CrystalBallFunctionHalfMeV->SetParameter(3, 0.3);
+CrystalBallFunctionHalfMeV->SetParLimits(3, 0., 1.);   
+CrystalBallFunctionHalfMeV->SetParameter(4, 4.);
+CrystalBallFunctionHalfMeV->SetParLimits(4, 3., 6.);     
 CrystalBallFunctionHalfMeV->SetParameter(5, 0.);
-CrystalBallFunctionHalfMeV->SetParameter(6, 0.);
-
+CrystalBallFunctionHalfMeV->SetParameter(6, 0.);   
+CrystalBallFunctionHalfMeV->SetParameter(7, 0.);
+CrystalBallFunctionHalfMeV->SetParameter(8, 0.);  
+   
 pad1->cd();
 MassHistHalfMeV->SetMinimum(0);
 MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV");
@@ -480,19 +497,34 @@ ex1->cd();
  Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", DG1MeVDG1Mucount3));
  ex1->Write(" Fit Values - 1MeVDG1Mu");   
    
-TF1 *CrystalBallFunction1MeV = new TF1("CrystalBallFunction1MeV", CrystalBall1MeV,2100.,2500.,7);
+//TF1 *CrystalBallFunction1MeV = new TF1("CrystalBallFunction1MeV", CrystalBall1MeV,2100.,2500.,7);
+//CrystalBallFunction1MeV->SetParameter(0,2287.);
+//CrystalBallFunction1MeV->SetParLimits(0, 2285., 2288.);
+//CrystalBallFunction1MeV->SetParameter(1, 4.1);
+//CrystalBallFunction1MeV->SetParLimits(1, 3., 6.);
+//CrystalBallFunction1MeV->SetParameter(2, 110000);   
+//CrystalBallFunction1MeV->SetParameter(3, 8.);
+//CrystalBallFunction1MeV->SetParLimits(3, 0., 30.);   
+//CrystalBallFunction1MeV->SetParameter(4, 8.);
+//CrystalBallFunction1MeV->SetParLimits(4, 0., 30.);     
+//CrystalBallFunction1MeV->SetParameter(5, 0.);
+//CrystalBallFunction1MeV->SetParameter(6, 0.);
+
+TF1 *CrystalBallFunction1MeV = new TF1("CrystalBallFunctionHalfMeV", GaussCrystal1MeV,2100.,2500.,9);
 CrystalBallFunction1MeV->SetParameter(0,2287.);
 CrystalBallFunction1MeV->SetParLimits(0, 2285., 2288.);
-CrystalBallFunction1MeV->SetParameter(1, 4.1);
-CrystalBallFunction1MeV->SetParLimits(1, 3., 6.);
+CrystalBallFunction1MeV->SetParameter(1, 4.);
+CrystalBallFunction1MeV->SetParLimits(1, 2., 7.);
 CrystalBallFunction1MeV->SetParameter(2, 110000);   
-CrystalBallFunction1MeV->SetParameter(3, 8.);
-CrystalBallFunction1MeV->SetParLimits(3, 0., 30.);   
-CrystalBallFunction1MeV->SetParameter(4, 8.);
-CrystalBallFunction1MeV->SetParLimits(4, 0., 30.);     
+CrystalBallFunction1MeV->SetParameter(3, 0.3);
+CrystalBallFunction1MeV->SetParLimits(3, 0., 1.);   
+CrystalBallFunction1MeV->SetParameter(4, 4.);
+CrystalBallFunction1MeV->SetParLimits(4, 3., 6.);     
 CrystalBallFunction1MeV->SetParameter(5, 0.);
-CrystalBallFunction1MeV->SetParameter(6, 0.);
-
+CrystalBallFunction1MeV->SetParameter(6, 0.);   
+CrystalBallFunction1MeV->SetParameter(7, 0.);
+CrystalBallFunction1MeV->SetParameter(8, 0.);     
+   
 pad1->cd();
 MassHist1MeV->SetMinimum(0);
 MassHist1MeV->Fit("CrystalBallFunction1MeV");
