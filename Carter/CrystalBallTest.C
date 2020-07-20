@@ -522,8 +522,8 @@ CrystalBallFunction1MeV->SetParLimits(2, 10000., 120000.);
 CrystalBallFunction1MeV->SetParLimits(3, 10000., 120000.);   
 //CrystalBallFunction1MeV->SetParameter(4, 5.);
 CrystalBallFunction1MeV->SetParLimits(4, 0., 8.);   
-CrystalBallFunction1MeV->SetParameter(5, 0.);
-CrystalBallFunction1MeV->SetParameter(6, 0.);   
+CrystalBallFunction1MeV->SetParameter(5, 1.);
+CrystalBallFunction1MeV->SetParameter(6, 1.);   
 CrystalBallFunction1MeV->SetParameter(7, 0.);
 CrystalBallFunction1MeV->SetParameter(8, 0.);     
    
