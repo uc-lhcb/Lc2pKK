@@ -16,7 +16,7 @@ Double_t GaussCrystalHalfMeV(Double_t *v, Double_t *par) {
     if (par[1] != 0)
         argGau = (v[0] - par[0])/par[1];
 
-    Double_t fitval1 = 0;
+    Double_t Gaussian = 0;
     if (par[3] < 1. && par[3] > 0.)
         Gaussian = par[3]*par[1]*TMath::Exp(-0.5*argGau*argGau);
 
