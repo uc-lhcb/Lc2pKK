@@ -281,7 +281,7 @@ bool  PIDCutLoose = (
       );
 
    bool DaliltzCuts = (
-      M2_KpKm > 1.02)
+     (M2_KpKm > 1.02)
   && (M2_KpKm < 1.06)
       );
    
