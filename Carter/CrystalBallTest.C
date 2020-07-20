@@ -511,7 +511,7 @@ ex1->cd();
 //CrystalBallFunction1MeV->SetParameter(5, 0.);
 //CrystalBallFunction1MeV->SetParameter(6, 0.);
 
-TF1 *CrystalBallFunction1MeV = new TF1("CrystalBallFunction1MeV", GaussCrystal1MeV,2100.,2500.,9);
+TF1 *CrystalBallFunction1MeV = new TF1("CrystalBallFunction1MeV", GaussCrystal1MeV,2240.,2330.,9);
 CrystalBallFunction1MeV->SetParameter(0,2287.);
 CrystalBallFunction1MeV->SetParLimits(0, 2285., 2288.);
 //CrystalBallFunction1MeV->SetParameter(1, 3.);
