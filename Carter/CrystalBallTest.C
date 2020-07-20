@@ -344,7 +344,7 @@ CrystalBallFunctionHalfMeV->SetParLimits(1, 0., 8.);
 CrystalBallFunctionHalfMeV->SetParameter(2, 110000);
 CrystalBallFunctionHalfMeV->SetParLimits(2, 0., 130000.);   
 CrystalBallFunctionHalfMeV->SetParameter(3, 0.4);
-CrystalBallFunctionHalfMeV->SetParLimits(3, 0., 1.);   
+CrystalBallFunctionHalfMeV->SetParLimits(3, 0.1, 1.);   
 CrystalBallFunctionHalfMeV->SetParameter(4, 5.);
 CrystalBallFunctionHalfMeV->SetParLimits(4, 0., 8.);   
 CrystalBallFunctionHalfMeV->SetParameter(5, 0.);
