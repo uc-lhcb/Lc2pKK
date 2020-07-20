@@ -279,11 +279,14 @@ bool  PIDCutLoose = (
      && ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.90)
      && (*Proton_ProbNNp > 0.9) 
       );
- 
- bool AdditionalCuts = (  
-     (M2_KpKm > 1.02)
-  && (M2_KpKm < 1.06)   
-  && ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 2.5))
+
+   bool DaliltzCuts = (
+      M2_KpKm > 1.02)
+  && (M2_KpKm < 1.06)
+      );
+   
+ bool AdditionalCuts = (    
+   ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 2.5))
   && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 2.5))
   && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 2.5))   
   && (*Proton_PT > 950)
@@ -299,11 +302,11 @@ if (PIDCutTight && AdditionalCuts){
 MHistTight->Fill(*Lcplus_M);
 }
 
-if (PIDCutLoose && AdditionalCuts){
+if (PIDCutLoose && AdditionalCuts && DalitzCuts){
 MHistDalitzLoose->Fill(*Lcplus_M);
 }
 
-if (PIDCutTight && AdditionalCuts){
+if (PIDCutTight && AdditionalCuts && DalitzCuts){
 MHistDalitzTight->Fill(*Lcplus_M);
 }
 
