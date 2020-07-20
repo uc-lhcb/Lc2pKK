@@ -345,10 +345,12 @@ CrystalBallFunctionHalfMeV->SetParLimits(1, 0., 6.);
 CrystalBallFunctionHalfMeV->SetParLimits(2, 10000., 120000.);   
 //CrystalBallFunctionHalfMeV->SetParameter(3, 30000);
 CrystalBallFunctionHalfMeV->SetParLimits(3, 10000., 120000.);   
-//CrystalBallFunctionHalfMeV->SetParameter(4, 5.);
+CrystalBallFunctionHalfMeV->SetParameter(4, 5.);
 CrystalBallFunctionHalfMeV->SetParLimits(4, 0., 6.);   
-CrystalBallFunctionHalfMeV->SetParameter(5, 1.);
-CrystalBallFunctionHalfMeV->SetParameter(6, 1.);     
+//CrystalBallFunctionHalfMeV->SetParameter(5, 1.);
+CrystalBallFunctionHalfMeV->SetParLimits(5, 0.5, 10.);     
+//CrystalBallFunctionHalfMeV->SetParameter(6, 1.);
+CrystalBallFunctionHalfMeV->SetParLimits(6, 0.5, 10.);     
 CrystalBallFunctionHalfMeV->SetParameter(7, 0.);
 CrystalBallFunctionHalfMeV->SetParameter(8, 0.);  
    
