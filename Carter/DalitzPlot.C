@@ -253,11 +253,6 @@ double M2_PKp = PKp.Mag2()/(1000*1000);
 double M2_PKm  = PKm.Mag2()/(1000*1000);
 double M2_KpKm = KpKm.Mag2()/(1000*1000);
 
-bool DalitzCut = (
-     (M2_KpKm > 1.024)
-  && (M2_KpKm < 1.057)
-   );
-
    bool LBCut = (
         (*Lcplus_M > 2220)
     &&  (*Lcplus_M < 2246)
@@ -276,41 +271,43 @@ bool RBCut = (
 bool  PIDCutLoose = (
         ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.65)
      && ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.75)
+     && (*Proton_ProbNNp > 0.8) 
    );
 
    bool  PIDCutTight = (
         ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.87)
      && ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.90)
+     && (*Proton_ProbNNp > 0.9) 
       );
+ 
+ bool AdditionalCuts = (  
+  && (M2_KpKm > 1.02)
+  && (M2_KpKm < 1.06)   
+  && ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 2.5))
+  && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 2.5))
+  && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 2.5))   
+  && (*Proton_PT > 950)
+  && (*Lcplus_Loki_DOCACHI2MAX < 18)
+  && (*Lcplus_TAU < 0.002)   
+); 
    
-   bool IPCHI2Cut = (
-      ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 2.5))
-   && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 2.5))
-   && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 2.5))
-       );
-       
-   bool PTCut = (
-      (*Proton_PT > 800)
-   );  
-      
-
-if (PIDCutLoose){
+if (PIDCutLoose && AdditionalCuts){
 MHistLoose->Fill(*Lcplus_M);
 }
 
-if (PIDCutTight){
+if (PIDCutTight && AdditionalCuts){
 MHistTight->Fill(*Lcplus_M);
 }
 
-if (PIDCutLoose && DalitzCut && IPCHI2Cut && PTCut){
+if (PIDCutLoose && AdditionalCuts){
 MHistDalitzLoose->Fill(*Lcplus_M);
 }
 
-if (PIDCutTight && DalitzCut && IPCHI2Cut && PTCut){
+if (PIDCutTight && AdditionalCuts){
 MHistDalitzTight->Fill(*Lcplus_M);
 }
 
-if (PIDCutLoose && LBCut){
+if (PIDCutLoose && LBCut && AdditionalCuts){
   DPLooseLB->Fill(M2_KpKm, M2_PKm);
   KpKmLooseLB->Fill(M2_KpKm);
   PKmLooseLB->Fill(M2_PKm);
@@ -318,7 +315,7 @@ if (PIDCutLoose && LBCut){
   KpKmLooseLBZoom->Fill(M2_KpKm);
 }
 
-if (PIDCutLoose && SigCut){
+if (PIDCutLoose && SigCut && AdditionalCuts){
   DPLooseSig->Fill(M2_KpKm, M2_PKm);
   KpKmLooseSig->Fill(M2_KpKm);
   PKmLooseSig->Fill(M2_PKm);
@@ -326,7 +323,7 @@ if (PIDCutLoose && SigCut){
   KpKmLooseSigZoom->Fill(M2_KpKm);
 }
 
-if (PIDCutLoose && RBCut){
+if (PIDCutLoose && RBCut && AdditionalCuts){
   DPLooseRB->Fill(M2_KpKm, M2_PKm);
   KpKmLooseRB->Fill(M2_KpKm);
   PKmLooseRB->Fill(M2_PKm);
@@ -334,7 +331,7 @@ if (PIDCutLoose && RBCut){
   KpKmLooseRBZoom->Fill(M2_KpKm);
 }
 
-if (PIDCutTight && LBCut){
+if (PIDCutTight && LBCut && AdditionalCuts){
   DPTightLB->Fill(M2_KpKm, M2_PKm);
   KpKmTightLB->Fill(M2_KpKm);
   PKmTightLB->Fill(M2_PKm);
@@ -342,7 +339,7 @@ if (PIDCutTight && LBCut){
   KpKmTightLBZoom->Fill(M2_KpKm);
 }
 
-if (PIDCutTight && SigCut){
+if (PIDCutTight && SigCut && AdditionalCuts){
   DPTightSig->Fill(M2_KpKm, M2_PKm);
   KpKmTightSig->Fill(M2_KpKm);
   PKmTightSig->Fill(M2_PKm);
@@ -350,7 +347,7 @@ if (PIDCutTight && SigCut){
   KpKmTightSigZoom->Fill(M2_KpKm);
 }
 
-if (PIDCutTight && RBCut){
+if (PIDCutTight && RBCut && AdditionalCuts){
   DPTightRB->Fill(M2_KpKm, M2_PKm);
   KpKmTightRB->Fill(M2_KpKm);
   PKmTightRB->Fill(M2_PKm);
