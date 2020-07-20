@@ -5,8 +5,8 @@
 
 Double_t GaussCrystalHalfMeV(Double_t *v, Double_t *par) {
 
-// var[0] = x, par[0] = Central Value, par[1] = Sigma of Gaussian, par[2] = Signal Total
-// par[3] = percentage of signal events in Gaussian
+// var[0] = x, par[0] = Central Value, par[1] = Sigma of Gaussian, par[2] = Signal Total of Gaussian
+// par[3] = Signal Total of Crystal Ball
 // par[4] = Sigma of Crystal Ball
 // par[5] = decay constant 'kl', par [6] = decay constant 'kh'
 // par[7] = Linear Background Intercept, par[8] = Linear Background Slope
@@ -17,8 +17,7 @@ Double_t GaussCrystalHalfMeV(Double_t *v, Double_t *par) {
         argGau = (v[0] - par[0])/par[1];
 
     Double_t Gaussian = 0;
-    if (par[3] < 1. && par[3] > 0.)
-        Gaussian = par[3]*par[1]*TMath::Exp(-0.5*argGau*argGau);
+        Gaussian = par[1]*TMath::Exp(-0.5*argGau*argGau);
 
     Gaussian = (Gaussian)*(0.5)/(TMath::Sqrt(TMath::TwoPi())*par[1]);
 
@@ -28,9 +27,7 @@ Double_t argCry = 0;
     argCry = (v[0] - par[0])/par[4];
 
   //1.0 MeV Bin Width Scaling Factor
-  Double_t Scale = 0;    
-  if (par[3] < 1. && par[3] > 0.)
-  Scale = (1 - par[3])*par[2]*(0.5)/(TMath::Sqrt(TMath::TwoPi())*par[4]);
+  Double_t Scale = par[3]*(0.5)/(TMath::Sqrt(TMath::TwoPi())*par[4]);
   
  //Low Shoulder Exponential
   Double_t LEXP = Scale*TMath::Exp(0.5*par[5]*par[5] + par[5]*argCry);
