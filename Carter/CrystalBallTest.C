@@ -13,7 +13,7 @@
 #include "DGOneMuOneTotalHalfMeV.C"
 #include "DGOneMuOneTotal1MeV.C"
 #include "GaussCrystalHalfMeV.C"
-#include "GaussCrystal1fMeV.C"
+#include "GaussCrystal1MeV.C"
 
 TH1D * MassHistHalfMeV = nullptr;
 TH1D * MassHist1MeV = nullptr;
