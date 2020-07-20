@@ -18,7 +18,7 @@ Double_t GaussCrystal1MeV(Double_t *v, Double_t *par) {
         argGau = (v[0] - par[0])/par[1];
 
     Double_t Gaussian = 0;
-        Gaussian = par[1]*TMath::Exp(-0.5*argGau*argGau);
+        Gaussian = par[2]*TMath::Exp(-0.5*argGau*argGau);
 
     Gaussian = (Gaussian)*(1.0)/(TMath::Sqrt(TMath::TwoPi())*par[1]);
 
