@@ -4,7 +4,7 @@
 #include "TMath.h"
 #include <iostream>
 
-Double_t CrystalBall1MeV(Double_t *v, Double_t *par) {
+Double_t GaussCrystal1MeV(Double_t *v, Double_t *par) {
 
 // var[0] = x, par[0] = Central Value, par[1] = Sigma of Gaussian, par[2] = Signal Total
 // par[3] = percentage of signal events in Gaussian
