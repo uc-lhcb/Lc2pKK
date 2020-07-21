@@ -26,8 +26,8 @@ Double_t argCry = 0;
 
   //1.0 MeV Bin Width Scaling Factors
   Double_t ScaleGauss = par[3]*(0.5)/(TMath::Sqrt(TMath::TwoPi())*par[4]);
-  Double_t ScaleLow = par[3]*(0.5)*TMath::Exp((par[5]*par[5]/2)*par[5]/par[4];
-  Double_t ScaleHigh = par[3]*(0.5)*TMath::Exp((par[6]*par[6]/2)*par[6]/par[4];    
+  Double_t ScaleLow = par[3]*(0.5)*TMath::Exp(par[5]*par[5]/2)*par[5]/par[4];
+  Double_t ScaleHigh = par[3]*(0.5)*TMath::Exp(par[6]*par[6]/2)*par[6]/par[4];    
                                                
  //Low Shoulder Exponential
   Double_t LEXP = ScaleLow*TMath::Exp(0.5*par[5]*par[5] + par[5]*argCry);
