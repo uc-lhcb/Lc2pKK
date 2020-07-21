@@ -231,8 +231,9 @@ void CrystalBallTest::Terminate()
    
    c1->cd();
   TSpectrum *s = new TSpectrum(); 
-TH1 * BackgroundHist = s->Background(MassHistHalfMeV, 20,"");  
-  BackgroundHist->Draw(); 
+TH1 * BackgroundHist = s->Background(MassHistHalfMeV, 30,"");  
+  MassHistHalfMeV->Draw();
+   BackgroundHist->Draw("SAME"); 
    c1->Write("Background Estimate");
       
 double PullxHalfMeV[300];
