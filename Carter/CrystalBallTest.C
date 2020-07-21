@@ -352,7 +352,7 @@ CrystalBallFunctionHalfMeV->SetParLimits(4, 0., 8.);
 //CrystalBallFunctionHalfMeV->SetParameter(6, 1.);
 //CrystalBallFunctionHalfMeV->SetParLimits(6, 0.5, 10.);     
 CrystalBallFunctionHalfMeV->SetParameter(7, 0.);
-CrystalBallFunctionHalfMeV->SetParLimits(7, 0., 100000.);   
+CrystalBallFunctionHalfMeV->SetParLimits(7, 250., 2000.);   
 CrystalBallFunctionHalfMeV->SetParameter(8, 0.);  
    
 pad1->cd();
