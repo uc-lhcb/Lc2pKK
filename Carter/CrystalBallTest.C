@@ -243,22 +243,19 @@ TH1 * BackgroundHist = s->Background(MassHistHalfMeV, 100,"");
    BackgroundHist->Draw("SAME"); 
    c1->Write("Background Estimate");
 
-TF1 *CrystalBallFunctionHalfMeV = new TF1("CrystalBallFunctionHalfMeV", GaussCrystalHalfMeV,2265.,2310.,7);
-//CrystalBallFunctionHalfMeV->SetParameter(0,2287.);
-CrystalBallFunctionHalfMeV->SetParLimits(0, 2286., 2288.);
-//CrystalBallFunctionHalfMeV->SetParameter(1, 4.);
-CrystalBallFunctionHalfMeV->SetParLimits(1, 2., 6.);
-CrystalBallFunctionHalfMeV->SetParameter(2, 60000);
-//CrystalBallFunctionHalfMeV->SetParLimits(2, 2000., 75000.);   
-CrystalBallFunctionHalfMeV->SetParameter(3, 10000);
-//CrystalBallFunctionHalfMeV->SetParLimits(3, 2000., 750000.);   
-//CrystalBallFunctionHalfMeV->SetParameter(4, 4.);
-CrystalBallFunctionHalfMeV->SetParLimits(4, 2., 6.); 
+TF1 *GaussianHalfMeVDG1Mu = new TF1("GaussianHalfMeVDG1Mu",DGOneMuOneTotalHalfMeV,2212.,2362.,5);
+GaussianHalfMeVDG1Mu->SetParameter(0, 0.4);
+GaussianHalfMeVDG1Mu->SetParameter(1, 12000);
+GaussianHalfMeVDG1Mu->SetParameter(2, 2287.);
+GaussianHalfMeVDG1Mu->SetParameter(3, 3);
+GaussianHalfMeVDG1Mu->SetParameter(4, 6);
+GaussianHalfMeVDG1Mu->SetParLimits(3, 0., 20.);
+GaussianHalfMeVDG1Mu->SetParLimits(4, 0., 20.);
    
 SignalHist->Add(MassHistHalfMeV,BackgroundHist,1.0,-1.0);
 SignalHist->SetMinimum(0); 
 SignalHist->SetMaximum(6250);   
-SignalHist->Fit("CrystalBallFunctionHalfMeV");  
+SignalHist->Fit("GaussianHalfMeVDG1Mu");  
    MassHistHalfMeV->Draw("SAME"); 
    c1->Write("Signal Estimate");
    
@@ -271,7 +268,7 @@ pad2->SetTopMargin(0.03030303);
 pad1->Draw();
 pad2->Draw();
 
-TF1 *GaussianHalfMeVDG1Mu = new TF1("GaussianHalfMeVDG1Mu",DGOneMuOneTotalHalfMeV,2212.,2362.,7);
+//TF1 *GaussianHalfMeVDG1Mu = new TF1("GaussianHalfMeVDG1Mu",DGOneMuOneTotalHalfMeV,2212.,2362.,7);
 GaussianHalfMeVDG1Mu->SetParameter(0, 0.4);
 GaussianHalfMeVDG1Mu->SetParameter(1, 12000);
 GaussianHalfMeVDG1Mu->SetParameter(2, 2287.);
