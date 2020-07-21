@@ -236,12 +236,13 @@ void CrystalBallTest::Terminate()
    
    c1->cd();
   TSpectrum *s = new TSpectrum(); 
-TH1 * BackgroundHist = s->Background(MassHistHalfMeV, 50,"");  
+TH1 * BackgroundHist = s->Background(MassHistHalfMeV, 100,"");  
   MassHistHalfMeV->Draw();
    BackgroundHist->Draw("SAME"); 
    c1->Write("Background Estimate");
    
-SignalHist->Add(MassHistHalfMeV,BackgroundHist,1.0,-1.0);    
+SignalHist->Add(MassHistHalfMeV,BackgroundHist,1.0,-1.0);
+SignalHist->SetMinimum(0);  
  SignalHist->Draw();
    c1->Write("Signal Estimate");
    
