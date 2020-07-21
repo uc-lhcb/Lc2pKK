@@ -15,11 +15,9 @@ Double_t GaussCrystalHalfMeV(Double_t *v, Double_t *par) {
     Double_t argGau = 0;
     if (par[1] != 0)
         argGau = (v[0] - par[0])/par[1];
-
-    Double_t Gaussian = 0;
-        Gaussian = par[2]*TMath::Exp(-0.5*argGau*argGau);
-
-    Gaussian = (Gaussian)*(0.5)/(TMath::Sqrt(TMath::TwoPi())*par[1]);
+    
+    Double_t ScaleGauss = par[2]*(0.5)/(TMath::Sqrt(TMath::TwoPi())*par[1]);        
+    Double_t Gaussian = ScaleGauss*TMath::Exp(-0.5*argGau*argGau);
 
 //Crystal Ball Function
 Double_t argCry = 0;
