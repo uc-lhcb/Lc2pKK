@@ -35,6 +35,7 @@ TGraphErrors * gXiP = nullptr;
 TGraphErrors * gPolarity = nullptr;
 TGraphErrors * gPID = nullptr;
 
+TSpectrum * s = nullptr;
 TFile * File = nullptr;
 
 TCanvas * c1 = nullptr;
@@ -44,7 +45,7 @@ TCanvas * grid = nullptr;
 void CrystalBallTest::Begin(TTree * /*tree*/)
 {
    TString option = GetOption();
-   
+
    MassHistHalfMeV= new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 300, 2210, 2360);
    MassHistHalfMeV->GetXaxis()->SetTitle("MeV");
    MassHistHalfMeV->GetYaxis()->SetTitle("Events Per 1/2 MeV");
@@ -216,6 +217,8 @@ void CrystalBallTest::SlaveTerminate()
 
 void CrystalBallTest::Terminate()
 {
+   
+  s->Background(MassHistHalfMeV, 10,""); 
   Double_t sigma;
   Double_t deltaSigma;
   Double_t mu;
@@ -230,7 +233,9 @@ void CrystalBallTest::Terminate()
   TString deltaTotalStr;
    
    c1->cd();
-
+  s->Background(MassHistHalfMeV, 10,""); 
+   c1->Write("Background Estimate")
+      
 double PullxHalfMeV[300];
 double Pullx1MeV[150];
 
