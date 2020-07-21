@@ -233,8 +233,8 @@ void CrystalBallTest::Terminate()
   TString deltaTotalStr;
    
    c1->cd();
-  s->Background(MassHistHalfMeV, 10,""); 
-   c1->Write("Background Estimate")
+  s->Background(MassHistHalfMeV, 20,""); 
+   c1->Write("Background Estimate");
       
 double PullxHalfMeV[300];
 double Pullx1MeV[150];
