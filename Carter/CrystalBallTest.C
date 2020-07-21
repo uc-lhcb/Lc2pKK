@@ -15,8 +15,6 @@
 #include "GaussCrystalHalfMeV.C"
 #include "GaussCrystal1MeV.C"
 
-
-TH1 * BackgroundHist = nullptr;
 TH1D * MassHistHalfMeV = nullptr;
 TH1D * MassHist1MeV = nullptr;
 
@@ -45,11 +43,7 @@ TCanvas * grid = nullptr;
 
 void CrystalBallTest::Begin(TTree * /*tree*/)
 {
-   TString option = GetOption();
-
-   BackgroundHist= new TH1D("Mass [MeV]", "Lc Mass Background", 300, 2210, 2360);
-   BackgroundHist->GetXaxis()->SetTitle("MeV");
-   BackgroundHist->GetYaxis()->SetTitle("Events Per 1/2 MeV");   
+   TString option = GetOption();  
    
    MassHistHalfMeV= new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 300, 2210, 2360);
    MassHistHalfMeV->GetXaxis()->SetTitle("MeV");
@@ -149,9 +143,6 @@ bool Cuts= (
      MassHist1MeV->Fill(*Lcplus_M); 
      LcPDistribution->Fill(*Lcplus_P);
    }  
-  
-TSpectrum *s = new TSpectrum(); 
- BackgroundHist = s->Background(MassHistHalfMeV, 20,""); 
    
        bool LcLowPCut = (
      (*Lcplus_P < 66000.)
@@ -239,6 +230,8 @@ void CrystalBallTest::Terminate()
   TString deltaTotalStr;
    
    c1->cd();
+  TSpectrum *s = new TSpectrum(); 
+TH1 * BackgroundHist = s->Background(MassHistHalfMeV, 20,"");  
   BackgroundHist->Draw(); 
    c1->Write("Background Estimate");
       
