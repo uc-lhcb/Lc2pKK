@@ -45,7 +45,9 @@ TCanvas * grid = nullptr;
 void CrystalBallTest::Begin(TTree * /*tree*/)
 {
    TString option = GetOption();  
-  
+
+TH1::SetDefaultSumw2(kTRUE);
+   
    SignalHist= new TH1D("Mass [MeV]", "Lc Mass - Signal", 300, 2212, 2362);
    SignalHist->GetXaxis()->SetTitle("MeV");
    SignalHist->GetYaxis()->SetTitle("Events Per 1/2 MeV");   
