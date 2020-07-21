@@ -46,11 +46,11 @@ void CrystalBallTest::Begin(TTree * /*tree*/)
 {
    TString option = GetOption();  
   
-   SignalHist= new TH1D("Mass [MeV]", "Lc Mass - Signal", 300, 2210, 2360);
+   SignalHist= new TH1D("Mass [MeV]", "Lc Mass - Signal", 300, 2212, 2362);
    SignalHist->GetXaxis()->SetTitle("MeV");
    SignalHist->GetYaxis()->SetTitle("Events Per 1/2 MeV");   
    
-   MassHistHalfMeV= new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 300, 2210, 2360);
+   MassHistHalfMeV= new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 300, 2212, 2362);
    MassHistHalfMeV->GetXaxis()->SetTitle("MeV");
    MassHistHalfMeV->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
