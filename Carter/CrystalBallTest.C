@@ -352,8 +352,9 @@ CrystalBallFunctionHalfMeV->SetParLimits(4, 0., 8.);
 //CrystalBallFunctionHalfMeV->SetParameter(6, 1.);
 //CrystalBallFunctionHalfMeV->SetParLimits(6, 0.5, 10.);     
 CrystalBallFunctionHalfMeV->SetParameter(7, 600.);
-CrystalBallFunctionHalfMeV->SetParLimits(7, 500., 2000.);   
+CrystalBallFunctionHalfMeV->SetParLimits(7, 250., 2000.);   
 CrystalBallFunctionHalfMeV->SetParameter(8, 0.);  
+CrystalBallFunctionHalfMeV->SetParLimits(8, -0.2, 0.);    
    
 pad1->cd();
 MassHistHalfMeV->SetMinimum(0);
