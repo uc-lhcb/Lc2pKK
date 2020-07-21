@@ -245,6 +245,7 @@ TH1 * BackgroundHist = s->Background(MassHistHalfMeV, 100,"");
 
 TF1 *GaussianHalfMeVDG1Mu = new TF1("GaussianHalfMeVDG1Mu",DGOneMuOneTotalHalfMeV,2212.,2362.,5);
 GaussianHalfMeVDG1Mu->SetParameter(0, 0.4);
+GaussianHalfMeVDG1Mu->SetParLimits(0, 0., 1.);   
 GaussianHalfMeVDG1Mu->SetParameter(1, 12000);
 GaussianHalfMeVDG1Mu->SetParameter(2, 2287.);
 GaussianHalfMeVDG1Mu->SetParameter(3, 3);
