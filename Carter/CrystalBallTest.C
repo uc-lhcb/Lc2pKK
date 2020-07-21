@@ -258,7 +258,7 @@ pad2->SetTopMargin(0.03030303);
 pad1->Draw();
 pad2->Draw();
 
-TF1 *GaussianHalfMeVDG1Mu = new TF1("GaussianHalfMeVDG1Mu",DGOneMuOneTotalHalfMeV,2200.,2400.,7);
+TF1 *GaussianHalfMeVDG1Mu = new TF1("GaussianHalfMeVDG1Mu",DGOneMuOneTotalHalfMeV,2212.,2362.,7);
 GaussianHalfMeVDG1Mu->SetParameter(0, 0.4);
 GaussianHalfMeVDG1Mu->SetParameter(1, 12000);
 GaussianHalfMeVDG1Mu->SetParameter(2, 2287.);
@@ -354,7 +354,7 @@ c1->cd();
 //CrystalBallFunctionHalfMeV->SetParameter(5, 0.);
 //CrystalBallFunctionHalfMeV->SetParameter(6, 0.);
 
-TF1 *CrystalBallFunctionHalfMeV = new TF1("CrystalBallFunctionHalfMeV", GaussCrystalHalfMeV,2100.,2500.,9);
+TF1 *CrystalBallFunctionHalfMeV = new TF1("CrystalBallFunctionHalfMeV", GaussCrystalHalfMeV,2212.,2362.,9);
 CrystalBallFunctionHalfMeV->SetParameter(0,2287.4);
 CrystalBallFunctionHalfMeV->SetParLimits(0, 2286., 2288.);
 CrystalBallFunctionHalfMeV->SetParameter(1, 4.);
@@ -443,7 +443,7 @@ ex1->Clear();
 c1->cd();
    
 
-TF1 *Gaussian1MeVDG1Mu = new TF1("Gaussian1MeVDG1Mu",DGOneMuOneTotal1MeV,2200.,2400.,7);
+TF1 *Gaussian1MeVDG1Mu = new TF1("Gaussian1MeVDG1Mu",DGOneMuOneTotal1MeV,2212.,2362.,7);
 Gaussian1MeVDG1Mu->SetParameter(0, 0.4);
 Gaussian1MeVDG1Mu->SetParameter(1, 12000);
 Gaussian1MeVDG1Mu->SetParameter(2, 2287.);
@@ -536,7 +536,7 @@ ex1->cd();
 //CrystalBallFunction1MeV->SetParameter(5, 0.);
 //CrystalBallFunction1MeV->SetParameter(6, 0.);
 
-TF1 *CrystalBallFunction1MeV = new TF1("CrystalBallFunction1MeV", GaussCrystal1MeV,2240.,2330.,9);
+TF1 *CrystalBallFunction1MeV = new TF1("CrystalBallFunction1MeV", GaussCrystal1MeV,2212.,2362.,9);
 CrystalBallFunction1MeV->SetParameter(0,2287.);
 CrystalBallFunction1MeV->SetParLimits(0, 2286., 2288.);
 //CrystalBallFunction1MeV->SetParameter(1, 3.);
@@ -619,7 +619,7 @@ ex1->Clear();
 c1->cd();
    
 
- TF1 *LcFitSG1 = new TF1("LcFitSG1",CrystalBallHalfMeV,2200.,2400.,7);
+ TF1 *LcFitSG1 = new TF1("LcFitSG1",CrystalBallHalfMeV,2212.,2362.,7);
 LcFitSG1->SetParameter(0,2287.);
 LcFitSG1->SetParLimits(0, 2285., 2288.);
 LcFitSG1->SetParameter(1, 4.1);
@@ -632,7 +632,7 @@ LcFitSG1->SetParLimits(4, 0., 30.);
 LcFitSG1->SetParameter(5, 0.);
 LcFitSG1->SetParameter(6, 0.);
 
- TF1 *LcFitSG2 = new TF1("LcFitSG2",CrystalBallHalfMeV,2200.,2400.,7);
+ TF1 *LcFitSG2 = new TF1("LcFitSG2",CrystalBallHalfMeV,2212.,2362.,7);
 LcFitSG2->SetParameter(0,2287.);
 LcFitSG2->SetParLimits(0, 2285., 2288.);
 LcFitSG2->SetParameter(1, 4.1);
@@ -645,7 +645,7 @@ LcFitSG2->SetParLimits(4, 0., 30.);
 LcFitSG2->SetParameter(5, 0.);
 LcFitSG2->SetParameter(6, 0.);
 
- TF1 *LcFitSG3 = new TF1("LcFitSG3",CrystalBallHalfMeV,2200.,2400.,7);
+ TF1 *LcFitSG3 = new TF1("LcFitSG3",CrystalBallHalfMeV,2212.,2362.,7);
 LcFitSG3->SetParameter(0,2287.);
 LcFitSG3->SetParLimits(0, 2285., 2288.);
 LcFitSG3->SetParameter(1, 4.1);
@@ -658,7 +658,7 @@ LcFitSG3->SetParLimits(4, 0., 30.);
 LcFitSG3->SetParameter(5, 0.);
 LcFitSG3->SetParameter(6, 0.);
 
- TF1 *LcFitSG4 = new TF1("LcFitSG4",CrystalBallHalfMeV,2200.,2400.,7);
+ TF1 *LcFitSG4 = new TF1("LcFitSG4",CrystalBallHalfMeV,2212.,2362.,7);
 LcFitSG4->SetParameter(0,2287.);
 LcFitSG4->SetParLimits(0, 2285., 2288.);
 LcFitSG4->SetParameter(1, 4.1);
@@ -671,7 +671,7 @@ LcFitSG4->SetParLimits(4, 0., 30.);
 LcFitSG4->SetParameter(5, 0.);
 LcFitSG4->SetParameter(6, 0.);
  
-  TF1 *MagDownFitSG = new TF1("MagDownFitSG",CrystalBallHalfMeV,2200.,2400.,7);
+  TF1 *MagDownFitSG = new TF1("MagDownFitSG",CrystalBallHalfMeV,2212.,2362.,7);
 MagDownFitSG->SetParameter(0,2287.);
 MagDownFitSG->SetParLimits(0, 2285., 2288.);
 MagDownFitSG->SetParameter(1, 4.1);
@@ -684,7 +684,7 @@ MagDownFitSG->SetParLimits(4, 0., 30.);
 MagDownFitSG->SetParameter(5, 0.);
 MagDownFitSG->SetParameter(6, 0.);
  
- TF1 *MagUpFitSG = new TF1("MagUpFitSG",CrystalBallHalfMeV,2200.,2400.,7);
+ TF1 *MagUpFitSG = new TF1("MagUpFitSG",CrystalBallHalfMeV,2212.,2362.,7);
 MagUpFitSG->SetParameter(0,2287.);
 MagUpFitSG->SetParLimits(0, 2285., 2288.);
 MagUpFitSG->SetParameter(1, 4.1);
@@ -697,7 +697,7 @@ MagUpFitSG->SetParLimits(4, 0., 30.);
 MagUpFitSG->SetParameter(5, 0.);
 MagUpFitSG->SetParameter(6, 0.);
  
- TF1 *ParticleFitSG = new TF1("ParticleFitSG",CrystalBallHalfMeV,2200.,2400.,7);
+ TF1 *ParticleFitSG = new TF1("ParticleFitSG",CrystalBallHalfMeV,2212.,2362.,7);
 ParticleFitSG->SetParameter(0,2287.);
 ParticleFitSG->SetParLimits(0, 2285., 2288.);
 ParticleFitSG->SetParameter(1, 4.1);
@@ -710,7 +710,7 @@ ParticleFitSG->SetParLimits(4, 0., 30.);
 ParticleFitSG->SetParameter(5, 0.);
 ParticleFitSG->SetParameter(6, 0.);
  
- TF1 *AntiParticleFitSG = new TF1("AntiParticleFitSG",CrystalBallHalfMeV,2200.,2400.,7);
+ TF1 *AntiParticleFitSG = new TF1("AntiParticleFitSG",CrystalBallHalfMeV,2212.,2362.,7);
 AntiParticleFitSG->SetParameter(0,2287.);
 AntiParticleFitSG->SetParLimits(0, 2285., 2288.);
 AntiParticleFitSG->SetParameter(1, 4.1);
