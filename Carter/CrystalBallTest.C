@@ -242,21 +242,11 @@ TH1 * BackgroundHist = s->Background(MassHistHalfMeV, 100,"");
   MassHistHalfMeV->Draw();
    BackgroundHist->Draw("SAME"); 
    c1->Write("Background Estimate");
-
-TF1 *GaussianHalfMeVDG1Mu = new TF1("GaussianHalfMeVDG1Mu",DGOneMuOneTotalHalfMeV,2212.,2362.,5);
-GaussianHalfMeVDG1Mu->SetParameter(0, 0.4);
-GaussianHalfMeVDG1Mu->SetParLimits(0, 0., 1.);   
-GaussianHalfMeVDG1Mu->SetParameter(1, 12000);
-GaussianHalfMeVDG1Mu->SetParameter(2, 2287.);
-GaussianHalfMeVDG1Mu->SetParameter(3, 3);
-GaussianHalfMeVDG1Mu->SetParameter(4, 6);
-GaussianHalfMeVDG1Mu->SetParLimits(3, 0., 20.);
-GaussianHalfMeVDG1Mu->SetParLimits(4, 0., 20.);
    
 SignalHist->Add(MassHistHalfMeV,BackgroundHist,1.0,-1.0);
 SignalHist->SetMinimum(0); 
 SignalHist->SetMaximum(6250);   
-SignalHist->Fit("GaussianHalfMeVDG1Mu");  
+SignalHist->Draw();  
    MassHistHalfMeV->Draw("SAME"); 
    c1->Write("Signal Estimate");
    
@@ -269,7 +259,7 @@ pad2->SetTopMargin(0.03030303);
 pad1->Draw();
 pad2->Draw();
 
-//TF1 *GaussianHalfMeVDG1Mu = new TF1("GaussianHalfMeVDG1Mu",DGOneMuOneTotalHalfMeV,2212.,2362.,7);
+TF1 *GaussianHalfMeVDG1Mu = new TF1("GaussianHalfMeVDG1Mu",DGOneMuOneTotalHalfMeV,2212.,2362.,7);
 GaussianHalfMeVDG1Mu->SetParameter(0, 0.4);
 GaussianHalfMeVDG1Mu->SetParameter(1, 12000);
 GaussianHalfMeVDG1Mu->SetParameter(2, 2287.);
