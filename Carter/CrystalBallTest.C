@@ -356,19 +356,19 @@ c1->cd();
 //CrystalBallFunctionHalfMeV->SetParameter(6, 0.);
 
 TF1 *CrystalBallFunctionHalfMeV = new TF1("CrystalBallFunctionHalfMeV", GaussCrystalHalfMeV,2212.,2362.,9);
-CrystalBallFunctionHalfMeV->SetParameter(0,2287.4);
-CrystalBallFunctionHalfMeV->SetParLimits(0, 2286., 2288.);
+CrystalBallFunctionHalfMeV->SetParameter(0,2287.5);
+CrystalBallFunctionHalfMeV->SetParLimits(0, 2287., 2288.);
 CrystalBallFunctionHalfMeV->SetParameter(1, 4.);
-CrystalBallFunctionHalfMeV->SetParLimits(1, 0., 6.);
+CrystalBallFunctionHalfMeV->SetParLimits(1, 2., 6.);
 CrystalBallFunctionHalfMeV->SetParameter(2, 80000);
 CrystalBallFunctionHalfMeV->SetParLimits(2, 2000., 120000.);   
 CrystalBallFunctionHalfMeV->SetParameter(3, 30000);
 CrystalBallFunctionHalfMeV->SetParLimits(3, 2000., 120000.);   
 CrystalBallFunctionHalfMeV->SetParameter(4, 4.);
-CrystalBallFunctionHalfMeV->SetParLimits(4, 0., 6.);       
-CrystalBallFunctionHalfMeV->SetParameter(7, 650.);
+CrystalBallFunctionHalfMeV->SetParLimits(4, 2., 6.);       
+//CrystalBallFunctionHalfMeV->SetParameter(7, 650.);
 CrystalBallFunctionHalfMeV->SetParLimits(7, 600., 850.);   
-CrystalBallFunctionHalfMeV->SetParameter(8, -0.25); 
+///CrystalBallFunctionHalfMeV->SetParameter(8, -0.25); 
 CrystalBallFunctionHalfMeV->SetParLimits(8, -0.30, 0.);
  
    
