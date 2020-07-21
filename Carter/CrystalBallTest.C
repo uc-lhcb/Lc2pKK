@@ -232,7 +232,7 @@ void CrystalBallTest::Terminate()
    
    c1->cd();
    TSpectrum *s = new TSpectrum(); 
-  s->Background(MassHistHalfMeV, 300, 10,""); 
+  s->Background(MassHistHalfMeV, 10,""); 
    c1->Write("Background Estimate");
       
 double PullxHalfMeV[300];
