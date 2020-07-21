@@ -16,25 +16,27 @@ Double_t GaussCrystalHalfMeV(Double_t *v, Double_t *par) {
     if (par[1] != 0)
         argGau = (v[0] - par[0])/par[1];
     
-    Double_t ScaleGauss = par[2]*(0.5)/(TMath::Sqrt(TMath::TwoPi())*par[1]);        
-    Double_t Gaussian = ScaleGauss*TMath::Exp(-0.5*argGau*argGau);
+    Double_t ScaleGaussian = par[2]*(0.5)/(TMath::Sqrt(TMath::TwoPi())*par[1]);        
+    Double_t Gaussian = ScaleGaussian*TMath::Exp(-0.5*argGau*argGau);
 
 //Crystal Ball Function
 Double_t argCry = 0;
   if (par[4] != 0)
     argCry = (v[0] - par[0])/par[4];
 
-  //1.0 MeV Bin Width Scaling Factor
-  Double_t Scale = par[3]*(0.5)/(TMath::Sqrt(TMath::TwoPi())*par[4]);
-  
+  //1.0 MeV Bin Width Scaling Factors
+  Double_t ScaleGauss = par[3]*(0.5)/(TMath::Sqrt(TMath::TwoPi())*par[4]);
+  Double_t ScaleLow = par[3]*(0.5)*TMath::Exp((par[5]*par[5]/2)*par[5]/par[4];
+  Double_t ScaleHigh = par[3]*(0.5)*TMath::Exp((par[6]*par[6]/2)*par[6]/par[4];    
+                                               
  //Low Shoulder Exponential
-  Double_t LEXP = Scale*TMath::Exp(0.5*par[5]*par[5] + par[5]*argCry);
+  Double_t LEXP = ScaleLow*TMath::Exp(0.5*par[5]*par[5] + par[5]*argCry);
  
 //Gaussian
-Double_t Gauss = Scale*TMath::Exp(-0.5*argCry*argCry);
+Double_t Gauss = ScaleGauss*TMath::Exp(-0.5*argCry*argCry);
 
 //High Shoulder Exponential
-Double_t HEXP = Scale*TMath::Exp(0.5*par[6]*par[6] - par[6]*argCry);
+Double_t HEXP = ScaleHigh*TMath::Exp(0.5*par[6]*par[6] - par[6]*argCry);
   
 Double_t fitval = 0;
   
