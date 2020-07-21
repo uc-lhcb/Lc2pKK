@@ -56,23 +56,23 @@ TH1::SetDefaultSumw2(kTRUE);
    MassHistHalfMeV->GetXaxis()->SetTitle("MeV");
    MassHistHalfMeV->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
-   MassHist1MeV= new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 150, 2210, 2360);
+   MassHist1MeV= new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 150, 2212, 2362);
    MassHist1MeV->GetXaxis()->SetTitle("MeV");
    MassHist1MeV->GetYaxis()->SetTitle("Events Per 1 MeV");
    
-            LcLowP = new TH1D("Figures of Merit", "LambdaC Mass - Low LcP", 300, 2210, 2360);
+            LcLowP = new TH1D("Figures of Merit", "LambdaC Mass - Low LcP", 300, 2212, 2362);
             LcLowP->GetXaxis()->SetTitle("MeV");
             LcLowP->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
-            LcMidLowP = new TH1D("Figures of Merit", "LambdaC Mass - MidLow LcP", 300, 2210, 2360);
+            LcMidLowP = new TH1D("Figures of Merit", "LambdaC Mass - MidLow LcP", 300, 2212, 2362);
             LcMidLowP->GetXaxis()->SetTitle("MeV");
             LcMidLowP->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
-            LcMidHighP = new TH1D("Figures of Merit", "LambdaC Mass - MidHigh LcP", 300, 2210, 2360);
+            LcMidHighP = new TH1D("Figures of Merit", "LambdaC Mass - MidHigh LcP", 300, 2212, 2362);
             LcMidHighP->GetXaxis()->SetTitle("MeV");
             LcMidHighP->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
-            LcHighP = new TH1D("Figures of Merit", "LambdaC Mass - High LcP", 300, 2210, 2360);
+            LcHighP = new TH1D("Figures of Merit", "LambdaC Mass - High LcP", 300, 2212, 2362);
             LcHighP->GetXaxis()->SetTitle("MeV");
             LcHighP->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
@@ -80,19 +80,19 @@ TH1::SetDefaultSumw2(kTRUE);
             LcPDistribution->GetXaxis()->SetTitle("MeV");
             LcPDistribution->GetYaxis()->SetTitle("Events Per 2500 MeV");
    
-             PolarityMagDown = new TH1D("Figures of Merit", "LambdaC Mass - MagnetDown", 300, 2210, 2360);
+             PolarityMagDown = new TH1D("Figures of Merit", "LambdaC Mass - MagnetDown", 300, 2212, 2362);
             PolarityMagDown->GetXaxis()->SetTitle("MeV");
             PolarityMagDown->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
-            PolarityMagUp = new TH1D("Figures of Merit", "LambdaC Mass - MagnetUp", 300, 2210, 2360);
+            PolarityMagUp = new TH1D("Figures of Merit", "LambdaC Mass - MagnetUp", 300, 2212, 2362);
             PolarityMagUp->GetXaxis()->SetTitle("MeV");
             PolarityMagUp->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
-            Particle = new TH1D("Figures of Merit", "LambdaC Mass - LambdaC Baryon", 300, 2210, 2360);
+            Particle = new TH1D("Figures of Merit", "LambdaC Mass - LambdaC Baryon", 300, 2212, 2362);
             Particle->GetXaxis()->SetTitle("MeV");
             Particle->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
-            AntiParticle = new TH1D("Figures of Merit", "LambdaC Mass - LambdaC AntiBaryon", 300, 2210, 2360);
+            AntiParticle = new TH1D("Figures of Merit", "LambdaC Mass - LambdaC AntiBaryon", 300, 2212, 2362);
             AntiParticle->GetXaxis()->SetTitle("MeV");
             AntiParticle->GetYaxis()->SetTitle("Events Per 1/2 MeV");
    
