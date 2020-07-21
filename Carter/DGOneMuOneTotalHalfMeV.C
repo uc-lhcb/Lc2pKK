@@ -31,7 +31,7 @@ fitval2 = (fitval2*0.50)/(TMath::Sqrt(TMath::TwoPi())*par[4]);
 
 //Par[5]=LinearBackgroundIntercept, Par[6]=BackgroundSlope
 //Adding Gaussians to linear background
-Double_t fitval = fitval1 +fitval2 + par[5] + v[0]*par[6];
+Double_t fitval = fitval1 +fitval2;// + par[5] + v[0]*par[6];
 
     return fitval;
 }
