@@ -15,6 +15,7 @@
 #include "GaussCrystalHalfMeV.C"
 #include "GaussCrystal1MeV.C"
 
+TH1D * SignalHist = nullptr;
 TH1D * MassHistHalfMeV = nullptr;
 TH1D * MassHist1MeV = nullptr;
 
@@ -44,6 +45,10 @@ TCanvas * grid = nullptr;
 void CrystalBallTest::Begin(TTree * /*tree*/)
 {
    TString option = GetOption();  
+  
+   SignalHist= new TH1D("Mass [MeV]", "Lc Mass - Signal", 300, 2210, 2360);
+   SignalHist->GetXaxis()->SetTitle("MeV");
+   SignalHist->GetYaxis()->SetTitle("Events Per 1/2 MeV");   
    
    MassHistHalfMeV= new TH1D("Mass [MeV]", "Lc->pKK - Lc Mass", 300, 2210, 2360);
    MassHistHalfMeV->GetXaxis()->SetTitle("MeV");
@@ -231,11 +236,15 @@ void CrystalBallTest::Terminate()
    
    c1->cd();
   TSpectrum *s = new TSpectrum(); 
-TH1 * BackgroundHist = s->Background(MassHistHalfMeV, 30,"");  
+TH1 * BackgroundHist = s->Background(MassHistHalfMeV, 50,"");  
   MassHistHalfMeV->Draw();
    BackgroundHist->Draw("SAME"); 
    c1->Write("Background Estimate");
-      
+   
+SignalHist->Add(MassHistHalfMeV,BackgroundHist,1.0,-1.0);    
+ SignalHist->Draw();
+   c1->Write("Signal Estimate");
+   
 double PullxHalfMeV[300];
 double Pullx1MeV[150];
 
