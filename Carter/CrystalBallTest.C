@@ -243,7 +243,8 @@ TH1 * BackgroundHist = s->Background(MassHistHalfMeV, 100,"");
    
 SignalHist->Add(MassHistHalfMeV,BackgroundHist,1.0,-1.0);
 SignalHist->SetMinimum(0);  
- SignalHist->Draw();
+   MassHistHalfMeV->Draw(); 
+   SignalHist->Draw("SAME");
    c1->Write("Signal Estimate");
    
 double PullxHalfMeV[300];
