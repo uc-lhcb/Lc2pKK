@@ -35,7 +35,6 @@ TGraphErrors * gXiP = nullptr;
 TGraphErrors * gPolarity = nullptr;
 TGraphErrors * gPID = nullptr;
 
-TSpectrum * s = nullptr;
 TFile * File = nullptr;
 
 TCanvas * c1 = nullptr;
@@ -218,7 +217,6 @@ void CrystalBallTest::SlaveTerminate()
 void CrystalBallTest::Terminate()
 {
    
-  s->Background(MassHistHalfMeV, 10,""); 
   Double_t sigma;
   Double_t deltaSigma;
   Double_t mu;
@@ -233,7 +231,8 @@ void CrystalBallTest::Terminate()
   TString deltaTotalStr;
    
    c1->cd();
-  s->Background(MassHistHalfMeV, 20,""); 
+   TSpectrum *s = new TSpectrum(); 
+  s->Background(MassHistHalfMeV, 300, 10,""); 
    c1->Write("Background Estimate");
       
 double PullxHalfMeV[300];
