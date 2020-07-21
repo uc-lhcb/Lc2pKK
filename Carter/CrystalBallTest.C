@@ -243,15 +243,15 @@ TH1 * BackgroundHist = s->Background(MassHistHalfMeV, 100,"");
    BackgroundHist->Draw("SAME"); 
    c1->Write("Background Estimate");
 
-TF1 *CrystalBallFunctionHalfMeV = new TF1("CrystalBallFunctionHalfMeV", GaussCrystalHalfMeV,2212.,2362.,7);
+TF1 *CrystalBallFunctionHalfMeV = new TF1("CrystalBallFunctionHalfMeV", GaussCrystalHalfMeV,2274.,2300.,7);
 CrystalBallFunctionHalfMeV->SetParameter(0,2287.4);
 CrystalBallFunctionHalfMeV->SetParLimits(0, 2286., 2288.);
 CrystalBallFunctionHalfMeV->SetParameter(1, 4.);
 CrystalBallFunctionHalfMeV->SetParLimits(1, 0., 6.);
-CrystalBallFunctionHalfMeV->SetParameter(2, 80000);
-CrystalBallFunctionHalfMeV->SetParLimits(2, 2000., 120000.);   
-CrystalBallFunctionHalfMeV->SetParameter(3, 30000);
-CrystalBallFunctionHalfMeV->SetParLimits(3, 2000., 120000.);   
+CrystalBallFunctionHalfMeV->SetParameter(2, 60000);
+CrystalBallFunctionHalfMeV->SetParLimits(2, 2000., 100000.);   
+CrystalBallFunctionHalfMeV->SetParameter(3, 10000);
+CrystalBallFunctionHalfMeV->SetParLimits(3, 2000., 100000.);   
 CrystalBallFunctionHalfMeV->SetParameter(4, 4.);
 CrystalBallFunctionHalfMeV->SetParLimits(4, 0., 6.); 
    
