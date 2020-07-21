@@ -16,7 +16,7 @@
 #include "GaussCrystal1MeV.C"
 
 
-TH1D * BackgroundHist = nullptr;
+TH1 * BackgroundHist = nullptr;
 TH1D * MassHistHalfMeV = nullptr;
 TH1D * MassHist1MeV = nullptr;
 
