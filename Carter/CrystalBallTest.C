@@ -242,14 +242,16 @@ TH1 * BackgroundHist = s->Background(MassHistHalfMeV, 100,"");
 MassHistHalfMeV->Draw();
  BackgroundHist->Draw("SAME"); 
  c1->Write("Background Estimate");
- 
+ c1->Clear();
+   
 SignalHist->Add(MassHistHalfMeV,BackgroundHist,1.0,-1.0);
 SignalHist->SetMinimum(0); 
 SignalHist->SetMaximum(6250);   
 SignalHist->Draw();  
  MassHistHalfMeV->Draw("SAME"); 
  c1->Write("Signal Estimate");
- 
+  c1->Clear();
+
 double PullxHalfMeV[300];
 double Pullx1MeV[150];
 
@@ -321,6 +323,7 @@ PullPlotHalfMeVDG1Mu->SetMaximum(5);
 PullPlotHalfMeVDG1Mu->Draw("AB");
 MassHistHalfMeV->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
   c1->Write("Lc Mass - HalfMeVDG1Mu");
+ c1->Clear();
 
 ex1->cd();
  TLatex Tl;
@@ -407,6 +410,7 @@ PullCBHalfMeVPlot->SetMaximum(5);
 PullCBHalfMeVPlot->Draw("AB");
 MassHistHalfMeV->SetTitle("#Lambda_{c}^{+} Mass - Crystal Ball Fit");   
     c1->Write("Lc Mass - Crystal Ball Half MeV");
+ c1->Clear();
 
 ex1->cd();
 ex1->Clear();
@@ -485,6 +489,7 @@ PullPlot1MeVDG1Mu->SetMaximum(5);
 PullPlot1MeVDG1Mu->Draw("AB");
 MassHist1MeV->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
   c1->Write("Lc Mass - 1MeVDG1Mu");
+ c1->Clear();
 
 ex1->cd();
 ex1->Clear();
@@ -570,6 +575,7 @@ PullCB1MeVPlot->SetMaximum(5);
 PullCB1MeVPlot->Draw("AB");
 MassHist1MeV->SetTitle("#Lambda_{c}^{+} Mass - Crystal Ball Fit");   
     c1->Write("Lc Mass - Crystal Ball 1 MeV");
+ c1->Clear();
 
 ex1->cd();
 ex1->Clear();
@@ -692,22 +698,27 @@ AntiParticleFitSG->SetParameter(6, 0.);
   LcLowP->Fit("LcFitSG1");
  LcLowP->SetMinimum(0);
  c1->Write("Low Lc Momentum Region");
+ c1->Clear();
 
  LcMidLowP->Fit("LcFitSG2");
  LcMidLowP->SetMinimum(0);
  c1->Write("MidLow Lc Momentum Region");
+ c1->Clear();
 
  LcMidHighP->Fit("LcFitSG3");
  LcMidHighP->SetMinimum(0);
  c1->Write("MidHigh Lc Momentum Region");
+ c1->Clear();
 
  LcHighP->Fit("LcFitSG4");
  LcHighP->SetMinimum(0);
  c1->Write("High Lc Momentum Region");
+ c1->Clear();
 
  LcPDistribution->Draw();
  LcPDistribution->SetMinimum(0);
  c1->Write("Lc Momentum Distribution");
+ c1->Clear();
 
  double y1 = LcFitSG1->GetParameter(0);
  double y2 = LcFitSG2->GetParameter(0);
@@ -750,10 +761,12 @@ c1->cd();
 PolarityMagDown->Fit("MagDownFitSG");
 PolarityMagDown->SetMinimum(0);
 c1->Write("PolarityMagDown");
+ c1->Clear();
 
 PolarityMagUp->Fit("MagUpFitSG");
 PolarityMagUp->SetMinimum(0);
 c1->Write("PolarityMagUp");
+ c1->Clear();
 
 double p1 = MagDownFitSG->GetParameter(0);
 double p2 = MagUpFitSG->GetParameter(0);
@@ -789,10 +802,12 @@ c1->cd();
 Particle->Fit("ParticleFitSG");
 Particle->SetMinimum(0);
 c1->Write("Baryon");
+ c1->Clear();
 
 AntiParticle->Fit("AntiParticleFitSG");
 AntiParticle->SetMinimum(0);
 c1->Write("AntiBaryon");
+ c1->Clear();
 
 double pp1 = ParticleFitSG->GetParameter(0);
 double pp2 = AntiParticleFitSG->GetParameter(0);
