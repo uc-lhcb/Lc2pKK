@@ -351,20 +351,24 @@ CrystalBallFunctionHalfMeV->SetParameter(0,2287.5);
 CrystalBallFunctionHalfMeV->SetParameter(1, 4.);
 //CrystalBallFunctionHalfMeV->SetParLimits(1, 2., 7.);
 CrystalBallFunctionHalfMeV->SetParameter(2, 90000);
-CrystalBallFunctionHalfMeV->SetParLimits(2, 5000., 100000.);   
-CrystalBallFunctionHalfMeV->SetParameter(3, 20000);
+//CrystalBallFunctionHalfMeV->SetParLimits(2, 5000., 100000.);   
+CrystalBallFunctionHalfMeV->SetParameter(3, 5000);
 //CrystalBallFunctionHalfMeV->SetParLimits(3, 5000., 100000.);   
 CrystalBallFunctionHalfMeV->SetParameter(4, 4.);
 //CrystalBallFunctionHalfMeV->SetParLimits(4, 2., 7.);
-CrystalBallFunctionHalfMeV->SetParLimits(5, 1., 5.); 
-CrystalBallFunctionHalfMeV->SetParLimits(6, 1., 5.);       
-CrystalBallFunctionHalfMeV->SetParLimits(7, 550., 800.);   
-CrystalBallFunctionHalfMeV->SetParLimits(8, -0.30, 0.);
+CrystalBallFunctionHalfMeV->SetParameter(5, 1.);   
+CrystalBallFunctionHalfMeV->SetParameter(6, 1.);    
+//CrystalBallFunctionHalfMeV->SetParLimits(5, 1., 5.); 
+//CrystalBallFunctionHalfMeV->SetParLimits(6, 1., 5.);   
+CrystalBallFunctionHalfMeV->SetParameter(7, 550.);
+CrystalBallFunctionHalfMeV->SetParameter(8, -0.1);   
+//CrystalBallFunctionHalfMeV->SetParLimits(7, 550., 800.);   
+//CrystalBallFunctionHalfMeV->SetParLimits(8, -0.30, 0.);
 
  
 pad1->cd();
 MassHistHalfMeV->SetMinimum(0);
-MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV");
+MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV", "L");
 
 int BinHeightCBHalfMeV[300];
 int FitHeightCBHalfMeV[300];
