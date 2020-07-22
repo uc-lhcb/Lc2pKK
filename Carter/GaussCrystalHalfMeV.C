@@ -30,13 +30,13 @@ Double_t argCry = 0;
   Double_t ScaleHigh = par[3]*(0.5)*TMath::Exp(par[6]*par[6]/2)*par[6]/par[4];    
                                                
  //Low Shoulder Exponential
-  Double_t LEXP = ScaleLow*TMath::Exp(0.5*par[5]*par[5] + par[5]*argCry);
+  Double_t LEXP = par[3]*TMath::Exp(0.5*par[5]*par[5] + par[5]*argCry);
  
 //Gaussian
-Double_t Gauss = ScaleGauss*TMath::Exp(-0.5*argCry*argCry);
+Double_t Gauss = par[3]*TMath::Exp(-0.5*argCry*argCry);
 
 //High Shoulder Exponential
-Double_t HEXP = ScaleHigh*TMath::Exp(0.5*par[6]*par[6] - par[6]*argCry);
+Double_t HEXP = par[3]*TMath::Exp(0.5*par[6]*par[6] - par[6]*argCry);
   
 Double_t fitval = 0;
   
