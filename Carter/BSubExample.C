@@ -177,7 +177,7 @@ KpIPCHI2Signal->Draw();
 KpIPCHI2SignalEstimate->Draw("SAME");
 KpIPCHI2Background->Draw("SAME");
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
-KpIPCHI2Signal->SetTitle("Proton_IPCHI2_OWNPV Signal Estimates");
+KpIPCHI2Signal->SetTitle("Kplus_IPCHI2_OWNPV Signal Estimates");
 c1->Write("KpChi2 Estimations");
 
 KmIPCHI2Signal->GetYaxis()->SetTitle("Events per 1/40 Log10(mm)");
@@ -187,7 +187,7 @@ KmIPCHI2Signal->Draw();
 KmIPCHI2SignalEstimate->Draw("SAME");
 KmIPCHI2Background->Draw("SAME");
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
-KmIPCHI2Signal->SetTitle("Proton_IPCHI2_OWNPV Signal Estimates");
+KmIPCHI2Signal->SetTitle("Kminus_IPCHI2_OWNPV Signal Estimates");
 c1->Write("KpChi2 Estimations");
 //Ends Program
    File->Close();
