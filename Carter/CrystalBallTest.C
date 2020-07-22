@@ -355,7 +355,7 @@ CrystalBallFunctionHalfMeV->SetParameter(5, 1.);
 CrystalBallFunctionHalfMeV->SetParameter(6, 1.);     
 CrystalBallFunctionHalfMeV->SetParameter(7, 550.);
 CrystalBallFunctionHalfMeV->SetParameter(8, -0.1);   
-MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV", "QL");
+MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV", "L");
    
 double mean = CrystalBallFunctionHalfMeV->GetParameter(0);
 double sigmaGauss = CrystalBallFunctionHalfMeV->GetParameter(1);
@@ -366,7 +366,8 @@ double kl = CrystalBallFunctionHalfMeV->GetParameter(5);
 double kh = CrystalBallFunctionHalfMeV->GetParameter(6);
 double intercept = CrystalBallFunctionHalfMeV->GetParameter(7);
 double slope = CrystalBallFunctionHalfMeV->GetParameter(8);
-   
+MassHistHalfMeV->GetListOfFunctions()->Remove(MassHistHalfMeV->GetFunction("CrystalBallFunctionHalfMeV")
+                                 
 CrystalBallFunctionHalfMeV->SetParameter(0, mean);
 CrystalBallFunctionHalfMeV->SetParameter(1, sigmaGauss);
 CrystalBallFunctionHalfMeV->SetParameter(2, totalGauss);  
@@ -380,7 +381,7 @@ CrystalBallFunctionHalfMeV->SetParameter(8, slope);
    
 pad1->cd();
 MassHistHalfMeV->SetMinimum(0);
-MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV", "QLRS");
+MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV", "L");
 
 int BinHeightCBHalfMeV[300];
 int FitHeightCBHalfMeV[300];
