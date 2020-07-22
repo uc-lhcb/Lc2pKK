@@ -361,9 +361,9 @@ CrystalBallFunctionHalfMeV->SetParameter(1,CrystalBallFunctionHalfMeV->GetParame
 CrystalBallFunctionHalfMeV->SetParameter(2,CrystalBallFunctionHalfMeV->GetParameter(2));  
 CrystalBallFunctionHalfMeV->SetParameter(3,CrystalBallFunctionHalfMeV->GetParameter(3));  
 CrystalBallFunctionHalfMeV->SetParameter(4, CrystalBallFunctionHalfMeV->GetParameter(4));
-CrystalBallFunctionHalfMeV->SetParameter(5, CrystalBallFunctionHalfMeV->GetParameter(5).);   
+CrystalBallFunctionHalfMeV->SetParameter(5, CrystalBallFunctionHalfMeV->GetParameter(5));   
 CrystalBallFunctionHalfMeV->SetParameter(6, CrystalBallFunctionHalfMeV->GetParameter(6));     
-CrystalBallFunctionHalfMeV->SetParameter(7, CrystalBallFunctionHalfMeV->GetParameter(7).);
+CrystalBallFunctionHalfMeV->SetParameter(7, CrystalBallFunctionHalfMeV->GetParameter(7));
 CrystalBallFunctionHalfMeV->SetParameter(8, CrystalBallFunctionHalfMeV->GetParameter(8)); 
    
    
