@@ -51,9 +51,9 @@ BackgroundHistogram = new TH1D("Log(IPCHI2)", "Background Region", 170, 0.75, 5.
 SignalEstimateHistogram = new TH1D("Log(IPCHI2)", "Signal Estimation", 170, 0.75, 5.);
 
 //Sets the color of each histogram so that they can be easily distinguished
-Signal->SetLineColor(kBlue);
-Bkgd->SetLineColor(kRed);
-SignalEstimate->SetLineColor(kGreen+3);
+SignalHistogram->SetLineColor(kBlue);
+BackgroundHistogram->SetLineColor(kRed);
+SignalEstimateHistogram->SetLineColor(kGreen+3);
 }
 
 void BSubExample::SlaveBegin(TTree * /*tree*/)
@@ -108,12 +108,12 @@ background region between 2220 and 2233 or 2341 and 2354. */
 
 //Filling the Signal Histogram with Proton Log(IPCHI2)from the signal region of LambdaC Mass
 if (BestCuts & SignalRegion){
-  SignalHistgram->Fill(TMath::Log10(*Proton_IPCHI2_OWNPV));
+  SignalHistogram->Fill(TMath::Log10(*Proton_IPCHI2_OWNPV));
 }
 
 //Filling the Background Histogram  with Proton Log(IPCHI2)from the background region of LambdaC Mass
 if (BestCuts & BackgroundRegion){
-  BackgroundHistgram->Fill(TMath::Log10(*Proton_IPCHI2_OWNPV));
+  BackgroundHistogram->Fill(TMath::Log10(*Proton_IPCHI2_OWNPV));
 }
 
 //Subtracting the Signal and Background Histograms To Create an Estimate of only the Signal
@@ -143,7 +143,7 @@ SignalHistogram->SetMinimum(0);
 //Draws all three histograms on same canvas
 SignalHistogram->Draw();
 SignalEstimateHistogram->Draw("SAME");
-BackgroundHistgram->Draw("SAME");
+BackgroundHistogram->Draw("SAME");
 
 //Builds Legend So that we know what color is associated to which histogram
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
