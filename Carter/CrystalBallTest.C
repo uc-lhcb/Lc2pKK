@@ -366,7 +366,7 @@ double kl = CrystalBallFunctionHalfMeV->GetParameter(5);
 double kh = CrystalBallFunctionHalfMeV->GetParameter(6);
 double intercept = CrystalBallFunctionHalfMeV->GetParameter(7);
 double slope = CrystalBallFunctionHalfMeV->GetParameter(8);
-MassHistHalfMeV->GetListOfFunctions()->Remove(MassHistHalfMeV->GetFunction("CrystalBallFunctionHalfMeV")
+MassHistHalfMeV->GetListOfFunctions()->Remove(MassHistHalfMeV->GetFunction("CrystalBallFunctionHalfMeV"));
                                  
 CrystalBallFunctionHalfMeV->SetParameter(0, mean);
 CrystalBallFunctionHalfMeV->SetParameter(1, sigmaGauss);
