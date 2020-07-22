@@ -356,15 +356,26 @@ CrystalBallFunctionHalfMeV->SetParameter(6, 1.);
 CrystalBallFunctionHalfMeV->SetParameter(7, 550.);
 CrystalBallFunctionHalfMeV->SetParameter(8, -0.1);   
 MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV", "L");
-CrystalBallFunctionHalfMeV->SetParameter(0,CrystalBallFunctionHalfMeV->GetParameter(0));
-CrystalBallFunctionHalfMeV->SetParameter(1,CrystalBallFunctionHalfMeV->GetParameter(1));
-CrystalBallFunctionHalfMeV->SetParameter(2,CrystalBallFunctionHalfMeV->GetParameter(2));  
-CrystalBallFunctionHalfMeV->SetParameter(3,CrystalBallFunctionHalfMeV->GetParameter(3));  
-CrystalBallFunctionHalfMeV->SetParameter(4, CrystalBallFunctionHalfMeV->GetParameter(4));
-CrystalBallFunctionHalfMeV->SetParameter(5, CrystalBallFunctionHalfMeV->GetParameter(5));   
-CrystalBallFunctionHalfMeV->SetParameter(6, CrystalBallFunctionHalfMeV->GetParameter(6));     
-CrystalBallFunctionHalfMeV->SetParameter(7, CrystalBallFunctionHalfMeV->GetParameter(7));
-CrystalBallFunctionHalfMeV->SetParameter(8, CrystalBallFunctionHalfMeV->GetParameter(8)); 
+   
+double mu = CrystalBallFunctionHalfMeV->GetParameter(0);
+double sigmaGauss = CrystalBallFunctionHalfMeV->GetParameter(1);
+double totalGauss = CrystalBallFunctionHalfMeV->GetParameter(2);
+double scaleCrystal = CrystalBallFunctionHalfMeV->GetParameter(3);
+double sigmaCrystal = CrystalBallFunctionHalfMeV->GetParameter(4);  
+double kl = CrystalBallFunctionHalfMeV->GetParameter(5);
+double kh = CrystalBallFunctionHalfMeV->GetParameter(6);
+double intercept = CrystalBallFunctionHalfMeV->GetParameter(7);
+double slope = CrystalBallFunctionHalfMeV->GetParameter(8);
+   
+CrystalBallFunctionHalfMeV->SetParameter(0, mu);
+CrystalBallFunctionHalfMeV->SetParameter(1, sigmaGauss);
+CrystalBallFunctionHalfMeV->SetParameter(2, totalGauss);  
+CrystalBallFunctionHalfMeV->SetParameter(3, scaleCrystal);  
+CrystalBallFunctionHalfMeV->SetParameter(4, sigmaCrystal);
+CrystalBallFunctionHalfMeV->SetParameter(5, kl);   
+CrystalBallFunctionHalfMeV->SetParameter(6, kh);     
+CrystalBallFunctionHalfMeV->SetParameter(7, intercept);
+CrystalBallFunctionHalfMeV->SetParameter(8, slope); 
    
    
 pad1->cd();
