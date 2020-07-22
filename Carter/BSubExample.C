@@ -165,7 +165,7 @@ PIPCHI2Signal->GetXaxis()->SetTitle("Log10(mm)");
 PIPCHI2Signal->SetMinimum(0);
 PIPCHI2Signal->Draw();
 PIPCHI2SignalEstimate->Draw("SAME");
-PIPCHI2SBackground->Draw("SAME");
+PIPCHI2Background->Draw("SAME");
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
 PIPCHI2Signal->SetTitle("Proton_IPCHI2_OWNPV Signal Estimates");
 c1->Write("PrChi2 Estimations");
