@@ -346,7 +346,7 @@ ex1->Write(" Fit Values - HalfMeVDG1Mu");
 c1->cd();
 
 TF1 *CrystalBallFunctionHalfMeV = new TF1("CrystalBallFunctionHalfMeV", GaussCrystalHalfMeV,2212.,2362.,9);
-CrystalBallFunctionHalfMeV->SetParameter(0,2287.5);
+CrystalBallFunctionHalfMeV->SetParameter(0,2285);
 CrystalBallFunctionHalfMeV->SetParameter(1, 4.);
 CrystalBallFunctionHalfMeV->SetParameter(2, 90000);  
 CrystalBallFunctionHalfMeV->SetParameter(3, 5000);  
@@ -357,7 +357,7 @@ CrystalBallFunctionHalfMeV->SetParameter(7, 550.);
 CrystalBallFunctionHalfMeV->SetParameter(8, -0.1);   
 MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV", "L");
    
-double mu = CrystalBallFunctionHalfMeV->GetParameter(0);
+double mean = CrystalBallFunctionHalfMeV->GetParameter(0);
 double sigmaGauss = CrystalBallFunctionHalfMeV->GetParameter(1);
 double totalGauss = CrystalBallFunctionHalfMeV->GetParameter(2);
 double scaleCrystal = CrystalBallFunctionHalfMeV->GetParameter(3);
@@ -367,7 +367,7 @@ double kh = CrystalBallFunctionHalfMeV->GetParameter(6);
 double intercept = CrystalBallFunctionHalfMeV->GetParameter(7);
 double slope = CrystalBallFunctionHalfMeV->GetParameter(8);
    
-CrystalBallFunctionHalfMeV->SetParameter(0, mu);
+CrystalBallFunctionHalfMeV->SetParameter(0, mean);
 CrystalBallFunctionHalfMeV->SetParameter(1, sigmaGauss);
 CrystalBallFunctionHalfMeV->SetParameter(2, totalGauss);  
 CrystalBallFunctionHalfMeV->SetParameter(3, scaleCrystal);  
