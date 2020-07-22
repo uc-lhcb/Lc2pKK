@@ -355,7 +355,7 @@ CrystalBallFunctionHalfMeV->SetParameter(5, 1.);
 CrystalBallFunctionHalfMeV->SetParameter(6, 1.);     
 CrystalBallFunctionHalfMeV->SetParameter(7, 550.);
 CrystalBallFunctionHalfMeV->SetParameter(8, -0.1);   
-MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV", "L");
+MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV", "QL");
    
 double mean = CrystalBallFunctionHalfMeV->GetParameter(0);
 double sigmaGauss = CrystalBallFunctionHalfMeV->GetParameter(1);
@@ -380,7 +380,7 @@ CrystalBallFunctionHalfMeV->SetParameter(8, slope);
    
 pad1->cd();
 MassHistHalfMeV->SetMinimum(0);
-MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV", "L");
+MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV", "QLRS");
 
 int BinHeightCBHalfMeV[300];
 int FitHeightCBHalfMeV[300];
