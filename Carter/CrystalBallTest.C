@@ -278,8 +278,8 @@ double intercept = CrystalBallFunctionHalfMeV->GetParameter(7);
 double slope = CrystalBallFunctionHalfMeV->GetParameter(8);
 MassHistHalfMeV->GetListOfFunctions()->Remove(MassHistHalfMeV->GetFunction("CrystalBallFunctionHalfMeV"));
                                  
-CrystalBallFunctionHalfMeV->SetParameter(0, mean);
-CrystalBallFunctionHalfMeV->SetParameter(1, sigmaGauss);
+CrystalBallFunctionHalfMeV->SetParameter(0, 2285);
+CrystalBallFunctionHalfMeV->SetParameter(1, 4);
 CrystalBallFunctionHalfMeV->SetParameter(2, totalGauss);  
 CrystalBallFunctionHalfMeV->SetParameter(3, scaleCrystal);  
 CrystalBallFunctionHalfMeV->SetParameter(4, sigmaCrystal);
@@ -377,8 +377,7 @@ Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", HalfMeVDG1Mucount3));
 ex1->Write(" Fit Values - HalfMeVDG1Mu");
 c1->cd();
 
-   
-   
+    
 pad1->cd();
 MassHistHalfMeV->SetMinimum(0);
 MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV", "L");
