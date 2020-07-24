@@ -280,6 +280,7 @@ MassHistHalfMeV->GetListOfFunctions()->Remove(MassHistHalfMeV->GetFunction("Crys
                                  
 CrystalBallFunctionHalfMeV->SetParameter(0, 2285);
 CrystalBallFunctionHalfMeV->SetParameter(1, sigma - 0.5);
+CrystalBallFunctionHalfMeV->SetParLimits(1, 2, 6);
 CrystalBallFunctionHalfMeV->SetParameter(2, totalGauss + 500);  
 CrystalBallFunctionHalfMeV->SetParameter(3, scaleCrystal - 300);  
 CrystalBallFunctionHalfMeV->SetParameter(4, sigmaCrystal - 0.5);
