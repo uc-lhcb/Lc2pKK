@@ -257,11 +257,11 @@ double PullxHalfMeV[300];
 double Pullx1MeV[150];
 
 TF1 *CrystalBallFunctionHalfMeV = new TF1("CrystalBallFunctionHalfMeV", NewCrystalBallHalfMeV,2212.,2362.,9);
-CrystalBallFunctionHalfMeV->SetParameter(0,110000);
+CrystalBallFunctionHalfMeV->SetParameter(0,120000);
 //CrystalBallFunctionHalfMeV->SetParLimits(0,100000, 130000);   
 CrystalBallFunctionHalfMeV->SetParameter(1, 2285.);
-CrystalBallFunctionHalfMeV->SetParameter(2, 4.5);  
-CrystalBallFunctionHalfMeV->SetParameter(3, 7);  
+CrystalBallFunctionHalfMeV->SetParameter(2, 7);  
+CrystalBallFunctionHalfMeV->SetParameter(3, 3);  
 CrystalBallFunctionHalfMeV->SetParameter(4, 0.7);
 CrystalBallFunctionHalfMeV->SetParLimits(4, 0.001, 0.999);   
 CrystalBallFunctionHalfMeV->SetParameter(5, 750.);   
