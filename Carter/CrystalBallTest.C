@@ -268,6 +268,7 @@ CrystalBallFunctionHalfMeV->SetParameter(6, -0.2);
 CrystalBallFunctionHalfMeV->SetParameter(7, 2.0);
 CrystalBallFunctionHalfMeV->SetParameter(8, 2.5);   
 CrystalBallFunctionHalfMeV->SetParLimits(8, 1.000001, 5.);   
+MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV");
    
 double signal = CrystalBallFunctionHalfMeV->GetParameter(0);
 double mean = CrystalBallFunctionHalfMeV->GetParameter(1);
