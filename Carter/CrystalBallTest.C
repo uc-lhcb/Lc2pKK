@@ -369,10 +369,10 @@ Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", HalfMeVDG1Mucount3));
 ex1->Write(" Fit Values - HalfMeVDG1Mu");
 c1->cd();
 
-CrystalBallFunctionHalfMeV->SetParameter(0, signal * 0..95);
+CrystalBallFunctionHalfMeV->SetParameter(0, signal * 0.95);
 CrystalBallFunctionHalfMeV->SetParameter(1, 2286.);
 CrystalBallFunctionHalfMeV->SetParameter(2, rms);  
-CrystalBallFunctionHalfMeV->SetParameter(3, signalGauss);  
+CrystalBallFunctionHalfMeV->SetParameter(3, sigmaGauss);  
 CrystalBallFunctionHalfMeV->SetParameter(4, fraction * 0.95);
 CrystalBallFunctionHalfMeV->SetParLimits(4, 0.001, 0.999);   
 CrystalBallFunctionHalfMeV->SetParameter(5, intercept);   
