@@ -372,7 +372,7 @@ ex1->Write(" Fit Values - HalfMeVDG1Mu");
 c1->cd();
 
 CrystalBallFunctionHalfMeV->SetParameter(0, signal * 0.95);
-CrystalBallFunctionHalfMeV->SetParameter(1, 2286.);
+CrystalBallFunctionHalfMeV->SetParameter(1, mean);
 CrystalBallFunctionHalfMeV->SetParameter(2, rms);  
 CrystalBallFunctionHalfMeV->SetParameter(3, sigmaGauss);  
 CrystalBallFunctionHalfMeV->SetParameter(4, fraction * 0.95);
