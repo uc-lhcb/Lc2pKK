@@ -43,7 +43,7 @@
                 binWidth*(1-f)*ROOT::Math::crystalball_pdf(v[0],CB_alpha,CB_n,sigma2,mu) );
 
 // add a linear background
-     fitval = fitval + par[5] + v[0]*par[6]
+     fitval = fitval + par[5] + v[0]*par[6];
 
 
       return fitval;
