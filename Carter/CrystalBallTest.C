@@ -283,8 +283,8 @@ CrystalBallFunctionHalfMeV->SetParameter(1, 4);
 CrystalBallFunctionHalfMeV->SetParameter(2, totalGauss);  
 CrystalBallFunctionHalfMeV->SetParameter(3, scaleCrystal);  
 CrystalBallFunctionHalfMeV->SetParameter(4, sigmaCrystal);
-CrystalBallFunctionHalfMeV->SetParameter(5, kl);   
-CrystalBallFunctionHalfMeV->SetParameter(6, kh);     
+CrystalBallFunctionHalfMeV->SetParameter(5, kl + 1);   
+CrystalBallFunctionHalfMeV->SetParameter(6, kh + 1);     
 CrystalBallFunctionHalfMeV->SetParameter(7, intercept);
 CrystalBallFunctionHalfMeV->SetParameter(8, slope);  
    
