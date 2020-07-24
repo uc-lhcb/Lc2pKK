@@ -385,7 +385,7 @@ CrystalBallFunctionHalfMeV->SetParLimits(8, 1.000001, 8.);
    
 pad1->cd();
 MassHistHalfMeV->SetMinimum(0);
-MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV", "L");
+MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV");
 
 int BinHeightCBHalfMeV[300];
 int FitHeightCBHalfMeV[300];
