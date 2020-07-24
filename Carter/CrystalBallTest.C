@@ -279,13 +279,13 @@ double slope = CrystalBallFunctionHalfMeV->GetParameter(8);
 MassHistHalfMeV->GetListOfFunctions()->Remove(MassHistHalfMeV->GetFunction("CrystalBallFunctionHalfMeV"));
                                  
 CrystalBallFunctionHalfMeV->SetParameter(0, 2285);
-CrystalBallFunctionHalfMeV->SetParameter(1, 4);
-CrystalBallFunctionHalfMeV->SetParameter(2, totalGauss);  
-CrystalBallFunctionHalfMeV->SetParameter(3, scaleCrystal);  
-CrystalBallFunctionHalfMeV->SetParameter(4, sigmaCrystal);
+CrystalBallFunctionHalfMeV->SetParameter(1, sigma - 0.5);
+CrystalBallFunctionHalfMeV->SetParameter(2, totalGauss + 200);  
+CrystalBallFunctionHalfMeV->SetParameter(3, scaleCrystal + 200);  
+CrystalBallFunctionHalfMeV->SetParameter(4, sigmaCrystal - 0.5);
 CrystalBallFunctionHalfMeV->SetParameter(5, kl + 1);   
 CrystalBallFunctionHalfMeV->SetParameter(6, kh + 1);     
-CrystalBallFunctionHalfMeV->SetParameter(7, intercept);
+CrystalBallFunctionHalfMeV->SetParameter(7, intercept - 25);
 CrystalBallFunctionHalfMeV->SetParameter(8, slope);  
    
 TPad *pad1 = new TPad("pad1","pad1",0,0.33,1,1);
