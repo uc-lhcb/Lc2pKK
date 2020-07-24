@@ -256,38 +256,28 @@ SignalHist->Draw();
 double PullxHalfMeV[300];
 double Pullx1MeV[150];
 
-TF1 *CrystalBallFunctionHalfMeV = new TF1("CrystalBallFunctionHalfMeV", GaussCrystalHalfMeV,2212.,2362.,9);
-CrystalBallFunctionHalfMeV->SetParameter(0,2285);
-CrystalBallFunctionHalfMeV->SetParameter(1, 4.);
-CrystalBallFunctionHalfMeV->SetParameter(2, 90000);  
-CrystalBallFunctionHalfMeV->SetParameter(3, 5000);  
-CrystalBallFunctionHalfMeV->SetParameter(4, 4.);
-CrystalBallFunctionHalfMeV->SetParameter(5, 1.);   
-CrystalBallFunctionHalfMeV->SetParameter(6, 1.);     
-CrystalBallFunctionHalfMeV->SetParameter(7, 550.);
-CrystalBallFunctionHalfMeV->SetParameter(8, -0.1);   
-MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV", "L");
+//TF1 *CrystalBallFunctionHalfMeV = new TF1("CrystalBallFunctionHalfMeV", GaussCrystalHalfMeV,2212.,2362.,9);
+//CrystalBallFunctionHalfMeV->SetParameter(0,2285);
+//CrystalBallFunctionHalfMeV->SetParameter(1, 4.);
+//CrystalBallFunctionHalfMeV->SetParameter(2, 90000);  
+//CrystalBallFunctionHalfMeV->SetParameter(3, 5000);  
+//CrystalBallFunctionHalfMeV->SetParameter(4, 4.);
+//CrystalBallFunctionHalfMeV->SetParameter(5, 1.);   
+//CrystalBallFunctionHalfMeV->SetParameter(6, 1.);     
+//CrystalBallFunctionHalfMeV->SetParameter(7, 550.);
+//CrystalBallFunctionHalfMeV->SetParameter(8, -0.1);   
+//MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV", "L");
    
-double mean = CrystalBallFunctionHalfMeV->GetParameter(0);
-double sigmaGauss = CrystalBallFunctionHalfMeV->GetParameter(1);
-double totalGauss = CrystalBallFunctionHalfMeV->GetParameter(2);
-double scaleCrystal = CrystalBallFunctionHalfMeV->GetParameter(3);
-double sigmaCrystal = CrystalBallFunctionHalfMeV->GetParameter(4);  
-double kl = CrystalBallFunctionHalfMeV->GetParameter(5);
-double kh = CrystalBallFunctionHalfMeV->GetParameter(6);
-double intercept = CrystalBallFunctionHalfMeV->GetParameter(7);
-double slope = CrystalBallFunctionHalfMeV->GetParameter(8);
-MassHistHalfMeV->GetListOfFunctions()->Remove(MassHistHalfMeV->GetFunction("CrystalBallFunctionHalfMeV"));
-                                 
-CrystalBallFunctionHalfMeV->SetParameter(0, 2285);
-CrystalBallFunctionHalfMeV->SetParameter(1, sigma);
-CrystalBallFunctionHalfMeV->SetParameter(2, totalGauss + 200);  
-CrystalBallFunctionHalfMeV->SetParameter(3, scaleCrystal - 100);  
-CrystalBallFunctionHalfMeV->SetParameter(4, sigmaCrystal);
-CrystalBallFunctionHalfMeV->SetParameter(5, kl);   
-CrystalBallFunctionHalfMeV->SetParameter(6, kh);     
-CrystalBallFunctionHalfMeV->SetParameter(7, intercept);
-CrystalBallFunctionHalfMeV->SetParameter(8, slope);  
+//double mean = CrystalBallFunctionHalfMeV->GetParameter(0);
+//double sigmaGauss = CrystalBallFunctionHalfMeV->GetParameter(1);
+//double totalGauss = CrystalBallFunctionHalfMeV->GetParameter(2);
+//double scaleCrystal = CrystalBallFunctionHalfMeV->GetParameter(3);
+//double sigmaCrystal = CrystalBallFunctionHalfMeV->GetParameter(4);  
+//double kl = CrystalBallFunctionHalfMeV->GetParameter(5);
+//double kh = CrystalBallFunctionHalfMeV->GetParameter(6);
+//double intercept = CrystalBallFunctionHalfMeV->GetParameter(7);
+//double slope = CrystalBallFunctionHalfMeV->GetParameter(8);
+//MassHistHalfMeV->GetListOfFunctions()->Remove(MassHistHalfMeV->GetFunction("CrystalBallFunctionHalfMeV"));
    
 TPad *pad1 = new TPad("pad1","pad1",0,0.33,1,1);
 TPad *pad2 = new TPad("pad2","pad2",0,0,1,0.33);
@@ -378,7 +368,17 @@ Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", HalfMeVDG1Mucount3));
 ex1->Write(" Fit Values - HalfMeVDG1Mu");
 c1->cd();
 
-    
+TF1 *CrystalBallFunctionHalfMeV = new TF1("CrystalBallFunctionHalfMeV", NewCrystalBallHalfMeV,2212.,2362.,9);
+CrystalBallFunctionHalfMeV->SetParameter(0,110000);
+CrystalBallFunctionHalfMeV->SetParameter(1, 2285.);
+CrystalBallFunctionHalfMeV->SetParameter(2, 3);  
+CrystalBallFunctionHalfMeV->SetParameter(3, 4);  
+CrystalBallFunctionHalfMeV->SetParameter(4, 0.6);
+CrystalBallFunctionHalfMeV->SetParameter(5, 750.);   
+CrystalBallFunctionHalfMeV->SetParameter(6, -0.2);     
+CrystalBallFunctionHalfMeV->SetParameter(7, 0.01);
+CrystalBallFunctionHalfMeV->SetParameter(8, 1.01);   
+   
 pad1->cd();
 MassHistHalfMeV->SetMinimum(0);
 MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV", "L");
