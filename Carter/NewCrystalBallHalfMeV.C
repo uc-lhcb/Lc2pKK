@@ -3,7 +3,7 @@
 #include <Math/ProbFuncMathCore.h>
 #include <Math/PdfFuncMathCore.h> 
 
-   Double_t NewCrystalBallFitHalfMeV(Double_t *v, Double_t *par)
+   Double_t NewCrystalBallHalfMeV(Double_t *v, Double_t *par)
    {
 
 //  par[0] = # of signal events
