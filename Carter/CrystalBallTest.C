@@ -238,20 +238,20 @@ TString totalStr;
 TString deltaTotalStr;
  
  c1->cd();
-//TSpectrum *s = new TSpectrum(); 
-//TH1 * BackgroundHist = s->Background(MassHistHalfMeV, 100,"");  
-//MassHistHalfMeV->Draw();
-// BackgroundHist->Draw("SAME"); 
-// c1->Write("Background Estimate");
-// c1->Clear();
+TSpectrum *s = new TSpectrum(); 
+TH1 * BackgroundHist = s->Background(MassHistHalfMeV, 100,"");  
+MassHistHalfMeV->Draw();
+ BackgroundHist->Draw("SAME"); 
+ c1->Write("Background Estimate");
+ c1->Clear();
    
-//SignalHist->Add(MassHistHalfMeV,BackgroundHist,1.0,-1.0);
-//SignalHist->SetMinimum(0); 
-//SignalHist->SetMaximum(6250);   
-//SignalHist->Draw();  
-// MassHistHalfMeV->Draw("SAME"); 
-// c1->Write("Signal Estimate");
-//  c1->Clear();
+SignalHist->Add(MassHistHalfMeV,BackgroundHist,1.0,-1.0);
+SignalHist->SetMinimum(0); 
+SignalHist->SetMaximum(6250);   
+SignalHist->Draw();  
+ MassHistHalfMeV->Draw("SAME"); 
+ c1->Write("Signal Estimate");
+  c1->Clear();
 
 double PullxHalfMeV[300];
 double Pullx1MeV[150];
@@ -382,7 +382,6 @@ CrystalBallFunctionHalfMeV->SetParameter(6, -0.2);
 CrystalBallFunctionHalfMeV->SetParameter(7, 2.0);
 CrystalBallFunctionHalfMeV->SetParameter(8, 3.0);   
 CrystalBallFunctionHalfMeV->SetParLimits(8, 1.000001, 8.);   
-MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeV");
    
 pad1->cd();
 MassHistHalfMeV->SetMinimum(0);
