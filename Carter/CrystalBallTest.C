@@ -14,6 +14,7 @@
 #include "DGOneMuOneTotal1MeV.C"
 #include "GaussCrystalHalfMeV.C"
 #include "GaussCrystal1MeV.C"
+#include "NewCrystalBallHalfMeV.C"
 
 TH1D * SignalHist = nullptr;
 TH1D * MassHistHalfMeV = nullptr;
