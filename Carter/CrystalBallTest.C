@@ -208,9 +208,9 @@ double M2_KpKm = KpKm.Mag2()/(1000*1000);
 
 
 bool LooseCuts= (
-  ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.75)
-&& ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.8)
-&& (*Proton_ProbNNp > 0.8) 
+  ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.7)
+&& ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.75)
+&& (*Proton_ProbNNp > 0.75) 
 && (M2_KpKm > 1.02)
 && (M2_KpKm < 1.06)   
 );
