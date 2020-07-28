@@ -159,8 +159,8 @@ bool Cuts= (
       );
    
    if (LooseCuts){
-     MassHistHalfMeVLoose->Fill(*Lcplus_M);
-     MassHist1MeVLoose->Fill(*Lcplus_M); 
+     MassHistHalfMeVLooseLoose->Fill(*Lcplus_M);
+     MassHist1MeVLooseLoose->Fill(*Lcplus_M); 
      LcPDistributionLoose->Fill(*Lcplus_P);
    }  
    
@@ -251,17 +251,17 @@ TString deltaTotalStr;
  
  c1->cd();
 TSpectrum *sLoose = new TSpectrum(); 
-TH1 * BackgroundHistLoose = sLoose->Background(MassHistHalfMeV, 100,"");  
-MassHistHalfMeVLoose->Draw();
+TH1 * BackgroundHistLoose = sLoose->Background(MassHistHalfMeVLoose, 100,"");  
+MassHistHalfMeVLooseLoose->Draw();
  BackgroundHistLoose->Draw("SAME"); 
  c1->Write("Background Estimate - Loose");
  c1->Clear();
    
-SignalHistLoose->Add(MassHistHalfMeVLoose,BackgroundHistLoose,1.0,-1.0);
+SignalHistLoose->Add(MassHistHalfMeVLooseLoose,BackgroundHistLoose,1.0,-1.0);
 SignalHistLoose->SetMinimum(0); 
 SignalHistLoose->SetMaximum(6250);   
 SignalHistLoose->Draw();  
- MassHistHalfMeVLoose->Draw("SAME"); 
+ MassHistHalfMeVLooseLoose->Draw("SAME"); 
  c1->Write("Signal Estimate - Loose");
   c1->Clear();
 
@@ -286,8 +286,8 @@ GaussianHalfMeVDG1MuLoose->SetParameter(5, 0.);
 GaussianHalfMeVDG1MuLoose->SetParameter(6, 0.);
 
 pad1->cd();
-MassHistHalfMeV->SetMinimum(0);
-MassHistHalfMeV->Fit("GaussianHalfMeVDG1MuLoose");
+MassHistHalfMeVLoose->SetMinimum(0);
+MassHistHalfMeVLoose->Fit("GaussianHalfMeVDG1MuLoose");
 
 int BinHeightHalfMeVDG1MuLoose[300];
 int FitHeightHalfMeVDG1MuLoose[300];
@@ -298,7 +298,7 @@ double   HalfMeVDG1MuLoosecount2 = 0;
 double   HalfMeVDG1MuLoosecount3 = 0;
 
 for (int bin = 0; bin < 300; bin++){
-BinHeightHalfMeVDG1MuLoose[bin] = MassHistHalfMeV->GetBinContent(bin + 1);
+BinHeightHalfMeVDG1MuLoose[bin] = MassHistHalfMeVLoose->GetBinContent(bin + 1);
 PullxHalfMeV[bin] = (bin + 1);   
 int xvalueHalfMeVDG1Mu = 2212.25 + 0.5*(bin);
 FitHeightHalfMeVDG1MuLoose[bin] = round(GaussianHalfMeVDG1MuLoose->Eval(xvalueHalfMeVDG1Mu));
@@ -334,7 +334,7 @@ PullPlotHalfMeVDG1MuLoose->SetTitle("");
 PullPlotHalfMeVDG1MuLoose->SetMinimum(-5);
 PullPlotHalfMeVDG1MuLoose->SetMaximum(5);
 PullPlotHalfMeVDG1MuLoose->Draw("AB");
-MassHistHalfMeV->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
+MassHistHalfMeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
   c1->Write("Lc Mass Loose - HalfMeVDG1Mu");
 
 ex1->cd();
@@ -371,8 +371,8 @@ CrystalBallFunctionHalfMeVLoose->SetParameter(8, 3.0);
 CrystalBallFunctionHalfMeVLoose->SetParLimits(8, 1.000001, 8.);   
    
 pad1->cd();
-MassHistHalfMeV->SetMinimum(0);
-MassHistHalfMeV->Fit("CrystalBallFunctionHalfMeVLoose");
+MassHistHalfMeVLoose->SetMinimum(0);
+MassHistHalfMeVLoose->Fit("CrystalBallFunctionHalfMeVLoose");
 
 int BinHeightCBHalfMeVLoose[300];
 int FitHeightCBHalfMeVLoose[300];
@@ -383,7 +383,7 @@ double CBHalfMeVLoosecount2 = 0;
 double CBHalfMeVLoosecount3 = 0;
 
 for (int bin = 0; bin < 300; bin++){
-BinHeightCBHalfMeVLoose[bin] = MassHistHalfMeV->GetBinContent(bin + 1);
+BinHeightCBHalfMeVLoose[bin] = MassHistHalfMeVLoose->GetBinContent(bin + 1);
 int xvalue = 2212.25 + 0.5*(bin);
 FitHeightCBHalfMeVLoose[bin] = round(CrystalBallFunctionHalfMeVLoose->Eval(xvalue));
 PullCBHalfMeVLoose[bin] = (BinHeightCBHalfMeVLoose[bin] - FitHeightCBHalfMeVLoose[bin])/TMath::Sqrt(FitHeightCBHalfMeVLoose[bin]);
@@ -418,7 +418,7 @@ PullCBHalfMeVPlotLoose->SetTitle("");
 PullCBHalfMeVPlotLoose->SetMinimum(-5);
 PullCBHalfMeVPlotLoose->SetMaximum(5);
 PullCBHalfMeVPlotLoose->Draw("AB");
-MassHistHalfMeV->SetTitle("#Lambda_{c}^{+} Mass - Crystal Ball Fit");   
+MassHistHalfMeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Crystal Ball Fit");   
     c1->Write("Lc Mass Loose - Crystal Ball Half MeV");
 // c1->Clear();
 
@@ -449,8 +449,8 @@ Gaussian1MeVDG1MuLoose->SetParameter(5, 0.);
 Gaussian1MeVDG1MuLoose->SetParameter(6, 0.);
 
 pad1->cd();
-MassHist1MeV->SetMinimum(0);
-MassHist1MeV->Fit("Gaussian1MeVDG1MuLoose");
+MassHist1MeVLoose->SetMinimum(0);
+MassHist1MeVLoose->Fit("Gaussian1MeVDG1MuLoose");
 
 int BinHeight1MeVDG1MuLoose[150];
 int FitHeight1MeVDG1MuLoose[150];
@@ -461,7 +461,7 @@ double   DG1MeVDG1MuLoosecount2 = 0;
 double   DG1MeVDG1MuLoosecount3 = 0;
 
 for (int bin = 0; bin < 150; bin++){
-BinHeight1MeVDG1MuLoose[bin] = MassHist1MeV->GetBinContent(bin + 1);
+BinHeight1MeVDG1MuLoose[bin] = MassHist1MeVLoose->GetBinContent(bin + 1);
 Pullx1MeV[bin] = (bin + 1);   
 int xvalue1MeVDG1Mu = 2212.5 + 1*(bin);
 FitHeight1MeVDG1MuLoose[bin] = round(Gaussian1MeVDG1MuLoose->Eval(xvalue1MeVDG1Mu));
@@ -497,7 +497,7 @@ PullPlot1MeVDG1MuLoose->SetTitle("");
 PullPlot1MeVDG1MuLoose->SetMinimum(-5);
 PullPlot1MeVDG1MuLoose->SetMaximum(5);
 PullPlot1MeVDG1MuLoose->Draw("AB");
-MassHist1MeV->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
+MassHist1MeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
   c1->Write("Lc Mass Loose - 1MeVDG1Mu");
 // c1->Clear();
 
@@ -532,8 +532,8 @@ CrystalBallFunction1MeVLoose->SetParameter(8, 3.0);
 CrystalBallFunction1MeVLoose->SetParLimits(8, 1.000001, 8.);    
  
 pad1->cd();
-MassHist1MeV->SetMinimum(0);
-MassHist1MeV->Fit("CrystalBallFunction1MeVLoose");
+MassHist1MeVLoose->SetMinimum(0);
+MassHist1MeVLoose->Fit("CrystalBallFunction1MeVLoose");
 
 int BinHeightCB1MeVLoose[150];
 int FitHeightCB1MeVLoose[150];
@@ -544,7 +544,7 @@ double CB1MeVLoosecount2 = 0;
 double CB1MeVLoosecount3 = 0;
 
 for (int bin = 0; bin < 150; bin++){
-BinHeightCB1MeVLoose[bin] = MassHist1MeV->GetBinContent(bin + 1);
+BinHeightCB1MeVLoose[bin] = MassHist1MeVLoose->GetBinContent(bin + 1);
 int xvalue = 2212.5 + 1.0*(bin);
 FitHeightCB1MeVLoose[bin] = round(CrystalBallFunction1MeVLoose->Eval(xvalue));
 PullCB1MeVLoose[bin] = (BinHeightCB1MeVLoose[bin] - FitHeightCB1MeVLoose[bin])/TMath::Sqrt(FitHeightCB1MeVLoose[bin]);
@@ -579,7 +579,7 @@ PullCB1MeVPlotLoose->SetTitle("");
 PullCB1MeVPlotLoose->SetMinimum(-5);
 PullCB1MeVPlotLoose->SetMaximum(5);
 PullCB1MeVPlotLoose->Draw("AB");
-MassHist1MeV->SetTitle("#Lambda_{c}^{+} Mass - Crystal Ball Fit");   
+MassHist1MeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Crystal Ball Fit");   
     c1->Write("Lc Mass Loose - Crystal Ball 1 MeV");
 // c1->Clear();
 
