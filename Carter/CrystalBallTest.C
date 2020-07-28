@@ -374,7 +374,7 @@ MassHistHalfMeVLoose->Draw();
    
 SignalHistLoose->Add(MassHistHalfMeVLoose,BackgroundHistLoose,1.0,-1.0);
 SignalHistLoose->SetMinimum(0); 
-SignalHistLoose->SetMaximum(6250);   
+SignalHistLoose->SetMaximum(7500);   
 SignalHistLoose->Draw();  
  MassHistHalfMeVLoose->Draw("SAME"); 
  c1->Write("Signal Estimate - Loose");
@@ -389,7 +389,7 @@ MassHistHalfMeVTight->Draw();
    
 SignalHistTight->Add(MassHistHalfMeVTight,BackgroundHistTight,1.0,-1.0);
 SignalHistTight->SetMinimum(0); 
-SignalHistTight->SetMaximum(6250);   
+SignalHistTight->SetMaximum(11000);   
 SignalHistTight->Draw();  
  MassHistHalfMeVTight->Draw("SAME"); 
  c1->Write("Signal Estimate - Tight");
@@ -727,252 +727,6 @@ ex1->Clear();
  ex1->Write("Fit Values Loose - CB1MeV");
 c1->cd();
 
-TF1 *LcFitSGLoose1 = new TF1("LcFitSGLoose1", NewCrystalBallHalfMeV,2212.,2362.,9);
-LcFitSGLoose1->SetParameter(0,115000); 
-LcFitSGLoose1->SetParameter(1, 2285.);
-LcFitSGLoose1->SetParameter(2, 5);  
-LcFitSGLoose1->SetParameter(3, 4);  
-LcFitSGLoose1->SetParameter(4, 0.7);
-LcFitSGLoose1->SetParLimits(4, 0.001, 0.999);   
-LcFitSGLoose1->SetParameter(5, 750.);   
-LcFitSGLoose1->SetParameter(6, -0.2);     
-LcFitSGLoose1->SetParameter(7, 2.0);
-LcFitSGLoose1->SetParameter(8, 3.0);   
-LcFitSGLoose1->SetParLimits(8, 1.000001, 8.);  
-   
-TF1 *LcFitSGLoose2 = new TF1("LcFitSGLoose2", NewCrystalBallHalfMeV,2212.,2362.,9);
-LcFitSGLoose2->SetParameter(0,115000); 
-LcFitSGLoose2->SetParameter(1, 2285.);
-LcFitSGLoose2->SetParameter(2, 5);  
-LcFitSGLoose2->SetParameter(3, 4);  
-LcFitSGLoose2->SetParameter(4, 0.7);
-LcFitSGLoose2->SetParLimits(4, 0.001, 0.999);   
-LcFitSGLoose2->SetParameter(5, 750.);   
-LcFitSGLoose2->SetParameter(6, -0.2);     
-LcFitSGLoose2->SetParameter(7, 2.0);
-LcFitSGLoose2->SetParameter(8, 3.0);   
-LcFitSGLoose2->SetParLimits(8, 1.000001, 8.);  
-
-TF1 *LcFitSGLoose3 = new TF1("LcFitSGLoose3", NewCrystalBallHalfMeV,2212.,2362.,9);
-LcFitSGLoose3->SetParameter(0,115000); 
-LcFitSGLoose3->SetParameter(1, 2285.);
-LcFitSGLoose3->SetParameter(2, 5);  
-LcFitSGLoose3->SetParameter(3, 4);  
-LcFitSGLoose3->SetParameter(4, 0.7);
-LcFitSGLoose3->SetParLimits(4, 0.001, 0.999);   
-LcFitSGLoose3->SetParameter(5, 750.);   
-LcFitSGLoose3->SetParameter(6, -0.2);     
-LcFitSGLoose3->SetParameter(7, 2.0);
-LcFitSGLoose3->SetParameter(8, 3.0);   
-LcFitSGLoose3->SetParLimits(8, 1.000001, 8.);  
-
-TF1 *LcFitSGLoose4 = new TF1("LcFitSGLoose4", NewCrystalBallHalfMeV,2212.,2362.,9);
-LcFitSGLoose4->SetParameter(0,115000); 
-LcFitSGLoose4->SetParameter(1, 2285.);
-LcFitSGLoose4->SetParameter(2, 5);  
-LcFitSGLoose4->SetParameter(3, 4);  
-LcFitSGLoose4->SetParameter(4, 0.7);
-LcFitSGLoose4->SetParLimits(4, 0.001, 0.999);   
-LcFitSGLoose4->SetParameter(5, 750.);   
-LcFitSGLoose4->SetParameter(6, -0.2);     
-LcFitSGLoose4->SetParameter(7, 2.0);
-LcFitSGLoose4->SetParameter(8, 3.0);   
-LcFitSGLoose4->SetParLimits(8, 1.000001, 8.);  
- 
-TF1 *MagDownFitSGLoose = new TF1("MagDownFitSGLoose", NewCrystalBallHalfMeV,2212.,2362.,9);
-MagDownFitSGLoose->SetParameter(0,115000); 
-MagDownFitSGLoose->SetParameter(1, 2285.);
-MagDownFitSGLoose->SetParameter(2, 5);  
-MagDownFitSGLoose->SetParameter(3, 4);  
-MagDownFitSGLoose->SetParameter(4, 0.7);
-MagDownFitSGLoose->SetParLimits(4, 0.001, 0.999);   
-MagDownFitSGLoose->SetParameter(5, 750.);   
-MagDownFitSGLoose->SetParameter(6, -0.2);     
-MagDownFitSGLoose->SetParameter(7, 2.0);
-MagDownFitSGLoose->SetParameter(8, 3.0);   
-MagDownFitSGLoose->SetParLimits(8, 1.000001, 8.);  
- 
-TF1 *MagUpFitSGLoose = new TF1("MagUpFitSGLoose", NewCrystalBallHalfMeV,2212.,2362.,9);
-MagUpFitSGLoose->SetParameter(0,115000); 
-MagUpFitSGLoose->SetParameter(1, 2285.);
-MagUpFitSGLoose->SetParameter(2, 5);  
-MagUpFitSGLoose->SetParameter(3, 4);  
-MagUpFitSGLoose->SetParameter(4, 0.7);
-MagUpFitSGLoose->SetParLimits(4, 0.001, 0.999);   
-MagUpFitSGLoose->SetParameter(5, 750.);   
-MagUpFitSGLoose->SetParameter(6, -0.2);     
-MagUpFitSGLoose->SetParameter(7, 2.0);
-MagUpFitSGLoose->SetParameter(8, 3.0);   
-MagUpFitSGLoose->SetParLimits(8, 1.000001, 8.);  
- 
-TF1 *ParticleFitSGLoose = new TF1("ParticleFitSGLoose", NewCrystalBallHalfMeV,2212.,2362.,9);
-ParticleFitSGLoose->SetParameter(0,115000); 
-ParticleFitSGLoose->SetParameter(1, 2285.);
-ParticleFitSGLoose->SetParameter(2, 5);  
-ParticleFitSGLoose->SetParameter(3, 4);  
-ParticleFitSGLoose->SetParameter(4, 0.7);
-ParticleFitSGLoose->SetParLimits(4, 0.001, 0.999);   
-ParticleFitSGLoose->SetParameter(5, 750.);   
-ParticleFitSGLoose->SetParameter(6, -0.2);     
-ParticleFitSGLoose->SetParameter(7, 2.0);
-ParticleFitSGLoose->SetParameter(8, 3.0);   
-ParticleFitSGLoose->SetParLimits(8, 1.000001, 8.);  
- 
-TF1 *AntiParticleFitSGLoose = new TF1("AntiParticleFitSGLoose", NewCrystalBallHalfMeV,2212.,2362.,9);
-AntiParticleFitSGLoose->SetParameter(0,115000); 
-AntiParticleFitSGLoose->SetParameter(1, 2285.);
-AntiParticleFitSGLoose->SetParameter(2, 5);  
-AntiParticleFitSGLoose->SetParameter(3, 4);  
-AntiParticleFitSGLoose->SetParameter(4, 0.7);
-AntiParticleFitSGLoose->SetParLimits(4, 0.001, 0.999);   
-AntiParticleFitSGLoose->SetParameter(5, 750.);   
-AntiParticleFitSGLoose->SetParameter(6, -0.2);     
-AntiParticleFitSGLoose->SetParameter(7, 2.0);
-AntiParticleFitSGLoose->SetParameter(8, 3.0);   
-AntiParticleFitSGLoose->SetParLimits(8, 1.000001, 8.);  
- 
-  LcLowPLoose->Fit("LcFitSGLoose1");
- LcLowPLoose->SetMinimum(0);
- c1->Write("Low Lc Momentum Region - Loose");
- c1->Clear();
-
- LcMidLowPLoose->Fit("LcFitSGLoose2");
- LcMidLowPLoose->SetMinimum(0);
- c1->Write("MidLow Lc Momentum Region - Loose");
- c1->Clear();
-
- LcMidHighPLoose->Fit("LcFitSGLoose3");
- LcMidHighPLoose->SetMinimum(0);
- c1->Write("MidHigh Lc Momentum Region - Loose");
- c1->Clear();
-
- LcHighPLoose->Fit("LcFitSGLoose4");
- LcHighPLoose->SetMinimum(0);
- c1->Write("High Lc Momentum Region - Loose");
- c1->Clear();
-
- LcPDistributionLoose->Draw();
- LcPDistributionLoose->SetMinimum(0);
- c1->Write("Lc Momentum Distribution - Loose");
- c1->Clear();
-
- double yLoose1 = LcFitSGLoose1->GetParameter(1);
- double yLoose2 = LcFitSGLoose2->GetParameter(1);
- double yLoose3 = LcFitSGLoose3->GetParameter(1);
- double yLoose4 = LcFitSGLoose4->GetParameter(1);
-
- double yerrLoose1 = LcFitSGLoose1->GetParError(1);
- double yerrLoose2 = LcFitSGLoose2->GetParError(1);
- double yerrLoose3 = LcFitSGLoose3->GetParError(1);
- double yerrLoose4 = LcFitSGLoose4->GetParError(1);
-
- const Int_t n = 4;
- Double_t x[n] = {1,2,3,4};
- Double_t xerr[n] = {0,0,0,0};
-
-grid->cd();
-grid->SetGridy();
-
- double LcPAvGLoose = ((yLoose1 + yLoose2 + yLoose3 + yLoose4)/n);
- Double_t yLoose[n] = {yLoose1 - LcPAvGLoose,yLoose2 - LcPAvGLoose,yLoose3 - LcPAvGLoose,yLoose4 - LcPAvGLoose};
- Double_t yerrLoose[n] = {yerrLoose1,yerrLoose2,yerrLoose3,yerrLoose4};
- gLcPLoose = new TGraphErrors(n,x,yLoose,xerr,yerrLoose);
- gLcPLoose->SetMarkerColor(2);
- gLcPLoose->SetMarkerStyle(20);
- gLcPLoose->GetXaxis()->SetNdivisions(4);
- gLcPLoose->GetXaxis()->SetTitle("LambdaC P Regions");
- gLcPLoose->GetYaxis()->SetTitle("Measured Mass - Average Mass [MeV]");
- gLcPLoose->SetTitle("Deviations in LambdaC Mass of Different LambdaC_P Regions");
- gLcPLoose->Draw("ap");
- gLcPLoose->GetXaxis()->SetAlphanumeric();
- gLcPLoose->GetXaxis()->SetBinLabel(9, "(0-70) GeV");
- gLcPLoose->GetXaxis()->SetBinLabel(36, "(70-88.5) GeV");
- gLcPLoose->GetXaxis()->SetBinLabel(63, "(88.5-112) GeV");
- gLcPLoose->GetXaxis()->SetBinLabel(90, "(112-250) GeV");   
- gLcPLoose->GetXaxis()->LabelsOption("h");
- grid->Write("Lcplus_P Statistics - Loose");
-
-c1->cd();
-
-PolarityMagDownLoose->Fit("MagDownFitSGLoose");
-PolarityMagDownLoose->SetMinimum(0);
-c1->Write("PolarityMagDown - Loose");
- c1->Clear();
-
-PolarityMagUpLoose->Fit("MagUpFitSGLoose");
-PolarityMagUpLoose->SetMinimum(0);
-c1->Write("PolarityMagUp - Loose");
- c1->Clear();
-
-double pLoose1 = MagDownFitSGLoose->GetParameter(1);
-double pLoose2 = MagUpFitSGLoose->GetParameter(1);
-
-double perrLoose1 = MagDownFitSGLoose->GetParError(1);
-double perrLoose2 = MagUpFitSGLoose->GetParError(1);
-
- const Int_t m = 2;
-
-double PolarityAvGLoose = ((pLoose1 + pLoose2)/m);
-Double_t pLoose[m] = {pLoose1 - PolarityAvGLoose,pLoose2 - PolarityAvGLoose};
-Double_t perrLoose[m] = {perrLoose1,perrLoose2};
-
-grid->cd();
-
-gPolarityLoose = new TGraphErrors(m,x,pLoose,xerr,perrLoose);
-gPolarityLoose->SetMarkerColor(2);
-gPolarityLoose->SetMarkerStyle(20);
-gPolarityLoose->GetXaxis()->SetNdivisions(2);
-gPolarityLoose->GetXaxis()->SetTitle("Magnet Orientations");
-gPolarityLoose->GetYaxis()->SetTitle("Measured Mass - Average Mass [MeV]");
-gPolarityLoose->SetTitle("Deviations in LambdaC Mass of Different Magnet Orientations");
-gPolarityLoose->GetXaxis()->SetAlphanumeric();
-gPolarityLoose->GetXaxis()->SetBinLabel(9, "MagDown");
-gPolarityLoose->GetXaxis()->SetBinLabel(92, "MagUp");   
-gPolarityLoose->GetXaxis()->LabelsOption("h");   
-gPolarityLoose->Draw("ap");
-
-grid->Write("Polarity Statistics - Loose");
-
-c1->cd();
-
-ParticleLoose->Fit("ParticleFitSGLoose");
-ParticleLoose->SetMinimum(0);
-c1->Write("Baryon - Loose");
- c1->Clear();
-
-AntiParticleLoose->Fit("AntiParticleFitSGLoose");
-AntiParticleLoose->SetMinimum(0);
-c1->Write("AntiBaryon - Loose");
- c1->Clear();
-
-double ppLoose1 = ParticleFitSGLoose->GetParameter(1);
-double ppLoose2 = AntiParticleFitSGLoose->GetParameter(1);
-
-double pperrLoose1 = ParticleFitSGLoose->GetParError(1);
-double pperrLoose2 = AntiParticleFitSGLoose->GetParError(1);
-
-double ParticleAvGLoose = ((ppLoose1 + ppLoose2)/m);
-Double_t ppLoose[m] = {ppLoose1 - ParticleAvGLoose,ppLoose2 - ParticleAvGLoose};
-Double_t pperrLoose[m] = {pperrLoose1,pperrLoose2};
-
-grid->cd();
- 
-gPIDLoose = new TGraphErrors(m,x,ppLoose,xerr,pperrLoose);
-gPIDLoose->SetMarkerColor(2);
-gPIDLoose->SetMarkerStyle(20);
-gPIDLoose->GetXaxis()->SetNdivisions(2);
-gPIDLoose->GetXaxis()->SetTitle("Particle ID");
-gPIDLoose->GetYaxis()->SetTitle("Measured Mass - Average Mass [MeV]");
-gPIDLoose->SetTitle("Deviations in LambdaC Mass of Baryon or AntiBaryon");
-gPIDLoose->GetXaxis()->SetAlphanumeric();
-gPIDLoose->GetXaxis()->SetBinLabel(9, "Baryon");
-gPIDLoose->GetXaxis()->SetBinLabel(92, "AntiBaryon");   
-gPIDLoose->GetXaxis()->LabelsOption("h");   
-gPIDLoose->Draw("ap");
-grid->Write("ParticleStatistics - Loose");
-
-   
-   
 TF1 *GaussianHalfMeVDG1MuTight = new TF1("GaussianHalfMeVDG1MuTight",DGOneMuOneTotalHalfMeV,2200.,2400.,7);
 GaussianHalfMeVDG1MuTight->SetParameter(0, 0.4);
 GaussianHalfMeVDG1MuTight->SetParameter(1, 12000);
@@ -1291,7 +1045,253 @@ ex1->Clear();
  Tl.DrawLatex(0.1,0.2,Form("Bins Between -2 & 2 %f Bins", CB1MeVTightcount2));
  Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", CB1MeVTightcount3));
  ex1->Write("Fit Values Tight - CB1MeV");
+c1->cd();   
+   
+   
+TF1 *LcFitSGLoose1 = new TF1("LcFitSGLoose1", NewCrystalBallHalfMeV,2212.,2362.,9);
+LcFitSGLoose1->SetParameter(0,115000); 
+LcFitSGLoose1->SetParameter(1, 2285.);
+LcFitSGLoose1->SetParameter(2, 5);  
+LcFitSGLoose1->SetParameter(3, 4);  
+LcFitSGLoose1->SetParameter(4, 0.7);
+LcFitSGLoose1->SetParLimits(4, 0.001, 0.999);   
+LcFitSGLoose1->SetParameter(5, 750.);   
+LcFitSGLoose1->SetParameter(6, -0.2);     
+LcFitSGLoose1->SetParameter(7, 2.0);
+LcFitSGLoose1->SetParameter(8, 3.0);   
+LcFitSGLoose1->SetParLimits(8, 1.000001, 8.);  
+   
+TF1 *LcFitSGLoose2 = new TF1("LcFitSGLoose2", NewCrystalBallHalfMeV,2212.,2362.,9);
+LcFitSGLoose2->SetParameter(0,115000); 
+LcFitSGLoose2->SetParameter(1, 2285.);
+LcFitSGLoose2->SetParameter(2, 5);  
+LcFitSGLoose2->SetParameter(3, 4);  
+LcFitSGLoose2->SetParameter(4, 0.7);
+LcFitSGLoose2->SetParLimits(4, 0.001, 0.999);   
+LcFitSGLoose2->SetParameter(5, 750.);   
+LcFitSGLoose2->SetParameter(6, -0.2);     
+LcFitSGLoose2->SetParameter(7, 2.0);
+LcFitSGLoose2->SetParameter(8, 3.0);   
+LcFitSGLoose2->SetParLimits(8, 1.000001, 8.);  
+
+TF1 *LcFitSGLoose3 = new TF1("LcFitSGLoose3", NewCrystalBallHalfMeV,2212.,2362.,9);
+LcFitSGLoose3->SetParameter(0,115000); 
+LcFitSGLoose3->SetParameter(1, 2285.);
+LcFitSGLoose3->SetParameter(2, 5);  
+LcFitSGLoose3->SetParameter(3, 4);  
+LcFitSGLoose3->SetParameter(4, 0.7);
+LcFitSGLoose3->SetParLimits(4, 0.001, 0.999);   
+LcFitSGLoose3->SetParameter(5, 750.);   
+LcFitSGLoose3->SetParameter(6, -0.2);     
+LcFitSGLoose3->SetParameter(7, 2.0);
+LcFitSGLoose3->SetParameter(8, 3.0);   
+LcFitSGLoose3->SetParLimits(8, 1.000001, 8.);  
+
+TF1 *LcFitSGLoose4 = new TF1("LcFitSGLoose4", NewCrystalBallHalfMeV,2212.,2362.,9);
+LcFitSGLoose4->SetParameter(0,115000); 
+LcFitSGLoose4->SetParameter(1, 2285.);
+LcFitSGLoose4->SetParameter(2, 5);  
+LcFitSGLoose4->SetParameter(3, 4);  
+LcFitSGLoose4->SetParameter(4, 0.7);
+LcFitSGLoose4->SetParLimits(4, 0.001, 0.999);   
+LcFitSGLoose4->SetParameter(5, 750.);   
+LcFitSGLoose4->SetParameter(6, -0.2);     
+LcFitSGLoose4->SetParameter(7, 2.0);
+LcFitSGLoose4->SetParameter(8, 3.0);   
+LcFitSGLoose4->SetParLimits(8, 1.000001, 8.);  
+ 
+TF1 *MagDownFitSGLoose = new TF1("MagDownFitSGLoose", NewCrystalBallHalfMeV,2212.,2362.,9);
+MagDownFitSGLoose->SetParameter(0,115000); 
+MagDownFitSGLoose->SetParameter(1, 2285.);
+MagDownFitSGLoose->SetParameter(2, 5);  
+MagDownFitSGLoose->SetParameter(3, 4);  
+MagDownFitSGLoose->SetParameter(4, 0.7);
+MagDownFitSGLoose->SetParLimits(4, 0.001, 0.999);   
+MagDownFitSGLoose->SetParameter(5, 750.);   
+MagDownFitSGLoose->SetParameter(6, -0.2);     
+MagDownFitSGLoose->SetParameter(7, 2.0);
+MagDownFitSGLoose->SetParameter(8, 3.0);   
+MagDownFitSGLoose->SetParLimits(8, 1.000001, 8.);  
+ 
+TF1 *MagUpFitSGLoose = new TF1("MagUpFitSGLoose", NewCrystalBallHalfMeV,2212.,2362.,9);
+MagUpFitSGLoose->SetParameter(0,115000); 
+MagUpFitSGLoose->SetParameter(1, 2285.);
+MagUpFitSGLoose->SetParameter(2, 5);  
+MagUpFitSGLoose->SetParameter(3, 4);  
+MagUpFitSGLoose->SetParameter(4, 0.7);
+MagUpFitSGLoose->SetParLimits(4, 0.001, 0.999);   
+MagUpFitSGLoose->SetParameter(5, 750.);   
+MagUpFitSGLoose->SetParameter(6, -0.2);     
+MagUpFitSGLoose->SetParameter(7, 2.0);
+MagUpFitSGLoose->SetParameter(8, 3.0);   
+MagUpFitSGLoose->SetParLimits(8, 1.000001, 8.);  
+ 
+TF1 *ParticleFitSGLoose = new TF1("ParticleFitSGLoose", NewCrystalBallHalfMeV,2212.,2362.,9);
+ParticleFitSGLoose->SetParameter(0,115000); 
+ParticleFitSGLoose->SetParameter(1, 2285.);
+ParticleFitSGLoose->SetParameter(2, 5);  
+ParticleFitSGLoose->SetParameter(3, 4);  
+ParticleFitSGLoose->SetParameter(4, 0.7);
+ParticleFitSGLoose->SetParLimits(4, 0.001, 0.999);   
+ParticleFitSGLoose->SetParameter(5, 750.);   
+ParticleFitSGLoose->SetParameter(6, -0.2);     
+ParticleFitSGLoose->SetParameter(7, 2.0);
+ParticleFitSGLoose->SetParameter(8, 3.0);   
+ParticleFitSGLoose->SetParLimits(8, 1.000001, 8.);  
+ 
+TF1 *AntiParticleFitSGLoose = new TF1("AntiParticleFitSGLoose", NewCrystalBallHalfMeV,2212.,2362.,9);
+AntiParticleFitSGLoose->SetParameter(0,115000); 
+AntiParticleFitSGLoose->SetParameter(1, 2285.);
+AntiParticleFitSGLoose->SetParameter(2, 5);  
+AntiParticleFitSGLoose->SetParameter(3, 4);  
+AntiParticleFitSGLoose->SetParameter(4, 0.7);
+AntiParticleFitSGLoose->SetParLimits(4, 0.001, 0.999);   
+AntiParticleFitSGLoose->SetParameter(5, 750.);   
+AntiParticleFitSGLoose->SetParameter(6, -0.2);     
+AntiParticleFitSGLoose->SetParameter(7, 2.0);
+AntiParticleFitSGLoose->SetParameter(8, 3.0);   
+AntiParticleFitSGLoose->SetParLimits(8, 1.000001, 8.);  
+ 
+  LcLowPLoose->Fit("LcFitSGLoose1");
+ LcLowPLoose->SetMinimum(0);
+ c1->Write("Low Lc Momentum Region - Loose");
+ c1->Clear();
+
+ LcMidLowPLoose->Fit("LcFitSGLoose2");
+ LcMidLowPLoose->SetMinimum(0);
+ c1->Write("MidLow Lc Momentum Region - Loose");
+ c1->Clear();
+
+ LcMidHighPLoose->Fit("LcFitSGLoose3");
+ LcMidHighPLoose->SetMinimum(0);
+ c1->Write("MidHigh Lc Momentum Region - Loose");
+ c1->Clear();
+
+ LcHighPLoose->Fit("LcFitSGLoose4");
+ LcHighPLoose->SetMinimum(0);
+ c1->Write("High Lc Momentum Region - Loose");
+ c1->Clear();
+
+ LcPDistributionLoose->Draw();
+ LcPDistributionLoose->SetMinimum(0);
+ c1->Write("Lc Momentum Distribution - Loose");
+ c1->Clear();
+
+ double yLoose1 = LcFitSGLoose1->GetParameter(1);
+ double yLoose2 = LcFitSGLoose2->GetParameter(1);
+ double yLoose3 = LcFitSGLoose3->GetParameter(1);
+ double yLoose4 = LcFitSGLoose4->GetParameter(1);
+
+ double yerrLoose1 = LcFitSGLoose1->GetParError(1);
+ double yerrLoose2 = LcFitSGLoose2->GetParError(1);
+ double yerrLoose3 = LcFitSGLoose3->GetParError(1);
+ double yerrLoose4 = LcFitSGLoose4->GetParError(1);
+
+ const Int_t n = 4;
+ Double_t x[n] = {1,2,3,4};
+ Double_t xerr[n] = {0,0,0,0};
+
+grid->cd();
+grid->SetGridy();
+
+ double LcPAvGLoose = ((yLoose1 + yLoose2 + yLoose3 + yLoose4)/n);
+ Double_t yLoose[n] = {yLoose1 - LcPAvGLoose,yLoose2 - LcPAvGLoose,yLoose3 - LcPAvGLoose,yLoose4 - LcPAvGLoose};
+ Double_t yerrLoose[n] = {yerrLoose1,yerrLoose2,yerrLoose3,yerrLoose4};
+ gLcPLoose = new TGraphErrors(n,x,yLoose,xerr,yerrLoose);
+ gLcPLoose->SetMarkerColor(2);
+ gLcPLoose->SetMarkerStyle(20);
+ gLcPLoose->GetXaxis()->SetNdivisions(4);
+ gLcPLoose->GetXaxis()->SetTitle("LambdaC P Regions");
+ gLcPLoose->GetYaxis()->SetTitle("Measured Mass - Average Mass [MeV]");
+ gLcPLoose->SetTitle("Deviations in LambdaC Mass of Different LambdaC_P Regions");
+ gLcPLoose->Draw("ap");
+ gLcPLoose->GetXaxis()->SetAlphanumeric();
+ gLcPLoose->GetXaxis()->SetBinLabel(9, "(0-70) GeV");
+ gLcPLoose->GetXaxis()->SetBinLabel(36, "(70-88.5) GeV");
+ gLcPLoose->GetXaxis()->SetBinLabel(63, "(88.5-112) GeV");
+ gLcPLoose->GetXaxis()->SetBinLabel(90, "(112-250) GeV");   
+ gLcPLoose->GetXaxis()->LabelsOption("h");
+ grid->Write("Lcplus_P Statistics - Loose");
+
 c1->cd();
+
+PolarityMagDownLoose->Fit("MagDownFitSGLoose");
+PolarityMagDownLoose->SetMinimum(0);
+c1->Write("PolarityMagDown - Loose");
+ c1->Clear();
+
+PolarityMagUpLoose->Fit("MagUpFitSGLoose");
+PolarityMagUpLoose->SetMinimum(0);
+c1->Write("PolarityMagUp - Loose");
+ c1->Clear();
+
+double pLoose1 = MagDownFitSGLoose->GetParameter(1);
+double pLoose2 = MagUpFitSGLoose->GetParameter(1);
+
+double perrLoose1 = MagDownFitSGLoose->GetParError(1);
+double perrLoose2 = MagUpFitSGLoose->GetParError(1);
+
+ const Int_t m = 2;
+
+double PolarityAvGLoose = ((pLoose1 + pLoose2)/m);
+Double_t pLoose[m] = {pLoose1 - PolarityAvGLoose,pLoose2 - PolarityAvGLoose};
+Double_t perrLoose[m] = {perrLoose1,perrLoose2};
+
+grid->cd();
+
+gPolarityLoose = new TGraphErrors(m,x,pLoose,xerr,perrLoose);
+gPolarityLoose->SetMarkerColor(2);
+gPolarityLoose->SetMarkerStyle(20);
+gPolarityLoose->GetXaxis()->SetNdivisions(2);
+gPolarityLoose->GetXaxis()->SetTitle("Magnet Orientations");
+gPolarityLoose->GetYaxis()->SetTitle("Measured Mass - Average Mass [MeV]");
+gPolarityLoose->SetTitle("Deviations in LambdaC Mass of Different Magnet Orientations");
+gPolarityLoose->GetXaxis()->SetAlphanumeric();
+gPolarityLoose->GetXaxis()->SetBinLabel(9, "MagDown");
+gPolarityLoose->GetXaxis()->SetBinLabel(92, "MagUp");   
+gPolarityLoose->GetXaxis()->LabelsOption("h");   
+gPolarityLoose->Draw("ap");
+
+grid->Write("Polarity Statistics - Loose");
+
+c1->cd();
+
+ParticleLoose->Fit("ParticleFitSGLoose");
+ParticleLoose->SetMinimum(0);
+c1->Write("Baryon - Loose");
+ c1->Clear();
+
+AntiParticleLoose->Fit("AntiParticleFitSGLoose");
+AntiParticleLoose->SetMinimum(0);
+c1->Write("AntiBaryon - Loose");
+ c1->Clear();
+
+double ppLoose1 = ParticleFitSGLoose->GetParameter(1);
+double ppLoose2 = AntiParticleFitSGLoose->GetParameter(1);
+
+double pperrLoose1 = ParticleFitSGLoose->GetParError(1);
+double pperrLoose2 = AntiParticleFitSGLoose->GetParError(1);
+
+double ParticleAvGLoose = ((ppLoose1 + ppLoose2)/m);
+Double_t ppLoose[m] = {ppLoose1 - ParticleAvGLoose,ppLoose2 - ParticleAvGLoose};
+Double_t pperrLoose[m] = {pperrLoose1,pperrLoose2};
+
+grid->cd();
+ 
+gPIDLoose = new TGraphErrors(m,x,ppLoose,xerr,pperrLoose);
+gPIDLoose->SetMarkerColor(2);
+gPIDLoose->SetMarkerStyle(20);
+gPIDLoose->GetXaxis()->SetNdivisions(2);
+gPIDLoose->GetXaxis()->SetTitle("Particle ID");
+gPIDLoose->GetYaxis()->SetTitle("Measured Mass - Average Mass [MeV]");
+gPIDLoose->SetTitle("Deviations in LambdaC Mass of Baryon or AntiBaryon");
+gPIDLoose->GetXaxis()->SetAlphanumeric();
+gPIDLoose->GetXaxis()->SetBinLabel(9, "Baryon");
+gPIDLoose->GetXaxis()->SetBinLabel(92, "AntiBaryon");   
+gPIDLoose->GetXaxis()->LabelsOption("h");   
+gPIDLoose->Draw("ap");
+grid->Write("ParticleStatistics - Loose");
+
 
 TF1 *LcFitSGTight1 = new TF1("LcFitSGTight1", NewCrystalBallHalfMeV,2212.,2362.,9);
 LcFitSGTight1->SetParameter(0,115000); 
