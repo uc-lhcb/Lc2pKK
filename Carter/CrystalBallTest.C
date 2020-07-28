@@ -1037,9 +1037,6 @@ MassHistHalfMeVTight->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
   c1->Write("Lc Mass Tight - HalfMeVDG1Mu");
 
 ex1->cd();
- TLatex Tl;
- Tl.SetTextAlign(12);
- Tl.SetTextSize(0.04);
 Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries: %f Events", GaussianHalfMeVDG1MuTight->GetParameter(1)));
 Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", GaussianHalfMeVDG1MuTight->GetParError(1)));
 Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First Gaussian: %f Events", GaussianHalfMeVDG1MuTight->GetParameter(0)));
@@ -1435,10 +1432,6 @@ AntiParticleFitSGTight->SetParLimits(8, 1.000001, 8.);
  double yerrTight3 = LcFitSGTight3->GetParError(1);
  double yerrTight4 = LcFitSGTight4->GetParError(1);
 
- const Int_t n = 4;
- Double_t x[n] = {1,2,3,4};
- Double_t xerr[n] = {0,0,0,0};
-
 grid->cd();
 grid->SetGridy();
 
@@ -1478,8 +1471,6 @@ double pTight2 = MagUpFitSGTight->GetParameter(1);
 
 double perrTight1 = MagDownFitSGTight->GetParError(1);
 double perrTight2 = MagUpFitSGTight->GetParError(1);
-
- const Int_t m = 2;
 
 double PolarityAvGTight = ((pTight1 + pTight2)/m);
 Double_t pTight[m] = {pTight1 - PolarityAvGTight,pTight2 - PolarityAvGTight};
