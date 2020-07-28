@@ -374,7 +374,7 @@ MassHistHalfMeVLoose->Draw();
    
 SignalHistLoose->Add(MassHistHalfMeVLoose,BackgroundHistLoose,1.0,-1.0);
 SignalHistLoose->SetMinimum(0); 
-SignalHistLoose->SetMaximum(7500);   
+SignalHistLoose->SetMaximum(11000);   
 SignalHistLoose->Draw();  
  MassHistHalfMeVLoose->Draw("SAME"); 
  c1->Write("Signal Estimate - Loose");
@@ -389,7 +389,7 @@ MassHistHalfMeVTight->Draw();
    
 SignalHistTight->Add(MassHistHalfMeVTight,BackgroundHistTight,1.0,-1.0);
 SignalHistTight->SetMinimum(0); 
-SignalHistTight->SetMaximum(11000);   
+SignalHistTight->SetMaximum(7500);   
 SignalHistTight->Draw();  
  MassHistHalfMeVTight->Draw("SAME"); 
  c1->Write("Signal Estimate - Tight");
