@@ -159,8 +159,8 @@ bool Cuts= (
       );
    
    if (LooseCuts){
-     MassHistHalfMeVLooseLoose->Fill(*Lcplus_M);
-     MassHist1MeVLooseLoose->Fill(*Lcplus_M); 
+     MassHistHalfMeVLoose->Fill(*Lcplus_M);
+     MassHist1MeVLoose->Fill(*Lcplus_M); 
      LcPDistributionLoose->Fill(*Lcplus_P);
    }  
    
@@ -252,16 +252,16 @@ TString deltaTotalStr;
  c1->cd();
 TSpectrum *sLoose = new TSpectrum(); 
 TH1 * BackgroundHistLoose = sLoose->Background(MassHistHalfMeVLoose, 100,"");  
-MassHistHalfMeVLooseLoose->Draw();
+MassHistHalfMeVLoose->Draw();
  BackgroundHistLoose->Draw("SAME"); 
  c1->Write("Background Estimate - Loose");
  c1->Clear();
    
-SignalHistLoose->Add(MassHistHalfMeVLooseLoose,BackgroundHistLoose,1.0,-1.0);
+SignalHistLoose->Add(MassHistHalfMeVLoose,BackgroundHistLoose,1.0,-1.0);
 SignalHistLoose->SetMinimum(0); 
 SignalHistLoose->SetMaximum(6250);   
 SignalHistLoose->Draw();  
- MassHistHalfMeVLooseLoose->Draw("SAME"); 
+ MassHistHalfMeVLoose->Draw("SAME"); 
  c1->Write("Signal Estimate - Loose");
   c1->Clear();
 
