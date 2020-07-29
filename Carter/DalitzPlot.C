@@ -811,7 +811,7 @@ pad2->Draw();
 
               ex1->Write("Fit Values - DalitzTight");                   
 
-
+c1->cd();
 DalitzPlotTight->Draw("COLZ");
  c1->Write("Dalitz Plot - Tight");
    
@@ -825,7 +825,6 @@ KpKmTightSigZoom->SetLineColor(kBlue);
 BackgroundEstimate->SetLineColor(kRed);
 SignalEstimate->SetLineColor(kGreen+3);
 gStyle->SetOptTitle(0);
-c1->cd();
   
 KpKmTightSigZoom->SetMinimum(0);
 KpKmTightSigZoom->Draw();
