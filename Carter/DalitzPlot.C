@@ -362,7 +362,7 @@ if (PIDCutTight && RBCut){
 }
 
 BackgroundEstimate->Add(KpKmTightRB, KpKmTightLB,1.0,1.0);  
-SignalEstimate->Add(KpKmTightSig,BackgroundEstimate,1.0,-0.5); 
+SignalEstimate->Add(KpKmTightSigZoom,BackgroundEstimate,1.0,-0.5); 
    
    return kTRUE;
 }
@@ -801,19 +801,19 @@ pad2->Draw();
               ex1->Write("Fit Values - DalitzTight");                   
 
 
-KpKmTightSig->SetLineColor(kBlue);   
+KpKmTightSigZoom->SetLineColor(kBlue);   
 BackgroundEstimate->SetLineColor(kRed);
 SignalEstimate->SetLineColor(kGreen+3);
 gStyle->SetOptTitle(0);
 c1->cd();
 
 TH1::SetDefaultSumw2(kTRUE);   
-KpKmTightSig->SetMinimum(0);
-KpKmTightSig->Draw();
+KpKmTightSigZoom->SetMinimum(0);
+KpKmTightSigZoom->Draw();
 SignalEstimate->Draw("SAME");
 BackgroundEstimate->Draw("SAME");
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
-KpKmTightSig->SetTitle("Signal Estimations From Background Subtraction");
+KpKmTightSigZoom->SetTitle("Signal Estimations From Background Subtraction");
 c1->Write("Signal Estimations - TightCut"); 
    
 File->Close();
