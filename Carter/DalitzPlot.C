@@ -361,7 +361,7 @@ if (PIDCutTight && RBCut){
   KpKmTightRBZoom->Fill(M2_KpKm);
 }
 
-BackgroundEstimate->Add(KpKmTightRB, KpKmTightLB,1.0,1.0);  
+BackgroundEstimate->Add(KpKmTightRBZoom, KpKmTightLBZoom,1.0,1.0);  
 SignalEstimate->Add(KpKmTightSigZoom,BackgroundEstimate,1.0,-0.5); 
    
    return kTRUE;
