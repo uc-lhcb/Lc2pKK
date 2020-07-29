@@ -208,28 +208,23 @@ double M2_KpKm = KpKm.Mag2()/(1000*1000);
 
 
 bool LooseCuts= (
-  ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.7)
-&& ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.75)
-&& (*Proton_ProbNNp > 0.75) 
+  ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.65)
+&& ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.70)
+&& (*Proton_ProbNNp > 0.70) 
 && (M2_KpKm > 1.02)
 && (M2_KpKm < 1.06)   
 );
    
 bool TightCuts= (
-  ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.87)
+  ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.88)
 && ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.9)
 && (*Proton_ProbNNp > 0.9) 
 && (M2_KpKm > 1.02)
 && (M2_KpKm < 1.06)   
 );   
 
-bool Cuts= (
-     ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.87)
-  && ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.9)
-  && (*Proton_ProbNNp > 0.9) 
-  && (M2_KpKm > 1.02)
-  && (M2_KpKm < 1.06)   
-  && ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 2.5))
+bool Kinematics = (  
+     ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 2.5))
   && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 2.5))
   && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 2.5))   
   && (*Proton_PT > 950)
