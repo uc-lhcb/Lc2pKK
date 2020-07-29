@@ -58,7 +58,7 @@ TH1D * MHistTight = nullptr;
 TH1D * MHistDalitzLoose = nullptr;
 TH1D * MHistDalitzTight = nullptr;
 
-TH1D * DalitzPlotTight = nullptr;
+TH2D * DalitzPlotTight = nullptr;
 TH1D * BackgroundEstimate = nullptr;
 TH1D * SignalEstimate = nullptr;
 
