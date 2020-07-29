@@ -800,20 +800,24 @@ pad2->Draw();
 
               ex1->Write("Fit Values - DalitzTight");                   
 
-
+KpKmTightSigZoom->SetDefaultSumw2(kTRUE); 
+BackgroundEstimate->SetDefaultSumw2(kTRUE); 
+SignalEstimateEstimate->SetDefaultSumw2(kTRUE);    
+KpKmTightSigZoom->SetTitle("Signal Region");
+BackgroundEstimate->SetTitle("Background");
+SignalEstimate->SetTitle("Signal Estimate");
 KpKmTightSigZoom->SetLineColor(kBlue);   
 BackgroundEstimate->SetLineColor(kRed);
 SignalEstimate->SetLineColor(kGreen+3);
 gStyle->SetOptTitle(0);
 c1->cd();
-
-TH1::SetDefaultSumw2(kTRUE);   
+  
 KpKmTightSigZoom->SetMinimum(0);
 KpKmTightSigZoom->Draw();
 SignalEstimate->Draw("SAME");
 BackgroundEstimate->Draw("SAME");
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
-KpKmTightSigZoom->SetTitle("Signal Estimations From Background Subtraction");
+KpKmTightSigZoom->SetTitle("Signal/Background Estimations From m^{2}(K^{-}K^{+}) Distributions");
 c1->Write("Signal Estimations - TightCut"); 
    
 File->Close();
