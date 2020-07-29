@@ -221,9 +221,9 @@ void DalitzPlot::Begin(TTree * /*tree*/)
    MHistDalitzTight->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
      //Plot of M^2 Variable for K+ and K- Combination Background For TightCut
-   SignalEstimate = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination", 200, 0.95, 1.21);
-   SignalEstimate->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
-   SignalEstimate->GetYaxis()->SetTitle("Events");  
+   BackgroundEstimate = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination", 200, 0.95, 1.21);
+   BackgroundEstimate->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
+   BackgroundEstimate->GetYaxis()->SetTitle("Events");  
    
     //Plot of M^2 Variable for K+ and K- Combination SignalEstimate For TightCut
    SignalEstimate = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination", 200, 0.95, 1.21);
