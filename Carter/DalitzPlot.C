@@ -1,9 +1,7 @@
-//Determine KpKm Cut
-//Apply KpKm Cut + PID Cuts
-
 #define DalitzPlot_cxx
-#include "DalitzPlot.h"
+//Add BSub for M2 Variable
 
+#include "DalitzPlot.h"
 #include "DGOneMuOneTotalHalfMeV.C"
 
 #include <TH1D.h>
@@ -59,6 +57,9 @@ TH1D * MHistLoose = nullptr;
 TH1D * MHistTight = nullptr;
 TH1D * MHistDalitzLoose = nullptr;
 TH1D * MHistDalitzTight = nullptr;
+
+TH1D * BackgroundEstimate = nullptr;
+TH1D * SignalEstimate = nullptr;
 
 TFile * File = nullptr;
 
@@ -219,6 +220,16 @@ void DalitzPlot::Begin(TTree * /*tree*/)
    MHistDalitzTight->GetXaxis()->SetTitle("MeV");
    MHistDalitzTight->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
+     //Plot of M^2 Variable for K+ and K- Combination Background For TightCut
+   SignalEstimate = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination", 200, 0.95, 1.21);
+   SignalEstimate->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
+   SignalEstimate->GetYaxis()->SetTitle("Events");  
+   
+    //Plot of M^2 Variable for K+ and K- Combination SignalEstimate For TightCut
+   SignalEstimate = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination", 200, 0.95, 1.21);
+   SignalEstimate->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
+   SignalEstimate->GetYaxis()->SetTitle("Events");  
+   
     File = new TFile("DalitzAnalysis.root", "RECREATE");
   gFile = File;
 
@@ -269,15 +280,15 @@ bool RBCut = (
 );
 
 bool  PIDCutLoose = (
-        ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.65)
-     && ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.75)
-     && (*Proton_ProbNNp > 0.8) 
+  ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.65)
+&& ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.70)
+&& (*Proton_ProbNNp > 0.70) 
    );
 
    bool  PIDCutTight = (
-        ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.87)
-     && ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.90)
-     && (*Proton_ProbNNp > 0.9) 
+  ((*Kminus_ProbNNk)*(*Kplus_ProbNNk)*(*Proton_ProbNNp) > 0.88)
+&& ((*Kminus_ProbNNk)*(*Kplus_ProbNNk) > 0.9)
+&& (*Proton_ProbNNp > 0.9) 
       );
 
    bool DalitzCuts = (
@@ -285,14 +296,6 @@ bool  PIDCutLoose = (
   && (M2_KpKm < 1.06)
       );
    
-// bool AdditionalCuts = (    
-//   ((TMath::Log10(*Proton_IPCHI2_OWNPV) < 2.5))
-//  && ((TMath::Log10(*Kminus_IPCHI2_OWNPV) < 2.5))
-//  && ((TMath::Log10(*Kplus_IPCHI2_OWNPV) < 2.5))   
-//  && (*Proton_PT > 950)
-//  && (*Lcplus_Loki_DOCACHI2MAX < 18)
-//  && (*Lcplus_TAU < 0.002)   
-); 
    
 if (PIDCutLoose){
 MHistLoose->Fill(*Lcplus_M);
@@ -358,6 +361,9 @@ if (PIDCutTight && RBCut){
   KpKmTightRBZoom->Fill(M2_KpKm);
 }
 
+BackgroundEstimate->Add(KpKmTightRB, KpKmTightLB,1.0,1.0);  
+SignalEstimate->Add(KpKmTightSig,BackgroundEstimate,1.0,-0.5); 
+   
    return kTRUE;
 }
 
@@ -794,5 +800,21 @@ pad2->Draw();
 
               ex1->Write("Fit Values - DalitzTight");                   
 
+
+KpKmTightSig->SetLineColor(kBlue);   
+BackgroundEstimate->SetLineColor(kRed);
+SignalEstimate->SetLineColor(kGreen+3);
+gStyle->SetOptTitle(0);
+c1->cd();
+
+TH1::SetDefaultSumw2(kTRUE);   
+KpKmTightSig->SetMinimum(0);
+KpKmTightSig->Draw();
+SignalEstimate->Draw("SAME");
+BackgroundEsitmate->Draw("SAME");
+gPad->BuildLegend(0.78,0.75,0.98,0.95);
+PIPCHI2Signal->SetTitle("Signal Estimations From Background Subtraction");
+c1->Write("Signal Estimations - TightCut"); 
+   
 File->Close();
 }
