@@ -58,6 +58,7 @@ TH1D * MHistTight = nullptr;
 TH1D * MHistDalitzLoose = nullptr;
 TH1D * MHistDalitzTight = nullptr;
 
+TH1D * DalitzPlotTight = nullptr;
 TH1D * BackgroundEstimate = nullptr;
 TH1D * SignalEstimate = nullptr;
 
@@ -220,6 +221,12 @@ void DalitzPlot::Begin(TTree * /*tree*/)
    MHistDalitzTight->GetXaxis()->SetTitle("MeV");
    MHistDalitzTight->GetYaxis()->SetTitle("Events Per 1/2 MeV");
 
+    //Dalitz Plot TightRB
+   DalitzPlotTight = new TH2D("Dalitz Plot", "Dalitz Plot of Lc->pKK Decay - Tight Cut", 200, 0.8, 2.2, 200, 1.7, 3.7);
+   DalitzPlotTight->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
+   DalitzPlotTight->GetYaxis()->SetTitle("m^{2}(pK^{-})[GeV^{2}/c^{4}]");
+   DalitzPlotTight->GetZaxis()->SetTitle("Events");  
+   
      //Plot of M^2 Variable for K+ and K- Combination Background For TightCut
    BackgroundEstimate = new TH1D("M^{2} [GeV^{2}/c^{4}]", "Kplus & Kminus Invariant Mass Combination", 200, 0.95, 1.21);
    BackgroundEstimate->GetXaxis()->SetTitle("m^{2}(K^{-}K^{+})[GeV^{2}/c^{4}]");
@@ -361,6 +368,10 @@ if (PIDCutTight && RBCut){
   KpKmTightRBZoom->Fill(M2_KpKm);
 }
 
+if (PIDCutTight){   
+ DalitzPlotTight->Fill(M2_KpKm, M2_PKm);
+}
+   
 BackgroundEstimate->Add(KpKmTightRBZoom, KpKmTightLBZoom,1.0,1.0);  
 SignalEstimate->Add(KpKmTightSigZoom,BackgroundEstimate,1.0,-0.5); 
    
@@ -800,6 +811,10 @@ pad2->Draw();
 
               ex1->Write("Fit Values - DalitzTight");                   
 
+
+DalitzPlotTight->Draw("COLZ");
+ c1->Write("Dalitz Plot - Tight");
+   
 KpKmTightSigZoom->SetDefaultSumw2(kTRUE); 
 BackgroundEstimate->SetDefaultSumw2(kTRUE); 
 SignalEstimate->SetDefaultSumw2(kTRUE);    
