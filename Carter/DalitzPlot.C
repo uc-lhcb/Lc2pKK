@@ -811,9 +811,9 @@ TH1::SetDefaultSumw2(kTRUE);
 KpKmTightSig->SetMinimum(0);
 KpKmTightSig->Draw();
 SignalEstimate->Draw("SAME");
-BackgroundEsitmate->Draw("SAME");
+BackgroundEstimate->Draw("SAME");
 gPad->BuildLegend(0.78,0.75,0.98,0.95);
-PIPCHI2Signal->SetTitle("Signal Estimations From Background Subtraction");
+KpKmTightSig->SetTitle("Signal Estimations From Background Subtraction");
 c1->Write("Signal Estimations - TightCut"); 
    
 File->Close();
