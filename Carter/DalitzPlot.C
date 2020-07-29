@@ -802,7 +802,7 @@ pad2->Draw();
 
 KpKmTightSigZoom->SetDefaultSumw2(kTRUE); 
 BackgroundEstimate->SetDefaultSumw2(kTRUE); 
-SignalEstimateEstimate->SetDefaultSumw2(kTRUE);    
+SignalEstimate->SetDefaultSumw2(kTRUE);    
 KpKmTightSigZoom->SetTitle("Signal Region");
 BackgroundEstimate->SetTitle("Background");
 SignalEstimate->SetTitle("Signal Estimate");
