@@ -584,8 +584,6 @@ sigma1ErDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParError(3));
 sigma2DGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParameter(4));
 sigma2ErDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParError(4));  
    
-auto lt = new TLatex();
-lt->SetTextSize(0.03);
 lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
 lt->DrawLatexNDC(0.6, 0.65, "Percent in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"%");   
 lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
@@ -706,15 +704,15 @@ MassHist1MeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Gaussian + CrystalBall Fit")
 ///////////////////////////   
    
 TF1 *GaussianHalfMeVDGTight = new TF1("GaussianHalfMeVDG1MuTight",DGOneMuOneTotalHalfMeV,2200.,2400.,7);
-GaussianHalfMeVDG1MuTight->SetParameter(0, 0.4);
-GaussianHalfMeVDG1MuTight->SetParameter(1, 12000);
-GaussianHalfMeVDG1MuTight->SetParameter(2, 2287.);
-GaussianHalfMeVDG1MuTight->SetParameter(3, 3);
-GaussianHalfMeVDG1MuTight->SetParameter(4, 6);
-GaussianHalfMeVDG1MuTight->SetParLimits(3, 0., 20.);
-GaussianHalfMeVDG1MuTight->SetParLimits(4, 0., 20.);
-GaussianHalfMeVDG1MuTight->SetParameter(5, 0.);
-GaussianHalfMeVDG1MuTight->SetParameter(6, 0.);
+GaussianHalfMeVDGTight->SetParameter(0, 0.4);
+GaussianHalfMeVDGTight->SetParameter(1, 12000);
+GaussianHalfMeVDGTight->SetParameter(2, 2287.);
+GaussianHalfMeVDGTight->SetParameter(3, 3);
+GaussianHalfMeVDGTight->SetParameter(4, 6);
+GaussianHalfMeVDGTight->SetParLimits(3, 0., 20.);
+GaussianHalfMeVDGTight->SetParLimits(4, 0., 20.);
+GaussianHalfMeVDGTight->SetParameter(5, 0.);
+GaussianHalfMeVDGTight->SetParameter(6, 0.);
 
 pad1->cd();
 MassHistHalfMeVTight->SetMinimum(0.0001);
@@ -855,15 +853,15 @@ MassHistHalfMeVTight->SetTitle("#Lambda_{c}^{+} Mass - Gaussian + CrystalBall Fi
 //////////////////////////////////////////////////////   
    
 TF1 *Gaussian1MeVDG1MuTight = new TF1("Gaussian1MeVDG1MuTight",DGOneMuOneTotal1MeV,2212.,2362.,7);
-Gaussian1MeVDG1MuTight->SetParameter(0, 0.4);
-Gaussian1MeVDG1MuTight->SetParameter(1, 12000);
-Gaussian1MeVDG1MuTight->SetParameter(2, 2287.);
-Gaussian1MeVDG1MuTight->SetParameter(3, 3);
-Gaussian1MeVDG1MuTight->SetParameter(4, 6);
-Gaussian1MeVDG1MuTight->SetParLimits(3, 0., 20.);
-Gaussian1MeVDG1MuTight->SetParLimits(4, 0., 20.);
-Gaussian1MeVDG1MuTight->SetParameter(5, 0.);
-Gaussian1MeVDG1MuTight->SetParameter(6, 0.);
+Gaussian1MeVDGTight->SetParameter(0, 0.4);
+Gaussian1MeVDGTight->SetParameter(1, 12000);
+Gaussian1MeVDGTight->SetParameter(2, 2287.);
+Gaussian1MeVDGTight->SetParameter(3, 3);
+Gaussian1MeVDGTight->SetParameter(4, 6);
+Gaussian1MeVDGTight->SetParLimits(3, 0., 20.);
+Gaussian1MeVDGTight->SetParLimits(4, 0., 20.);
+Gaussian1MeVDGTight->SetParameter(5, 0.);
+Gaussian1MeVDGTight->SetParameter(6, 0.);
 
 pad1->cd();
 MassHist1MeVTight->SetMinimum(0.0001);
