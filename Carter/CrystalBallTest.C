@@ -436,7 +436,7 @@ lt->DrawLatexNDC(0.6, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV"
 lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
 
 pad2->cd();
-TH1D* PullPlotHalfMeVDG1MuLoose = new TH1D("Mass [MeV]", "Lc Mass" 300, 2212, 2362);   
+TH1D* PullPlotHalfMeVDG1MuLoose = new TH1D("Mass [MeV]", "Lc Mass", 300, 2212, 2362);   
 PullPlotHalfMeVDG1MuLoose->SetStats(0);
 PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetTitle("Pull");
 PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetTitleSize(30);
