@@ -390,41 +390,41 @@ pad2->Draw();
 
 /////////////////////////////////////   
    
-TF1 *GaussianHalfMeVDG1MuLoose = new TF1("GaussianHalfMeVDG1MuLoose",DGOneMuOneTotalHalfMeV,2200.,2400.,7);  
-GaussianHalfMeVDG1MuLoose->SetParameter(0, 0.4);
-GaussianHalfMeVDG1MuLoose->SetParameter(1, 12000);
-GaussianHalfMeVDG1MuLoose->SetParameter(2, 2287.);
-GaussianHalfMeVDG1MuLoose->SetParameter(3, 3);
-GaussianHalfMeVDG1MuLoose->SetParameter(4, 6);
-GaussianHalfMeVDG1MuLoose->SetParLimits(3, 0., 20.);
-GaussianHalfMeVDG1MuLoose->SetParLimits(4, 0., 20.);
-GaussianHalfMeVDG1MuLoose->SetParameter(5, 0.);
-GaussianHalfMeVDG1MuLoose->SetParameter(6, 0.);
+TF1 *GaussianHalfMeVDGLoose = new TF1("GaussianHalfMeVDGLoose",DGOneMuOneTotalHalfMeV,2200.,2400.,7);  
+GaussianHalfMeVDGLoose->SetParameter(0, 0.4);
+GaussianHalfMeVDGLoose->SetParameter(1, 12000);
+GaussianHalfMeVDGLoose->SetParameter(2, 2287.);
+GaussianHalfMeVDGLoose->SetParameter(3, 3);
+GaussianHalfMeVDGLoose->SetParameter(4, 6);
+GaussianHalfMeVDGLoose->SetParLimits(3, 0., 20.);
+GaussianHalfMeVDGLoose->SetParLimits(4, 0., 20.);
+GaussianHalfMeVDGLoose->SetParameter(5, 0.);
+GaussianHalfMeVDGLoose->SetParameter(6, 0.);
 
 pad1->cd();
 MassHistHalfMeVLoose->SetMinimum(0.0001);
-MassHistHalfMeVLoose->Fit("GaussianHalfMeVDG1MuLoose");
+MassHistHalfMeVLoose->Fit("GaussianHalfMeVDGLoose");
 
 TString SignalDGH;
 TString SignalErDGH;
-SignalDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParameter(1));
-SignalErDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParError(1));  
+SignalDGH.Form("%5.2f\n", GaussianHalfMeVDGLoose->GetParameter(1));
+SignalErDGH.Form("%5.2f\n", GaussianHalfMeVDGLoose->GetParError(1));  
 TString FractionDGH;
 TString FractionErDGH;
-FractionDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParameter(0));
-FractionErDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParError(0));    
+FractionDGH.Form("%5.2f\n", GaussianHalfMeVDGLoose->GetParameter(0));
+FractionErDGH.Form("%5.2f\n", GaussianHalfMeVDGLoose->GetParError(0));    
 TString muDGH;
 TString muErDGH;
-muDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParameter(2));
-muErDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParError(2));    
+muDGH.Form("%5.2f\n", GaussianHalfMeVDGLoose->GetParameter(2));
+muErDGH.Form("%5.2f\n", GaussianHalfMeVDGLoose->GetParError(2));    
 TString sigma1DGH;
 TString sigma1ErDGH;
-sigma1DGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParameter(3));
-sigma1ErDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParError(3));     
+sigma1DGH.Form("%5.2f\n", GaussianHalfMeVDGLoose->GetParameter(3));
+sigma1ErDGH.Form("%5.2f\n", GaussianHalfMeVDGLoose->GetParError(3));     
 TString sigma2DGH;
 TString sigma2ErDGH;
-sigma2DGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParameter(4));
-sigma2ErDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParError(4));  
+sigma2DGH.Form("%5.2f\n", GaussianHalfMeVDGLoose->GetParameter(4));
+sigma2ErDGH.Form("%5.2f\n", GaussianHalfMeVDGLoose->GetParError(4));  
    
 auto lt = new TLatex();
 lt->SetTextSize(0.03);
@@ -435,31 +435,31 @@ lt->DrawLatexNDC(0.6, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV"
 lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
 
 pad2->cd();
-TH1D* PullPlotHalfMeVDG1MuLoose = new TH1D("Mass [MeV]", "Lc Mass", 300, 2212, 2362);   
-PullPlotHalfMeV->SetStats(0);  
-PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetTitle("Mass[MeV]");
-PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetTitleSize(10);   
-PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetTitleOffset(2);
-PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetLabelSize(0.1);   
-PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetTitle("Pull"); 
-PullPlotHalfMeVDG1MuLoose->GetYaxis()->CenterTitle(true);
-PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetTitleSize(10);   
-PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetLabelSize(0.05);   
-PullPlotHalfMeVDG1MuLoose->SetFillColor(kBlue);
-PullPlotHalfMeVDG1MuLoose->SetLineColor(kBlue);
-PullPlotHalfMeVDG1MuLoose->SetBit(TH1::kNoTitle);  
+TH1D* PullPlotHalfMeVDGLoose = new TH1D("Mass [MeV]", "Lc Mass", 300, 2212, 2362);   
+PullPlotHalfMeVDGLoose->SetStats(0);  
+PullPlotHalfMeVDGLoose->GetXaxis()->SetTitle("Mass[MeV]");
+PullPlotHalfMeVDGLoose->GetXaxis()->SetTitleSize(10);   
+PullPlotHalfMeVDGLoose->GetXaxis()->SetTitleOffset(2);
+PullPlotHalfMeVDGLoose->GetXaxis()->SetLabelSize(0.1);   
+PullPlotHalfMeVDGLoose->GetYaxis()->SetTitle("Pull"); 
+PullPlotHalfMeVDGLoose->GetYaxis()->CenterTitle(true);
+PullPlotHalfMeVDGLoose->GetYaxis()->SetTitleSize(10);   
+PullPlotHalfMeVDGLoose->GetYaxis()->SetLabelSize(0.05);   
+PullPlotHalfMeVDGLoose->SetFillColor(kBlue);
+PullPlotHalfMeVDGLoose->SetLineColor(kBlue);
+PullPlotHalfMeVDGLoose->SetBit(TH1::kNoTitle);  
 
  for (Int_t i=1;i<300;i++) {
  Double_t x = MassHistHalfMeVLoose->GetBinCenter(i);
- Double_t val = GaussianHalfMeVDG1MuLoose->Eval(x);
+ Double_t val = GaussianHalfMeVDGLoose->Eval(x);
  Double_t sigma = sqrt(val);
  Double_t pull = (MassHistHalfMeVLoose->GetBinContent(i)-val)/sigma;
-PullPlotHalfMeVDG1MuLoose->SetBinContent(i,pull);
+PullPlotHalfMeVDGLoose->SetBinContent(i,pull);
    }  
-PullPlotHalfMeVDG1MuLoose->Draw();  
+PullPlotHalfMeVDGLoose->Draw();  
       
 MassHistHalfMeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
-  c1->Write("Lc Mass Loose - HalfMeVDG1Mu");
+  c1->Write("Lc Mass Loose - HalfMeVDG");
 
 TF1 *CrystalBallFunctionHalfMeVLoose = new TF1("CrystalBallFunctionHalfMeVLoose", NewCrystalBallHalfMeV,2212.,2362.,9);
 CrystalBallFunctionHalfMeVLoose->SetParameter(0,115000); 
@@ -473,59 +473,76 @@ CrystalBallFunctionHalfMeVLoose->SetParameter(6, -0.2);
 CrystalBallFunctionHalfMeVLoose->SetParameter(7, 2.0);
 CrystalBallFunctionHalfMeVLoose->SetParameter(8, 3.0);   
 CrystalBallFunctionHalfMeVLoose->SetParLimits(8, 1.000001, 8.);   
-   
+
 pad1->cd();
-MassHistHalfMeVLoose->SetMinimum(0);
+MassHistHalfMeVLoose->SetMinimum(0.0001);
 MassHistHalfMeVLoose->Fit("CrystalBallFunctionHalfMeVLoose");
 
-int BinHeightCBHalfMeVLoose[300];
-int FitHeightCBHalfMeVLoose[300];
-double PullCBHalfMeVLoose[300];
-
-double CBHalfMeVLoosecount1 = 0;
-double CBHalfMeVLoosecount2 = 0;
-double CBHalfMeVLoosecount3 = 0;
-
-for (int bin = 0; bin < 300; bin++){
-BinHeightCBHalfMeVLoose[bin] = MassHistHalfMeVLoose->GetBinContent(bin + 1);
-int xvalue = 2212.25 + 0.5*(bin);
-FitHeightCBHalfMeVLoose[bin] = (CrystalBallFunctionHalfMeVLoose->Eval(xvalue));
-PullCBHalfMeVLoose[bin] = (BinHeightCBHalfMeVLoose[bin] - FitHeightCBHalfMeVLoose[bin])/TMath::Sqrt(FitHeightCBHalfMeVLoose[bin]);
-
-if (PullCBHalfMeVLoose[bin] > -1 && PullCBHalfMeVLoose[bin] < 1){
-CBHalfMeVLoosecount1 += 1;
-}
-
-if (PullCBHalfMeVLoose[bin] > -2 && PullCBHalfMeVLoose[bin] < 2){
-CBHalfMeVLoosecount2 += 1;
-}
-
-if (PullCBHalfMeVLoose[bin] > -3 && PullCBHalfMeVLoose[bin] < 3){
-CBHalfMeVLoosecount3 += 1;
-}
-}
+TString SignalCBH;
+TString SignalErCBH;
+SignalCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParameter(0));
+SignalErCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParError(0));  
+TString FractionCBH;
+TString FractionErCBH;
+FractionCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParameter(4));
+FractionErCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParError(4));    
+TString muCBH;
+TString muErCBH;
+muCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParameter(1));
+muErCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParError(1));    
+TString sigmaGauCBH;
+TString sigmaGauErCBH;
+sigmaGauCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParameter(3));
+sigmaGauErCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParError(3));     
+TString sigma2CBH;
+TString sigma2ErCBH;
+Double_t sigma2 = TMath::Sqrt((CrystalBallFunctionHalfMeVLoose->GetParameter(4)*CrystalBallFunctionHalfMeVLoose->GetParameter(4) - CrystalBallFunctionHalfMeVLoose->GetParameter(4)*CrystalBallFunctionHalfMeVLoose->GetParameter(3)*CrystalBallFunctionHalfMeVLoose->GetParameter(3)) / (1 - CrystalBallFunctionHalfMeVLoose->GetParameter(4));
+Double_t sigma2Err = TMath::Sqrt((CrystalBallFunctionHalfMeVLoose->GetParError(4)*CrystalBallFunctionHalfMeVLoose->GetParError(4) - CrystalBallFunctionHalfMeVLoose->GetParError(4)*CrystalBallFunctionHalfMeVLoose->GetParError(3)*CrystalBallFunctionHalfMeVLoose->GetParError(3)) / (1 - CrystalBallFunctionHalfMeVLoose->GetParError(4));
+sigma2CBH.Form("%5.2f\n", sigma2);
+sigma2ErCBH.Form("%5.2f\n", sigma2Err);  
+TString alphaCBH;
+TString alphaCBH;
+alphaCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParameter(7));
+alphaCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParError(7));    
+TString nCBH;
+TString nCBH;
+nCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParameter(8));
+nCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParError(8)); 
+ 
+auto lt = new TLatex();
+lt->SetTextSize(0.03);
+lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalCBH+" #pm "+SignalErCBH+" Events");
+lt->DrawLatexNDC(0.6, 0.65, "Percent in Gaussian = "+FractionCBH+" #pm "+FractionErCBH+"%");   
+lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muCBH+" #pm "+muErCBH+" MeV");   
+lt->DrawLatexNDC(0.6, 0.55, "#sigma_{Gaussian} = "+sigmaGauCBH+" #pm "+sigmaGauErCBH+" MeV");  
+lt->DrawLatexNDC(0.6, 0.5, "#sigma_{CrystalBall} = "+sigma2CBH+" #pm "+sigma2ErCBH+" MeV");   
 
 pad2->cd();
-TGraph* PullCBHalfMeVPlotLoose = new TGraph(300, PullxHalfMeV, PullCBHalfMeVLoose);
-PullCBHalfMeVPlotLoose->GetXaxis()->SetLimits(0.5,300.5);
-PullCBHalfMeVPlotLoose->GetXaxis()->SetTickLength(0.);
-PullCBHalfMeVPlotLoose->GetYaxis()->SetTickLength(0.);
-PullCBHalfMeVPlotLoose->SetFillColor(38);
-PullCBHalfMeVPlotLoose->GetYaxis()->SetTitle("Pull");
-PullCBHalfMeVPlotLoose->GetYaxis()->CenterTitle();
-PullCBHalfMeVPlotLoose->GetYaxis()->SetTitleSize(0.10);
-PullCBHalfMeVPlotLoose->GetYaxis()->SetTitleOffset(0.2);
-PullCBHalfMeVPlotLoose->GetXaxis()->SetLabelSize(0);
-PullCBHalfMeVPlotLoose->GetYaxis()->SetLabelFont(42);
-PullCBHalfMeVPlotLoose->GetYaxis()->SetLabelSize(0.06);
-PullCBHalfMeVPlotLoose->SetTitle("");
-PullCBHalfMeVPlotLoose->SetMinimum(-7);
-PullCBHalfMeVPlotLoose->SetMaximum(7);
-PullCBHalfMeVPlotLoose->Draw("AB");
-MassHistHalfMeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Crystal Ball Fit");   
-    c1->Write("Lc Mass Loose - Crystal Ball Half MeV");
-// c1->Clear();
- 
+TH1D* PullPlotHalfMeVCBLoose = new TH1D("Mass [MeV]", "Lc Mass", 300, 2212, 2362);   
+PullPlotHalfMeVCBLoose->SetStats(0);  
+PullPlotHalfMeVCBLoose->GetXaxis()->SetTitle("Mass[MeV]");
+PullPlotHalfMeVCBLoose->GetXaxis()->SetTitleSize(10);   
+PullPlotHalfMeVCBLoose->GetXaxis()->SetTitleOffset(2);
+PullPlotHalfMeVCBLoose->GetXaxis()->SetLabelSize(0.1);   
+PullPlotHalfMeVCBLoose->GetYaxis()->SetTitle("Pull"); 
+PullPlotHalfMeVCBLoose->GetYaxis()->CenterTitle(true);
+PullPlotHalfMeVCBLoose->GetYaxis()->SetTitleSize(10);   
+PullPlotHalfMeVCBLoose->GetYaxis()->SetLabelSize(0.05);   
+PullPlotHalfMeVCBLoose->SetFillColor(kBlue);
+PullPlotHalfMeVCBLoose->SetLineColor(kBlue);
+PullPlotHalfMeVCBLoose->SetBit(TH1::kNoTitle);  
+
+ for (Int_t i=1;i<300;i++) {
+ Double_t x = MassHistHalfMeVLoose->GetBinCenter(i);
+ Double_t val = CrystalBallFunctionHalfMeVLoose->Eval(x);
+ Double_t sigma = sqrt(val);
+ Double_t pull = (MassHistHalfMeVLoose->GetBinContent(i)-val)/sigma;
+PullPlotHalfMeVCBLoose->SetBinContent(i,pull);
+   }  
+PullPlotHalfMeVCBLoose->Draw();  
+      
+MassHistHalfMeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
+  c1->Write("Lc Mass Loose - HalfMeVCB"); 
 
 TF1 *Gaussian1MeVDG1MuLoose = new TF1("Gaussian1MeVDG1MuLoose",DGOneMuOneTotal1MeV,2212.,2362.,7);
 Gaussian1MeVDG1MuLoose->SetParameter(0, 0.4);
@@ -538,58 +555,7 @@ Gaussian1MeVDG1MuLoose->SetParLimits(4, 0., 20.);
 Gaussian1MeVDG1MuLoose->SetParameter(5, 0.);
 Gaussian1MeVDG1MuLoose->SetParameter(6, 0.);
 
-pad1->cd();
-MassHist1MeVLoose->SetMinimum(0);
-MassHist1MeVLoose->Fit("Gaussian1MeVDG1MuLoose");
 
-int BinHeight1MeVDG1MuLoose[150];
-int FitHeight1MeVDG1MuLoose[150];
-double Pull1MeVDG1MuLoose[150];
-
-double   DG1MeVDG1MuLoosecount1 = 0;
-double   DG1MeVDG1MuLoosecount2 = 0;
-double   DG1MeVDG1MuLoosecount3 = 0;
-
-for (int bin = 0; bin < 150; bin++){
-BinHeight1MeVDG1MuLoose[bin] = MassHist1MeVLoose->GetBinContent(bin + 1);
-Pullx1MeV[bin] = (bin + 1);   
-int xvalue1MeVDG1Mu = 2212.5 + 1*(bin);
-FitHeight1MeVDG1MuLoose[bin] = (Gaussian1MeVDG1MuLoose->Eval(xvalue1MeVDG1Mu));
-Pull1MeVDG1MuLoose[bin] = (BinHeight1MeVDG1MuLoose[bin] - FitHeight1MeVDG1MuLoose[bin])/TMath::Sqrt(FitHeight1MeVDG1MuLoose[bin]);
-
-if (Pull1MeVDG1MuLoose[bin] > -1 && Pull1MeVDG1MuLoose[bin] < 1){
-DG1MeVDG1MuLoosecount1 += 1;
-}
-
-if (Pull1MeVDG1MuLoose[bin] > -2 && Pull1MeVDG1MuLoose[bin] < 2){
-DG1MeVDG1MuLoosecount2 += 1;
-}
-
-if (Pull1MeVDG1MuLoose[bin] > -3 && Pull1MeVDG1MuLoose[bin] < 3){
-DG1MeVDG1MuLoosecount3 += 1;
-}
-}
-
-pad2->cd();
-TGraph* PullPlot1MeVDG1MuLoose = new TGraph(150, Pullx1MeV, Pull1MeVDG1MuLoose);
-PullPlot1MeVDG1MuLoose->GetXaxis()->SetLimits(0.5,150.5);
-PullPlot1MeVDG1MuLoose->GetXaxis()->SetTickLength(0.);
-PullPlot1MeVDG1MuLoose->GetYaxis()->SetTickLength(0.);
-PullPlot1MeVDG1MuLoose->SetFillColor(38);
-PullPlot1MeVDG1MuLoose->GetYaxis()->SetTitle("Pull");
-PullPlot1MeVDG1MuLoose->GetYaxis()->CenterTitle();
-PullPlot1MeVDG1MuLoose->GetYaxis()->SetTitleSize(0.10);
-PullPlot1MeVDG1MuLoose->GetYaxis()->SetTitleOffset(0.2);
-PullPlot1MeVDG1MuLoose->GetXaxis()->SetLabelSize(0);
-PullPlot1MeVDG1MuLoose->GetYaxis()->SetLabelFont(42);
-PullPlot1MeVDG1MuLoose->GetYaxis()->SetLabelSize(0.06);
-PullPlot1MeVDG1MuLoose->SetTitle("");
-PullPlot1MeVDG1MuLoose->SetMinimum(-7);
-PullPlot1MeVDG1MuLoose->SetMaximum(7);
-PullPlot1MeVDG1MuLoose->Draw("AB");
-MassHist1MeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
-  c1->Write("Lc Mass Loose - 1MeVDG1Mu");
- 
 
 TF1 *CrystalBallFunction1MeVLoose = new TF1("CrystalBallFunction1MeVLoose", NewCrystalBall1MeV,2212.,2362.,9);
 CrystalBallFunction1MeVLoose->SetParameter(0,115000); 
@@ -603,59 +569,9 @@ CrystalBallFunction1MeVLoose->SetParameter(6, -0.2);
 CrystalBallFunction1MeVLoose->SetParameter(7, 2.0);
 CrystalBallFunction1MeVLoose->SetParameter(8, 3.0);   
 CrystalBallFunction1MeVLoose->SetParLimits(8, 1.000001, 8.);    
- 
-pad1->cd();
-MassHist1MeVLoose->SetMinimum(0);
-MassHist1MeVLoose->Fit("CrystalBallFunction1MeVLoose");
 
-int BinHeightCB1MeVLoose[150];
-int FitHeightCB1MeVLoose[150];
-double PullCB1MeVLoose[150];
-
-double CB1MeVLoosecount1 = 0;
-double CB1MeVLoosecount2 = 0;
-double CB1MeVLoosecount3 = 0;
-
-for (int bin = 0; bin < 150; bin++){
-BinHeightCB1MeVLoose[bin] = MassHist1MeVLoose->GetBinContent(bin + 1);
-int xvalue = 2212.5 + 1.0*(bin);
-FitHeightCB1MeVLoose[bin] = (CrystalBallFunction1MeVLoose->Eval(xvalue));
-PullCB1MeVLoose[bin] = (BinHeightCB1MeVLoose[bin] - FitHeightCB1MeVLoose[bin])/TMath::Sqrt(FitHeightCB1MeVLoose[bin]);
-
-if (PullCB1MeVLoose[bin] > -1 && PullCB1MeVLoose[bin] < 1){
-CB1MeVLoosecount1 += 1;
-}
-
-if (PullCB1MeVLoose[bin] > -2 && PullCB1MeVLoose[bin] < 2){
-CB1MeVLoosecount2 += 1;
-}
-
-if (PullCB1MeVLoose[bin] > -3 && PullCB1MeVLoose[bin] < 3){
-CB1MeVLoosecount3 += 1;
-}
-}
-
-pad2->cd();
-TGraph* PullCB1MeVPlotLoose = new TGraph(150, Pullx1MeV, PullCB1MeVLoose);
-PullCB1MeVPlotLoose->GetXaxis()->SetLimits(0.5,150.5);
-PullCB1MeVPlotLoose->GetXaxis()->SetTickLength(0.);
-PullCB1MeVPlotLoose->GetYaxis()->SetTickLength(0.);
-PullCB1MeVPlotLoose->SetFillColor(38);
-PullCB1MeVPlotLoose->GetYaxis()->SetTitle("Pull");
-PullCB1MeVPlotLoose->GetYaxis()->CenterTitle();
-PullCB1MeVPlotLoose->GetYaxis()->SetTitleSize(0.10);
-PullCB1MeVPlotLoose->GetYaxis()->SetTitleOffset(0.2);
-PullCB1MeVPlotLoose->GetXaxis()->SetLabelSize(0);
-PullCB1MeVPlotLoose->GetYaxis()->SetLabelFont(42);
-PullCB1MeVPlotLoose->GetYaxis()->SetLabelSize(0.06);
-PullCB1MeVPlotLoose->SetTitle("");
-PullCB1MeVPlotLoose->SetMinimum(-5);
-PullCB1MeVPlotLoose->SetMaximum(5);
-PullCB1MeVPlotLoose->Draw("AB");
-MassHist1MeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Crystal Ball Fit");   
-    c1->Write("Lc Mass Loose - Crystal Ball 1 MeV");
-
-
+   
+   
 TF1 *GaussianHalfMeVDG1MuTight = new TF1("GaussianHalfMeVDG1MuTight",DGOneMuOneTotalHalfMeV,2200.,2400.,7);
 GaussianHalfMeVDG1MuTight->SetParameter(0, 0.4);
 GaussianHalfMeVDG1MuTight->SetParameter(1, 12000);
@@ -667,57 +583,7 @@ GaussianHalfMeVDG1MuTight->SetParLimits(4, 0., 20.);
 GaussianHalfMeVDG1MuTight->SetParameter(5, 0.);
 GaussianHalfMeVDG1MuTight->SetParameter(6, 0.);
 
-pad1->cd();
-MassHistHalfMeVTight->SetMinimum(0);
-MassHistHalfMeVTight->Fit("GaussianHalfMeVDG1MuTight");
-
-int BinHeightHalfMeVDG1MuTight[300];
-int FitHeightHalfMeVDG1MuTight[300];
-double PullHalfMeVDG1MuTight[300];
-
-double   HalfMeVDG1MuTightcount1 = 0;
-double   HalfMeVDG1MuTightcount2 = 0;
-double   HalfMeVDG1MuTightcount3 = 0;
-
-for (int bin = 0; bin < 300; bin++){
-BinHeightHalfMeVDG1MuTight[bin] = MassHistHalfMeVTight->GetBinContent(bin + 1);
-PullxHalfMeV[bin] = (bin + 1);   
-int xvalueHalfMeVDG1Mu = 2212.25 + 0.5*(bin);
-FitHeightHalfMeVDG1MuTight[bin] = (GaussianHalfMeVDG1MuTight->Eval(xvalueHalfMeVDG1Mu));
-PullHalfMeVDG1MuTight[bin] = (BinHeightHalfMeVDG1MuTight[bin] - FitHeightHalfMeVDG1MuTight[bin])/TMath::Sqrt(FitHeightHalfMeVDG1MuTight[bin]);
-
-if (PullHalfMeVDG1MuTight[bin] > -1 && PullHalfMeVDG1MuTight[bin] < 1){
-HalfMeVDG1MuTightcount1 += 1;
-}
-
-if (PullHalfMeVDG1MuTight[bin] > -2 && PullHalfMeVDG1MuTight[bin] < 2){
-HalfMeVDG1MuTightcount2 += 1;
-}
-
-if (PullHalfMeVDG1MuTight[bin] > -3 && PullHalfMeVDG1MuTight[bin] < 3){
-HalfMeVDG1MuTightcount3 += 1;
-}
-}
-
-pad2->cd();
-TGraph* PullPlotHalfMeVDG1MuTight = new TGraph(300, PullxHalfMeV, PullHalfMeVDG1MuTight);
-PullPlotHalfMeVDG1MuTight->GetXaxis()->SetLimits(0.5,300.5);
-PullPlotHalfMeVDG1MuTight->GetXaxis()->SetTickLength(0.);
-PullPlotHalfMeVDG1MuTight->GetYaxis()->SetTickLength(0.);
-PullPlotHalfMeVDG1MuTight->SetFillColor(38);
-PullPlotHalfMeVDG1MuTight->GetYaxis()->SetTitle("Pull");
-PullPlotHalfMeVDG1MuTight->GetYaxis()->CenterTitle();
-PullPlotHalfMeVDG1MuTight->GetYaxis()->SetTitleSize(0.10);
-PullPlotHalfMeVDG1MuTight->GetYaxis()->SetTitleOffset(0.2);
-PullPlotHalfMeVDG1MuTight->GetXaxis()->SetLabelSize(0);
-PullPlotHalfMeVDG1MuTight->GetYaxis()->SetLabelFont(42);
-PullPlotHalfMeVDG1MuTight->GetYaxis()->SetLabelSize(0.06);
-PullPlotHalfMeVDG1MuTight->SetTitle("");
-PullPlotHalfMeVDG1MuTight->SetMinimum(-5);
-PullPlotHalfMeVDG1MuTight->SetMaximum(5);
-PullPlotHalfMeVDG1MuTight->Draw("AB");
-MassHistHalfMeVTight->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
-  c1->Write("Lc Mass Tight - HalfMeVDG1Mu");
+   
 
 TF1 *CrystalBallFunctionHalfMeVTight = new TF1("CrystalBallFunctionHalfMeVTight", NewCrystalBallHalfMeV,2212.,2362.,9);
 CrystalBallFunctionHalfMeVTight->SetParameter(0,115000); 
@@ -731,60 +597,9 @@ CrystalBallFunctionHalfMeVTight->SetParameter(6, -0.2);
 CrystalBallFunctionHalfMeVTight->SetParameter(7, 2.0);
 CrystalBallFunctionHalfMeVTight->SetParameter(8, 3.0);   
 CrystalBallFunctionHalfMeVTight->SetParLimits(8, 1.000001, 8.);   
-   
-pad1->cd();
-MassHistHalfMeVTight->SetMinimum(0);
-MassHistHalfMeVTight->Fit("CrystalBallFunctionHalfMeVTight");
-
-int BinHeightCBHalfMeVTight[300];
-int FitHeightCBHalfMeVTight[300];
-double PullCBHalfMeVTight[300];
-
-double CBHalfMeVTightcount1 = 0;
-double CBHalfMeVTightcount2 = 0;
-double CBHalfMeVTightcount3 = 0;
-
-for (int bin = 0; bin < 300; bin++){
-BinHeightCBHalfMeVTight[bin] = MassHistHalfMeVTight->GetBinContent(bin + 1);
-int xvalue = 2212.25 + 0.5*(bin);
-FitHeightCBHalfMeVTight[bin] = (CrystalBallFunctionHalfMeVTight->Eval(xvalue));
-PullCBHalfMeVTight[bin] = (BinHeightCBHalfMeVTight[bin] - FitHeightCBHalfMeVTight[bin])/TMath::Sqrt(FitHeightCBHalfMeVTight[bin]);
-
-if (PullCBHalfMeVTight[bin] > -1 && PullCBHalfMeVTight[bin] < 1){
-CBHalfMeVTightcount1 += 1;
-}
-
-if (PullCBHalfMeVTight[bin] > -2 && PullCBHalfMeVTight[bin] < 2){
-CBHalfMeVTightcount2 += 1;
-}
-
-if (PullCBHalfMeVTight[bin] > -3 && PullCBHalfMeVTight[bin] < 3){
-CBHalfMeVTightcount3 += 1;
-}
-}
-
-pad2->cd();
-TGraph* PullCBHalfMeVPlotTight = new TGraph(300, PullxHalfMeV, PullCBHalfMeVTight);
-PullCBHalfMeVPlotTight->GetXaxis()->SetLimits(0.5,300.5);
-PullCBHalfMeVPlotTight->GetXaxis()->SetTickLength(0.);
-PullCBHalfMeVPlotTight->GetYaxis()->SetTickLength(0.);
-PullCBHalfMeVPlotTight->SetFillColor(38);
-PullCBHalfMeVPlotTight->GetYaxis()->SetTitle("Pull");
-PullCBHalfMeVPlotTight->GetYaxis()->CenterTitle();
-PullCBHalfMeVPlotTight->GetYaxis()->SetTitleSize(0.10);
-PullCBHalfMeVPlotTight->GetYaxis()->SetTitleOffset(0.2);
-PullCBHalfMeVPlotTight->GetXaxis()->SetLabelSize(0);
-PullCBHalfMeVPlotTight->GetYaxis()->SetLabelFont(42);
-PullCBHalfMeVPlotTight->GetYaxis()->SetLabelSize(0.06);
-PullCBHalfMeVPlotTight->SetTitle("");
-PullCBHalfMeVPlotTight->SetMinimum(-5);
-PullCBHalfMeVPlotTight->SetMaximum(5);
-PullCBHalfMeVPlotTight->Draw("AB");
-MassHistHalfMeVTight->SetTitle("#Lambda_{c}^{+} Mass - Crystal Ball Fit");   
-    c1->Write("Lc Mass Tight - Crystal Ball Half MeV");
-// c1->Clear();
  
 
+   
 TF1 *Gaussian1MeVDG1MuTight = new TF1("Gaussian1MeVDG1MuTight",DGOneMuOneTotal1MeV,2212.,2362.,7);
 Gaussian1MeVDG1MuTight->SetParameter(0, 0.4);
 Gaussian1MeVDG1MuTight->SetParameter(1, 12000);
@@ -796,58 +611,6 @@ Gaussian1MeVDG1MuTight->SetParLimits(4, 0., 20.);
 Gaussian1MeVDG1MuTight->SetParameter(5, 0.);
 Gaussian1MeVDG1MuTight->SetParameter(6, 0.);
 
-pad1->cd();
-MassHist1MeVTight->SetMinimum(0);
-MassHist1MeVTight->Fit("Gaussian1MeVDG1MuTight");
-
-int BinHeight1MeVDG1MuTight[150];
-int FitHeight1MeVDG1MuTight[150];
-double Pull1MeVDG1MuTight[150];
-
-double   DG1MeVDG1MuTightcount1 = 0;
-double   DG1MeVDG1MuTightcount2 = 0;
-double   DG1MeVDG1MuTightcount3 = 0;
-
-for (int bin = 0; bin < 150; bin++){
-BinHeight1MeVDG1MuTight[bin] = MassHist1MeVTight->GetBinContent(bin + 1);
-Pullx1MeV[bin] = (bin + 1);   
-int xvalue1MeVDG1Mu = 2212.5 + 1*(bin);
-FitHeight1MeVDG1MuTight[bin] = (Gaussian1MeVDG1MuTight->Eval(xvalue1MeVDG1Mu));
-Pull1MeVDG1MuTight[bin] = (BinHeight1MeVDG1MuTight[bin] - FitHeight1MeVDG1MuTight[bin])/TMath::Sqrt(FitHeight1MeVDG1MuTight[bin]);
-
-if (Pull1MeVDG1MuTight[bin] > -1 && Pull1MeVDG1MuTight[bin] < 1){
-DG1MeVDG1MuTightcount1 += 1;
-}
-
-if (Pull1MeVDG1MuTight[bin] > -2 && Pull1MeVDG1MuTight[bin] < 2){
-DG1MeVDG1MuTightcount2 += 1;
-}
-
-if (Pull1MeVDG1MuTight[bin] > -3 && Pull1MeVDG1MuTight[bin] < 3){
-DG1MeVDG1MuTightcount3 += 1;
-}
-}
-
-pad2->cd();
-TGraph* PullPlot1MeVDG1MuTight = new TGraph(150, Pullx1MeV, Pull1MeVDG1MuTight);
-PullPlot1MeVDG1MuTight->GetXaxis()->SetLimits(0.5,150.5);
-PullPlot1MeVDG1MuTight->GetXaxis()->SetTickLength(0.);
-PullPlot1MeVDG1MuTight->GetYaxis()->SetTickLength(0.);
-PullPlot1MeVDG1MuTight->SetFillColor(38);
-PullPlot1MeVDG1MuTight->GetYaxis()->SetTitle("Pull");
-PullPlot1MeVDG1MuTight->GetYaxis()->CenterTitle();
-PullPlot1MeVDG1MuTight->GetYaxis()->SetTitleSize(0.10);
-PullPlot1MeVDG1MuTight->GetYaxis()->SetTitleOffset(0.2);
-PullPlot1MeVDG1MuTight->GetXaxis()->SetLabelSize(0);
-PullPlot1MeVDG1MuTight->GetYaxis()->SetLabelFont(42);
-PullPlot1MeVDG1MuTight->GetYaxis()->SetLabelSize(0.06);
-PullPlot1MeVDG1MuTight->SetTitle("");
-PullPlot1MeVDG1MuTight->SetMinimum(-5);
-PullPlot1MeVDG1MuTight->SetMaximum(5);
-PullPlot1MeVDG1MuTight->Draw("AB");
-MassHist1MeVTight->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
-  c1->Write("Lc Mass Tight - 1MeVDG1Mu");
-// c1->Clear();  
 
 TF1 *CrystalBallFunction1MeVTight = new TF1("CrystalBallFunction1MeVTight", NewCrystalBall1MeV,2212.,2362.,9);
 CrystalBallFunction1MeVTight->SetParameter(0,115000); 
@@ -862,57 +625,7 @@ CrystalBallFunction1MeVTight->SetParameter(7, 2.0);
 CrystalBallFunction1MeVTight->SetParameter(8, 3.0);   
 CrystalBallFunction1MeVTight->SetParLimits(8, 1.000001, 8.);    
  
-pad1->cd();
-MassHist1MeVTight->SetMinimum(0);
-MassHist1MeVTight->Fit("CrystalBallFunction1MeVTight");
 
-int BinHeightCB1MeVTight[150];
-int FitHeightCB1MeVTight[150];
-double PullCB1MeVTight[150];
-
-double CB1MeVTightcount1 = 0;
-double CB1MeVTightcount2 = 0;
-double CB1MeVTightcount3 = 0;
-
-for (int bin = 0; bin < 150; bin++){
-BinHeightCB1MeVTight[bin] = MassHist1MeVTight->GetBinContent(bin + 1);
-int xvalue = 2212.5 + 1.0*(bin);
-FitHeightCB1MeVTight[bin] = (CrystalBallFunction1MeVTight->Eval(xvalue));
-PullCB1MeVTight[bin] = (BinHeightCB1MeVTight[bin] - FitHeightCB1MeVTight[bin])/TMath::Sqrt(FitHeightCB1MeVTight[bin]);
-
-if (PullCB1MeVTight[bin] > -1 && PullCB1MeVTight[bin] < 1){
-CB1MeVTightcount1 += 1;
-}
-
-if (PullCB1MeVTight[bin] > -2 && PullCB1MeVTight[bin] < 2){
-CB1MeVTightcount2 += 1;
-}
-
-if (PullCB1MeVTight[bin] > -3 && PullCB1MeVTight[bin] < 3){
-CB1MeVTightcount3 += 1;
-}
-}
-
-pad2->cd();
-TGraph* PullCB1MeVPlotTight = new TGraph(150, Pullx1MeV, PullCB1MeVTight);
-PullCB1MeVPlotTight->GetXaxis()->SetLimits(0.5,150.5);
-PullCB1MeVPlotTight->GetXaxis()->SetTickLength(0.);
-PullCB1MeVPlotTight->GetYaxis()->SetTickLength(0.);
-PullCB1MeVPlotTight->SetFillColor(38);
-PullCB1MeVPlotTight->GetYaxis()->SetTitle("Pull");
-PullCB1MeVPlotTight->GetYaxis()->CenterTitle();
-PullCB1MeVPlotTight->GetYaxis()->SetTitleSize(0.10);
-PullCB1MeVPlotTight->GetYaxis()->SetTitleOffset(0.2);
-PullCB1MeVPlotTight->GetXaxis()->SetLabelSize(0);
-PullCB1MeVPlotTight->GetYaxis()->SetLabelFont(42);
-PullCB1MeVPlotTight->GetYaxis()->SetLabelSize(0.06);
-PullCB1MeVPlotTight->SetTitle("");
-PullCB1MeVPlotTight->SetMinimum(-5);
-PullCB1MeVPlotTight->SetMaximum(5);
-PullCB1MeVPlotTight->Draw("AB");
-MassHist1MeVTight->SetTitle("#Lambda_{c}^{+} Mass - Crystal Ball Fit");   
-    c1->Write("Lc Mass Tight - Crystal Ball 1 MeV");
-// c1->Clear(); 
    
    
 TF1 *LcFitSGLoose1 = new TF1("LcFitSGLoose1", NewCrystalBallHalfMeV,2212.,2362.,9);
