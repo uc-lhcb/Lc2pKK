@@ -382,7 +382,12 @@ double Pullx1MeV[150];
    
 TPad *pad1 = new TPad("pad1","pad1",0,0.33,1,1);
 TPad *pad2 = new TPad("pad2","pad2",0,0,1,0.33);
-pad2->SetTopMargin(0.03030303);
+pad1->SetBottomMargin(0);
+pad1->SetLeftMargin(0.15);
+pad2->SetTopMargin(0);
+pad2->SetBottomMargin(0.4);
+pad2->SetLeftMargin(0.15);
+pad2->SetGridx();   
 pad1->Draw();
 pad2->Draw();
 
@@ -424,57 +429,39 @@ sigma2ErDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParError(4));
    
 auto lt = new TLatex();
 lt->SetTextSize(0.03);
-lt->DrawLatexNDC(0.65, 0.70, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
-lt->DrawLatexNDC(0.65, 0.65, "Percent in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"%");   
-lt->DrawLatexNDC(0.65, 0.6, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
-lt->DrawLatexNDC(0.65, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
-lt->DrawLatexNDC(0.65, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
-   
-int BinHeightHalfMeVDG1MuLoose[300];
-int FitHeightHalfMeVDG1MuLoose[300];
-double PullHalfMeVDG1MuLoose[300];
-
-double   HalfMeVDG1MuLoosecount1 = 0;
-double   HalfMeVDG1MuLoosecount2 = 0;
-double   HalfMeVDG1MuLoosecount3 = 0;
-
-for (int bin = 0; bin < 300; bin++){
-BinHeightHalfMeVDG1MuLoose[bin] = MassHistHalfMeVLoose->GetBinContent(bin + 1);
-PullxHalfMeV[bin] = (bin + 1);   
-int xvalueHalfMeVDG1Mu = 2212.25 + 0.5*(bin);
-FitHeightHalfMeVDG1MuLoose[bin] = round(GaussianHalfMeVDG1MuLoose->Eval(xvalueHalfMeVDG1Mu));
-PullHalfMeVDG1MuLoose[bin] = (BinHeightHalfMeVDG1MuLoose[bin] - FitHeightHalfMeVDG1MuLoose[bin])/TMath::Sqrt(FitHeightHalfMeVDG1MuLoose[bin]);
-   
-if (PullHalfMeVDG1MuLoose[bin] > -1 && PullHalfMeVDG1MuLoose[bin] < 1){
-HalfMeVDG1MuLoosecount1 += 1;
-}
-
-if (PullHalfMeVDG1MuLoose[bin] > -2 && PullHalfMeVDG1MuLoose[bin] < 2){
-HalfMeVDG1MuLoosecount2 += 1;
-}
-
-if (PullHalfMeVDG1MuLoose[bin] > -3 && PullHalfMeVDG1MuLoose[bin] < 3){
-HalfMeVDG1MuLoosecount3 += 1;
-}
-}
+lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
+lt->DrawLatexNDC(0.6, 0.65, "Percent in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"%");   
+lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
+lt->DrawLatexNDC(0.6, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
+lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
 
 pad2->cd();
-TGraph* PullPlotHalfMeVDG1MuLoose = new TGraph(300, PullxHalfMeV, PullHalfMeVDG1MuLoose);
-PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetLimits(0.5,300.5);
-PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetTickLength(0.);
-PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetTickLength(0.);
-PullPlotHalfMeVDG1MuLoose->SetFillColor(38);
+TH1D* PullPlotHalfMeVDG1MuLoose = new TGraph(300, 2212, 2362);   
+PullPlotHalfMeVDG1MuLoose->SetStats(0);
 PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetTitle("Pull");
-PullPlotHalfMeVDG1MuLoose->GetYaxis()->CenterTitle();
-PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetTitleSize(0.10);
-PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetTitleOffset(0.2);
-PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetLabelSize(0);
-PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetLabelFont(42);
-PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetLabelSize(0.06);
-PullPlotHalfMeVDG1MuLoose->SetTitle("");
-PullPlotHalfMeVDG1MuLoose->SetMinimum(-5);
-PullPlotHalfMeVDG1MuLoose->SetMaximum(5);
-PullPlotHalfMeVDG1MuLoose->Draw("AB");
+PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetTitleSize(30);
+PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetTitleFont(43);
+PullPlotHalfMeVDG1MuLoose->GetYaxis()->CenterTitle(true);
+PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetLabelSize(0.1);
+PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetTitle("Mass[MeV]");
+PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetTitleSize(30);
+PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetTitleFont(43);
+PullPlotHalfMeVDG1MuLoose->GetXaxis()->CenterTitle(true);
+PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetLabelSize(0.15);
+PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetTitleOffset(4);
+PullPlotHalfMeVDG1MuLoose->SetFillColor(kBlue);
+PullPlotHalfMeVDG1MuLoose->SetLineColor(kBlue);
+PullPlotHalfMeVDG1MuLoose->SetBit(TH1::kNoTitle);  
+
+ for (Int_t i=1;i<300;i++) {
+ Double_t x = MassHistHalfMeVLoose->GetBinCenter(i);
+ Double_t val = GaussianHalfMeVDG1MuLoose->Eval(x);
+ Double_t sigma = sqrt(val);
+ Double_t pull = (MassHistHalfMeVLoose->GetBinContent(i)-val)/sigma;
+PullPlotHalfMeVDG1MuLoose->SetBinContent(i,pull);
+   }  
+PullPlotHalfMeVDG1MuLoose->Draw();  
+      
 MassHistHalfMeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
   c1->Write("Lc Mass Loose - HalfMeVDG1Mu");
 
@@ -556,8 +543,8 @@ PullCBHalfMeVPlotLoose->GetXaxis()->SetLabelSize(0);
 PullCBHalfMeVPlotLoose->GetYaxis()->SetLabelFont(42);
 PullCBHalfMeVPlotLoose->GetYaxis()->SetLabelSize(0.06);
 PullCBHalfMeVPlotLoose->SetTitle("");
-PullCBHalfMeVPlotLoose->SetMinimum(-5);
-PullCBHalfMeVPlotLoose->SetMaximum(5);
+PullCBHalfMeVPlotLoose->SetMinimum(-7);
+PullCBHalfMeVPlotLoose->SetMaximum(7);
 PullCBHalfMeVPlotLoose->Draw("AB");
 MassHistHalfMeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Crystal Ball Fit");   
     c1->Write("Lc Mass Loose - Crystal Ball Half MeV");
@@ -635,8 +622,8 @@ PullPlot1MeVDG1MuLoose->GetXaxis()->SetLabelSize(0);
 PullPlot1MeVDG1MuLoose->GetYaxis()->SetLabelFont(42);
 PullPlot1MeVDG1MuLoose->GetYaxis()->SetLabelSize(0.06);
 PullPlot1MeVDG1MuLoose->SetTitle("");
-PullPlot1MeVDG1MuLoose->SetMinimum(-5);
-PullPlot1MeVDG1MuLoose->SetMaximum(5);
+PullPlot1MeVDG1MuLoose->SetMinimum(-7);
+PullPlot1MeVDG1MuLoose->SetMaximum(7);
 PullPlot1MeVDG1MuLoose->Draw("AB");
 MassHist1MeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
   c1->Write("Lc Mass Loose - 1MeVDG1Mu");
