@@ -376,9 +376,6 @@ SignalHistTight->Draw();
  MassHistHalfMeVTight->Draw("SAME"); 
  c1->Write("Signal Estimate - Tight");
   c1->Clear();   
-
-double PullxHalfMeV[300];
-double Pullx1MeV[150];
    
 TPad *pad1 = new TPad("pad1","pad1",0,0.33,1,1);
 TPad *pad2 = new TPad("pad2","pad2",0,0,1,0.33);
@@ -391,6 +388,8 @@ pad2->SetGridx();
 pad1->Draw();
 pad2->Draw();
 
+/////////////////////////////////////   
+   
 TF1 *GaussianHalfMeVDG1MuLoose = new TF1("GaussianHalfMeVDG1MuLoose",DGOneMuOneTotalHalfMeV,2200.,2400.,7);  
 GaussianHalfMeVDG1MuLoose->SetParameter(0, 0.4);
 GaussianHalfMeVDG1MuLoose->SetParameter(1, 12000);
@@ -437,9 +436,15 @@ lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV")
 
 pad2->cd();
 TH1D* PullPlotHalfMeVDG1MuLoose = new TH1D("Mass [MeV]", "Lc Mass", 300, 2212, 2362);   
+PullPlotHalfMeV->SetStats(0);  
 PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetTitle("Mass[MeV]");
-PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetTitle("Pull");
-PullPlotHalfMeVDG1MuLoose->GetYaxis()->CenterTitle(true);   
+PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetTitleSize(10);   
+PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetTitleOffset(2);
+PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetLabelSize(0.1);   
+PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetTitle("Pull"); 
+PullPlotHalfMeVDG1MuLoose->GetYaxis()->CenterTitle(true);
+PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetTitleSize(10);   
+PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetLabelSize(0.05);   
 PullPlotHalfMeVDG1MuLoose->SetFillColor(kBlue);
 PullPlotHalfMeVDG1MuLoose->SetLineColor(kBlue);
 PullPlotHalfMeVDG1MuLoose->SetBit(TH1::kNoTitle);  
