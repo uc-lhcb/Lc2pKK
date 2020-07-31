@@ -399,7 +399,7 @@ pad2->SetTopMargin(0.03030303);
 pad1->Draw();
 pad2->Draw();
 
-TF1 *GaussianHalfMeVDG1MuLoose = new TF1("GaussianHalfMeVDG1MuLoose",DGOneMuOneTotalHalfMeV,2200.,2400.,7);
+TF1 *GaussianHalfMeVDG1MuLoose = new TF1("GaussianHalfMeVDG1MuLoose",DGOneMuOneTotalHalfMeV,2200.,2400.,7);  
 GaussianHalfMeVDG1MuLoose->SetParameter(0, 0.4);
 GaussianHalfMeVDG1MuLoose->SetParameter(1, 12000);
 GaussianHalfMeVDG1MuLoose->SetParameter(2, 2287.);
@@ -414,6 +414,15 @@ pad1->cd();
 MassHistHalfMeVLoose->SetMinimum(0);
 MassHistHalfMeVLoose->Fit("GaussianHalfMeVDG1MuLoose");
 
+TString muDGH;
+TString muErDGH;
+muDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParameter(2));
+muErDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParError(2));   
+  
+auto lt = new TLatex();
+lt->SetTextSize(0.03);
+lt->DrawLatexNDC(0.60, 0.65, "#mu ="+muDGH+"#pm"+muErDGH+"MeV/c^{2}");   
+   
 int BinHeightHalfMeVDG1MuLoose[300];
 int FitHeightHalfMeVDG1MuLoose[300];
 double PullHalfMeVDG1MuLoose[300];
@@ -429,6 +438,14 @@ int xvalueHalfMeVDG1Mu = 2212.25 + 0.5*(bin);
 FitHeightHalfMeVDG1MuLoose[bin] = round(GaussianHalfMeVDG1MuLoose->Eval(xvalueHalfMeVDG1Mu));
 PullHalfMeVDG1MuLoose[bin] = (BinHeightHalfMeVDG1MuLoose[bin] - FitHeightHalfMeVDG1MuLoose[bin])/TMath::Sqrt(FitHeightHalfMeVDG1MuLoose[bin]);
 
+ Double_t x = totalcuthist->GetBinCenter(i);
+ Double_t val = myDpFit->Eval(totalcuthist->GetBinCenter(i));
+ Double_t sigma = sqrt(val);
+ Double_t pull = (totalcuthist->GetBinContent(i)-val)/sigma;
+ totalcutpull->SetBinContent(i,pull);
+   xVals[i]=x;
+   yVals[i]=pull;   
+   
 if (PullHalfMeVDG1MuLoose[bin] > -1 && PullHalfMeVDG1MuLoose[bin] < 1){
 HalfMeVDG1MuLoosecount1 += 1;
 }
@@ -510,7 +527,7 @@ double CBHalfMeVLoosecount3 = 0;
 for (int bin = 0; bin < 300; bin++){
 BinHeightCBHalfMeVLoose[bin] = MassHistHalfMeVLoose->GetBinContent(bin + 1);
 int xvalue = 2212.25 + 0.5*(bin);
-FitHeightCBHalfMeVLoose[bin] = round(CrystalBallFunctionHalfMeVLoose->Eval(xvalue));
+FitHeightCBHalfMeVLoose[bin] = (CrystalBallFunctionHalfMeVLoose->Eval(xvalue));
 PullCBHalfMeVLoose[bin] = (BinHeightCBHalfMeVLoose[bin] - FitHeightCBHalfMeVLoose[bin])/TMath::Sqrt(FitHeightCBHalfMeVLoose[bin]);
 
 if (PullCBHalfMeVLoose[bin] > -1 && PullCBHalfMeVLoose[bin] < 1){
@@ -589,7 +606,7 @@ for (int bin = 0; bin < 150; bin++){
 BinHeight1MeVDG1MuLoose[bin] = MassHist1MeVLoose->GetBinContent(bin + 1);
 Pullx1MeV[bin] = (bin + 1);   
 int xvalue1MeVDG1Mu = 2212.5 + 1*(bin);
-FitHeight1MeVDG1MuLoose[bin] = round(Gaussian1MeVDG1MuLoose->Eval(xvalue1MeVDG1Mu));
+FitHeight1MeVDG1MuLoose[bin] = (Gaussian1MeVDG1MuLoose->Eval(xvalue1MeVDG1Mu));
 Pull1MeVDG1MuLoose[bin] = (BinHeight1MeVDG1MuLoose[bin] - FitHeight1MeVDG1MuLoose[bin])/TMath::Sqrt(FitHeight1MeVDG1MuLoose[bin]);
 
 if (Pull1MeVDG1MuLoose[bin] > -1 && Pull1MeVDG1MuLoose[bin] < 1){
@@ -671,7 +688,7 @@ double CB1MeVLoosecount3 = 0;
 for (int bin = 0; bin < 150; bin++){
 BinHeightCB1MeVLoose[bin] = MassHist1MeVLoose->GetBinContent(bin + 1);
 int xvalue = 2212.5 + 1.0*(bin);
-FitHeightCB1MeVLoose[bin] = round(CrystalBallFunction1MeVLoose->Eval(xvalue));
+FitHeightCB1MeVLoose[bin] = (CrystalBallFunction1MeVLoose->Eval(xvalue));
 PullCB1MeVLoose[bin] = (BinHeightCB1MeVLoose[bin] - FitHeightCB1MeVLoose[bin])/TMath::Sqrt(FitHeightCB1MeVLoose[bin]);
 
 if (PullCB1MeVLoose[bin] > -1 && PullCB1MeVLoose[bin] < 1){
@@ -749,7 +766,7 @@ for (int bin = 0; bin < 300; bin++){
 BinHeightHalfMeVDG1MuTight[bin] = MassHistHalfMeVTight->GetBinContent(bin + 1);
 PullxHalfMeV[bin] = (bin + 1);   
 int xvalueHalfMeVDG1Mu = 2212.25 + 0.5*(bin);
-FitHeightHalfMeVDG1MuTight[bin] = round(GaussianHalfMeVDG1MuTight->Eval(xvalueHalfMeVDG1Mu));
+FitHeightHalfMeVDG1MuTight[bin] = (GaussianHalfMeVDG1MuTight->Eval(xvalueHalfMeVDG1Mu));
 PullHalfMeVDG1MuTight[bin] = (BinHeightHalfMeVDG1MuTight[bin] - FitHeightHalfMeVDG1MuTight[bin])/TMath::Sqrt(FitHeightHalfMeVDG1MuTight[bin]);
 
 if (PullHalfMeVDG1MuTight[bin] > -1 && PullHalfMeVDG1MuTight[bin] < 1){
@@ -830,7 +847,7 @@ double CBHalfMeVTightcount3 = 0;
 for (int bin = 0; bin < 300; bin++){
 BinHeightCBHalfMeVTight[bin] = MassHistHalfMeVTight->GetBinContent(bin + 1);
 int xvalue = 2212.25 + 0.5*(bin);
-FitHeightCBHalfMeVTight[bin] = round(CrystalBallFunctionHalfMeVTight->Eval(xvalue));
+FitHeightCBHalfMeVTight[bin] = (CrystalBallFunctionHalfMeVTight->Eval(xvalue));
 PullCBHalfMeVTight[bin] = (BinHeightCBHalfMeVTight[bin] - FitHeightCBHalfMeVTight[bin])/TMath::Sqrt(FitHeightCBHalfMeVTight[bin]);
 
 if (PullCBHalfMeVTight[bin] > -1 && PullCBHalfMeVTight[bin] < 1){
@@ -909,7 +926,7 @@ for (int bin = 0; bin < 150; bin++){
 BinHeight1MeVDG1MuTight[bin] = MassHist1MeVTight->GetBinContent(bin + 1);
 Pullx1MeV[bin] = (bin + 1);   
 int xvalue1MeVDG1Mu = 2212.5 + 1*(bin);
-FitHeight1MeVDG1MuTight[bin] = round(Gaussian1MeVDG1MuTight->Eval(xvalue1MeVDG1Mu));
+FitHeight1MeVDG1MuTight[bin] = (Gaussian1MeVDG1MuTight->Eval(xvalue1MeVDG1Mu));
 Pull1MeVDG1MuTight[bin] = (BinHeight1MeVDG1MuTight[bin] - FitHeight1MeVDG1MuTight[bin])/TMath::Sqrt(FitHeight1MeVDG1MuTight[bin]);
 
 if (Pull1MeVDG1MuTight[bin] > -1 && Pull1MeVDG1MuTight[bin] < 1){
@@ -991,7 +1008,7 @@ double CB1MeVTightcount3 = 0;
 for (int bin = 0; bin < 150; bin++){
 BinHeightCB1MeVTight[bin] = MassHist1MeVTight->GetBinContent(bin + 1);
 int xvalue = 2212.5 + 1.0*(bin);
-FitHeightCB1MeVTight[bin] = round(CrystalBallFunction1MeVTight->Eval(xvalue));
+FitHeightCB1MeVTight[bin] = (CrystalBallFunction1MeVTight->Eval(xvalue));
 PullCB1MeVTight[bin] = (BinHeightCB1MeVTight[bin] - FitHeightCB1MeVTight[bin])/TMath::Sqrt(FitHeightCB1MeVTight[bin]);
 
 if (PullCB1MeVTight[bin] > -1 && PullCB1MeVTight[bin] < 1){
