@@ -550,19 +550,86 @@ PullPlotHalfMeVCBLoose->Draw();
       
 MassHistHalfMeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Gaussian + CrystalBall Fit");
   c1->Write("Lc Mass Loose - HalfMeVCB"); 
+  c1->Clear();
+ 
+//////////////////////////////////   
+   
+TF1 *Gaussian1MeVDGLoose = new TF1("Gaussian1MeVDG1MuLoose",DGOneMuOneTotal1MeV,2212.,2362.,7);
+Gaussian1MeVDGLoose->SetParameter(0, 0.4);
+Gaussian1MeVDGLoose->SetParameter(1, 12000);
+Gaussian1MeVDGLoose->SetParameter(2, 2287.);
+Gaussian1MeVDGLoose->SetParameter(3, 3);
+Gaussian1MeVDGLoose->SetParameter(4, 6);
+Gaussian1MeVDGLoose->SetParLimits(3, 0., 20.);
+Gaussian1MeVDGLoose->SetParLimits(4, 0., 20.);
+Gaussian1MeVDGLoose->SetParameter(5, 0.);
+Gaussian1MeVDGLoose->SetParameter(6, 0.);
 
-TF1 *Gaussian1MeVDG1MuLoose = new TF1("Gaussian1MeVDG1MuLoose",DGOneMuOneTotal1MeV,2212.,2362.,7);
-Gaussian1MeVDG1MuLoose->SetParameter(0, 0.4);
-Gaussian1MeVDG1MuLoose->SetParameter(1, 12000);
-Gaussian1MeVDG1MuLoose->SetParameter(2, 2287.);
-Gaussian1MeVDG1MuLoose->SetParameter(3, 3);
-Gaussian1MeVDG1MuLoose->SetParameter(4, 6);
-Gaussian1MeVDG1MuLoose->SetParLimits(3, 0., 20.);
-Gaussian1MeVDG1MuLoose->SetParLimits(4, 0., 20.);
-Gaussian1MeVDG1MuLoose->SetParameter(5, 0.);
-Gaussian1MeVDG1MuLoose->SetParameter(6, 0.);
+pad1->cd();
+MassHist1MeVLoose->SetMinimum(0.0001);
+MassHist1MeVLoose->Fit("Gaussian1MeVDGLoose");
 
+TString SignalDGH;
+TString SignalErDGH;
+SignalDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParameter(1));
+SignalErDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParError(1));  
+TString FractionDGH;
+TString FractionErDGH;
+FractionDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParameter(0));
+FractionErDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParError(0));    
+TString muDGH;
+TString muErDGH;
+muDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParameter(2));
+muErDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParError(2));    
+TString sigma1DGH;
+TString sigma1ErDGH;
+sigma1DGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParameter(3));
+sigma1ErDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParError(3));     
+TString sigma2DGH;
+TString sigma2ErDGH;
+sigma2DGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParameter(4));
+sigma2ErDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParError(4));  
+   
+auto lt = new TLatex();
+lt->SetTextSize(0.03);
+lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
+lt->DrawLatexNDC(0.6, 0.65, "Percent in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"%");   
+lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
+lt->DrawLatexNDC(0.6, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
+lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
 
+pad2->cd();
+TH1D* PullPlot1MeVDGLoose = new TH1D("Mass [MeV]", "Lc Mass", 150, 2212, 2362);   
+PullPlot1MeVDGLoose->SetStats(0);  
+PullPlot1MeVDGLoose->GetXaxis()->SetTitle("Mass[MeV]");
+PullPlot1MeVDGLoose->GetXaxis()->SetTitleSize(15);  
+PullPlot1MeVDGLoose->GetXaxis()->SetTitleFont(43);   
+PullPlot1MeVDGLoose->GetXaxis()->SetTitleOffset(2);
+PullPlot1MeVDGLoose->GetXaxis()->SetLabelSize(0.1);   
+PullPlot1MeVDGLoose->GetYaxis()->SetTitle("Pull"); 
+PullPlot1MeVDGLoose->GetYaxis()->CenterTitle(true);
+PullPlot1MeVDGLoose->GetYaxis()->SetTitleSize(15);
+PullPlot1MeVDGLoose->GetYaxis()->SetTitleFont(43);    
+PullPlot1MeVDGLoose->GetYaxis()->SetLabelSize(0.05);   
+PullPlot1MeVDGLoose->GetXaxis()->SetTitleOffset(3);   
+PullPlot1MeVDGLoose->SetFillColor(kBlue);
+PullPlot1MeVDGLoose->SetLineColor(kBlue);
+PullPlot1MeVDGLoose->SetBit(TH1::kNoTitle);  
+
+ for (Int_t i=1;i<150;i++) {
+ Double_t x = MassHist1MeVLoose->GetBinCenter(i);
+ Double_t val = Gaussian1MeVDGLoose->Eval(x);
+ Double_t sigma = sqrt(val);
+ Double_t pull = (MassHist1MeVLoose->GetBinContent(i)-val)/sigma;
+PullPlot1MeVDGLoose->SetBinContent(i,pull);
+   }  
+PullPlot1MeVDGLoose->Draw();  
+      
+MassHist1MeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
+  c1->Write("Lc Mass Loose - 1MeVDG");
+  c1->Clear();
+   
+///////////////////////////////////////////   
 
 TF1 *CrystalBallFunction1MeVLoose = new TF1("CrystalBallFunction1MeVLoose", NewCrystalBall1MeV,2212.,2362.,9);
 CrystalBallFunction1MeVLoose->SetParameter(0,115000); 
@@ -577,9 +644,81 @@ CrystalBallFunction1MeVLoose->SetParameter(7, 2.0);
 CrystalBallFunction1MeVLoose->SetParameter(8, 3.0);   
 CrystalBallFunction1MeVLoose->SetParLimits(8, 1.000001, 8.);    
 
+pad1->cd();
+MassHist1MeVLoose->SetMinimum(0.0001);
+MassHist1MeVLoose->Fit("CrystalBallFunction1MeVLoose");
+
+TString SignalCBH;
+TString SignalErCBH;
+SignalCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParameter(0));
+SignalErCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParError(0));  
+TString FractionCBH;
+TString FractionErCBH;
+FractionCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParameter(4));
+FractionErCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParError(4));    
+TString muCBH;
+TString muErCBH;
+muCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParameter(1));
+muErCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParError(1));    
+TString sigmaGauCBH;
+TString sigmaGauErCBH;
+sigmaGauCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParameter(3));
+sigmaGauErCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParError(3));     
+TString sigma2CBH;
+TString sigma2ErCBH;
+Double_t sigma2 = TMath::Sqrt((CrystalBallFunction1MeVLoose->GetParameter(4)*CrystalBallFunction1MeVLoose->GetParameter(4) - CrystalBallFunction1MeVLoose->GetParameter(4)*CrystalBallFunction1MeVLoose->GetParameter(3)*CrystalBallFunction1MeVLoose->GetParameter(3)) / (1 - CrystalBallFunction1MeVLoose->GetParameter(4)));
+Double_t sigma2Err = TMath::Sqrt((CrystalBallFunction1MeVLoose->GetParError(4)*CrystalBallFunction1MeVLoose->GetParError(4) - CrystalBallFunction1MeVLoose->GetParError(4)*CrystalBallFunction1MeVLoose->GetParError(3)*CrystalBallFunction1MeVLoose->GetParError(3)) / (1 - CrystalBallFunction1MeVLoose->GetParError(4)));
+sigma2CBH.Form("%5.2f\n", sigma2);
+sigma2ErCBH.Form("%5.2f\n", sigma2Err);  
+TString alphaCBH;
+TString alphaErCBH;
+alphaCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParameter(7));
+alphaErCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParError(7));    
+TString nCBH;
+TString nErCBH;
+nCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParameter(8));
+nErCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParError(8)); 
+    
+lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalCBH+" #pm "+SignalErCBH+" Events");
+lt->DrawLatexNDC(0.6, 0.65, "Percent in Gaussian = "+FractionCBH+" #pm "+FractionErCBH+"%");   
+lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muCBH+" #pm "+muErCBH+" MeV");   
+lt->DrawLatexNDC(0.6, 0.55, "#sigma_{Gaussian} = "+sigmaGauCBH+" #pm "+sigmaGauErCBH+" MeV");  
+lt->DrawLatexNDC(0.6, 0.5, "#sigma_{CrystalBall} = "+sigma2CBH+" #pm "+sigma2ErCBH+" MeV");   
+
+pad2->cd();
+TH1D* PullPlot1MeVCBLoose = new TH1D("Mass [MeV]", "Lc Mass", 150, 2212, 2362);   
+PullPlot1MeVCBLoose->SetStats(0);  
+PullPlot1MeVCBLoose->GetXaxis()->SetTitle("Mass[MeV]");
+PullPlot1MeVCBLoose->GetXaxis()->SetTitleSize(15);  
+PullPlot1MeVCBLoose->GetXaxis()->SetTitleFont(43);   
+PullPlot1MeVCBLoose->GetXaxis()->SetTitleOffset(2);
+PullPlot1MeVCBLoose->GetXaxis()->SetLabelSize(0.1);   
+PullPlot1MeVCBLoose->GetYaxis()->SetTitle("Pull"); 
+PullPlot1MeVCBLoose->GetYaxis()->CenterTitle(true);
+PullPlot1MeVCBLoose->GetYaxis()->SetTitleSize(15);
+PullPlot1MeVCBLoose->GetYaxis()->SetTitleFont(43);    
+PullPlot1MeVCBLoose->GetYaxis()->SetLabelSize(0.05);   
+PullPlot1MeVCBLoose->GetXaxis()->SetTitleOffset(3);   
+PullPlot1MeVCBLoose->SetFillColor(kBlue);
+PullPlot1MeVCBLoose->SetLineColor(kBlue);
+PullPlot1MeVCBLoose->SetBit(TH1::kNoTitle);  
+
+ for (Int_t i=1;i<150;i++) {
+ Double_t x = MassHist1MeVLoose->GetBinCenter(i);
+ Double_t val = CrystalBallFunction1MeVLoose->Eval(x);
+ Double_t sigma = sqrt(val);
+ Double_t pull = (MassHist1MeVLoose->GetBinContent(i)-val)/sigma;
+PullPlot1MeVCBLoose->SetBinContent(i,pull);
+   }  
+PullPlot1MeVCBLoose->Draw();  
+      
+MassHist1MeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Gaussian + CrystalBall Fit");
+  c1->Write("Lc Mass Loose - 1MeVCB"); 
+  c1->Clear();
    
+///////////////////////////   
    
-TF1 *GaussianHalfMeVDG1MuTight = new TF1("GaussianHalfMeVDG1MuTight",DGOneMuOneTotalHalfMeV,2200.,2400.,7);
+TF1 *GaussianHalfMeVDGTight = new TF1("GaussianHalfMeVDG1MuTight",DGOneMuOneTotalHalfMeV,2200.,2400.,7);
 GaussianHalfMeVDG1MuTight->SetParameter(0, 0.4);
 GaussianHalfMeVDG1MuTight->SetParameter(1, 12000);
 GaussianHalfMeVDG1MuTight->SetParameter(2, 2287.);
@@ -590,7 +729,69 @@ GaussianHalfMeVDG1MuTight->SetParLimits(4, 0., 20.);
 GaussianHalfMeVDG1MuTight->SetParameter(5, 0.);
 GaussianHalfMeVDG1MuTight->SetParameter(6, 0.);
 
+pad1->cd();
+MassHistHalfMeVTight->SetMinimum(0.0001);
+MassHistHalfMeVTight->Fit("GaussianHalfMeVDGTight");
+
+TString SignalDGH;
+TString SignalErDGH;
+SignalDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(1));
+SignalErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(1));  
+TString FractionDGH;
+TString FractionErDGH;
+FractionDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(0));
+FractionErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(0));    
+TString muDGH;
+TString muErDGH;
+muDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(2));
+muErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(2));    
+TString sigma1DGH;
+TString sigma1ErDGH;
+sigma1DGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(3));
+sigma1ErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(3));     
+TString sigma2DGH;
+TString sigma2ErDGH;
+sigma2DGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(4));
+sigma2ErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(4));  
    
+lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
+lt->DrawLatexNDC(0.6, 0.65, "Percent in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"%");   
+lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
+lt->DrawLatexNDC(0.6, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
+lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
+
+pad2->cd();
+TH1D* PullPlotHalfMeVDGTight = new TH1D("Mass [MeV]", "Lc Mass", 300, 2212, 2362);   
+PullPlotHalfMeVDGTight->SetStats(0);  
+PullPlotHalfMeVDGTight->GetXaxis()->SetTitle("Mass[MeV]");
+PullPlotHalfMeVDGTight->GetXaxis()->SetTitleSize(15);  
+PullPlotHalfMeVDGTight->GetXaxis()->SetTitleFont(43);   
+PullPlotHalfMeVDGTight->GetXaxis()->SetTitleOffset(2);
+PullPlotHalfMeVDGTight->GetXaxis()->SetLabelSize(0.1);   
+PullPlotHalfMeVDGTight->GetYaxis()->SetTitle("Pull"); 
+PullPlotHalfMeVDGTight->GetYaxis()->CenterTitle(true);
+PullPlotHalfMeVDGTight->GetYaxis()->SetTitleSize(15);
+PullPlotHalfMeVDGTight->GetYaxis()->SetTitleFont(43);    
+PullPlotHalfMeVDGTight->GetYaxis()->SetLabelSize(0.05);   
+PullPlotHalfMeVDGTight->GetXaxis()->SetTitleOffset(3);   
+PullPlotHalfMeVDGTight->SetFillColor(kBlue);
+PullPlotHalfMeVDGTight->SetLineColor(kBlue);
+PullPlotHalfMeVDGTight->SetBit(TH1::kNoTitle);  
+
+ for (Int_t i=1;i<300;i++) {
+ Double_t x = MassHistHalfMeVTight->GetBinCenter(i);
+ Double_t val = GaussianHalfMeVDGTight->Eval(x);
+ Double_t sigma = sqrt(val);
+ Double_t pull = (MassHistHalfMeVTight->GetBinContent(i)-val)/sigma;
+PullPlotHalfMeVDGTight->SetBinContent(i,pull);
+   }  
+PullPlotHalfMeVDGTight->Draw();  
+      
+MassHistHalfMeVTight->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
+  c1->Write("Lc Mass Tight - HalfMeVDG");
+  c1->Clear();
+   
+/////////////////////////////////////////////   
 
 TF1 *CrystalBallFunctionHalfMeVTight = new TF1("CrystalBallFunctionHalfMeVTight", NewCrystalBallHalfMeV,2212.,2362.,9);
 CrystalBallFunctionHalfMeVTight->SetParameter(0,115000); 
@@ -605,7 +806,71 @@ CrystalBallFunctionHalfMeVTight->SetParameter(7, 2.0);
 CrystalBallFunctionHalfMeVTight->SetParameter(8, 3.0);   
 CrystalBallFunctionHalfMeVTight->SetParLimits(8, 1.000001, 8.);   
  
+pad1->cd();
+MassHistHalfMeVTight->SetMinimum(0.0001);
+MassHistHalfMeVTight->Fit("GaussianHalfMeVDGTight");
 
+TString SignalDGH;
+TString SignalErDGH;
+SignalDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(1));
+SignalErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(1));  
+TString FractionDGH;
+TString FractionErDGH;
+FractionDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(0));
+FractionErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(0));    
+TString muDGH;
+TString muErDGH;
+muDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(2));
+muErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(2));    
+TString sigma1DGH;
+TString sigma1ErDGH;
+sigma1DGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(3));
+sigma1ErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(3));     
+TString sigma2DGH;
+TString sigma2ErDGH;
+sigma2DGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(4));
+sigma2ErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(4));  
+   
+auto lt = new TLatex();
+lt->SetTextSize(0.03);
+lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
+lt->DrawLatexNDC(0.6, 0.65, "Percent in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"%");   
+lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
+lt->DrawLatexNDC(0.6, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
+lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
+
+pad2->cd();
+TH1D* PullPlotHalfMeVDGTight = new TH1D("Mass [MeV]", "Lc Mass", 300, 2212, 2362);   
+PullPlotHalfMeVDGTight->SetStats(0);  
+PullPlotHalfMeVDGTight->GetXaxis()->SetTitle("Mass[MeV]");
+PullPlotHalfMeVDGTight->GetXaxis()->SetTitleSize(15);  
+PullPlotHalfMeVDGTight->GetXaxis()->SetTitleFont(43);   
+PullPlotHalfMeVDGTight->GetXaxis()->SetTitleOffset(2);
+PullPlotHalfMeVDGTight->GetXaxis()->SetLabelSize(0.1);   
+PullPlotHalfMeVDGTight->GetYaxis()->SetTitle("Pull"); 
+PullPlotHalfMeVDGTight->GetYaxis()->CenterTitle(true);
+PullPlotHalfMeVDGTight->GetYaxis()->SetTitleSize(15);
+PullPlotHalfMeVDGTight->GetYaxis()->SetTitleFont(43);    
+PullPlotHalfMeVDGTight->GetYaxis()->SetLabelSize(0.05);   
+PullPlotHalfMeVDGTight->GetXaxis()->SetTitleOffset(3);   
+PullPlotHalfMeVDGTight->SetFillColor(kBlue);
+PullPlotHalfMeVDGTight->SetLineColor(kBlue);
+PullPlotHalfMeVDGTight->SetBit(TH1::kNoTitle);  
+
+ for (Int_t i=1;i<300;i++) {
+ Double_t x = MassHistHalfMeVTight->GetBinCenter(i);
+ Double_t val = GaussianHalfMeVDGTight->Eval(x);
+ Double_t sigma = sqrt(val);
+ Double_t pull = (MassHistHalfMeVTight->GetBinContent(i)-val)/sigma;
+PullPlotHalfMeVDGTight->SetBinContent(i,pull);
+   }  
+PullPlotHalfMeVDGTight->Draw();  
+      
+MassHistHalfMeVTight->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
+  c1->Write("Lc Mass Tight - HalfMeVDG");
+  c1->Clear();
+ 
+//////////////////////////////////////////////////////   
    
 TF1 *Gaussian1MeVDG1MuTight = new TF1("Gaussian1MeVDG1MuTight",DGOneMuOneTotal1MeV,2212.,2362.,7);
 Gaussian1MeVDG1MuTight->SetParameter(0, 0.4);
@@ -618,7 +883,70 @@ Gaussian1MeVDG1MuTight->SetParLimits(4, 0., 20.);
 Gaussian1MeVDG1MuTight->SetParameter(5, 0.);
 Gaussian1MeVDG1MuTight->SetParameter(6, 0.);
 
+pad1->cd();
+MassHist1MeVTight->SetMinimum(0.0001);
+MassHist1MeVTight->Fit("Gaussian1MeVDGTight");
 
+TString SignalDGH;
+TString SignalErDGH;
+SignalDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParameter(1));
+SignalErDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParError(1));  
+TString FractionDGH;
+TString FractionErDGH;
+FractionDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParameter(0));
+FractionErDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParError(0));    
+TString muDGH;
+TString muErDGH;
+muDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParameter(2));
+muErDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParError(2));    
+TString sigma1DGH;
+TString sigma1ErDGH;
+sigma1DGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParameter(3));
+sigma1ErDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParError(3));     
+TString sigma2DGH;
+TString sigma2ErDGH;
+sigma2DGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParameter(4));
+sigma2ErDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParError(4));  
+   
+lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
+lt->DrawLatexNDC(0.6, 0.65, "Percent in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"%");   
+lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
+lt->DrawLatexNDC(0.6, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
+lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
+
+pad2->cd();
+TH1D* PullPlot1MeVDGTight = new TH1D("Mass [MeV]", "Lc Mass", 150, 2212, 2362);   
+PullPlot1MeVDGTight->SetStats(0);  
+PullPlot1MeVDGTight->GetXaxis()->SetTitle("Mass[MeV]");
+PullPlot1MeVDGTight->GetXaxis()->SetTitleSize(15);  
+PullPlot1MeVDGTight->GetXaxis()->SetTitleFont(43);   
+PullPlot1MeVDGTight->GetXaxis()->SetTitleOffset(2);
+PullPlot1MeVDGTight->GetXaxis()->SetLabelSize(0.1);   
+PullPlot1MeVDGTight->GetYaxis()->SetTitle("Pull"); 
+PullPlot1MeVDGTight->GetYaxis()->CenterTitle(true);
+PullPlot1MeVDGTight->GetYaxis()->SetTitleSize(15);
+PullPlot1MeVDGTight->GetYaxis()->SetTitleFont(43);    
+PullPlot1MeVDGTight->GetYaxis()->SetLabelSize(0.05);   
+PullPlot1MeVDGTight->GetXaxis()->SetTitleOffset(3);   
+PullPlot1MeVDGTight->SetFillColor(kBlue);
+PullPlot1MeVDGTight->SetLineColor(kBlue);
+PullPlot1MeVDGTight->SetBit(TH1::kNoTitle);  
+
+ for (Int_t i=1;i<150;i++) {
+ Double_t x = MassHist1MeVTight->GetBinCenter(i);
+ Double_t val = Gaussian1MeVDGTight->Eval(x);
+ Double_t sigma = sqrt(val);
+ Double_t pull = (MassHist1MeVTight->GetBinContent(i)-val)/sigma;
+PullPlot1MeVDGTight->SetBinContent(i,pull);
+   }  
+PullPlot1MeVDGTight->Draw();  
+      
+MassHist1MeVTight->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
+  c1->Write("Lc Mass Tight - 1MeVDG");
+  c1->Clear();
+
+////////////////////////////////////////////////   
+   
 TF1 *CrystalBallFunction1MeVTight = new TF1("CrystalBallFunction1MeVTight", NewCrystalBall1MeV,2212.,2362.,9);
 CrystalBallFunction1MeVTight->SetParameter(0,115000); 
 CrystalBallFunction1MeVTight->SetParameter(1, 2285.);
@@ -632,8 +960,79 @@ CrystalBallFunction1MeVTight->SetParameter(7, 2.0);
 CrystalBallFunction1MeVTight->SetParameter(8, 3.0);   
 CrystalBallFunction1MeVTight->SetParLimits(8, 1.000001, 8.);    
  
+pad1->cd();
+MassHist1MeVTight->SetMinimum(0.0001);
+MassHist1MeVTight->Fit("CrystalBallFunction1MeVTight");
 
-   
+TString SignalCBH;
+TString SignalErCBH;
+SignalCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParameter(0));
+SignalErCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParError(0));  
+TString FractionCBH;
+TString FractionErCBH;
+FractionCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParameter(4));
+FractionErCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParError(4));    
+TString muCBH;
+TString muErCBH;
+muCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParameter(1));
+muErCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParError(1));    
+TString sigmaGauCBH;
+TString sigmaGauErCBH;
+sigmaGauCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParameter(3));
+sigmaGauErCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParError(3));     
+TString sigma2CBH;
+TString sigma2ErCBH;
+Double_t sigma2 = TMath::Sqrt((CrystalBallFunction1MeVTight->GetParameter(4)*CrystalBallFunction1MeVTight->GetParameter(4) - CrystalBallFunction1MeVTight->GetParameter(4)*CrystalBallFunction1MeVTight->GetParameter(3)*CrystalBallFunction1MeVTight->GetParameter(3)) / (1 - CrystalBallFunction1MeVTight->GetParameter(4)));
+Double_t sigma2Err = TMath::Sqrt((CrystalBallFunction1MeVTight->GetParError(4)*CrystalBallFunction1MeVTight->GetParError(4) - CrystalBallFunction1MeVTight->GetParError(4)*CrystalBallFunction1MeVTight->GetParError(3)*CrystalBallFunction1MeVTight->GetParError(3)) / (1 - CrystalBallFunction1MeVTight->GetParError(4)));
+sigma2CBH.Form("%5.2f\n", sigma2);
+sigma2ErCBH.Form("%5.2f\n", sigma2Err);  
+TString alphaCBH;
+TString alphaErCBH;
+alphaCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParameter(7));
+alphaErCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParError(7));    
+TString nCBH;
+TString nErCBH;
+nCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParameter(8));
+nErCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParError(8)); 
+    
+lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalCBH+" #pm "+SignalErCBH+" Events");
+lt->DrawLatexNDC(0.6, 0.65, "Percent in Gaussian = "+FractionCBH+" #pm "+FractionErCBH+"%");   
+lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muCBH+" #pm "+muErCBH+" MeV");   
+lt->DrawLatexNDC(0.6, 0.55, "#sigma_{Gaussian} = "+sigmaGauCBH+" #pm "+sigmaGauErCBH+" MeV");  
+lt->DrawLatexNDC(0.6, 0.5, "#sigma_{CrystalBall} = "+sigma2CBH+" #pm "+sigma2ErCBH+" MeV");   
+
+pad2->cd();
+TH1D* PullPlot1MeVCBTight = new TH1D("Mass [MeV]", "Lc Mass", 150, 2212, 2362);   
+PullPlot1MeVCBTight->SetStats(0);  
+PullPlot1MeVCBTight->GetXaxis()->SetTitle("Mass[MeV]");
+PullPlot1MeVCBTight->GetXaxis()->SetTitleSize(15);  
+PullPlot1MeVCBTight->GetXaxis()->SetTitleFont(43);   
+PullPlot1MeVCBTight->GetXaxis()->SetTitleOffset(2);
+PullPlot1MeVCBTight->GetXaxis()->SetLabelSize(0.1);   
+PullPlot1MeVCBTight->GetYaxis()->SetTitle("Pull"); 
+PullPlot1MeVCBTight->GetYaxis()->CenterTitle(true);
+PullPlot1MeVCBTight->GetYaxis()->SetTitleSize(15);
+PullPlot1MeVCBTight->GetYaxis()->SetTitleFont(43);    
+PullPlot1MeVCBTight->GetYaxis()->SetLabelSize(0.05);   
+PullPlot1MeVCBTight->GetXaxis()->SetTitleOffset(3);   
+PullPlot1MeVCBTight->SetFillColor(kBlue);
+PullPlot1MeVCBTight->SetLineColor(kBlue);
+PullPlot1MeVCBTight->SetBit(TH1::kNoTitle);  
+
+ for (Int_t i=1;i<150;i++) {
+ Double_t x = MassHist1MeVTight->GetBinCenter(i);
+ Double_t val = CrystalBallFunction1MeVTight->Eval(x);
+ Double_t sigma = sqrt(val);
+ Double_t pull = (MassHist1MeVTight->GetBinContent(i)-val)/sigma;
+PullPlot1MeVCBTight->SetBinContent(i,pull);
+   }  
+PullPlot1MeVCBTight->Draw();  
+      
+MassHist1MeVTight->SetTitle("#Lambda_{c}^{+} Mass - Gaussian + CrystalBall Fit");
+  c1->Write("Lc Mass Tight - 1MeVCB"); 
+  c1->Clear();
+
+////////////////////////////////   
    
 TF1 *LcFitSGLoose1 = new TF1("LcFitSGLoose1", NewCrystalBallHalfMeV,2212.,2362.,9);
 LcFitSGLoose1->SetParameter(0,115000); 
