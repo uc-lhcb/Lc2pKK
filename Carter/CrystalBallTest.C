@@ -569,24 +569,18 @@ pad1->cd();
 MassHist1MeVLoose->SetMinimum(0.0001);
 MassHist1MeVLoose->Fit("Gaussian1MeVDGLoose");
 
-TString SignalDGH;
-TString SignalErDGH;
 SignalDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParameter(1));
 SignalErDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParError(1));  
-TString FractionDGH;
-TString FractionErDGH;
+
 FractionDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParameter(0));
 FractionErDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParError(0));    
-TString muDGH;
-TString muErDGH;
+
 muDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParameter(2));
 muErDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParError(2));    
-TString sigma1DGH;
-TString sigma1ErDGH;
+
 sigma1DGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParameter(3));
 sigma1ErDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParError(3));     
-TString sigma2DGH;
-TString sigma2ErDGH;
+
 sigma2DGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParameter(4));
 sigma2ErDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParError(4));  
    
@@ -648,34 +642,27 @@ pad1->cd();
 MassHist1MeVLoose->SetMinimum(0.0001);
 MassHist1MeVLoose->Fit("CrystalBallFunction1MeVLoose");
 
-TString SignalCBH;
-TString SignalErCBH;
+
 SignalCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParameter(0));
 SignalErCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParError(0));  
-TString FractionCBH;
-TString FractionErCBH;
+
 FractionCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParameter(4));
 FractionErCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParError(4));    
-TString muCBH;
-TString muErCBH;
+
 muCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParameter(1));
 muErCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParError(1));    
-TString sigmaGauCBH;
-TString sigmaGauErCBH;
+
 sigmaGauCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParameter(3));
 sigmaGauErCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParError(3));     
-TString sigma2CBH;
-TString sigma2ErCBH;
-Double_t sigma2 = TMath::Sqrt((CrystalBallFunction1MeVLoose->GetParameter(4)*CrystalBallFunction1MeVLoose->GetParameter(4) - CrystalBallFunction1MeVLoose->GetParameter(4)*CrystalBallFunction1MeVLoose->GetParameter(3)*CrystalBallFunction1MeVLoose->GetParameter(3)) / (1 - CrystalBallFunction1MeVLoose->GetParameter(4)));
-Double_t sigma2Err = TMath::Sqrt((CrystalBallFunction1MeVLoose->GetParError(4)*CrystalBallFunction1MeVLoose->GetParError(4) - CrystalBallFunction1MeVLoose->GetParError(4)*CrystalBallFunction1MeVLoose->GetParError(3)*CrystalBallFunction1MeVLoose->GetParError(3)) / (1 - CrystalBallFunction1MeVLoose->GetParError(4)));
-sigma2CBH.Form("%5.2f\n", sigma2);
-sigma2ErCBH.Form("%5.2f\n", sigma2Err);  
-TString alphaCBH;
-TString alphaErCBH;
+
+Double_t sigma21MeVLoose = TMath::Sqrt((CrystalBallFunction1MeVLoose->GetParameter(4)*CrystalBallFunction1MeVLoose->GetParameter(4) - CrystalBallFunction1MeVLoose->GetParameter(4)*CrystalBallFunction1MeVLoose->GetParameter(3)*CrystalBallFunction1MeVLoose->GetParameter(3)) / (1 - CrystalBallFunction1MeVLoose->GetParameter(4)));
+Double_t sigma2Err1MeVLoose  = TMath::Sqrt((CrystalBallFunction1MeVLoose->GetParError(4)*CrystalBallFunction1MeVLoose->GetParError(4) - CrystalBallFunction1MeVLoose->GetParError(4)*CrystalBallFunction1MeVLoose->GetParError(3)*CrystalBallFunction1MeVLoose->GetParError(3)) / (1 - CrystalBallFunction1MeVLoose->GetParError(4)));
+sigma2CBH.Form("%5.2f\n", sigma21MeVLoose );
+sigma2ErCBH.Form("%5.2f\n", sigma2Err1MeVLoose );  
+
 alphaCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParameter(7));
 alphaErCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParError(7));    
-TString nCBH;
-TString nErCBH;
+
 nCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParameter(8));
 nErCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParError(8)); 
     
@@ -733,24 +720,19 @@ pad1->cd();
 MassHistHalfMeVTight->SetMinimum(0.0001);
 MassHistHalfMeVTight->Fit("GaussianHalfMeVDGTight");
 
-TString SignalDGH;
-TString SignalErDGH;
+
 SignalDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(1));
 SignalErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(1));  
-TString FractionDGH;
-TString FractionErDGH;
+
 FractionDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(0));
 FractionErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(0));    
-TString muDGH;
-TString muErDGH;
+
 muDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(2));
 muErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(2));    
-TString sigma1DGH;
-TString sigma1ErDGH;
+
 sigma1DGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(3));
 sigma1ErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(3));     
-TString sigma2DGH;
-TString sigma2ErDGH;
+
 sigma2DGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(4));
 sigma2ErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(4));  
    
@@ -808,66 +790,66 @@ CrystalBallFunctionHalfMeVTight->SetParLimits(8, 1.000001, 8.);
  
 pad1->cd();
 MassHistHalfMeVTight->SetMinimum(0.0001);
-MassHistHalfMeVTight->Fit("GaussianHalfMeVDGTight");
+MassHistHalfMeVTight->Fit("CrystalBallFunctionHalfMeVTight");
 
-TString SignalDGH;
-TString SignalErDGH;
-SignalDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(1));
-SignalErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(1));  
-TString FractionDGH;
-TString FractionErDGH;
-FractionDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(0));
-FractionErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(0));    
-TString muDGH;
-TString muErDGH;
-muDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(2));
-muErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(2));    
-TString sigma1DGH;
-TString sigma1ErDGH;
-sigma1DGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(3));
-sigma1ErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(3));     
-TString sigma2DGH;
-TString sigma2ErDGH;
-sigma2DGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(4));
-sigma2ErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(4));  
-   
-auto lt = new TLatex();
-lt->SetTextSize(0.03);
-lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
-lt->DrawLatexNDC(0.6, 0.65, "Percent in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"%");   
-lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
-lt->DrawLatexNDC(0.6, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
-lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
+SignalCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVTight->GetParameter(0));
+SignalErCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVTight->GetParError(0));  
+
+FractionCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVTight->GetParameter(4));
+FractionErCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVTight->GetParError(4));    
+
+muCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVTight->GetParameter(1));
+muErCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVTight->GetParError(1));    
+
+sigmaGauCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVTight->GetParameter(3));
+sigmaGauErCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVTight->GetParError(3));     
+
+Double_t sigma2HalfMeVTight = TMath::Sqrt((CrystalBallFunctionHalfMeVTight->GetParameter(4)*CrystalBallFunctionHalfMeVTight->GetParameter(4) - CrystalBallFunctionHalfMeVTight->GetParameter(4)*CrystalBallFunctionHalfMeVTight->GetParameter(3)*CrystalBallFunctionHalfMeVTight->GetParameter(3)) / (1 - CrystalBallFunctionHalfMeVTight->GetParameter(4)));
+Double_t sigma2ErrHalfMeVTight = TMath::Sqrt((CrystalBallFunctionHalfMeVTight->GetParError(4)*CrystalBallFunctionHalfMeVTight->GetParError(4) - CrystalBallFunctionHalfMeVTight->GetParError(4)*CrystalBallFunctionHalfMeVTight->GetParError(3)*CrystalBallFunctionHalfMeVTight->GetParError(3)) / (1 - CrystalBallFunctionHalfMeVTight->GetParError(4)));
+sigma2CBH.Form("%5.2f\n", sigma2HalfMeVTight);
+sigma2ErCBH.Form("%5.2f\n", sigma2ErrHalfMeVTight);  
+
+alphaCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVTight->GetParameter(7));
+alphaErCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVTight->GetParError(7));    
+
+nCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVTight->GetParameter(8));
+nErCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVTight->GetParError(8)); 
+    
+lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalCBH+" #pm "+SignalErCBH+" Events");
+lt->DrawLatexNDC(0.6, 0.65, "Percent in Gaussian = "+FractionCBH+" #pm "+FractionErCBH+"%");   
+lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muCBH+" #pm "+muErCBH+" MeV");   
+lt->DrawLatexNDC(0.6, 0.55, "#sigma_{Gaussian} = "+sigmaGauCBH+" #pm "+sigmaGauErCBH+" MeV");  
+lt->DrawLatexNDC(0.6, 0.5, "#sigma_{CrystalBall} = "+sigma2CBH+" #pm "+sigma2ErCBH+" MeV");   
 
 pad2->cd();
-TH1D* PullPlotHalfMeVDGTight = new TH1D("Mass [MeV]", "Lc Mass", 300, 2212, 2362);   
-PullPlotHalfMeVDGTight->SetStats(0);  
-PullPlotHalfMeVDGTight->GetXaxis()->SetTitle("Mass[MeV]");
-PullPlotHalfMeVDGTight->GetXaxis()->SetTitleSize(15);  
-PullPlotHalfMeVDGTight->GetXaxis()->SetTitleFont(43);   
-PullPlotHalfMeVDGTight->GetXaxis()->SetTitleOffset(2);
-PullPlotHalfMeVDGTight->GetXaxis()->SetLabelSize(0.1);   
-PullPlotHalfMeVDGTight->GetYaxis()->SetTitle("Pull"); 
-PullPlotHalfMeVDGTight->GetYaxis()->CenterTitle(true);
-PullPlotHalfMeVDGTight->GetYaxis()->SetTitleSize(15);
-PullPlotHalfMeVDGTight->GetYaxis()->SetTitleFont(43);    
-PullPlotHalfMeVDGTight->GetYaxis()->SetLabelSize(0.05);   
-PullPlotHalfMeVDGTight->GetXaxis()->SetTitleOffset(3);   
-PullPlotHalfMeVDGTight->SetFillColor(kBlue);
-PullPlotHalfMeVDGTight->SetLineColor(kBlue);
-PullPlotHalfMeVDGTight->SetBit(TH1::kNoTitle);  
+TH1D* PullPlotHalfMeVCBTight = new TH1D("Mass [MeV]", "Lc Mass", 300, 2212, 2362);   
+PullPlotHalfMeVCBTight->SetStats(0);  
+PullPlotHalfMeVCBTight->GetXaxis()->SetTitle("Mass[MeV]");
+PullPlotHalfMeVCBTight->GetXaxis()->SetTitleSize(15);  
+PullPlotHalfMeVCBTight->GetXaxis()->SetTitleFont(43);   
+PullPlotHalfMeVCBTight->GetXaxis()->SetTitleOffset(2);
+PullPlotHalfMeVCBTight->GetXaxis()->SetLabelSize(0.1);   
+PullPlotHalfMeVCBTight->GetYaxis()->SetTitle("Pull"); 
+PullPlotHalfMeVCBTight->GetYaxis()->CenterTitle(true);
+PullPlotHalfMeVCBTight->GetYaxis()->SetTitleSize(15);
+PullPlotHalfMeVCBTight->GetYaxis()->SetTitleFont(43);    
+PullPlotHalfMeVCBTight->GetYaxis()->SetLabelSize(0.05);   
+PullPlotHalfMeVCBTight->GetXaxis()->SetTitleOffset(3);   
+PullPlotHalfMeVCBTight->SetFillColor(kBlue);
+PullPlotHalfMeVCBTight->SetLineColor(kBlue);
+PullPlotHalfMeVCBTight->SetBit(TH1::kNoTitle);  
 
  for (Int_t i=1;i<300;i++) {
  Double_t x = MassHistHalfMeVTight->GetBinCenter(i);
- Double_t val = GaussianHalfMeVDGTight->Eval(x);
+ Double_t val = CrystalBallFunctionHalfMeVTight->Eval(x);
  Double_t sigma = sqrt(val);
  Double_t pull = (MassHistHalfMeVTight->GetBinContent(i)-val)/sigma;
-PullPlotHalfMeVDGTight->SetBinContent(i,pull);
+PullPlotHalfMeVCBTight->SetBinContent(i,pull);
    }  
-PullPlotHalfMeVDGTight->Draw();  
+PullPlotHalfMeVCBTight->Draw();  
       
-MassHistHalfMeVTight->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
-  c1->Write("Lc Mass Tight - HalfMeVDG");
+MassHistHalfMeVTight->SetTitle("#Lambda_{c}^{+} Mass - Gaussian + CrystalBall Fit");
+  c1->Write("Lc Mass Tight - HalfMeVCB"); 
   c1->Clear();
  
 //////////////////////////////////////////////////////   
@@ -887,24 +869,18 @@ pad1->cd();
 MassHist1MeVTight->SetMinimum(0.0001);
 MassHist1MeVTight->Fit("Gaussian1MeVDGTight");
 
-TString SignalDGH;
-TString SignalErDGH;
 SignalDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParameter(1));
 SignalErDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParError(1));  
-TString FractionDGH;
-TString FractionErDGH;
+
 FractionDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParameter(0));
 FractionErDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParError(0));    
-TString muDGH;
-TString muErDGH;
+
 muDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParameter(2));
 muErDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParError(2));    
-TString sigma1DGH;
-TString sigma1ErDGH;
+
 sigma1DGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParameter(3));
 sigma1ErDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParError(3));     
-TString sigma2DGH;
-TString sigma2ErDGH;
+
 sigma2DGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParameter(4));
 sigma2ErDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParError(4));  
    
@@ -964,34 +940,27 @@ pad1->cd();
 MassHist1MeVTight->SetMinimum(0.0001);
 MassHist1MeVTight->Fit("CrystalBallFunction1MeVTight");
 
-TString SignalCBH;
-TString SignalErCBH;
+
 SignalCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParameter(0));
 SignalErCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParError(0));  
-TString FractionCBH;
-TString FractionErCBH;
+
 FractionCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParameter(4));
 FractionErCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParError(4));    
-TString muCBH;
-TString muErCBH;
+
 muCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParameter(1));
 muErCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParError(1));    
-TString sigmaGauCBH;
-TString sigmaGauErCBH;
+
 sigmaGauCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParameter(3));
 sigmaGauErCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParError(3));     
-TString sigma2CBH;
-TString sigma2ErCBH;
-Double_t sigma2 = TMath::Sqrt((CrystalBallFunction1MeVTight->GetParameter(4)*CrystalBallFunction1MeVTight->GetParameter(4) - CrystalBallFunction1MeVTight->GetParameter(4)*CrystalBallFunction1MeVTight->GetParameter(3)*CrystalBallFunction1MeVTight->GetParameter(3)) / (1 - CrystalBallFunction1MeVTight->GetParameter(4)));
-Double_t sigma2Err = TMath::Sqrt((CrystalBallFunction1MeVTight->GetParError(4)*CrystalBallFunction1MeVTight->GetParError(4) - CrystalBallFunction1MeVTight->GetParError(4)*CrystalBallFunction1MeVTight->GetParError(3)*CrystalBallFunction1MeVTight->GetParError(3)) / (1 - CrystalBallFunction1MeVTight->GetParError(4)));
-sigma2CBH.Form("%5.2f\n", sigma2);
-sigma2ErCBH.Form("%5.2f\n", sigma2Err);  
-TString alphaCBH;
-TString alphaErCBH;
+
+Double_t sigma21MeVTight = TMath::Sqrt((CrystalBallFunction1MeVTight->GetParameter(4)*CrystalBallFunction1MeVTight->GetParameter(4) - CrystalBallFunction1MeVTight->GetParameter(4)*CrystalBallFunction1MeVTight->GetParameter(3)*CrystalBallFunction1MeVTight->GetParameter(3)) / (1 - CrystalBallFunction1MeVTight->GetParameter(4)));
+Double_t sigma2Err1MeVTight = TMath::Sqrt((CrystalBallFunction1MeVTight->GetParError(4)*CrystalBallFunction1MeVTight->GetParError(4) - CrystalBallFunction1MeVTight->GetParError(4)*CrystalBallFunction1MeVTight->GetParError(3)*CrystalBallFunction1MeVTight->GetParError(3)) / (1 - CrystalBallFunction1MeVTight->GetParError(4)));
+sigma2CBH.Form("%5.2f\n", sigma21MeVTight);
+sigma2ErCBH.Form("%5.2f\n", sigma2Err1MeVTight);  
+
 alphaCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParameter(7));
 alphaErCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParError(7));    
-TString nCBH;
-TString nErCBH;
+
 nCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParameter(8));
 nErCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParError(8)); 
     
