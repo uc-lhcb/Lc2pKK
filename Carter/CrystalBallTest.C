@@ -463,7 +463,10 @@ PullPlotHalfMeVDGLoose->Draw();
       
 MassHistHalfMeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
   c1->Write("Lc Mass Loose - HalfMeVDG");
-
+  c1->Clear();
+ 
+/////////////////////////   
+   
 TF1 *CrystalBallFunctionHalfMeVLoose = new TF1("CrystalBallFunctionHalfMeVLoose", NewCrystalBallHalfMeV,2212.,2362.,9);
 CrystalBallFunctionHalfMeVLoose->SetParameter(0,115000); 
 CrystalBallFunctionHalfMeVLoose->SetParameter(1, 2285.);
@@ -511,8 +514,7 @@ TString nCBH;
 TString nErCBH;
 nCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParameter(8));
 nErCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParError(8)); 
- 
-lt->Clear();   
+    
 lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalCBH+" #pm "+SignalErCBH+" Events");
 lt->DrawLatexNDC(0.6, 0.65, "Percent in Gaussian = "+FractionCBH+" #pm "+FractionErCBH+"%");   
 lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muCBH+" #pm "+muErCBH+" MeV");   
