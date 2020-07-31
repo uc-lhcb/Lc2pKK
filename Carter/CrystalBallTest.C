@@ -852,7 +852,7 @@ MassHistHalfMeVTight->SetTitle("#Lambda_{c}^{+} Mass - Gaussian + CrystalBall Fi
  
 //////////////////////////////////////////////////////   
    
-TF1 *Gaussian1MeVDG1MuTight = new TF1("Gaussian1MeVDG1MuTight",DGOneMuOneTotal1MeV,2212.,2362.,7);
+TF1 *Gaussian1MeVDGTight = new TF1("Gaussian1MeVDG1MuTight",DGOneMuOneTotal1MeV,2212.,2362.,7);
 Gaussian1MeVDGTight->SetParameter(0, 0.4);
 Gaussian1MeVDGTight->SetParameter(1, 12000);
 Gaussian1MeVDGTight->SetParameter(2, 2287.);
