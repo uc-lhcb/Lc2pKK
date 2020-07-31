@@ -424,11 +424,11 @@ sigma2ErDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParError(4));
    
 auto lt = new TLatex();
 lt->SetTextSize(0.03);
-lt->DrawLatexNDC(0.70, 0.65, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
+lt->DrawLatexNDC(0.65, 0.70, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
 lt->DrawLatexNDC(0.65, 0.65, "Percent in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"%");   
-lt->DrawLatexNDC(0.60, 0.65, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
-lt->DrawLatexNDC(0.55, 0.65, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
-lt->DrawLatexNDC(0.5, 0.65, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
+lt->DrawLatexNDC(0.65, 0.6, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
+lt->DrawLatexNDC(0.65, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
+lt->DrawLatexNDC(0.65, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
    
 int BinHeightHalfMeVDG1MuLoose[300];
 int FitHeightHalfMeVDG1MuLoose[300];
