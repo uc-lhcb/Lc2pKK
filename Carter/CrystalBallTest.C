@@ -463,7 +463,7 @@ PullPlotHalfMeVDGLoose->Draw();
       
 MassHistHalfMeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
   c1->Write("Lc Mass Loose - HalfMeVDG");
-  c1->Clear();
+  pad1->Clear();
  
 /////////////////////////   
    
@@ -550,7 +550,7 @@ PullPlotHalfMeVCBLoose->Draw();
       
 MassHistHalfMeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Gaussian + CrystalBall Fit");
   c1->Write("Lc Mass Loose - HalfMeVCB"); 
-  c1->Clear();
+  pad1->Clear();
  
 //////////////////////////////////   
    
@@ -619,7 +619,7 @@ PullPlot1MeVDGLoose->Draw();
       
 MassHist1MeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
   c1->Write("Lc Mass Loose - 1MeVDG");
-  c1->Clear();
+  pad1->Clear();
    
 ///////////////////////////////////////////   
 
@@ -699,7 +699,7 @@ PullPlot1MeVCBLoose->Draw();
       
 MassHist1MeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Gaussian + CrystalBall Fit");
   c1->Write("Lc Mass Loose - 1MeVCB"); 
-  c1->Clear();
+  pad1->Clear();
    
 ///////////////////////////   
    
@@ -769,7 +769,7 @@ PullPlotHalfMeVDGTight->Draw();
       
 MassHistHalfMeVTight->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
   c1->Write("Lc Mass Tight - HalfMeVDG");
-  c1->Clear();
+  pad1->Clear();
    
 /////////////////////////////////////////////   
 
@@ -848,7 +848,7 @@ PullPlotHalfMeVCBTight->Draw();
       
 MassHistHalfMeVTight->SetTitle("#Lambda_{c}^{+} Mass - Gaussian + CrystalBall Fit");
   c1->Write("Lc Mass Tight - HalfMeVCB"); 
-  c1->Clear();
+  pad1->Clear();
  
 //////////////////////////////////////////////////////   
    
@@ -917,7 +917,7 @@ PullPlot1MeVDGTight->Draw();
       
 MassHist1MeVTight->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
   c1->Write("Lc Mass Tight - 1MeVDG");
-  c1->Clear();
+  pad1->Clear();
 
 ////////////////////////////////////////////////   
    
@@ -997,7 +997,7 @@ PullPlot1MeVCBTight->Draw();
       
 MassHist1MeVTight->SetTitle("#Lambda_{c}^{+} Mass - Gaussian + CrystalBall Fit");
   c1->Write("Lc Mass Tight - 1MeVCB"); 
-  c1->Clear();
+  pad1->Clear();
 
 ////////////////////////////////   
    
