@@ -429,7 +429,7 @@ sigma2ErDGH.Form("%5.2f\n", GaussianHalfMeVDGLoose->GetParError(4));
 auto lt = new TLatex();
 lt->SetTextSize(0.03);
 lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
-lt->DrawLatexNDC(0.6, 0.65, "Percent in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"%");   
+lt->DrawLatexNDC(0.6, 0.65, "Fraction in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+);   
 lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
 lt->DrawLatexNDC(0.6, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
 lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
@@ -516,7 +516,7 @@ nCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParameter(8));
 nErCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParError(8)); 
     
 lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalCBH+" #pm "+SignalErCBH+" Events");
-lt->DrawLatexNDC(0.6, 0.65, "Percent in Gaussian = "+FractionCBH+" #pm "+FractionErCBH+"%");   
+lt->DrawLatexNDC(0.6, 0.65, "Fraction in Gaussian = "+FractionCBH+" #pm "+FractionErCBH+);   
 lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muCBH+" #pm "+muErCBH+" MeV");   
 lt->DrawLatexNDC(0.6, 0.55, "#sigma_{Gaussian} = "+sigmaGauCBH+" #pm "+sigmaGauErCBH+" MeV");  
 lt->DrawLatexNDC(0.6, 0.5, "#sigma_{CrystalBall} = "+sigma2CBH+" #pm "+sigma2ErCBH+" MeV");   
@@ -554,7 +554,7 @@ MassHistHalfMeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Gaussian + CrystalBall Fi
  
 //////////////////////////////////   
    
-TF1 *Gaussian1MeVDGLoose = new TF1("Gaussian1MeVDG1MuLoose",DGOneMuOneTotal1MeV,2212.,2362.,7);
+TF1 *Gaussian1MeVDGLoose = new TF1("Gaussian1MeVDGLoose",DGOneMuOneTotal1MeV,2212.,2362.,7);
 Gaussian1MeVDGLoose->SetParameter(0, 0.4);
 Gaussian1MeVDGLoose->SetParameter(1, 12000);
 Gaussian1MeVDGLoose->SetParameter(2, 2287.);
@@ -585,7 +585,7 @@ sigma2DGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParameter(4));
 sigma2ErDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParError(4));  
    
 lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
-lt->DrawLatexNDC(0.6, 0.65, "Percent in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"%");   
+lt->DrawLatexNDC(0.6, 0.65, "Fraction in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+);   
 lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
 lt->DrawLatexNDC(0.6, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
 lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
@@ -665,7 +665,7 @@ nCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParameter(8));
 nErCBH.Form("%5.2f\n", CrystalBallFunction1MeVLoose->GetParError(8)); 
     
 lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalCBH+" #pm "+SignalErCBH+" Events");
-lt->DrawLatexNDC(0.6, 0.65, "Percent in Gaussian = "+FractionCBH+" #pm "+FractionErCBH+"%");   
+lt->DrawLatexNDC(0.6, 0.65, "Fraction in Gaussian = "+FractionCBH+" #pm "+FractionErCBH+);   
 lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muCBH+" #pm "+muErCBH+" MeV");   
 lt->DrawLatexNDC(0.6, 0.55, "#sigma_{Gaussian} = "+sigmaGauCBH+" #pm "+sigmaGauErCBH+" MeV");  
 lt->DrawLatexNDC(0.6, 0.5, "#sigma_{CrystalBall} = "+sigma2CBH+" #pm "+sigma2ErCBH+" MeV");   
@@ -703,7 +703,7 @@ MassHist1MeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Gaussian + CrystalBall Fit")
    
 ///////////////////////////   
    
-TF1 *GaussianHalfMeVDGTight = new TF1("GaussianHalfMeVDG1MuTight",DGOneMuOneTotalHalfMeV,2200.,2400.,7);
+TF1 *GaussianHalfMeVDGTight = new TF1("GaussianHalfMeVDGTight",DGOneMuOneTotalHalfMeV,2200.,2400.,7);
 GaussianHalfMeVDGTight->SetParameter(0, 0.4);
 GaussianHalfMeVDGTight->SetParameter(1, 12000);
 GaussianHalfMeVDGTight->SetParameter(2, 2287.);
@@ -735,7 +735,7 @@ sigma2DGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(4));
 sigma2ErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(4));  
    
 lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
-lt->DrawLatexNDC(0.6, 0.65, "Percent in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"%");   
+lt->DrawLatexNDC(0.6, 0.65, "Fraction in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+);   
 lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
 lt->DrawLatexNDC(0.6, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
 lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
@@ -814,7 +814,7 @@ nCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVTight->GetParameter(8));
 nErCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVTight->GetParError(8)); 
     
 lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalCBH+" #pm "+SignalErCBH+" Events");
-lt->DrawLatexNDC(0.6, 0.65, "Percent in Gaussian = "+FractionCBH+" #pm "+FractionErCBH+"%");   
+lt->DrawLatexNDC(0.6, 0.65, "Fraction in Gaussian = "+FractionCBH+" #pm "+FractionErCBH+);   
 lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muCBH+" #pm "+muErCBH+" MeV");   
 lt->DrawLatexNDC(0.6, 0.55, "#sigma_{Gaussian} = "+sigmaGauCBH+" #pm "+sigmaGauErCBH+" MeV");  
 lt->DrawLatexNDC(0.6, 0.5, "#sigma_{CrystalBall} = "+sigma2CBH+" #pm "+sigma2ErCBH+" MeV");   
@@ -852,7 +852,7 @@ MassHistHalfMeVTight->SetTitle("#Lambda_{c}^{+} Mass - Gaussian + CrystalBall Fi
  
 //////////////////////////////////////////////////////   
    
-TF1 *Gaussian1MeVDGTight = new TF1("Gaussian1MeVDG1MuTight",DGOneMuOneTotal1MeV,2212.,2362.,7);
+TF1 *Gaussian1MeVDGTight = new TF1("Gaussian1MeVDGTight",DGOneMuOneTotal1MeV,2212.,2362.,7);
 Gaussian1MeVDGTight->SetParameter(0, 0.4);
 Gaussian1MeVDGTight->SetParameter(1, 12000);
 Gaussian1MeVDGTight->SetParameter(2, 2287.);
@@ -883,7 +883,7 @@ sigma2DGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParameter(4));
 sigma2ErDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParError(4));  
    
 lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
-lt->DrawLatexNDC(0.6, 0.65, "Percent in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"%");   
+lt->DrawLatexNDC(0.6, 0.65, "Fraction in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+);   
 lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
 lt->DrawLatexNDC(0.6, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
 lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
@@ -963,7 +963,7 @@ nCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParameter(8));
 nErCBH.Form("%5.2f\n", CrystalBallFunction1MeVTight->GetParError(8)); 
     
 lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalCBH+" #pm "+SignalErCBH+" Events");
-lt->DrawLatexNDC(0.6, 0.65, "Percent in Gaussian = "+FractionCBH+" #pm "+FractionErCBH+"%");   
+lt->DrawLatexNDC(0.6, 0.65, "Fraction in Gaussian = "+FractionCBH+" #pm "+FractionErCBH+);   
 lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muCBH+" #pm "+muErCBH+" MeV");   
 lt->DrawLatexNDC(0.6, 0.55, "#sigma_{Gaussian} = "+sigmaGauCBH+" #pm "+sigmaGauErCBH+" MeV");  
 lt->DrawLatexNDC(0.6, 0.5, "#sigma_{CrystalBall} = "+sigma2CBH+" #pm "+sigma2ErCBH+" MeV");   
