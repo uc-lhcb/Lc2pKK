@@ -501,13 +501,13 @@ Double_t sigma2Err = TMath::Sqrt((CrystalBallFunctionHalfMeVLoose->GetParError(4
 sigma2CBH.Form("%5.2f\n", sigma2);
 sigma2ErCBH.Form("%5.2f\n", sigma2Err);  
 TString alphaCBH;
-TString alphaCBH;
+TString alphaErCBH;
 alphaCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParameter(7));
-alphaCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParError(7));    
+alphaErCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParError(7));    
 TString nCBH;
-TString nCBH;
+TString nErCBH;
 nCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParameter(8));
-nCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParError(8)); 
+nErCBH.Form("%5.2f\n", CrystalBallFunctionHalfMeVLoose->GetParError(8)); 
  
 auto lt = new TLatex();
 lt->SetTextSize(0.03);
