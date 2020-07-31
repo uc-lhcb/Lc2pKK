@@ -403,7 +403,7 @@ GaussianHalfMeVDG1MuLoose->SetParameter(5, 0.);
 GaussianHalfMeVDG1MuLoose->SetParameter(6, 0.);
 
 pad1->cd();
-MassHistHalfMeVLoose->SetMinimum(0);
+MassHistHalfMeVLoose->SetMinimum(0.0001);
 MassHistHalfMeVLoose->Fit("GaussianHalfMeVDG1MuLoose");
 
 TString SignalDGH;
@@ -437,18 +437,9 @@ lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV")
 
 pad2->cd();
 TH1D* PullPlotHalfMeVDG1MuLoose = new TH1D("Mass [MeV]", "Lc Mass", 300, 2212, 2362);   
-PullPlotHalfMeVDG1MuLoose->SetStats(0);
-PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetTitle("Pull");
-PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetTitleSize(30);
-PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetTitleFont(43);
-PullPlotHalfMeVDG1MuLoose->GetYaxis()->CenterTitle(true);
-PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetLabelSize(0.1);
 PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetTitle("Mass[MeV]");
-PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetTitleSize(30);
-PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetTitleFont(43);
-PullPlotHalfMeVDG1MuLoose->GetXaxis()->CenterTitle(true);
-PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetLabelSize(0.15);
-PullPlotHalfMeVDG1MuLoose->GetXaxis()->SetTitleOffset(4);
+PullPlotHalfMeVDG1MuLoose->GetYaxis()->SetTitle("Pull");
+PullPlotHalfMeVDG1MuLoose->GetYaxis()->CenterTitle(true);   
 PullPlotHalfMeVDG1MuLoose->SetFillColor(kBlue);
 PullPlotHalfMeVDG1MuLoose->SetLineColor(kBlue);
 PullPlotHalfMeVDG1MuLoose->SetBit(TH1::kNoTitle);  
