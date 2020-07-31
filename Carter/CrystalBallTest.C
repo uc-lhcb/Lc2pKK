@@ -465,26 +465,6 @@ PullPlotHalfMeVDG1MuLoose->Draw();
 MassHistHalfMeVLoose->SetTitle("#Lambda_{c}^{+} Mass - Double Gaussian Fit");
   c1->Write("Lc Mass Loose - HalfMeVDG1Mu");
 
-ex1->cd();
- TLatex Tl;
- Tl.SetTextAlign(12);
- Tl.SetTextSize(0.04);
-Tl.DrawLatex(0.1,0.95,Form("Number of Signal Entries: %f Events", GaussianHalfMeVDG1MuLoose->GetParameter(1)));
-Tl.DrawLatex(0.1,0.9,Form("Error: %f Events", GaussianHalfMeVDG1MuLoose->GetParError(1)));
-Tl.DrawLatex(0.1,0.8,Form("Percentage of Events in First Gaussian: %f Events", GaussianHalfMeVDG1MuLoose->GetParameter(0)));
-Tl.DrawLatex(0.1,0.75,Form("Error: %f Events", GaussianHalfMeVDG1MuLoose->GetParError(0)));
-Tl.DrawLatex(0.1,0.65,Form("Mean Value: %f MeV", GaussianHalfMeVDG1MuLoose->GetParameter(2)));
-Tl.DrawLatex(0.1,0.6,Form("Error: %f MeV", GaussianHalfMeVDG1MuLoose->GetParError(2)));
-Tl.DrawLatex(0.1,0.5,Form("Sigma of First Gaussian: %f MeV", GaussianHalfMeVDG1MuLoose->GetParameter(3)));
-Tl.DrawLatex(0.1,0.45,Form("Error: %f MeV", GaussianHalfMeVDG1MuLoose->GetParError(3)));
-Tl.DrawLatex(0.1,0.35,Form("Sigma of Second Gaussian: %f MeV", GaussianHalfMeVDG1MuLoose->GetParameter(4)));
-Tl.DrawLatex(0.1,0.3,Form("Error: %f MeV", GaussianHalfMeVDG1MuLoose->GetParError(4)));
-Tl.DrawLatex(0.1,0.2,Form("Bins Between -1 & 1 %f Bins", HalfMeVDG1MuLoosecount1));
-Tl.DrawLatex(0.1,0.15,Form("Bins Between -2 & 2 %f Bins", HalfMeVDG1MuLoosecount2));
-Tl.DrawLatex(0.1,0.1,Form("Bins Between -3 & 3 %f Bins", HalfMeVDG1MuLoosecount3));
-ex1->Write(" Fit Values Loose - HalfMeVDG1Mu");
-c1->cd();
-
 TF1 *CrystalBallFunctionHalfMeVLoose = new TF1("CrystalBallFunctionHalfMeVLoose", NewCrystalBallHalfMeV,2212.,2362.,9);
 CrystalBallFunctionHalfMeVLoose->SetParameter(0,115000); 
 CrystalBallFunctionHalfMeVLoose->SetParameter(1, 2285.);
