@@ -444,14 +444,6 @@ PullxHalfMeV[bin] = (bin + 1);
 int xvalueHalfMeVDG1Mu = 2212.25 + 0.5*(bin);
 FitHeightHalfMeVDG1MuLoose[bin] = round(GaussianHalfMeVDG1MuLoose->Eval(xvalueHalfMeVDG1Mu));
 PullHalfMeVDG1MuLoose[bin] = (BinHeightHalfMeVDG1MuLoose[bin] - FitHeightHalfMeVDG1MuLoose[bin])/TMath::Sqrt(FitHeightHalfMeVDG1MuLoose[bin]);
-
- Double_t x = totalcuthist->GetBinCenter(i);
- Double_t val = myDpFit->Eval(totalcuthist->GetBinCenter(i));
- Double_t sigma = sqrt(val);
- Double_t pull = (totalcuthist->GetBinContent(i)-val)/sigma;
- totalcutpull->SetBinContent(i,pull);
-   xVals[i]=x;
-   yVals[i]=pull;   
    
 if (PullHalfMeVDG1MuLoose[bin] > -1 && PullHalfMeVDG1MuLoose[bin] < 1){
 HalfMeVDG1MuLoosecount1 += 1;
