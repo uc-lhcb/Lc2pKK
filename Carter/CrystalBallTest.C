@@ -345,19 +345,6 @@ void CrystalBallTest::SlaveTerminate()
 
 void CrystalBallTest::Terminate()
 {
-   
-Double_t sigma;
-Double_t deltaSigma;
-Double_t mu;
-Double_t deltaMu;
-Double_t total;
-Double_t deltaTotal;
-TString sigmaStr;
-TString deltaSigmaStr;
-TString muStr;
-TString deltaMuStr;
-TString totalStr;
-TString deltaTotalStr;
  
  c1->cd();
 TSpectrum *sLoose = new TSpectrum(); 
@@ -414,14 +401,34 @@ pad1->cd();
 MassHistHalfMeVLoose->SetMinimum(0);
 MassHistHalfMeVLoose->Fit("GaussianHalfMeVDG1MuLoose");
 
+TString SignalDGH;
+TString SignalErDGH;
+SignalDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParameter(1));
+SignalErDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParError(1));  
+TString FractionDGH;
+TString FractionErDGH;
+FractionDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParameter(0));
+FractionErDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParError(0));    
 TString muDGH;
 TString muErDGH;
 muDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParameter(2));
-muErDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParError(2));   
-  
+muErDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParError(2));    
+TString sigma1DGH;
+TString sigma1ErDGH;
+sigma1DGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParameter(3));
+sigma1ErDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParError(3));     
+TString sigma2DGH;
+TString sigma2ErDGH;
+sigma2DGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParameter(4));
+sigma2ErDGH.Form("%5.2f\n", GaussianHalfMeVDG1MuLoose->GetParError(4));  
+   
 auto lt = new TLatex();
 lt->SetTextSize(0.03);
-lt->DrawLatexNDC(0.60, 0.65, "#mu ="+muDGH+"#pm"+muErDGH+"MeV/c^{2}");   
+lt->DrawLatexNDC(0.70, 0.65, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
+lt->DrawLatexNDC(0.65, 0.65, "Percent in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"%");   
+lt->DrawLatexNDC(0.60, 0.65, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
+lt->DrawLatexNDC(0.55, 0.65, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
+lt->DrawLatexNDC(0.5, 0.65, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
    
 int BinHeightHalfMeVDG1MuLoose[300];
 int FitHeightHalfMeVDG1MuLoose[300];
