@@ -429,7 +429,7 @@ sigma2ErDGH.Form("%5.2f\n", GaussianHalfMeVDGLoose->GetParError(4));
 auto lt = new TLatex();
 lt->SetTextSize(0.03);
 lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
-lt->DrawLatexNDC(0.6, 0.65, "Fraction in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+);   
+lt->DrawLatexNDC(0.6, 0.65, "Fraction in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"");   
 lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
 lt->DrawLatexNDC(0.6, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
 lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
@@ -585,7 +585,7 @@ sigma2DGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParameter(4));
 sigma2ErDGH.Form("%5.2f\n", Gaussian1MeVDGLoose->GetParError(4));  
    
 lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
-lt->DrawLatexNDC(0.6, 0.65, "Fraction in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+);   
+lt->DrawLatexNDC(0.6, 0.65, "Fraction in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"");   
 lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
 lt->DrawLatexNDC(0.6, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
 lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
@@ -735,7 +735,7 @@ sigma2DGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParameter(4));
 sigma2ErDGH.Form("%5.2f\n", GaussianHalfMeVDGTight->GetParError(4));  
    
 lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
-lt->DrawLatexNDC(0.6, 0.65, "Fraction in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+);   
+lt->DrawLatexNDC(0.6, 0.65, "Fraction in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"");   
 lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
 lt->DrawLatexNDC(0.6, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
 lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
@@ -883,7 +883,7 @@ sigma2DGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParameter(4));
 sigma2ErDGH.Form("%5.2f\n", Gaussian1MeVDGTight->GetParError(4));  
    
 lt->DrawLatexNDC(0.6, 0.70, "Signal Events = "+SignalDGH+" #pm "+SignalErDGH+" Events");
-lt->DrawLatexNDC(0.6, 0.65, "Fraction in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+);   
+lt->DrawLatexNDC(0.6, 0.65, "Fraction in First Gaussian = "+FractionDGH+" #pm "+FractionErDGH+"");   
 lt->DrawLatexNDC(0.6, 0.6, "#mu = "+muDGH+" #pm "+muErDGH+" MeV");   
 lt->DrawLatexNDC(0.6, 0.55, "#sigma_{1} = "+sigma1DGH+" #pm "+sigma1ErDGH+" MeV");  
 lt->DrawLatexNDC(0.6, 0.5, "#sigma_{2} = "+sigma2DGH+" #pm "+sigma2ErDGH+" MeV");   
