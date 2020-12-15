@@ -1,6 +1,6 @@
 from GaudiConf import IOHelper
 from Configurables import (DaVinci, LoKi__Hybrid__TupleTool, LoKi__Hybrid__DictOfFunctors, LoKi__Hybrid__DTFDict, LoKi__Hybrid__DictValue, LoKi__Hybrid__Dict2Tuple,
-                           LoKi__Hybrid__EvtTupleTool, TupleToolKinematic, TupleToolGeometry, TupleToolPid, TupleToolAllTracks, TupleToolTrackPosition)
+                           LoKi__Hybrid__EvtTupleTool, TupleToolKinematic, TupleToolGeometry, TupleToolPid, TupleToolAllTracks, TupleToolTrackPosition, TrackScaleState)
 from DecayTreeTuple.Configuration import *
 import math
 
@@ -106,17 +106,18 @@ Lc_hybrid.Variables = {
 }
 
 DaVinci().UserAlgorithms += [dtt]
+DaVinci().UserAlgorithms += TrackScaleState('MomentumScaleCorrection')
 
 DaVinci().Turbo = True
 DaVinci().RootInTES = '/Event/Charmcharged/Turbo'
 DaVinci().InputType = 'MDST'
 DaVinci().DDDBtag = 'dddb-20171030-3'
 DaVinci().Simulation = False
-DaVinci().TupleFile = 'Lc2pKKTest.root'
+DaVinci().TupleFile = 'Lc2pKKTestCorrection.root'
 DaVinci().PrintFreq = 10000
 DaVinci().DataType = '2017'
 DaVinci().Lumi = True
 DaVinci().EvtMax = -1
 
-#IOHelper().inputFiles([
-#    'root://hake1.grid.surfsara.nl:1094/pnfs/grid.sara.nl/data/lhcb/LHCb/Collision17/CHARMCHARGED.MDST/00067727/0001/00067727_00012788_1.charmcharged.mdst'], clear=True)
+IOHelper().inputFiles([
+    'root://hake1.grid.surfsara.nl:1094/pnfs/grid.sara.nl/data/lhcb/LHCb/Collision17/CHARMCHARGED.MDST/00067727/0001/00067727_00012788_1.charmcharged.mdst'], clear=True)
