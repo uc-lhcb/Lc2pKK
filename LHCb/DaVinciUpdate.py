@@ -71,7 +71,7 @@ dtt.addTupleTool(
 ).Variables = basic_loki_vars
 
 dtt.addBranches({
-        'Lcplus' : '([Lambda_c+ -> p+ K- K+]CC)',
+        'Lc' : '([Lambda_c+ -> p+ K- K+]CC)',
         'Proton' : '([Lambda_c+ -> ^p+ K- K+]CC)',
         'Kminus' : '([Lambda_c+ -> p+ ^K- K+]CC)',
         'Kplus' : '([Lambda_c+ -> p+ K- ^K+]CC)'
@@ -113,7 +113,7 @@ DaVinci().RootInTES = '/Event/Charmcharged/Turbo'
 DaVinci().InputType = 'MDST'
 DaVinci().DDDBtag = 'dddb-20171030-3'
 DaVinci().Simulation = False
-DaVinci().TupleFile = 'Lc2pKKTestCorrection.root'
+DaVinci().TupleFile = 'Lc2pKKTest.root'
 DaVinci().PrintFreq = 10000
 DaVinci().DataType = '2017'
 DaVinci().Lumi = True
