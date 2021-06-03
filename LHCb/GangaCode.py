@@ -62,7 +62,7 @@ j.comment = title
 myApp = GaudiExec()
 myApp.directory = "./DaVinciDev_v45r1"
 j.application = myApp
-j.application.options = ['LambdaDavinci.py']
+j.application.options = ['NewDavinciCode.py']
 j.application.platform = 'x86_64-centos7-gcc8-opt'
 
 if args.test:
