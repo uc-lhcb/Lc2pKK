@@ -2,6 +2,6 @@
 'Carter' Directory - C++ Files created by Carter Eikenbary for data analysis
 
 
-'' Directory - Python Scripts used to create Lc->pKK ntuples
+'nTupleCode/Lc2pKK' Directory - Updated python scripts used to create Lc->pKK ntuples
 
 'LHCb' Directory - Outdated
