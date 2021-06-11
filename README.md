@@ -1,5 +1,5 @@
 # Lc2pKK Mass Analysis
-'Carter' Directory - C++ Files created by Carter Eikenbary for data analysis
+'Carter' Directory - C++ Files created by Carter Eikenbary for data analysis (Outdated)
 
 
 'nTupleCode/Lc2pKK' Directory - Updated python scripts used to create Lc->pKK ntuples
