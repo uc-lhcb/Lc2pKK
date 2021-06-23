@@ -8,7 +8,6 @@ bkPath = '/LHCb/Collision18/Beam6500GeV-VeloClosed-MagUp/Real Data/Turbo05/94000
 data  = BKQuery(bkPath, dqflag=['OK']).getDataset()
 j.inputdata = data
 j.backend = Dirac()
-j.backend = Dirac()
 j.splitter = SplitByFiles(filesPerJob=5, ignoremissing = True)
 j.outputfiles = [DiracFile('*.root'), LocalFile('stdout')]
 j.submit()
