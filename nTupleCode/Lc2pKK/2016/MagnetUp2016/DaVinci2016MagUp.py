@@ -109,7 +109,7 @@ Lc_hybrid.Variables = {
 DaVinci().UserAlgorithms += [dtt]
 
 DaVinci().Turbo = True
-DaVinci().RootInTES = '/Event/Charmcharged/Turbo'
+DaVinci().RootInTES = '/Event/Turbo'
 DaVinci().InputType = 'MDST'
 DaVinci().DDDBtag = 'dddb-20171030-3'
 DaVinci().Simulation = False
