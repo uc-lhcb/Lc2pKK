@@ -1,4 +1,4 @@
-# Lc2pKK Mass Analysis
+# Lc->pKK Mass Analysis
 
 'Analysis' Directory - C++ files for Lc mass analysis
 
