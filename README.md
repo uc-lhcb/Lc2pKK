@@ -7,4 +7,4 @@ Some relevant links:
  * [LHCb StarterKit Lessons](https://lhcb.github.io/starterkit-lessons/ "lhcb starterkit")
 
 ## Data Collection
-Files used for data collection are stored in [`/LHCb/`](https://github.com/bodensjc/ddecay/tree/main/LHCb) subdirectory.
+Files used for data collection are stored in [`/LHCb/`](https://github.com/uc-lhcb/Lc2pKK/tree/master/LHCb) subdirectory.
