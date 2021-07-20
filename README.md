@@ -14,4 +14,5 @@ The scripts used for data collection are stored in [`/LHCb/`](https://github.com
  * [`GangaAllData2017MagDown.py`](https://github.com/uc-lhcb/Lc2pKK/blob/master/LHCb/2017/MagnetDown2017/GangaAllData2017MagDown.py): Ganga job that runs over all '.mdst' data files.
  * [`ListLFNs.py`](https://github.com/uc-lhcb/Lc2pKK/blob/master/LHCb/2017/MagnetDown2017/ListLFNs.py): Python script to organize grid lfns into a '.txt' list.
 
-
+### Initial Steps
+These data files will be fairly large, so you might want to increase your grid space through the LHCb website(https://resources.web.cern.ch/resources/Help/?kbid=067040).
