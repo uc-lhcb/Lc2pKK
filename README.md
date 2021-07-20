@@ -15,4 +15,4 @@ The scripts used for data collection are stored in [`/LHCb/`](https://github.com
  * [`ListLFNs.py`](https://github.com/uc-lhcb/Lc2pKK/blob/master/LHCb/2017/MagnetDown2017/ListLFNs.py): Python script to organize grid lfns into a '.txt' list.
 
 ### Initial Steps
-These data files will be fairly large, so you might want to increase your grid space through the LHCb website(https://resources.web.cern.ch/resources/Help/?kbid=067040).
+These data files will be fairly large, so you might want to increase your grid space through the LHCb ['website'](https://resources.web.cern.ch/resources/Help/?kbid=067040).
