@@ -30,3 +30,11 @@ $ ssh username@lxplus.cern.ch -X -Y
 $ cd /afs/cern.ch/work/u/username/private
 $ lhcb-proxy-init
 ```
+
+4. Upload Lc2pKK GitHub repository into lxplus using either 'scp' or 'rsync' through local terminal
+
+```
+$ rsync -aP /Downloads/Lc2pKK username@lxplus.cern.ch:/afs/cern.ch/work/u/username/private
+```
+
+### Data Acquistion
