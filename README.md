@@ -79,3 +79,10 @@ $ jobs(n).subjobs.select(status=’completing’).backend.reset()
 ```
 $ jobs(n).subjobs.select(status=’failed’).resubmit()
 ```
+### Getting Data From the Grid
+LFNs are the grid urls for the created root files. Your grid jobs will likely have a couple hundred subjobs, therefore, each job will have a couple hundred root files.
+
+* To combile a list of lfns from a job with job-number n:
+```
+$ ganga ListLFNs.py n
+```
