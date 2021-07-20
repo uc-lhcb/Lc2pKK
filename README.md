@@ -12,6 +12,6 @@ The scripts used for data collection are stored in [`/LHCb/`](https://github.com
  * [`DaVinci2017MagDown.py`](https://github.com/uc-lhcb/Lc2pKK/blob/master/LHCb/2017/MagnetDown2017/DaVinci2017MagDown.py): Davinci options file for 2017 MagnetDown Lc->pKK data.
  * [`GangaTestData2017MagDown.py`](https://github.com/uc-lhcb/Lc2pKK/blob/master/LHCb/2017/MagnetDown2017/GangaTestData2017MagDown.py): Ganga job that runs over 10 '.mdst' data files.
  * [`GangaAllData2017MagDown.py`](https://github.com/uc-lhcb/Lc2pKK/blob/master/LHCb/2017/MagnetDown2017/GangaAllData2017MagDown.py): Ganga job that runs over all '.mdst' data files.
- * [`ListLFNs.py`](https://github.com/uc-lhcb/Lc2pKK/blob/master/LHCb/2017/MagnetDown2017/ListLFNs.py): Python script to organize grid lfns into a list.
+ * [`ListLFNs.py`](https://github.com/uc-lhcb/Lc2pKK/blob/master/LHCb/2017/MagnetDown2017/ListLFNs.py): Python script to organize grid lfns into a '.txt' list.
 
 
