@@ -42,7 +42,7 @@ or clone the repository directly from GitHub.
 ```
 $ lb-dev --name DaVinciDev DaVinci/v45r8
 ```
-### Data Acquistion
+### Running Grid Jobs
 Every login to lxplus requires a resubmission of the grid proxy.
 
 ```
