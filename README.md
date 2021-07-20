@@ -36,5 +36,9 @@ $ lhcb-proxy-init
 ```
 $ rsync -aP /Downloads/Lc2pKK username@lxplus.cern.ch:/afs/cern.ch/work/u/username/private
 ```
+or
 
+```
+$ scp /Downloads/Lc2pKK username@lxplus.cern.ch:/afs/cern.ch/work/u/username/private
+```
 ### Data Acquistion
