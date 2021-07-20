@@ -6,3 +6,5 @@ Some relevant links:
  * [PDG Live - Lc+](https://pdglive.lbl.gov/Particle.action?init=0&node=S033&home=BXXX040 "Lc+ PDG")
  * [LHCb StarterKit Lessons](https://lhcb.github.io/starterkit-lessons/ "lhcb starterkit")
 
+## Data Collection
+Files used for data collection are stored in [`/LHCb/`](https://github.com/bodensjc/ddecay/tree/main/LHCb) subdirectory.
