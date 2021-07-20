@@ -6,10 +6,10 @@ Some relevant links:
  * [PDG Live - Lc+](https://pdglive.lbl.gov/Particle.action?init=0&node=S033&home=BXXX040 "Lc+ PDG")
  * [LHCb StarterKit Lessons](https://lhcb.github.io/starterkit-lessons/ "lhcb starterkit")
 
-The majority of this work was documented in my Senior Capstone Project. My paper, poster, and presentation can be found in the [`/Capstone/`](https://github.com/uc-lhcb/Lc2pKK/tree/master/Capstone).
+The majority of this work was documented in my Senior Capstone Project. My paper, poster, and presentation can be found in the [`/Capstone/`](https://github.com/uc-lhcb/Lc2pKK/tree/master/Capstone) directory.
 
 ## Data Collection
-The scripts used for data collection are stored in [`/LHCb/`](https://github.com/uc-lhcb/Lc2pKK/tree/master/LHCb) subdirectory. Because each run period requires slight modifications to the '.py' scripts, the scripts are stored in seperate directories based on year and magnet orientation `/LHCb/YEAR/MAG`. Each of these subdirectories has four python scripts. For example, within [`/LHCb/2017/MagnetDown2017`](https://github.com/uc-lhcb/Lc2pKK/tree/master/LHCb/2017/MagnetDown2017) there is:
+The scripts used for data collection are stored in [`/LHCb/`](https://github.com/uc-lhcb/Lc2pKK/tree/master/LHCb) directory. Because each run period requires slight modifications to the '.py' scripts, the scripts are stored in seperate directories based on year and magnet orientation `/LHCb/YEAR/MAG`. Each of these subdirectories has four python scripts. For example, within [`/LHCb/2017/MagnetDown2017`](https://github.com/uc-lhcb/Lc2pKK/tree/master/LHCb/2017/MagnetDown2017) there is:
 
  * [`DaVinci2017MagDown.py`](https://github.com/uc-lhcb/Lc2pKK/blob/master/LHCb/2017/MagnetDown2017/DaVinci2017MagDown.py): Davinci options file for 2017 MagnetDown Lc->pKK data.
  * [`GangaTestData2017MagDown.py`](https://github.com/uc-lhcb/Lc2pKK/blob/master/LHCb/2017/MagnetDown2017/GangaTestData2017MagDown.py): Ganga job that runs over 10 '.mdst' data files.
