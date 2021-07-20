@@ -82,7 +82,20 @@ $ jobs(n).subjobs.select(status=’failed’).resubmit()
 ### Getting Data From the Grid
 LFNs are the grid urls for the created root files. Your grid jobs will likely have a couple hundred subjobs, therefore, each job will have a couple hundred root files.
 
-* To combile a list of lfns from a job with job-number n:
+1. Compile a list of lfns from a job with job-number n:
 ```
 $ ganga ListLFNs.py n
+```
+
+2. Use a vim to remove extrenous symbols between the lfns:
+```
+$ vi LFNs.txt	
+$ :%s/[‘	
+$ :%s/’]\n/ /g
+$ :x
+```
+3. Copy the list of lfns
+4. Use 'hadd' to combine the root files (paste the lfn list):
+```
+$ hadd -fk Output.root file1.root file2.root …
 ```
