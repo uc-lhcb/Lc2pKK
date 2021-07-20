@@ -99,3 +99,6 @@ $ :x
 ```
 $ hadd -fk Output.root file1.root file2.root …
 ```
+The Output.root file can now be copied to the UC servers.
+
+## Analysis
