@@ -31,7 +31,7 @@ $ cd /afs/cern.ch/work/u/username/private
 $ lhcb-proxy-init
 ```
 
-4. Upload Lc2pKK GitHub repository into lxplus using either 'scp' or 'rsync' through local terminal
+4. Upload Lc2pKK GitHub repository into lxplus using either 'scp' or 'rsync' through local terminal.
 
 ```
 $ rsync -aP /Downloads/Lc2pKK username@lxplus.cern.ch:/afs/cern.ch/work/u/username/private
@@ -41,4 +41,10 @@ or
 ```
 $ scp /Downloads/Lc2pKK username@lxplus.cern.ch:/afs/cern.ch/work/u/username/private
 ```
+
+5. Within each `/LHCb/YEAR/MAG` subdirectory, set up the DaVinci development environment.
+```
+$ lb-dev --name DaVinciDev DaVinci/v45r8
+```
 ### Data Acquistion
+
