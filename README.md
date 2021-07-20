@@ -24,3 +24,9 @@ The scripts used for data collection are stored in [`/LHCb/`](https://github.com
 (Most of the users available storage is in their 'private' directory which is located in '/afs/cern.ch/work/”first letter of username”/”username”/private')
 3. proxy into grid servers using 'lhcb-proxy-init'.
 (grid proxy password is created when grid certificate is uploaded)
+
+```
+$ ssh username@lxplus.cern.ch -X -Y
+$ cd /afs/cern.ch/work/u/username/private
+$ lhcb-proxy-init
+```
