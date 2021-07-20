@@ -43,7 +43,7 @@ or clone the repository directly from GitHub.
 $ lb-dev --name DaVinciDev DaVinci/v45r8
 ```
 ### Data Acquistion & Monitoring
-Every login to lxplus requires a resubmission of the grid proxy.
+* Every login to lxplus requires a resubmission of the grid proxy.
 
 ```
 $ lhcb-proxy-init
@@ -58,12 +58,12 @@ $ ganga GangaAllData2017MagDown.py
 ```
 for all data.
 
-To monitor the status of a job with job-number n:
+* To monitor the status of a job with job-number n:
 ```
 $ jobs(n)
 ```
 
-To monitor the status of a subjob with subjob-number m of a job with job-number n:
+* To monitor the status of a subjob with subjob-number m of a job with job-number n:
 ```
 $ jobs(n).subjobs(m)
 ```
