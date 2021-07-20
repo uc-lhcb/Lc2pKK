@@ -17,3 +17,10 @@ The scripts used for data collection are stored in [`/LHCb/`](https://github.com
 ### Initial Steps
 1. Data files will be fairly large, so you might want to increase your grid space through the LHCb [website](https://resources.web.cern.ch/resources/Help/?kbid=067040).
 2. Data files will be created on the ‘grid’, therefore, you will need to [upload your grid certificate](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/Certificate) to lxplus. 
+
+### Getting Setup
+1. Log into lxplus with 'ssh username@lxplus.cern.ch -X -Y'.
+2. cd to private directory.
+(Most of the users available storage is in their 'private' directory which is located in '/afs/cern.ch/work/”first letter of username”/”username”/private')
+3. proxy into grid servers using 'lhcb-proxy-init'.
+(grid proxy password is created when grid certificate is uploaded)
