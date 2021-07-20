@@ -43,4 +43,18 @@ or clone the repository directly from GitHub.
 $ lb-dev --name DaVinciDev DaVinci/v45r8
 ```
 ### Data Acquistion
+Every login to lxplus requires a resubmission of the grid proxy.
 
+```
+$ lhcb-proxy-init
+```
+
+1. Within a given `/LHCb/YEAR/MAG` subdirectory, run the relevant ganga script with
+```
+$ ganga GangaTestData2017MagDown.py
+```
+for a small test sample, or
+```
+$ ganga GangaAllData2017MagDown.py
+```
+for all data.
