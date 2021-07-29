@@ -109,3 +109,8 @@ The process of data analysis conducted to produce a precise measurement of the L
 ### PID Selection
 The first step of the data analysis is to produce a selection requirement on particle identificaiton (PID) variables. Neural Networks study particle tracks in the LHCb detector and correlate them to Monte Carlo simulations to accurately identify particles. The particle identification ProbNN is useful in discriminating against misidentification. The [`/PIDSelection/`](https://github.com/uc-lhcb/Lc2pKK/tree/master/PIDSelection) directory studies the signal and background distributions of these variables to determine proper selection requirements.
 
+### Dalitz Plot
+The second step of the selection requirement stage is to restrict the phase space of the three-body decay to reduce combinatorial background. A small portion of the phase space is attributed to the K+K- pair having an intermediate phi(1020) decay. The [`/DalitzPlot/`](https://github.com/uc-lhcb/Lc2pKK/tree/master/DalitzPlot) directory studies the Dalitz Plot and signal/background distributions of m^2(K+K-).
+
+### Track Cuts
+The last step of the selection requirement stage is to restrict the decay kinematics of the particle tracks. These requirements can ensure that the daugthers originate from the Lc and that the Lc originates from the primary vertex. The [`/TrackCuts/`](https://github.com/uc-lhcb/Lc2pKK/tree/master/TrackCuts) directory studies signal and background 2D distributions for four decay kinematic variables.
