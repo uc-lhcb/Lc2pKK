@@ -104,3 +104,8 @@ $ hadd -fk Output.root file1.root file2.root …
 The Output.root file can now be copied to the UC servers.
 
 ## Analysis
+The process of data analysis conducted to produce a precise measurement of the Lc mass is presented here. We do this by studying kinematic and probabilistic decay variables and producing selection requirements to improve the S/B and precision of the Lc mass measurement.
+
+### PID Selection
+The first step of the data analysis is to produce a selection requirement on particle identificaiton (PID) variables. Neural Networks study particle tracks in the LHCb detector and correlate them to Monte Carlo simulations to accurately identify particles. The particle identification ProbNN is useful in discriminating against misidentification. The [`/PIDSelection/`](https://github.com/uc-lhcb/Lc2pKK/tree/master/PIDSelection) directory studies the signal and background distributions of these variables to determine proper selection requirements.
+
